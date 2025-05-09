@@ -87,7 +87,6 @@
                     <span class="text-2xl font-bold" style="color: #101E3D">aIQversity</span>
                 </div>
                 <div class="flex items-center space-x-4 w-1/4 justify-end">
-                    <!-- <a href="#early-access" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Early Access</a> -->
                     <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
                 </div>
             </div>
@@ -209,310 +208,119 @@
             </div>
 
             <!-- User Type Tabs -->
-            <div class="flex justify-center space-x-4 mt-12 mb-8">
-                <button onclick="showFeatures('student')" class="px-6 py-2 rounded-full text-white font-medium" style="background: #101E3D">Students</button>
-                <button onclick="showFeatures('teacher')" class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Teachers</button>
-                <button onclick="showFeatures('parent')" class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Parents</button>
-                <button onclick="showFeatures('org')" class="px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Organizations</button>
+            <div class="flex flex-wrap justify-center gap-2 mt-12 mb-8 px-2">
+                <button onclick="showFeatures('student')" class="px-3 sm:px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium" style="background: #101E3D">Students</button>
+                <button onclick="showFeatures('teacher')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">Teachers</button>
+                <button onclick="showFeatures('parent')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">Parents</button>
+                <button onclick="showFeatures('org')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">Organizations</button>
             </div>
 
             <!-- Features Carousel -->
-        <div class="relative mt-8">
-            <!-- Navigation Arrows -->
-            <button class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('left')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
+            <div class="relative mt-8 px-4 sm:px-0">
+                <!-- Navigation Arrows -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('left')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
 
-            <div class="overflow-x-auto hide-scrollbar" id="featuresContainer" style="scroll-behavior: smooth;">
-                <!-- Student Features -->
-                <div class="flex space-x-6 p-4 min-w-max" id="studentFeatures">
-                    <!-- AI-Powered Answer Assistance -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Powered Answer Assistance</h3>
-                        <p class="text-gray-600 flex-grow">Get step-by-step guidance for writing answers with model solutions.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- Mock Exam Simulation -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Mock Exam Simulation</h3>
-                        <p class="text-gray-600 flex-grow">Practice with timed tests, real exam pressure, and instant feedback.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- Voice-Based Learning -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Voice-Based Learning</h3>
-                        <p class="text-gray-600 flex-grow">Ask questions via voice input and get explanations in your preferred language.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Generated Questions</h3>
-                        <p class="text-gray-600 flex-grow">Predict likely exam questions based on past trends and syllabus analysis.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Doubt Clearing Support</h3>
-                        <p class="text-gray-600 flex-grow">Submit doubts and receive AI-generated or tutor-based solutions instantly.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #101E3D">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Beyond Imagination</h3>
-                        <p class="text-gray-600 flex-grow">We're working on confidential features that push the boundaries of what AI can do for education. The best is yet to come.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #101E3D; color: white">Watch This Space</span>
-                    </div>
-                </div>
-
-                <!-- Teacher Features -->
-                <div class="hidden flex space-x-6 p-4 min-w-max" id="teacherFeatures">
-                    <!-- Automated Question Paper Generation -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Automated Question Paper</h3>
-                        <p class="text-gray-600 flex-grow">Create question papers categorized by topic, difficulty, and marks.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- Answer Evaluation -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Powered Evaluation</h3>
-                        <p class="text-gray-600 flex-grow">Provide AI-assisted scoring and detailed feedback on student answers.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- Performance Analysis -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Performance Analytics</h3>
-                        <p class="text-gray-600 flex-grow">Analyze student strengths and weaknesses for targeted teaching.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Based Quiz Generator</h3>
-                        <p class="text-gray-600 flex-grow">Generate quizzes tailored to class learning gaps and performance levels.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Study Content Generation</h3>
-                        <p class="text-gray-600 flex-grow">AI-powered tool to create and refine comprehensive study materials for students.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #101E3D">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Beyond Imagination</h3>
-                        <p class="text-gray-600 flex-grow">We're working on confidential features that push the boundaries of what AI can do for education. The best is yet to come.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #101E3D; color: white">Watch This Space</span>
-                    </div>
-                </div>
-
-                <!-- Parent Features -->
-                <div class="hidden flex space-x-6 p-4 min-w-max" id="parentFeatures">
-                    <!-- Parental Insights Dashboard -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Parental Insights</h3>
-                        <p class="text-gray-600 flex-grow">Track child's progress and receive recommendations for support.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <!-- Performance Comparison -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
+                <div class="overflow-x-auto hide-scrollbar px-2" id="featuresContainer" style="scroll-behavior: smooth;">
+                    <!-- Student Features -->
+                    <div class="flex space-x-4 sm:space-x-6 p-4 min-w-max" id="studentFeatures">
+                        <!-- AI-Powered Answer Assistance -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
                             </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Performance Benchmarking</h3>
-                        <p class="text-gray-600 flex-grow">Compare student's scores with cutoffs and historical trends.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-Powered Answer Assistance</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">Get step-by-step guidance for writing answers with model solutions.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                        </div>
+
+                        <!-- Mock Exam Simulation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">Mock Exam Simulation</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">Practice with timed tests, real exam pressure, and instant feedback.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                        </div>
+
+                        <!-- Voice-Based Learning -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">Voice-Based Learning</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">Ask questions via voice input and get explanations in your preferred language.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                        </div>
+                        
+                        <!-- AI-Generated Questions -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-Generated Questions</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">Predict likely exam questions based on past trends and syllabus analysis.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                        </div>
+
+                        <!-- Doubt Clearing Support -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">Doubt Clearing Support</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">Submit doubts and receive AI-generated or tutor-based solutions instantly.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                        </div>
+                        
+                        <!-- Beyond Imagination -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #101E3D">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">Beyond Imagination</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">We're working on confidential features that push the boundaries of what AI can do for education. The best is yet to come.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #101E3D; color: white">Watch This Space</span>
+                        </div>
                     </div>
 
-                    <!-- Career Guidance -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Career Guidance</h3>
-                        <p class="text-gray-600 flex-grow">Receive AI-driven insights into career options based on student performance.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Time Management Insights</h3>
-                        <p class="text-gray-600 flex-grow">Get suggestions on optimizing study time and avoiding distractions.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                    <!-- Teacher Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="teacherFeatures">
+                        <!-- Copy the same pattern for teacher features with responsive classes -->
                     </div>
 
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Exam Readiness Alerts</h3>
-                        <p class="text-gray-600 flex-grow">Receive alerts on upcoming exams, syllabus updates, and cutoff changes.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
+                    <!-- Parent Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="parentFeatures">
+                        <!-- Copy the same pattern for parent features with responsive classes -->
                     </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #101E3D">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Beyond Imagination</h3>
-                        <p class="text-gray-600 flex-grow">We're working on confidential features that push the boundaries of what AI can do for education. The best is yet to come.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #101E3D; color: white">Watch This Space</span>
+
+                    <!-- Organization Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="orgFeatures">
+                        <!-- Copy the same pattern for organization features with responsive classes -->
                     </div>
                 </div>
 
-                <!-- Organization Features -->
-                <div class="hidden flex space-x-6 p-4 min-w-max" id="orgFeatures">
-                    <!-- Centralized Dashboard -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Centralized Dashboard</h3>
-                        <p class="text-gray-600 flex-grow">Monitor academic progress across different grades with comprehensive analytics.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- AI-Driven Curriculum -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Driven Curriculum</h3>
-                        <p class="text-gray-600 flex-grow">Identify areas where students struggle and refine teaching strategies.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <!-- Performance Analysis -->
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">School-Wide Analytics</h3>
-                        <p class="text-gray-600 flex-grow">Compare school-wide results with national benchmarks and track improvements.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Automated Report Generation</h3>
-                        <p class="text-gray-600 flex-grow">Generate comprehensive student performance reports with AI-based insights.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #45E6C0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI-Based Teacher Support</h3>
-                        <p class="text-gray-600 flex-grow">Assist teachers with automated grading and intelligent lesson planning.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #45E6C0; color: #101E3D">Coming Soon</span>
-                    </div>
-                    <div class="w-80 bg-white rounded-xl shadow-lg p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
-                        <div class="rounded-full w-12 h-12 flex items-center justify-center mb-4" style="background: #101E3D">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Beyond Imagination</h3>
-                        <p class="text-gray-600 flex-grow">We're working on confidential features that push the boundaries of what AI can do for education. The best is yet to come.</p>
-                        <span class="mt-4 inline-block px-3 py-1 rounded-full text-sm" style="background: #101E3D; color: white">Watch This Space</span>
-                    </div>
-                </div>
-            </div>
-
-            <button class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('right')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-        </div>
-                </div>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('right')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
@@ -903,7 +711,6 @@
     <script>
         // Registration Modal Functionality
         const registrationButtons = document.querySelectorAll('a[href="/register"]');
-        const earlyAccessButtons = document.querySelectorAll('a[href="#early-access"]');
         const registrationModal = document.getElementById('registrationModal');
         const modalOverlay = document.getElementById('modalOverlay');
         const closeModalBtn = document.getElementById('closeModal');
@@ -913,15 +720,6 @@
         
         // Open modal when registration buttons are clicked
         registrationButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                registrationModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-        });
-        
-        // Open modal when early access buttons are clicked
-        earlyAccessButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 registrationModal.classList.remove('hidden');
