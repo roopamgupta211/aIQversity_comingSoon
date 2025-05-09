@@ -8,6 +8,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://formspree.io/js/formspree-client.js"></script>
     <style>
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -86,7 +87,7 @@
                     <span class="text-2xl font-bold" style="color: #101E3D">aIQversity</span>
                 </div>
                 <div class="flex items-center space-x-4 w-1/4 justify-end">
-                    <a href="#early-access" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Early Access</a>
+                    <!-- <a href="#early-access" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Early Access</a> -->
                     <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
                 </div>
             </div>
@@ -858,7 +859,7 @@
             </div>
             
             <!-- Registration Form -->
-            <form id="registrationForm" class="px-1 sm:px-4 py-2">
+            <form id="registrationForm" class="px-1 sm:px-4 py-2" action="https://formspree.io/f/mgvkzogg" method="POST">
                 <div class="mb-5">
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                     <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
@@ -887,7 +888,7 @@
                 
                 <div class="mb-7">
                     <label class="flex items-start">
-                        <input type="checkbox" id="consent" required class="mt-1 mr-3 h-4 w-4">
+                        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
                         <span class="text-sm text-gray-600">I agree to receive updates about aIQversity products and services</span>
                     </label>
                 </div>
@@ -939,65 +940,23 @@
         
         closeModalBtn.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', closeModal);
-        closeSuccessBtn.addEventListener('click', closeModal);
+        closeSuccessBtn.addEventListener('click', function() {
+            closeModal();
+            // Reset form after closing
+            registrationForm.reset();
+            registrationForm.style.display = 'block';
+            registrationSuccess.classList.add('hidden');
+        });
         
         // Form submission handling
         registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default form submission - let Formspree handle it
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value || "Not provided";
-            const userType = document.getElementById('userType').value;
-            
-            // Create email body for the registration
-            const subject = "aIQversity Waitlist Registration";
-            const body = `New Waitlist Registration:
-            
-    Name: ${name}
-    Email: ${email}
-    Phone: ${phone}
-    User Type: ${userType}
-
-    This user has consented to receive updates about aIQversity products and services.`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:sakshi.varshney@aiqversity.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Show success message
-            registrationForm.style.display = 'none';
-            registrationSuccess.classList.remove('hidden');
-            
-            // Create an automated thank you email for the user
-            setTimeout(() => {
-                // Open the email client for registration
-                window.location.href = mailtoLink;
-                
-                // Set up auto-response email (this part is done manually by you upon receiving their email)
-                // The content below is just to show what you would send back to them
-                const thankYouSubject = "Welcome to aIQversity Early Access Program!";
-                const thankYouBody = `Dear ${name},
-
-    Thank you for joining the aIQversity waitlist! We're thrilled to have you as one of our early supporters.
-
-    As a token of our appreciation, we're excited to offer you:
-
-    🌟 25% OFF on your first subscription when we launch
-    🌟 Exclusive access to premium features for 3 months
-    🌟 Priority support during your learning journey
-
-    We're working hard to create an exceptional AI-powered learning experience that will transform your exam preparation. We'll keep you updated on our progress and notify you as soon as early access becomes available.
-
-    If you have any questions in the meantime, feel free to reply to this email. We'd love to hear from you!
-
-    Warm regards,
-    Sakshi Varshney
-    Team aIQversity
-    `;
-                
-                // Note: This is just a template for manual sending. You'll need to manually send this email as a reply when you receive their registration.
-            }, 500);
+            // Show the success message after submission
+            document.getElementById('registrationForm').addEventListener('formspree-success', function() {
+                registrationForm.style.display = 'none';
+                registrationSuccess.classList.remove('hidden');
+            });
         });
     </script>
 </body>
