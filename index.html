@@ -963,7 +963,6 @@
                     </div>
                     <h4 class="text-2xl font-semibold mb-3" style="color: #101E3D">Thank You for Joining!</h4>
                     <p class="text-gray-600 mb-4 mx-auto max-w-sm">We're thrilled to have you on our waitlist! As one of our early supporters, you'll receive exclusive early bird offers when we launch.</p>
-                    <p class="text-sm text-gray-500 mb-6 mx-auto max-w-sm">To complete your registration, please send the auto-generated email that has opened (or is about to open) in your email client.</p>
                     <button class="mt-4 px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105" style="background-color: #F7A621" id="closeSuccessBtn">
                         Got it!
                     </button>
@@ -971,7 +970,7 @@
             </div>
             
             <!-- Registration Form -->
-            <form id="registrationForm" class="px-1 sm:px-4 py-2" action="https://formspree.io/f/mgvkzogg" method="POST">
+            <form id="registrationForm" class="px-1 sm:px-4 py-2" method="POST" onsubmit="submitForm(event)">
                 <div class="mb-5">
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                     <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
@@ -989,7 +988,7 @@
                 
                 <div class="mb-5">
                     <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
-                    <select id="userType" name="userType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                    <select id="userType" name="user_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                         <option value="">Please select</option>
                         <option value="student">Student</option>
                         <option value="teacher">Teacher</option>
@@ -1013,6 +1012,53 @@
     </div>
 
     <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const form = document.getElementById('registrationForm');
+            const formData = new FormData(form);
+            
+            // Convert FormData to URL params
+            const data = new URLSearchParams();
+            for (const pair of formData) {
+                data.append(pair[0], pair[1]);
+            }
+            
+            // Your Google Apps Script web app URL from step 3
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxE9_af7rm1jgql-pp4Iz5Rjjd94aMqczfCrP3SRLYcLIc0ZTAhf7DNa3MEsG1h5s33ag/exec'; // Replace this with your actual web app URL
+            
+            // Show loading state
+            document.querySelector('button[type="submit"]').textContent = 'Submitting...';
+            
+            // Send data to Google Apps Script
+            fetch(scriptURL, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show success message
+                form.style.display = 'none';
+                document.getElementById('registrationSuccess').classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Something went wrong. Please try again later.');
+            })
+            .finally(() => {
+                // Reset button text
+                document.querySelector('button[type="submit"]').textContent = 'Join Waitlist';
+            });
+        }
+
+        // Remove redundant event listener - this is duplicated by closeModal below
+        // document.getElementById('closeSuccessBtn').addEventListener('click', function() {
+        //     document.getElementById('registrationSuccess').classList.add('hidden');
+        //     document.getElementById('registrationForm').style.display = 'block';
+        //     document.getElementById('registrationForm').reset();
+        // });
+        
         // Registration Modal Functionality
         const registrationButtons = document.querySelectorAll('a[href="/register"]');
         const registrationModal = document.getElementById('registrationModal');
@@ -1042,23 +1088,12 @@
         
         closeModalBtn.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', closeModal);
-        closeSuccessBtn.addEventListener('click', function() {
-            closeModal();
-            // Reset form after closing
-            registrationForm.reset();
-            registrationForm.style.display = 'block';
-            registrationSuccess.classList.add('hidden');
-        });
+        closeSuccessBtn.addEventListener('click', closeModal);
         
-        // Form submission handling
-        registrationForm.addEventListener('submit', function(e) {
-            // Don't prevent default form submission - let Formspree handle it
-            
-            // Show the success message after submission
-            document.getElementById('registrationForm').addEventListener('formspree-success', function() {
-                registrationForm.style.display = 'none';
-                registrationSuccess.classList.remove('hidden');
-            });
+        // Formspree integration for form submission
+        document.getElementById('registrationForm').addEventListener('formspree-success', function() {
+            registrationForm.style.display = 'none';
+            registrationSuccess.classList.remove('hidden');
         });
     </script>
 </body>
