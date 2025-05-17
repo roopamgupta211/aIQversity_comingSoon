@@ -1051,13 +1051,6 @@
                 document.querySelector('button[type="submit"]').textContent = 'Join Waitlist';
             });
         }
-
-        // Remove redundant event listener - this is duplicated by closeModal below
-        // document.getElementById('closeSuccessBtn').addEventListener('click', function() {
-        //     document.getElementById('registrationSuccess').classList.add('hidden');
-        //     document.getElementById('registrationForm').style.display = 'block';
-        //     document.getElementById('registrationForm').reset();
-        // });
         
         // Registration Modal Functionality
         const registrationButtons = document.querySelectorAll('a[href="/register"]');
@@ -1089,12 +1082,6 @@
         closeModalBtn.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', closeModal);
         closeSuccessBtn.addEventListener('click', closeModal);
-        
-        // Formspree integration for form submission
-        document.getElementById('registrationForm').addEventListener('formspree-success', function() {
-            registrationForm.style.display = 'none';
-            registrationSuccess.classList.remove('hidden');
-        });
     </script>
 </body>
 </html>

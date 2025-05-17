@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aIQversity</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://formspree.io/js/formspree-client.js"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #F7A621, #45E6C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+        .logo-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#101E3D 0.5px, transparent 0.5px), radial-gradient(#101E3D 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            opacity: 0.1;
+        }
+        .app-screenshot {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+            border: 1px solid rgba(16, 30, 61, 0.1);
+        }
+        .dashboard-mockup {
+            background: #101E3D;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(16, 30, 61, 0.2);
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="./TTD_Logo.png" alt="டெட்ராடெக் லோகோ" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">காத்திருப்புப் பட்டியலில் சேரவும்</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-24 pb-8 md:pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left flex flex-col items-center lg:items-start">
+                    <div class="mb-8 p-8 rounded-xl" style="background: #101E3D">
+                        <img src="./logo.jpg" alt="aIQversity லோகோ" class="w-full max-w-md mx-auto" style="max-width: 400px;"/>
+                    </div>
+                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl text-center lg:text-left max-w-2xl">
+                        செயற்கை நுண்ணறிவு கல்வியுடன் இணைந்து மாணவர்களுக்கு <span style="color:#F7A621"><em>தனிப்பயனாக்கப்பட்ட அறிவுப் பாதைகள்</em></span>, ஆசிரியர்களுக்கு <span style="color:#F7A621"><em>ஏற்புடைய கருவிகள்</em></span>, பெற்றோருக்கு <span style="color:#F7A621"><em>தனிப்பட்ட நுண்ணறிவுகள்</em></span>, மற்றும் நிறுவனங்களுக்கு <span style="color:#F7A621"><em>இலக்கு பகுப்பாய்வுகள்</em></span> ஆகியவற்றை வழங்குகிறது — அனைத்தும் தனிப்பட்ட தேவைகளுக்கு ஏற்ப வடிவமைக்கப்பட்டு, உண்மையான <span style="color:#F7A621"><em>உள்ளடக்கிய, தனிப்பயனாக்கப்பட்ட கற்றலுக்காக</em></span> பல இந்திய மொழிகளில் அணுகக்கூடியவை.
+                    </p>
+                    <div class="mt-8">
+                        <a href="/register" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white shadow-lg transition-all duration-300 hover:scale-105" style="background-color: #F7A621">
+                            தொடங்கவும்
+                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md float-animation">
+                        <div class="dashboard-mockup w-full h-[600px] flex flex-col gap-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="text-sm opacity-50">மாணவர் டாஷ்போர்டு</div>
+                            </div>
+
+                            <!-- Practice Session Section -->
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <h3 class="text-lg mb-3" style="color: #45E6C0">தற்போதைய பயிற்சி அமர்வு</h3>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm">இயற்பியல் - மெக்கானிக்ஸ்</span>
+                                    <span class="px-2 py-1 rounded text-xs" style="background: #F7A621">செயல்பாட்டில் உள்ளது</span>
+                                </div>
+                                <div class="h-2 bg-white/20 rounded-full mt-2">
+                                    <div class="h-full w-3/4 rounded-full" style="background: #45E6C0"></div>
+                                </div>
+                            </div>
+
+                            <!-- Exam Simulation -->
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <h3 class="text-lg mb-3" style="color: #45E6C0">சமீபத்திய தேர்வு முடிவுகள்</h3>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span>வேதியியல் தேர்வு</span>
+                                        <span style="color: #F7A621">85%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span>இயற்பியல் வினாடி வினா</span>
+                                        <span style="color: #F7A621">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Learning Goals -->
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <h3 class="text-lg mb-3" style="color: #45E6C0">கற்றல் இலக்குகள்</h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>கணிதம்</span>
+                                            <span>8/10 தலைப்புகள்</span>
+                                        </div>
+                                        <div class="h-2 bg-white/20 rounded-full">
+                                            <div class="h-full w-4/5 rounded-full" style="background: #F7A621"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>இயற்பியல்</span>
+                                            <span>6/10 தலைப்புகள்</span>
+                                        </div>
+                                        <div class="h-2 bg-white/20 rounded-full">
+                                            <div class="h-full w-3/5 rounded-full" style="background: #F7A621"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/10 rounded-lg p-4">
+                                    <div class="text-xs opacity-70">படிப்பு தொடர்ச்சி</div>
+                                    <div class="text-lg font-semibold" style="color: #45E6C0">5 நாட்கள்</div>
+                                </div>
+                                <div class="bg-white/10 rounded-lg p-4">
+                                    <div class="text-xs opacity-70">தீர்க்கப்பட்ட கேள்விகள்</div>
+                                    <div class="text-lg font-semibold" style="color: #45E6C0">248</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Educational Journey Ecosystem Section -->
+    <div class="py-16 relative overflow-hidden" style="background: linear-gradient(135deg, #f0f4f8 0%, #e6f0fa 100%);">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23101E3D\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Section Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    AI-உந்துதல் கல்வியின் எதிர்கால சுற்றுச்சூழல் அமைப்பு
+                </h2>
+                <p class="mt-4 max-w-3xl text-xl text-gray-600 mx-auto">
+                    மாணவர்கள், பெற்றோர்கள், ஆசிரியர்கள் மற்றும் நிறுவனங்கள் ஒவ்வொன்றும் முக்கிய பங்கு வகிக்கும் எங்கள் ஒன்றோடொன்று இணைக்கப்பட்ட கற்றல் சூழலை கற்பனை செய்து பாருங்கள் – வளர்ச்சி தொடர்ச்சியான சுழற்சியில் ஒருவருக்கொருவர் பலப்படுத்துகின்றன.
+                </p>
+            </div>
+
+            <!-- Journey Map -->
+            <div class="relative pb-12">
+                <!-- Journey Path - Only visible on larger screens -->
+                <div class="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 w-[90%] h-[400px]">
+                    <svg viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <!-- Flow Path (now goes in the revised order) -->
+                        <path d="M150,180 C300,50 500,350 700,180 C900,50 950,200 950,200" stroke="#F7A621" stroke-width="6" stroke-linecap="round" stroke-dasharray="1,15" stroke-opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <!-- The Persona Stages -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                    <!-- Stage 1: The Foundation (Student) -->
+                    <div class="transform md:translate-y-0">
+                        <div class="backdrop-blur-sm bg-white/90 rounded-xl shadow-lg p-6 border-b-4 h-full relative z-10" style="border-color: #F7A621">
+                            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-white">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background: rgba(247, 166, 33, 0.2)">
+                                    <svg class="w-8 h-8" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pt-12 text-center">
+                                <h3 class="text-xl font-bold mb-3 mt-2" style="color: #101E3D">கற்பவர்</h3>
+                                <p class="text-gray-600">ஒவ்வொரு மட்டத்திலும் உள்ள மாணவர்கள் தங்கள் கல்வியை மாற்றுவதற்கு AI-ஐப் பயன்படுத்துகின்றனர், K-12 (<b>அனைத்து பிரிவுகளும்</b>), போட்டித் தேர்வுகள் (<b>JEE, NEET, UPSC போன்றவை</b>), மற்றும் உயர் படிப்புகளை ஒவ்வொரு அடியிலும் தனிப்பயனாக்கப்பட்ட வழிகாட்டுதலுடன் வெல்கின்றனர்.</p>
+                                <div class="mt-4 inline-flex items-center justify-center space-x-1">
+                                    <span class="inline-block w-3 h-3 rounded-full" style="background: #F7A621"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2: The Home Foundation (Parent) -->
+                    <div class="transform md:translate-y-16">
+                        <div class="backdrop-blur-sm bg-white/90 rounded-xl shadow-lg p-6 border-b-4 h-full relative z-10" style="border-color: #45E6C0">
+                            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-white">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background: rgba(69, 230, 192, 0.2)">
+                                    <svg class="w-8 h-8" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pt-12 text-center">
+                                <h3 class="text-xl font-bold mb-3 mt-2" style="color: #101E3D">ஆதரவாளர்</h3>
+                                <p class="text-gray-600">பெற்றோர்கள் AI பகுப்பாய்வுகள் மூலம் அதிகாரம் பெறுவார்கள், தங்கள் குழந்தைகளின் கல்விப் பாதையை நம்பிக்கையுடனும் துல்லியத்துடனும் வழிநடத்தும் முறையை மாற்றுவார்கள்.</p>
+                                <div class="mt-4 inline-flex items-center justify-center space-x-1">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-3 h-3 rounded-full" style="background: #45E6C0"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3: The Educational Guide (Teacher) -->
+                    <div class="transform md:translate-y-0">
+                        <div class="backdrop-blur-sm bg-white/90 rounded-xl shadow-lg p-6 border-b-4 h-full relative z-10" style="border-color: #F7A621">
+                            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-white">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background: rgba(247, 166, 33, 0.2)">
+                                    <svg class="w-8 h-8" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pt-12 text-center">
+                                <h3 class="text-xl font-bold mb-3 mt-2" style="color: #101E3D">வழிகாட்டி</h3>
+                                <p class="text-gray-600">ஆசிரியர்கள் AI-இயங்கும் நுண்ணறிவுகளைப் பயன்படுத்தி, வீட்டு ஆதரவை முழுமையாக பூர்த்தி செய்யும் மற்றும் ஒவ்வொரு மாணவரின் வளரும் தேவைகளுக்கு ஏற்ப மாற்றியமைக்கப்பட்ட கல்வி அனுபவங்களை உருவாக்குவார்கள்.</p>
+                                <div class="mt-4 inline-flex items-center justify-center space-x-1">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-3 h-3 rounded-full" style="background: #F7A621"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4: The Broader Framework (Organization) -->
+                    <div class="transform md:translate-y-16">
+                        <div class="backdrop-blur-sm bg-white/90 rounded-xl shadow-lg p-6 border-b-4 h-full relative z-10" style="border-color: #45E6C0">
+                            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-white">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background: rgba(69, 230, 192, 0.2)">
+                                    <svg class="w-8 h-8" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="pt-12 text-center">
+                                <h3 class="text-xl font-bold mb-3 mt-2" style="color: #101E3D">செயல்படுத்துபவர்</h3>
+                                <p class="text-gray-600">நிறுவனங்கள் AI பகுப்பாய்வுகளைப் பயன்படுத்தி, தடையின்றி ஒருங்கிணைக்கப்பட்ட பெற்றோர் மற்றும் ஆசிரியர் ஆதரவு அமைப்புகள் மூலம் மாணவர்கள் சிறந்து விளங்கும் சூழல்களை உருவாக்கும்.</p>
+                                <div class="mt-4 inline-flex items-center justify-center space-x-1">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-2 h-2 rounded-full bg-gray-300"></span>
+                                    <span class="inline-block w-3 h-3 rounded-full" style="background: #45E6C0"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Outcomes -->
+            <div class="mt-24">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-bold" style="color: #101E3D">கூட்டு தாக்கம்</h3>
+                    <p class="mt-2 text-gray-600 max-w-2xl mx-auto">எங்கள் கல்விச் சூழலமைப்பு கற்பனை செய்தபடி இணக்கமாக செயல்படும்போது, ஒவ்வொரு கூறும் அடுத்ததை வலுப்படுத்தும் போது, முடிவுகள் மாற்றத்தக்கதாக இருக்கும்:</p>
+                </div>
+
+                <!-- Outcome Benefits (without specific metrics) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Outcome 1 -->
+                    <div class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-md p-6 text-center transform transition-all duration-500 hover:scale-105">
+                        <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #F7A621 0%, #FFD166 100%)">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1" style="color: #101E3D">மேம்படுத்தப்பட்ட ஈடுபாடு</h4>
+                        <p class="text-sm text-gray-600">தனிப்பயனாக்கப்பட்ட கற்றல் அனுபவங்கள் மூலம் மாணவர் ஈடுபாடு மற்றும் அறிவுத் தக்கவைப்பு கணிசமாக மேம்படுத்தப்பட்டுள்ளது</p>
+                    </div>
+
+                    <!-- Outcome 2 -->
+                    <div class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-md p-6 text-center transform transition-all duration-500 hover:scale-105">
+                        <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #45E6C0 0%, #9FFFCB 100%)">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1" style="color: #101E3D">அதிக செயல்திறன்</h4>
+                        <p class="text-sm text-gray-600">நிர்வாகப் பணிகளில் செலவிடும் நேரத்தில் கணிசமான குறைப்பு, தரமான கற்பித்தலில் அதிக கவனம் செலுத்த அனுமதிக்கிறது</p>
+                    </div>
+
+                    <!-- Outcome 3 -->
+                    <div class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-md p-6 text-center transform transition-all duration-500 hover:scale-105">
+                        <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #F7A621 0%, #FFD166 100%)">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1" style="color: #101E3D">குடும்ப இணைப்பு</h4>
+                        <p class="text-sm text-gray-600">நிகழ்நேர நுண்ணறிவுகள் மற்றும் கூட்டு கருவிகள் மூலம் கல்வியில் பெற்றோரின் ஆழமான ஈடுபாடு</p>
+                    </div>
+
+                    <!-- Outcome 4 -->
+                    <div class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-md p-6 text-center transform transition-all duration-500 hover:scale-105">
+                        <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #45E6C0 0%, #9FFFCB 100%)">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1" style="color: #101E3D">கருத்து தேர்ச்சி</h4>
+                        <p class="text-sm text-gray-600">ஏற்புடைய கற்றல் பாதைகள் மற்றும் தனிப்பயனாக்கப்பட்ட உள்ளடக்கம் மூலம் சிக்கலான பாடங்களைப் பற்றிய மேம்பட்ட புரிதல்</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    ஒரே தளம், பல கண்ணோட்டங்கள், முடிவற்ற சாத்தியங்கள்.
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    புத்திசாலித்தனமான தொழில்நுட்பம் மாணவர்களுக்கு சேவை செய்யும், ஆசிரியர்களுக்கு அதிகாரம் அளிக்கும், பெற்றோருக்கு தெரிவிக்கும் மற்றும் நிறுவனங்களை மேம்படுத்தும் கற்றலின் எதிர்காலத்தை ஆராயுங்கள்.
+                </p>
+            </div>
+
+            <!-- User Type Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mt-12 mb-8 px-2">
+                <button onclick="showFeatures('student')" class="px-3 sm:px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium" style="background: #101E3D">மாணவர்கள்</button>
+                <button onclick="showFeatures('teacher')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">ஆசிரியர்கள்</button>
+                <button onclick="showFeatures('parent')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">பெற்றோர்கள்</button>
+                <button onclick="showFeatures('org')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300">நிறுவனங்கள்</button>
+            </div>
+
+            <!-- Features Carousel -->
+            <div class="relative mt-8 px-4 sm:px-0">
+                <!-- Navigation Arrows -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('left')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <div class="overflow-x-auto hide-scrollbar px-2" id="featuresContainer" style="scroll-behavior: smooth;">
+                    <!-- Student Features -->
+                    <div class="flex space-x-4 sm:space-x-6 p-4 min-w-max" id="studentFeatures">
+                        <!-- AI-Powered Answer Assistance -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-இயங்கும் பதில் உதவி</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாதிரி தீர்வுகளுடன் பதில்களை எழுதுவதற்கான படிப்படியான வழிகாட்டுதலைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Mock Exam Simulation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">போலித் தேர்வு உருவகப்படுத்துதல்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">நேரக்கட்டுப்பாட்டு சோதனைகள், உண்மையான தேர்வு அழுத்தம் மற்றும் உடனடி பின்னூட்டத்துடன் பயிற்சி செய்யுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Voice-Based Learning -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">குரல் அடிப்படையிலான கற்றல்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">குரல் உள்ளீடு மூலம் கேள்விகளைக் கேளுங்கள் மற்றும் உங்களுக்கு விருப்பமான மொழியில் விளக்கங்களைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- AI-Generated Questions -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-உருவாக்கிய கேள்விகள்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">கடந்தகால போக்குகள் மற்றும் பாடத்திட்ட பகுப்பாய்வு அடிப்படையில் சாத்தியமான தேர்வு கேள்விகளை கணிக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Doubt Clearing Support -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">சந்தேகம் தீர்க்கும் ஆதரவு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">சந்தேகங்களைச் சமர்ப்பித்து, AI-உருவாக்கிய அல்லது ஆசிரியர் அடிப்படையிலான தீர்வுகளை உடனடியாகப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+                        
+                        <!-- Beyond Imagination -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105" style="background: linear-gradient(to bottom right, white, rgba(38, 28, 229, 0.05)); border: 1px solid rgba(38, 28, 229, 0.15);">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #261ce5">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">கற்பனைக்கு அப்பாற்பட்டது</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர்களுக்காக AI என்ன செய்ய முடியும் என்பதன் எல்லைகளைத் தள்ளும் ரகசிய அம்சங்களில் நாங்கள் பணியாற்றி வருகிறோம். சிறந்தவை இன்னும் வரவில்லை.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #261ce5; color: white">காத்திருங்கள்</span>
+                        </div>
+                    </div>
+
+                    <!-- Teacher Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="teacherFeatures">
+                        <!-- Automated Question Paper Generation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">தானியங்கு கேள்வித்தாள்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">தலைப்பு, சிரமம் மற்றும் மதிப்பெண்கள் அடிப்படையில் வகைப்படுத்தப்பட்ட கேள்வித்தாள்களை உருவாக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Answer Evaluation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-இயங்கும் மதிப்பீடு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர் பதில்களில் AI-உதவியுடன் மதிப்பெண் மற்றும் விரிவான பின்னூட்டத்தை வழங்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Performance Analysis -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">செயல்திறன் பகுப்பாய்வு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">இலக்கு கற்பித்தலுக்காக மாணவர்களின் பலம் மற்றும் பலவீனங்களை பகுப்பாய்வு செய்யுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- AI-Based Quiz Generator -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-அடிப்படையிலான வினாடி வினா ஜெனரேட்டர்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">வகுப்பு கற்றல் இடைவெளிகள் மற்றும் செயல்திறன் நிலைகளுக்கு ஏற்ப வினாடி வினாக்களை உருவாக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Study Content Generation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">படிப்பு உள்ளடக்க உருவாக்கம்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர்களுக்கான விரிவான ஆய்வுப் பொருட்களை உருவாக்கவும் செம்மைப்படுத்தவும் AI-இயங்கும் கருவி.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+                        
+                        <!-- Beyond Imagination -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105" style="background: linear-gradient(to bottom right, white, rgba(38, 28, 229, 0.05)); border: 1px solid rgba(38, 28, 229, 0.15);">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #261ce5">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">கற்பனைக்கு அப்பாற்பட்டது</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">ஆசிரியர்களுக்காக AI என்ன செய்ய முடியும் என்பதன் எல்லைகளைத் தள்ளும் ரகசிய அம்சங்களில் நாங்கள் பணியாற்றி வருகிறோம். சிறந்தவை இன்னும் வரவில்லை.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #261ce5; color: white">காத்திருங்கள்</span>
+                        </div>
+                    </div>
+
+                    <!-- Parent Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="parentFeatures">
+                        <!-- Parental Insights Dashboard -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">பெற்றோர் நுண்ணறிவு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">குழந்தையின் முன்னேற்றத்தைக் கண்காணித்து ஆதரவிற்கான பரிந்துரைகளைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+                        <!-- Performance Comparison -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                                </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">செயல்திறன் தரப்படுத்தல்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர்களின் மதிப்பெண்களை கட்ஆஃப்கள் மற்றும் வரலாற்றுப் போக்குகளுடன் ஒப்பிடவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Career Guidance -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">தொழில் வழிகாட்டுதல்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர் செயல்திறன் அடிப்படையில் தொழில் விருப்பங்கள் குறித்த AI-உந்துதல் நுண்ணறிவுகளைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Time Management Insights -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">நேர மேலாண்மை நுண்ணறிவு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">படிப்பு நேரத்தை மேம்படுத்துவதற்கும் கவனச்சிதறல்களைத் தவிர்ப்பதற்கும் பரிந்துரைகளைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- Exam Readiness Alerts -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">தேர்வு தயார்நிலை எச்சரிக்கைகள்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">வரவிருக்கும் தேர்வுகள், பாடத்திட்ட புதுப்பிப்புகள் மற்றும் கட்ஆஃப் மாற்றங்கள் குறித்த விழிப்பூட்டல்களைப் பெறுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+                        
+                        <!-- Beyond Imagination -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105" style="background: linear-gradient(to bottom right, white, rgba(38, 28, 229, 0.05)); border: 1px solid rgba(38, 28, 229, 0.15);">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #261ce5">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">கற்பனைக்கு அப்பாற்பட்டது</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">பெற்றோர்களுக்காக AI என்ன செய்ய முடியும் என்பதன் எல்லைகளைத் தள்ளும் ரகசிய அம்சங்களில் நாங்கள் பணியாற்றி வருகிறோம். சிறந்தவை இன்னும் வரவில்லை.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #261ce5; color: white">காத்திருங்கள்</span>
+                        </div>
+                    </div>
+
+                    <!-- Organization Features -->
+                    <div class="hidden flex space-x-4 sm:space-x-6 p-4 min-w-max" id="orgFeatures">
+                        <!-- Centralized Dashboard -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">மையப்படுத்தப்பட்ட டாஷ்போர்டு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">விரிவான பகுப்பாய்வுகளுடன் வெவ்வேறு கிரேடுகளில் கல்வி முன்னேற்றத்தைக் கண்காணிக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- AI-Driven Curriculum -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-உந்துதல் பாடத்திட்டம்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">மாணவர்கள் சிரமப்படும் பகுதிகளைக் கண்டறிந்து கற்பித்தல் உத்திகளைச் செம்மைப்படுத்தவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- School-Wide Analytics -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">பள்ளி அளவிலான பகுப்பாய்வு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">பள்ளி அளவிலான முடிவுகளை தேசிய அளவுகோல்களுடன் ஒப்பிட்டு மேம்பாடுகளைக் கண்காணிக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+                        <!-- Automated Report Generation -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">தானியங்கு அறிக்கை உருவாக்கம்</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">AI-அடிப்படையிலான நுண்ணறிவுகளுடன் விரிவான மாணவர் செயல்திறன் அறிக்கைகளை உருவாக்கவும்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>
+
+                        <!-- AI-Based Teacher Support -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #F7A621">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">AI-அடிப்படையிலான ஆசிரியர் ஆதரவு</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">தானியங்கு தரப்படுத்தல் மற்றும் புத்திசாலித்தனமான பாடத் திட்டமிடல் மூலம் ஆசிரியர்களுக்கு உதவுங்கள்.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #45E6C0; color: #101E3D">விரைவில் வருகிறது</span>
+                        </div>                     
+                        
+                        <!-- Beyond Imagination -->
+                        <div class="w-64 sm:w-72 md:w-80 bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col transform transition-all duration-300 hover:scale-105" style="background: linear-gradient(to bottom right, white, rgba(38, 28, 229, 0.05)); border: 1px solid rgba(38, 28, 229, 0.15);">
+                            <div class="rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mb-4" style="background: #261ce5">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-semibold mb-2" style="color: #101E3D">கற்பனைக்கு அப்பாற்பட்டது</h3>
+                            <p class="text-sm sm:text-base text-gray-600 flex-grow">நிறுவனங்களுக்காக AI என்ன செய்ய முடியும் என்பதன் எல்லைகளைத் தள்ளும் ரகசிய அம்சங்களில் நாங்கள் பணியாற்றி வருகிறோம். சிறந்தவை இன்னும் வரவில்லை.</p>
+                            <span class="mt-4 inline-block px-3 py-1 rounded-full text-xs sm:text-sm" style="background: #261ce5; color: white">காத்திருங்கள்</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollFeatures('right')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-Launch Stats Section -->
+    <div style="background: #101E3D">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    கற்றலின் எதிர்காலத்தில் ஒரு பகுதியாக இருங்கள்
+                </h2>
+                <p class="mt-4 text-xl" style="color: #45E6C0">
+                    AI-இயங்கும் கல்விசார் சிறப்பு அனுபவத்தை முதலில் பெறுபவர்களில் ஒருவராக இருக்க எங்கள் காத்திருப்புப் பட்டியலில் சேரவும்
+                </p>
+            </div>
+            <dl class="mt-10 text-center sm:mx-auto sm:grid sm:grid-cols-3 sm:gap-8">
+                <div class="flex flex-col">
+                    <dt class="order-2 mt-2 text-lg leading-6 font-medium" style="color: #45E6C0">
+                        விரைவில் வரவிருக்கிறது
+                    </dt>
+                    <dd class="order-1 text-3xl font-extrabold" style="color: #F7A621">
+                        புதுமை காலவரிசை
+                    </dd>
+                </div>
+                <div class="flex flex-col mt-10 sm:mt-0">
+                    <dt class="order-2 mt-2 text-lg leading-6 font-medium" style="color: #45E6C0">
+                        முன்கூட்டிய அணுகல் இடங்கள்
+                    </dt>
+                    <dd class="order-1 text-3xl font-extrabold" style="color: #F7A621">
+                        வரையறுக்கப்பட்டது
+                    </dd>
+                </div>
+                <div class="flex flex-col mt-10 sm:mt-0">
+                    <dt class="order-2 mt-2 text-lg leading-6 font-medium" style="color: #45E6C0">
+                        பீட்டா சோதனை
+                    </dt>
+                    <dd class="order-1 text-3xl font-extrabold" style="color: #F7A621">
+                        விரைவில் தொடங்குகிறது
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="bg-blue-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
+                <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+                    <div class="lg:self-center">
+                        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                            <span class="block">எங்கள் வெளியீட்டைத் தவறவிடாதீர்கள்!</span>
+                            <span class="block">வரிசையில் உங்கள் இடத்தைப் பாதுகாக்கவும்.</span>
+                        </h2>
+                        <p class="mt-4 text-lg leading-6 text-blue-200">
+                            aIQversity-யின் எதிர்காலத்தை மையமாகக் கொண்ட கற்பவர்களின் வெளியீட்டிற்கு முந்தைய சமூகத்தில் சேர்வதன் மூலம் பிரத்யேக நன்மைகளைப் பெறுங்கள்.
+                        </p>
+                        <a href="/register" class="mt-8 bg-white border border-transparent rounded-md shadow px-6 py-3 inline-flex items-center text-base font-medium text-blue-600 hover:bg-blue-50">
+                            இலவசமாக பதிவு செய்யவும்
+                        </a>
+                    </div>
+                </div>
+                <div class="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+                    <!-- Exam Simulation Interface -->
+                    <div class="dashboard-mockup w-full h-[500px] flex flex-col gap-4 transform translate-x-6 translate-y-6 rounded-md sm:translate-x-16 lg:translate-y-20">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-sm opacity-50">தேர்வு உருவகப்படுத்துதல்</div>
+                        </div>
+
+                        <!-- Timer and Progress -->
+                        <div class="flex justify-between items-center bg-white/10 rounded-lg p-4">
+                            <div class="text-2xl" style="color: #F7A621">01:45:30</div>
+                            <div class="text-sm">கேள்வி 15 / 30</div>
+                        </div>
+
+                        <!-- Question Area -->
+                        <div class="bg-white/10 rounded-lg p-4 flex-grow">
+                            <div class="mb-4">
+                                <span class="px-2 py-1 rounded text-xs" style="background: #45E6C0">இயற்பியல்</span>
+                            </div>
+                            <p class="text-lg mb-4">ஒரு பந்து 20 மீ/வி ஆரம்ப திசைவேகத்துடன் செங்குத்தாக மேல்நோக்கி வீசப்படுகிறது. பந்து அடையும் அதிகபட்ச உயரத்தைக் கணக்கிடுங்கள். (g = 9.8 மீ/வி²)</p>
+                            
+                            <!-- Multiple Choice Options -->
+                            <div class="space-y-3 mt-6">
+                                <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
+                                    <input type="radio" name="answer" class="mr-3" />
+                                    <span>20.4 மீ</span>
+                                </div>
+                                <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
+                                    <input type="radio" name="answer" class="mr-3" />
+                                    <span>10.2 மீ</span>
+                                </div>
+                                <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
+                                    <input type="radio" name="answer" class="mr-3" />
+                                    <span>15.3 மீ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="grid grid-cols-3 gap-4">
+                            <button class="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors" style="color: #45E6C0">
+                                குறிப்பைப் பயன்படுத்து
+                            </button>
+                            <button class="bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors" style="color: #45E6C0">
+                                கால்குலேட்டர்
+                            </button>
+                            <button class="p-3 rounded-lg transition-colors" style="background: #F7A621">
+                                அடுத்த கேள்வி
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <!-- 3D Cube/Box Being Assembled icon -->
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    உடன் 
+                    <!-- Shield with Heart icon -->
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    பெங்களூரில்
+                    <img src="./TTD_logo_footer.png" alt="டெட்ராடெக் டைனமிக்ஸ்" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    நாங்கள் என்ன உருவாக்குகிறோம் என்பதில் ஆர்வமாக உள்ளீர்களா? contact@aiqversity.com இல் எங்களைத் தொடர்பு கொள்ளுங்கள்
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hidden hover:bg-blue-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script>
+        // Scroll to top functionality
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.classList.remove('hidden');
+            } else {
+                scrollToTopButton.classList.add('hidden');
+            }
+        };
+        
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function showFeatures(userType) {
+            // Hide all feature sections
+            document.querySelectorAll('[id$="Features"]').forEach(el => el.classList.add('hidden'));
+            // Show selected section
+            document.getElementById(userType + 'Features').classList.remove('hidden');
+            
+            // Update button styles
+            document.querySelectorAll('[onclick^="showFeatures"]').forEach(btn => {
+                btn.style.background = '#E5E7EB'; // bg-gray-200
+                btn.style.color = '#374151'; // text-gray-700
+            });
+            event.target.style.background = '#101E3D';
+            event.target.style.color = 'white';
+        }
+
+        function scrollFeatures(direction) {
+            const container = document.getElementById('featuresContainer');
+            const scrollAmount = 400; // Adjust as needed
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6 sm:p-0">
+        <div class="absolute inset-0 bg-black opacity-50" id="modalOverlay"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto my-8 shadow-2xl sm:max-w-lg md:max-w-xl" style="max-height: 90vh; overflow-y: auto;">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeModal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold" style="color: #101E3D">aIQversity காத்திருப்புப் பட்டியலில் சேரவும்</h3>
+                <p class="text-gray-600 mt-2">AI-இயங்கும் கல்விசார் சிறப்பு அனுபவத்தை முதலில் பெறுபவர்களில் ஒருவராக இருங்கள்</p>
+            </div>
+            
+            <!-- Registration Success Message (Hidden by default) -->
+            <div id="registrationSuccess" class="hidden">
+                <div class="text-center py-6 px-2">
+                    <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-semibold mb-3" style="color: #101E3D">சேர்ந்ததற்கு நன்றி!</h4>
+                    <p class="text-gray-600 mb-4 mx-auto max-w-sm">எங்கள் காத்திருப்புப் பட்டியலில் நீங்கள் இருப்பதில் நாங்கள் மகிழ்ச்சியடைகிறோம்! எங்கள் ஆரம்பகால ஆதரவாளர்களில் ஒருவராக, நாங்கள் தொடங்கும் போது பிரத்யேக ஆரம்பகால சலுகைகளைப் பெறுவீர்கள்.</p>
+                    <button class="mt-4 px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105" style="background-color: #F7A621" id="closeSuccessBtn">
+                        புரிந்தது!
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <form id="registrationForm" class="px-1 sm:px-4 py-2" method="POST" onsubmit="submitForm(event)">
+                <div class="mb-5">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">முழு பெயர்</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">மின்னஞ்சல் முகவரி</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">தொலைபேசி எண் (விருப்பத்தேர்வு)</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">நான் ஒரு</label>
+                    <select id="userType" name="user_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                        <option value="">தயவுசெய்து தேர்ந்தெடுக்கவும்</option>
+                        <option value="student">மாணவர்</option>
+                        <option value="teacher">ஆசிரியர்</option>
+                        <option value="parent">பெற்றோர்</option>
+                        <option value="organization">கல்வி நிறுவனம்</option>
+                    </select>
+                </div>
+                
+                <div class="mb-7">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
+                        <span class="text-sm text-gray-600">aIQversity தயாரிப்புகள் மற்றும் சேவைகள் பற்றிய புதுப்பிப்புகளைப் பெற நான் ஒப்புக்கொள்கிறேன்</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621">
+                    காத்திருப்புப் பட்டியலில் சேரவும்
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('registrationForm');
+            const formData = new FormData(form);
+            const data = new URLSearchParams();
+            for (const pair of formData) {
+                data.append(pair[0], pair[1]);
+            }
+            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxE9_af7rm1jgql-pp4Iz5Rjjd94aMqczfCrP3SRLYcLIc0ZTAhf7DNa3MEsG1h5s33ag/exec';
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'சமர்ப்பிக்கப்படுகிறது...'; // Translated "Submitting..."
+            
+            fetch(scriptURL, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.style.display = 'none';
+                document.getElementById('registrationSuccess').classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('ஏதோ தவறு ஏற்பட்டது. தயவுசெய்து பின்னர் மீண்டும் முயற்சிக்கவும்.'); // Something went wrong. Please try again later.
+            })
+            .finally(() => {
+                submitButton.textContent = originalButtonText; // Reset to original (translated) text
+            });
+        }
+        
+        const registrationButtons = document.querySelectorAll('a[href="/register"]');
+        const registrationModal = document.getElementById('registrationModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalBtn = document.getElementById('closeModal');
+        const registrationForm = document.getElementById('registrationForm');
+        const registrationSuccess = document.getElementById('registrationSuccess');
+        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+        
+        registrationButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                registrationModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        function closeModal() {
+            registrationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            registrationForm.reset();
+            registrationForm.style.display = 'block';
+            registrationSuccess.classList.add('hidden');
+        }
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        closeSuccessBtn.addEventListener('click', closeModal);
+    </script>
+</body>
+</html>
