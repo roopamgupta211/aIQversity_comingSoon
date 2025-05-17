@@ -1083,5 +1083,94 @@
         modalOverlay.addEventListener('click', closeModal);
         closeSuccessBtn.addEventListener('click', closeModal);
     </script>
+    <script src="language-switcher.js"></script>
+    <script>
+        // This function will be called by the Google Maps API script once it's loaded
+        function mapsApiLoaded() {
+            // Check if the user explicitly chose to view the English page in this session
+            if (localStorage.getItem('userChoseEnglish') === 'true') {
+                localStorage.removeItem('userChoseEnglish'); // Clear the flag (it's a one-time use for this load)
+                setupLanguageSwitcher('English', 'index.html', true); // Display "Viewing in English"
+                return; // Don't attempt to geolocate or redirect
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => { // Success callback
+                        const geocoder = new google.maps.Geocoder();
+                        const latlng = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        geocoder.geocode({ location: latlng }, (results, status) => {
+                            if (status === 'OK') {
+                                if (results[0]) {
+                                    const addressComponents = results[0].address_components;
+                                    let state = null;
+                                    // Find the state (administrative_area_level_1)
+                                    for (let component of addressComponents) {
+                                        if (component.types.includes('administrative_area_level_1')) {
+                                            state = component.long_name;
+                                            break;
+                                        }
+                                    }
+                                    redirectToLanguagePage(state);
+                                } else {
+                                    console.warn('No reverse geocoding results found.');
+                                    setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                                }
+                            } else {
+                                console.error('Geocoder failed due to: ' + status);
+                                setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                            }
+                        });
+                    },
+                    () => { // Error callback (permission denied, etc.)
+                        console.warn('Geolocation permission denied or error.');
+                        setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                    }
+                );
+            } else {
+                console.warn('Geolocation is not supported by this browser.');
+                setupLanguageSwitcher('English', 'index.html', true); // Default to English
+            }
+        }
+
+        function redirectToLanguagePage(state) {
+            let targetPage = null; // No redirection by default
+            let languageName = 'English'; // For the localStorage flag
+
+            if (state) {
+                const s = state.toLowerCase();
+                // Define states for Hindi redirection (you can expand this list)
+                const hindiStates = [
+                    'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 'haryana',
+                    'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh', // North
+                    'assam', 'arunachal pradesh', 'manipur', 'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim', // Northeast
+                    'west bengal', 'odisha' // East (as per your mapping)
+                ];
+
+                if (s.includes('karnataka')) { targetPage = 'kannada.html'; languageName = 'Kannada'; }
+                else if (s.includes('kerala')) { targetPage = 'malayalam.html'; languageName = 'Malayalam'; }
+                else if (s.includes('gujarat')) { targetPage = 'gujarati.html'; languageName = 'Gujarati'; }
+                else if (s.includes('maharashtra')) { targetPage = 'marathi.html'; languageName = 'Marathi'; }
+                else if (s.includes('tamil nadu')) { targetPage = 'tamil.html'; languageName = 'Tamil'; }
+                else if (s.includes('telangana') || s.includes('andhra pradesh')) { targetPage = 'telugu.html'; languageName = 'Telugu'; }
+                else if (hindiStates.some(hindiState => s.includes(hindiState))) { targetPage = 'hindi.html'; languageName = 'Hindi'; }
+            }
+
+            if (targetPage) {
+                // Set a flag so the target page knows it was an auto-redirect
+                localStorage.setItem('autoRedirectedTo', languageName);
+                window.location.href = targetPage;
+            } else {
+                // No specific language match, or state not found, stay on index.html (English)
+                setupLanguageSwitcher('English', 'index.html', true);
+            }
+        }
+    </script>
+    <!-- Google Maps API script - THIS MUST BE AFTER your functions that use it, or use `defer` -->
+    <!-- Replace YOUR_API_KEY with your actual key -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg&callback=mapsApiLoaded"></script>
 </body>
 </html>
