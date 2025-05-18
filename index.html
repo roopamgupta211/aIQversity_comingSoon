@@ -1087,10 +1087,12 @@
     <script>
         // This function will be called by the Google Maps API script once it's loaded
         function mapsApiLoaded() {
-            // Check if the user explicitly chose to view the English page in this session
-            if (localStorage.getItem('userChoseEnglish') === 'true') {
-                localStorage.removeItem('userChoseEnglish'); // Clear the flag (it's a one-time use for this load)
-                setupLanguageSwitcher('English', 'index.html', true); // Display "Viewing in English"
+            const englishLangInfo = availableLanguages.find(l => l.code === 'en'); // From language-switcher.js
+
+            // Check if the user explicitly chose a language in this session
+            if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
+                localStorage.removeItem('userExplicitlyChoseLanguage'); // Clear the flag (it's a one-time use for this load)
+                setupLanguageSwitcher(englishLangInfo); // Display language switcher with English as current
                 return; // Don't attempt to geolocate or redirect
             }
 
@@ -1107,65 +1109,61 @@
                                 if (results[0]) {
                                     const addressComponents = results[0].address_components;
                                     let state = null;
-                                    // Find the state (administrative_area_level_1)
                                     for (let component of addressComponents) {
                                         if (component.types.includes('administrative_area_level_1')) {
                                             state = component.long_name;
                                             break;
                                         }
                                     }
-                                    redirectToLanguagePage(state);
+                                    redirectToLanguagePageByState(state, englishLangInfo);
                                 } else {
                                     console.warn('No reverse geocoding results found.');
-                                    setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                                    setupLanguageSwitcher(englishLangInfo);
                                 }
                             } else {
                                 console.error('Geocoder failed due to: ' + status);
-                                setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                                setupLanguageSwitcher(englishLangInfo);
                             }
                         });
                     },
-                    () => { // Error callback (permission denied, etc.)
+                    () => { // Error callback
                         console.warn('Geolocation permission denied or error.');
-                        setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                        setupLanguageSwitcher(englishLangInfo);
                     }
                 );
             } else {
                 console.warn('Geolocation is not supported by this browser.');
-                setupLanguageSwitcher('English', 'index.html', true); // Default to English
+                setupLanguageSwitcher(englishLangInfo);
             }
         }
 
-        function redirectToLanguagePage(state) {
-            let targetPage = null; // No redirection by default
-            let languageName = 'English'; // For the localStorage flag
+        function redirectToLanguagePageByState(state, currentEnglishInfo) {
+            let targetLangInfo = null;
 
             if (state) {
                 const s = state.toLowerCase();
-                // Define states for Hindi redirection (you can expand this list)
-                const hindiStates = [
+                const hindiStates = [ /* ... your hindi states list ... */
                     'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 'haryana',
-                    'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh', // North
-                    'assam', 'arunachal pradesh', 'manipur', 'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim', // Northeast
-                    'west bengal', 'odisha' // East (as per your mapping)
+                    'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh',
+                    'assam', 'arunachal pradesh', 'manipur', 'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim',
+                    'west bengal', 'odisha'
                 ];
 
-                if (s.includes('karnataka')) { targetPage = 'kannada.html'; languageName = 'Kannada'; }
-                else if (s.includes('kerala')) { targetPage = 'malayalam.html'; languageName = 'Malayalam'; }
-                else if (s.includes('gujarat')) { targetPage = 'gujarati.html'; languageName = 'Gujarati'; }
-                else if (s.includes('maharashtra')) { targetPage = 'marathi.html'; languageName = 'Marathi'; }
-                else if (s.includes('tamil nadu')) { targetPage = 'tamil.html'; languageName = 'Tamil'; }
-                else if (s.includes('telangana') || s.includes('andhra pradesh')) { targetPage = 'telugu.html'; languageName = 'Telugu'; }
-                else if (hindiStates.some(hindiState => s.includes(hindiState))) { targetPage = 'hindi.html'; languageName = 'Hindi'; }
+                if (s.includes('karnataka')) targetLangInfo = availableLanguages.find(l => l.code === 'kn');
+                else if (s.includes('kerala')) targetLangInfo = availableLanguages.find(l => l.code === 'ml');
+                else if (s.includes('gujarat')) targetLangInfo = availableLanguages.find(l => l.code === 'gu');
+                else if (s.includes('maharashtra')) targetLangInfo = availableLanguages.find(l => l.code === 'mr');
+                else if (s.includes('tamil nadu')) targetLangInfo = availableLanguages.find(l => l.code === 'ta');
+                else if (s.includes('telangana') || s.includes('andhra pradesh')) targetLangInfo = availableLanguages.find(l => l.code === 'te');
+                else if (hindiStates.some(hindiState => s.includes(hindiState))) targetLangInfo = availableLanguages.find(l => l.code === 'hi');
             }
 
-            if (targetPage) {
-                // Set a flag so the target page knows it was an auto-redirect
-                localStorage.setItem('autoRedirectedTo', languageName);
-                window.location.href = targetPage;
+            if (targetLangInfo && targetLangInfo.file !== currentEnglishInfo.file) {
+                localStorage.setItem('autoRedirectedTo', targetLangInfo.name.split(' ')[0]); // Store only the primary name like "Kannada"
+                window.location.href = targetLangInfo.file;
             } else {
-                // No specific language match, or state not found, stay on index.html (English)
-                setupLanguageSwitcher('English', 'index.html', true);
+                // No specific language match, or target is English itself, stay on index.html
+                setupLanguageSwitcher(currentEnglishInfo);
             }
         }
     </script>
