@@ -1091,10 +1091,13 @@
 
             // Check if the user explicitly chose a language in this session
             if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
+                console.log("User explicitly chose a language. Skipping geolocation.");
                 localStorage.removeItem('userExplicitlyChoseLanguage'); // Clear the flag (it's a one-time use for this load)
                 setupLanguageSwitcher(englishLangInfo); // Display language switcher with English as current
                 return; // Don't attempt to geolocate or redirect
             }
+            
+            console.log("No explicit language choice detected or flag already cleared. Proceeding with geolocation."); // DEBUG LINE
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
