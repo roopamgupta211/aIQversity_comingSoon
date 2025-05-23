@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - aIQversity</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-6 { animation-delay: 0.6s; opacity: 0; }
+        
+        .logo-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#101E3D 0.5px, transparent 0.5px), radial-gradient(#101E3D 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            opacity: 0.1;
+        }
+
+        .faq-accordion {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            transition: all 0.3s ease-out;
+        }
+        
+        .faq-content.open {
+            max-height: 500px;
+            padding: 0 24px 24px 24px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 30, 61, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f9fafb;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="./TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Home</a>
+                    <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-24 pb-16 md:pt-32 relative overflow-hidden" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 hero-pattern"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl fade-in-up">
+                    Frequently Asked <span style="color: #F7A621">Questions</span>
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-xl text-gray-600 fade-in-up stagger-1">
+                    Find answers to common questions about aIQversity's AI-powered learning platform
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="mt-8 max-w-2xl mx-auto fade-in-up stagger-2">
+                    <div class="search-container">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <input type="text" id="searchInput" class="block w-full pl-10 pr-3 py-4 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-lg" placeholder="Search FAQs...">
+                        </div>
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Categories Quick Links -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center mb-12 fade-in-up" style="color: #101E3D">Browse by Category</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up stagger-1">
+                <!-- Category 1 -->
+                <a href="#general" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(247, 166, 33, 0.1);">
+                        <svg class="w-8 h-8" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">General Questions</h3>
+                    <p class="text-gray-600 text-sm">Learn about aIQversity basics</p>
+                </a>
+
+                <!-- Category 2 -->
+                <a href="#features" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(69, 230, 192, 0.1);">
+                        <svg class="w-8 h-8" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Features & Functionality</h3>
+                    <p class="text-gray-600 text-sm">Discover AI-powered features</p>
+                </a>
+
+                <!-- Category 3 -->
+                <a href="#tutoring" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(247, 166, 33, 0.1);">
+                        <svg class="w-8 h-8" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">AI Tutoring & Doubt Solving</h3>
+                    <p class="text-gray-600 text-sm">How AI helps with learning</p>
+                </a>
+
+                <!-- Category 4 -->
+                <a href="#pricing" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(69, 230, 192, 0.1);">
+                        <svg class="w-8 h-8" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Subscription & Pricing</h3>
+                    <p class="text-gray-600 text-sm">Plans and pricing details</p>
+                </a>
+
+                <!-- Category 5 -->
+                <a href="#security" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(247, 166, 33, 0.1);">
+                        <svg class="w-8 h-8" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Security & Privacy</h3>
+                    <p class="text-gray-600 text-sm">Data protection information</p>
+                </a>
+
+                <!-- Category 6 -->
+                <a href="#support" class="category-card rounded-xl p-6 text-center transform transition-all duration-300 hover:scale-105">
+                    <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style="background: rgba(69, 230, 192, 0.1);">
+                        <svg class="w-8 h-8" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 11-9.75 9.75 9.75 9.75 0 019.75-9.75z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color: #101E3D">Support & Contact</h3>
+                    <p class="text-gray-600 text-sm">Get help and contact us</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Sections -->
+    <div class="py-16 relative overflow-hidden" style="background: linear-gradient(135deg, #f0f4f8 0%, #e6f0fa 100%);">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- General Questions -->
+            <div id="general" class="mb-16 fade-in-up">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        General Questions
+                    </span>
+                </h2>
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">What is aIQversity?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">aIQversity is an AI-powered learning platform that helps students prepare for exams using Generative AI (GenAI). We provide smart study plans, AI-based tutoring, question paper generation, doubt-solving, and real-time exam predictions.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Who can use aIQversity?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <p class="mb-3">aIQversity is designed for:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">📚</span>
+                                    <span><strong>Students:</strong> From 10th & 12th-grade students preparing for board exams to entrance test aspirants</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">👨‍👩‍👧</span>
+                                    <span><strong>Parents:</strong> To track and support their child's progress</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">👩‍🏫</span>
+                                    <span><strong>Teachers:</strong> For AI-powered question paper generation, automated evaluation, and classroom analytics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">🏫</span>
+                                    <span><strong>Schools & Organizations:</strong> For performance tracking, curriculum planning, and exam management</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Is aIQversity available on mobile?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Yes! aIQversity is available on desktop, mobile, and tablet. We will soon launch a dedicated mobile app for Android and iOS.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Does aIQversity support multiple languages?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Yes! We provide learning support in English, Hindi, and other regional languages, with AI-powered translations and voice-based explanations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features & Functionality -->
+            <div id="features" class="mb-16 fade-in-up stagger-1">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        Features & Functionality
+                    </span>
+                </h2>
+
+                <!-- FAQ Item -->
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">How does AI-powered question paper generation work?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Our Generative AI analyzes 20+ years of past exam papers and syllabus trends to create realistic, probable exam papers. It categorizes questions by topic, difficulty, and marks distribution.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Can I get AI-generated answers and explanations?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <p class="mb-3">Yes! Our AI tutor provides step-by-step explanations for every subject. Students can:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">✅</span>
+                                    <span>Ask AI to explain a concept in simple terms</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">✅</span>
+                                    <span>Upload a question (text/image), and AI will provide an answer with detailed steps</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">How does the AI-powered study planner work?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">AI analyzes your strengths, weaknesses, and available study time to create a customized study plan. It dynamically adjusts if you miss a day or need extra practice on certain topics.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Does aIQversity provide live tutoring?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">We offer AI-based virtual tutoring that works 24/7. Students can ask questions via chat, voice, or video, and AI will respond in real-time.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">How does AI predict exam questions?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Our AI uses historical data, syllabus changes, and weightage analysis to suggest likely exam questions. It also adapts predictions based on student performance.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Can parents track their child's progress?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <p class="mb-3">Yes! Parents get a dedicated dashboard to:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">📊</span>
+                                    <span>Monitor student progress</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">🔍</span>
+                                    <span>View detailed performance analytics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">🎯</span>
+                                    <span>Get AI-driven study recommendations</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI-Powered Doubt Solving & Tutoring -->
+            <div id="tutoring" class="mb-16 fade-in-up stagger-2">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        AI-Powered Doubt Solving & Tutoring
+                    </span>
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">How does the AI doubt solver work?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <p class="mb-3">📸 Students can upload a question or a photo, and AI will:</p>
+                            <ul class="space-y-2 ml-4">
+                                <li>• Analyze the problem</li>
+                                <li>• Explain step-by-step solutions</li>
+                                <li>• Provide related concepts for better understanding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Does the AI tutor only provide answers, or does it explain concepts?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Unlike other platforms, aIQversity doesn't just provide final answers. Our AI guides students step by step, explaining the why and how behind every answer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription & Pricing -->
+            <div id="pricing" class="mb-16 fade-in-up stagger-3">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                        Subscription & Pricing
+                    </span>
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Is aIQversity free to use?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">We offer free basic access to question papers and doubt-solving. Premium features like AI tutoring, exam predictions, and advanced analytics are available under affordable subscription plans.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">What are the subscription plans?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">💡</span>
+                                    <div>
+                                        <strong>Basic Plan (Free)</strong> – Access to question papers, mock tests & doubt-solving
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">🚀</span>
+                                    <div>
+                                        <strong>Premium Plan</strong> – Includes AI tutoring, personalized study plans, and performance analytics
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-2xl mr-2">🏫</span>
+                                    <div>
+                                        <strong>School/Institution Plan</strong> – Special pricing for bulk student access & AI-powered school analytics
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Do you offer discounts for students or schools?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Yes! We offer discounts for early subscribers, schools, and group enrollments. Contact us for details.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Privacy -->
+            <div id="security" class="mb-16 fade-in-up stagger-4">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        Security & Privacy
+                    </span>
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Is my data safe with aIQversity?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Absolutely! We use secure encryption and privacy protection measures to keep student and school data safe.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Does aIQversity share my personal information?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">No. We never sell or share student data. Our AI is built to assist learning without compromising privacy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support & Contact -->
+            <div id="support" class="mb-16 fade-in-up stagger-5">
+                <h2 class="text-3xl font-bold mb-8 text-center" style="color: #101E3D">
+                    <span class="inline-flex items-center">
+                        <svg class="w-8 h-8 mr-3" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 11-9.75 9.75 9.75 9.75 0 019.75-9.75z"/>
+                        </svg>
+                        Support & Contact
+                    </span>
+                </h2>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">How can I contact aIQversity for support?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="text-gray-700 leading-relaxed">
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <span class="text-2xl mr-3">📩</span>
+                                    <span><strong>Email:</strong> support@aiqversity.com</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-2xl mr-3">🌐</span>
+                                    <span><strong>Website:</strong> www.aIQversity.com</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-2xl mr-3">📞</span>
+                                    <span><strong>Phone:</strong> Coming Soon</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg mb-4 overflow-hidden">
+                    <button class="faq-accordion w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleFAQ(this)">
+                        <span class="text-lg font-semibold" style="color: #101E3D">Can I request new features or improvements?</span>
+                        <svg class="faq-icon w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="text-gray-700 leading-relaxed">Yes! We love feedback. If you have feature suggestions, send them to feedback@aiqversity.com.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div style="background: #101E3D">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    🚀 Still have questions?
+                </h2>
+                <p class="mt-4 text-xl" style="color: #45E6C0">
+                    Contact us, and we'll be happy to help!
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/register" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white shadow-lg transition-all duration-300 hover:scale-105" style="background-color: #F7A621">
+                        Join Waitlist
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="mailto:support@aiqversity.com" class="inline-flex items-center justify-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-gray-900 transition-all duration-300">
+                        <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <!-- 3D Cube/Box Being Assembled icon -->
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    with 
+                    <!-- Shield with Heart icon -->
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    in Bangalore by
+                    <img src="./TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Curious about what we're building? Reach out at contact@aiqversity.com
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hidden hover:bg-blue-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6 sm:p-0">
+        <div class="absolute inset-0 bg-black opacity-50" id="modalOverlay"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto my-8 shadow-2xl sm:max-w-lg md:max-w-xl" style="max-height: 90vh; overflow-y: auto;">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeModal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold" style="color: #101E3D">Join aIQversity Waitlist</h3>
+                <p class="text-gray-600 mt-2">Be among the first to experience AI-powered academic excellence</p>
+            </div>
+            
+            <!-- Registration Success Message (Hidden by default) -->
+            <div id="registrationSuccess" class="hidden">
+                <div class="text-center py-6 px-2">
+                    <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-semibold mb-3" style="color: #101E3D">Thank You for Joining!</h4>
+                    <p class="text-gray-600 mb-4 mx-auto max-w-sm">We're thrilled to have you on our waitlist! As one of our early supporters, you'll receive exclusive early bird offers when we launch.</p>
+                    <button class="mt-4 px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105" style="background-color: #F7A621" id="closeSuccessBtn">
+                        Got it!
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <form id="registrationForm" class="px-1 sm:px-4 py-2" method="POST" onsubmit="submitForm(event)">
+                <div class="mb-5">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                    <select id="userType" name="user_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                        <option value="">Please select</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="parent">Parent</option>
+                        <option value="organization">Educational Organization</option>
+                    </select>
+                </div>
+                
+                <div class="mb-7">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
+                        <span class="text-sm text-gray-600">I agree to receive updates about aIQversity products and services</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621">
+                    Join Waitlist
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script>
+        // FAQ Data for Search
+        const faqData = [
+            { question: "What is aIQversity?", answer: "aIQversity is an AI-powered learning platform that helps students prepare for exams using Generative AI (GenAI). We provide smart study plans, AI-based tutoring, question paper generation, doubt-solving, and real-time exam predictions.", category: "general" },
+            { question: "Who can use aIQversity?", answer: "Students, Parents, Teachers, Schools & Organizations", category: "general" },
+            { question: "Is aIQversity available on mobile?", answer: "Yes! aIQversity is available on desktop, mobile, and tablet. We will soon launch a dedicated mobile app for Android and iOS.", category: "general" },
+            { question: "Does aIQversity support multiple languages?", answer: "Yes! We provide learning support in English, Hindi, and other regional languages, with AI-powered translations and voice-based explanations.", category: "general" },
+            { question: "How does AI-powered question paper generation work?", answer: "Our Generative AI analyzes 20+ years of past exam papers and syllabus trends to create realistic, probable exam papers.", category: "features" },
+            { question: "Can I get AI-generated answers and explanations?", answer: "Yes! Our AI tutor provides step-by-step explanations for every subject.", category: "features" },
+            { question: "How does the AI-powered study planner work?", answer: "AI analyzes your strengths, weaknesses, and available study time to create a customized study plan.", category: "features" },
+            { question: "Does aIQversity provide live tutoring?", answer: "We offer AI-based virtual tutoring that works 24/7. Students can ask questions via chat, voice, or video.", category: "features" },
+            { question: "How does AI predict exam questions?", answer: "Our AI uses historical data, syllabus changes, and weightage analysis to suggest likely exam questions.", category: "features" },
+            { question: "Can parents track their child's progress?", answer: "Yes! Parents get a dedicated dashboard to monitor student progress, view detailed performance analytics, and get AI-driven study recommendations.", category: "features" },
+            { question: "How does the AI doubt solver work?", answer: "Students can upload a question or a photo, and AI will analyze the problem, explain step-by-step solutions, and provide related concepts.", category: "tutoring" },
+            { question: "Does the AI tutor only provide answers, or does it explain concepts?", answer: "Unlike other platforms, aIQversity doesn't just provide final answers. Our AI guides students step by step, explaining the why and how behind every answer.", category: "tutoring" },
+            { question: "Is aIQversity free to use?", answer: "We offer free basic access to question papers and doubt-solving. Premium features like AI tutoring, exam predictions, and advanced analytics are available under affordable subscription plans.", category: "pricing" },
+            { question: "What are the subscription plans?", answer: "Basic Plan (Free), Premium Plan, School/Institution Plan with special pricing.", category: "pricing" },
+            { question: "Do you offer discounts for students or schools?", answer: "Yes! We offer discounts for early subscribers, schools, and group enrollments.", category: "pricing" },
+            { question: "Is my data safe with aIQversity?", answer: "Absolutely! We use secure encryption and privacy protection measures to keep student and school data safe.", category: "security" },
+            { question: "Does aIQversity share my personal information?", answer: "No. We never sell or share student data. Our AI is built to assist learning without compromising privacy.", category: "security" },
+            { question: "How can I contact aIQversity for support?", answer: "Email: support@aiqversity.com, Website: www.aIQversity.com", category: "support" },
+            { question: "Can I request new features or improvements?", answer: "Yes! We love feedback. If you have feature suggestions, send them to feedback@aiqversity.com.", category: "support" }
+        ];
+
+        // FAQ Toggle Function
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('open');
+                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate');
+                }
+            });
+            
+            // Toggle current FAQ
+            content.classList.toggle('open');
+            icon.classList.toggle('rotate');
+        }
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filteredFAQs = faqData.filter(faq => 
+                faq.question.toLowerCase().includes(query) || 
+                faq.answer.toLowerCase().includes(query)
+            );
+
+            if (filteredFAQs.length > 0) {
+                searchResults.innerHTML = filteredFAQs.map(faq => `
+                    <div class="search-result-item" onclick="scrollToFAQ('${faq.question}')">
+                        <div class="font-semibold text-sm" style="color: #101E3D">${highlightText(faq.question, query)}</div>
+                        <div class="text-xs text-gray-600 mt-1">${highlightText(faq.answer.substring(0, 100) + '...', query)}</div>
+                    </div>
+                `).join('');
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+
+        function highlightText(text, query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function scrollToFAQ(question) {
+            searchResults.style.display = 'none';
+            searchInput.value = '';
+            
+            // Find the FAQ and open it
+            const faqButtons = document.querySelectorAll('.faq-accordion');
+            faqButtons.forEach(button => {
+                if (button.textContent.trim().includes(question)) {
+                    const content = button.nextElementSibling;
+                    if (!content.classList.contains('open')) {
+                        toggleFAQ(button);
+                    }
+                    button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!document.querySelector('.search-container').contains(event.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Scroll to top functionality
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.classList.remove('hidden');
+            } else {
+                scrollToTopButton.classList.add('hidden');
+            }
+        };
+        
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Registration Form
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('registrationForm');
+            const formData = new FormData(form);
+            const data = new URLSearchParams();
+            for (const pair of formData) {
+                data.append(pair[0], pair[1]);
+            }
+            
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxE9_af7rm1jgql-pp4Iz5Rjjd94aMqczfCrP3SRLYcLIc0ZTAhf7DNa3MEsG1h5s33ag/exec';
+            
+            document.querySelector('button[type="submit"]').textContent = 'Submitting...';
+            
+            fetch(scriptURL, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.style.display = 'none';
+                document.getElementById('registrationSuccess').classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Something went wrong. Please try again later.');
+            })
+            .finally(() => {
+                document.querySelector('button[type="submit"]').textContent = 'Join Waitlist';
+            });
+        }
+        
+        // Registration Modal Functionality
+        const registrationButtons = document.querySelectorAll('a[href="/register"]');
+        const registrationModal = document.getElementById('registrationModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const closeModalBtn = document.getElementById('closeModal');
+        const registrationForm = document.getElementById('registrationForm');
+        const registrationSuccess = document.getElementById('registrationSuccess');
+        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+        
+        registrationButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                registrationModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        function closeModal() {
+            registrationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            registrationForm.reset();
+            registrationForm.style.display = 'block';
+            registrationSuccess.classList.add('hidden');
+        }
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        closeSuccessBtn.addEventListener('click', closeModal);
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in-up class
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scrolling for category links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="language-switcher.js"></script>
+</body>
+</html>
