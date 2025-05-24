@@ -1030,23 +1030,18 @@
             }
             
             // Your Google Apps Script web app URL from step 3
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyP9VXumv5heeLlcFmsSF3KQ6pukfjWVIsUMf5FeuNp75cjRNzgjMhHzDRqYzEE9idYNA/exec'; // Replace this with your actual web app URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzddb27FVgEJ61ZoGJr6ZV8bk76KR4bY3YDqXLP8v-p2LLy6ptkScfUewwjBQPk_Yo1XA/exec'; // Replace this with your actual web app URL
             
             // Show loading state
             document.querySelector('button[type="submit"]').textContent = 'Submitting...';
             
             // Send data to Google Apps Script
             fetch(scriptURL, {
-                method: 'POST',  // FIXED: Changed from 'PO' to 'POST'
-                body: data,      // FIXED: Send as URLSearchParams directly, not JSON
-                redirect: 'follow',  // CRITICAL: This is required for Google Apps Script
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8'  // CRITICAL: Prevents preflight requests
-                }
+                method: 'POST',
+                body: data
             })
-            .then(response => response.text())  // FIXED: Get text first, then parse JSON
-            .then(text => {
-                const data = JSON.parse(text);
+            .then(response => response.json())
+            .then(data => {
                 // Show success message
                 form.style.display = 'none';
                 document.getElementById('registrationSuccess').classList.remove('hidden');
