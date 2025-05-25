@@ -9,8 +9,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem; /* Account for fixed header when scrolling to anchors */
+        }
+        body {
+            padding-top: 5rem;
+            margin-top: 0 !important;
+            position: relative;
+            z-index: 1;
+        }
+        nav.bg-white.shadow-lg.fixed.w-full.z-50 {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 9999 !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        /* Ensure navigation content is properly positioned */
+        nav .max-w-7xl {
+            position: relative;
+            z-index: 10000;
+        }
         /* Mobile Responsiveness Improvements */
         @media (max-width: 768px) {
+            body {
+                padding-top: 4rem; /* 64px for mobile navigation */
+            }
+            /* Ensure navigation has consistent height on mobile */
+            .bg-white.shadow-lg.fixed.w-full.z-50 .flex.justify-between.items-center {
+                min-height: 4rem;
+                height: auto;
+                padding: 0.5rem 0;
+            }
+            html {
+                scroll-padding-top: 4rem;
+            }
+            
+            /* Adjust main content container */
+            .pt-24.pb-8.md\\:pt-32 {
+                padding-top: 1rem !important;
+            }
+            
+            /* Questions container additional top spacing */
+            .py-16.bg-gray-50 {
+                padding-top: 2rem;
+            }
+            
+            /* Hero section spacing */
+            .pt-24.pb-8 {
+                padding-top: 1.5rem !important;
+            }
             /* Navigation Container */
             .flex.justify-between.items-center.h-20 {
                 height: auto;
@@ -192,6 +244,14 @@
 
         /* Extra Small Screens */
         @media (max-width: 480px) {
+            body {
+                padding-top: 3.5rem; /* Smaller padding for very small screens */
+            }
+            
+            .bg-white.shadow-lg.fixed.w-full.z-50 .flex.justify-between.items-center {
+                min-height: 3.5rem;
+                padding: 0.25rem 0;
+            }
             .question-card {
                 margin: 0 -0.75rem;
                 padding: 0.75rem;
@@ -4959,8 +5019,26 @@
             const details = document.getElementById(`details-${questionId}`);
             const toggleText = document.getElementById(`toggle-text-${questionId}`);
             const toggleIcon = document.getElementById(`toggle-icon-${questionId}`);
-
-            if (details.classList.contains('expanded')) {
+            
+            const isCurrentlyExpanded = details.classList.contains('expanded');
+            
+            // Close all other expanded details first
+            document.querySelectorAll('.dropdown-content.expanded').forEach(expandedDetail => {
+                if (expandedDetail.id !== `details-${questionId}`) {
+                    expandedDetail.classList.remove('expanded');
+                    
+                    // Update the toggle text and icon for the closed ones
+                    const detailId = expandedDetail.id.replace('details-', '');
+                    const otherToggleText = document.getElementById(`toggle-text-${detailId}`);
+                    const otherToggleIcon = document.getElementById(`toggle-icon-${detailId}`);
+                    
+                    if (otherToggleText) otherToggleText.textContent = 'View Analysis';
+                    if (otherToggleIcon) otherToggleIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Now toggle the current one
+            if (isCurrentlyExpanded) {
                 details.classList.remove('expanded');
                 toggleText.textContent = 'View Analysis';
                 toggleIcon.style.transform = 'rotate(0deg)';
