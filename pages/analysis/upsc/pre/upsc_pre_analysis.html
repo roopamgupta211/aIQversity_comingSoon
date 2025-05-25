@@ -9,6 +9,130 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Mobile Responsiveness Improvements */
+        @media (max-width: 768px) {
+            /* Question Cards Mobile */
+            .question-card {
+                margin: 0 -1rem;
+                border-radius: 0.75rem;
+                padding: 1rem;
+            }
+            
+            /* Question Header Stack on Mobile */
+            .question-card .flex.justify-between {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+            
+            /* Badge Container Stack */
+            .question-card .flex.items-center.space-x-3 {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            /* Options Single Column on Mobile */
+            .question-card .grid.md\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            /* Analysis Content Mobile */
+            .dropdown-content .grid.md\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            /* Step and Tip Items */
+            .step-item, .tip-item {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+                line-height: 1.4;
+            }
+            
+            /* Charts on Mobile */
+            .bg-white.rounded-xl.shadow-lg.p-6 {
+                padding: 1rem;
+            }
+            
+            /* Analysis Cards Mobile */
+            .analysis-card {
+                padding: 1rem;
+                margin: 0 -0.5rem;
+            }
+            
+            /* Pagination Mobile */
+            #pagination {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.25rem;
+            }
+            
+            #pagination button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+                min-width: 2.5rem;
+            }
+            
+            /* Search and Filters Mobile */
+            .mb-8.flex.flex-wrap.gap-4.justify-center {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .mb-8.flex.flex-wrap.gap-4.justify-center input,
+            .mb-8.flex.flex-wrap.gap-4.justify-center select {
+                width: 100%;
+                margin: 0;
+            }
+            
+            /* Text Sizing for Mobile */
+            .question-card p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .question-card h4 {
+                font-size: 1.1rem;
+            }
+            
+            /* Improve Touch Targets */
+            .question-card button {
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+                font-size: 0.9rem;
+            }
+            
+            /* Container Margins */
+            .max-w-7xl.mx-auto.px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Extra Small Screens */
+        @media (max-width: 480px) {
+            .question-card {
+                margin: 0 -0.75rem;
+                padding: 0.75rem;
+            }
+            
+            .option-letter {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+            }
+            
+            .question-card .space-x-3 {
+                gap: 0.5rem;
+            }
+            
+            /* Badge text smaller */
+            .px-3.py-1.rounded-full.text-sm {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.5rem;
+            }
+        }
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -4539,7 +4663,7 @@
                     option.textContent = subject;
                     subjectFilter.appendChild(option);
                 });
-                
+
                 // Populate difficulty filter with only existing difficulties
                 const difficultyFilter = document.getElementById('difficultyFilter');
                 difficultyFilter.innerHTML = '<option value="">All Difficulties</option>';
