@@ -11,6 +11,86 @@
     <style>
         /* Mobile Responsiveness Improvements */
         @media (max-width: 768px) {
+            /* Navigation Container */
+            .flex.justify-between.items-center.h-20 {
+                height: auto;
+                padding: 0.75rem 0;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            /* Logo Section - Smaller on Mobile */
+            .flex.items-center.logo-shine {
+                width: auto !important;
+                flex-shrink: 0;
+            }
+            
+            .flex.items-center.logo-shine img {
+                height: 2.5rem !important;
+                max-width: 40px !important;
+            }
+            
+            /* Brand Name - Smaller on Mobile */
+            .flex-1.flex.justify-center {
+                flex: none;
+                order: 1;
+                width: 100%;
+                margin: 0.25rem 0;
+            }
+            
+            .flex-1.flex.justify-center span {
+                font-size: 1.25rem !important;
+                text-align: center;
+            }
+            
+            /* Navigation Links Container */
+            .flex.items-center.space-x-4 {
+                width: 100% !important;
+                justify-content: space-between !important;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                order: 2;
+            }
+            
+            /* Back to Home Link - Better Mobile Styling */
+            .flex.items-center.space-x-4 a[href="index.html"] {
+                background: #f3f4f6;
+                color: #374151 !important;
+                padding: 0.5rem 0.75rem !important;
+                border-radius: 0.5rem;
+                font-size: 0.8rem !important;
+                font-weight: 500;
+                border: 1px solid #d1d5db;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                min-height: 40px;
+                flex: 1;
+                justify-content: center;
+                max-width: 140px;
+            }
+            
+            .flex.items-center.space-x-4 a[href="index.html"]:hover {
+                background: #e5e7eb;
+                color: #111827 !important;
+            }
+            
+            /* Join Waitlist Button - Better Mobile */
+            .flex.items-center.space-x-4 a[href="/register"] {
+                padding: 0.5rem 0.75rem !important;
+                font-size: 0.8rem !important;
+                min-height: 40px;
+                flex: 1;
+                text-align: center;
+                max-width: 140px;
+            }
+            
+            /* Navigation Padding */
+            .max-w-7xl.mx-auto.px-4 {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
             /* Question Cards Mobile */
             .question-card {
                 margin: 0 -1rem;
@@ -116,6 +196,28 @@
                 margin: 0 -0.75rem;
                 padding: 0.75rem;
             }
+            /* Even smaller navigation */
+            .flex.items-center.logo-shine img {
+                height: 2rem !important;
+                max-width: 35px !important;
+            }
+            
+            .flex-1.flex.justify-center span {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Stack buttons vertically on very small screens */
+            .flex.items-center.space-x-4 {
+                flex-direction: column;
+                width: 100% !important;
+                gap: 0.5rem;
+            }
+            
+            .flex.items-center.space-x-4 a {
+                width: 100% !important;
+                max-width: none !important;
+                text-align: center;
+            }
             
             .option-letter {
                 width: 20px;
@@ -131,6 +233,35 @@
             .px-3.py-1.rounded-full.text-sm {
                 font-size: 0.75rem;
                 padding: 0.25rem 0.5rem;
+            }
+        }
+        /* Hamburger Menu Alternative (Optional) */
+        @media (max-width: 640px) {
+            /* If you want a more compact approach */
+            .compact-nav .flex.justify-between.items-center.h-20 {
+                height: 3.5rem;
+                padding: 0.5rem 0;
+            }
+            
+            .compact-nav .flex-1.flex.justify-center {
+                width: auto;
+                flex: 1;
+                margin: 0;
+                order: 0;
+            }
+            
+            .compact-nav .flex.items-center.space-x-4 {
+                width: auto !important;
+                order: 0;
+                flex-direction: row;
+                gap: 0.25rem;
+            }
+            
+            .compact-nav .flex.items-center.space-x-4 a {
+                padding: 0.375rem 0.5rem !important;
+                font-size: 0.75rem !important;
+                min-height: 32px;
+                max-width: 80px;
             }
         }
         @keyframes float {
@@ -460,15 +591,15 @@
                 </div>
 
                 <!-- Search and Filter -->
-                <div class="mb-8 flex flex-wrap gap-4 justify-center">
-                    <input type="text" id="questionSearch" placeholder="Search questions..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    <select id="difficultyFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <div class="mb-8 space-y-4 md:space-y-0 md:flex md:flex-wrap md:gap-4 md:justify-center">
+                    <input type="text" id="questionSearch" placeholder="Search questions..." class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <select id="difficultyFilter" class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="">All Difficulties</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
                         <option value="Hard">Hard</option>
                     </select>
-                    <select id="subjectFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <select id="subjectFilter" class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="">All Subjects</option>
                     </select>
                 </div>
