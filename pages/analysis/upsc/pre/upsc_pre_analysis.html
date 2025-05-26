@@ -82,17 +82,21 @@
             
             /* Logo Section - Smaller on Mobile */
             .flex.items-center.logo-shine {
+                flex-basis: 25%;
                 width: auto !important;
                 flex-shrink: 0;
+                text-align:left;
             }
             
             .flex.items-center.logo-shine img {
                 height: 2.5rem !important;
-                max-width: 40px !important;
-            }
+                max-width:40px !important;
+          }
             
             /* Brand Name - Smaller on Mobile */
             .flex-1.flex.justify-center {
+                flex-basis: 50%;
+                text-align: center;
                 flex: none;
                 order: 1;
                 width: 100%;
@@ -106,8 +110,9 @@
             
             /* Navigation Links Container */
             .flex.items-center.space-x-4 {
+                flex-basis: 25%;
                 width: 100% !important;
-                justify-content: space-between !important;
+                justify-content: flex-end;
                 flex-wrap: wrap;
                 gap: 0.5rem;
                 order: 2;
