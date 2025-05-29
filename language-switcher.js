@@ -2,7 +2,7 @@
 
 class DynamicTranslator {
     constructor() {
-        this.geminiApiKey = 'YOUR_GEMINI_API_KEY'; // Replace with your key
+        this.geminiApiKey = 'AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg'; // Replace with your key
         this.currentLanguage = 'en';
         this.translationCache = new Map();
         this.isTranslating = false;
@@ -55,13 +55,14 @@ class DynamicTranslator {
         }
 
         try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${this.geminiApiKey}`, {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${this.geminiApiKey}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     contents: [{
+						role:'user',
                         parts: [{
                             text: `Translate the following text to ${this.supportedLanguages[targetLanguage]}. Return only the translation, no explanations: "${text}"`
                         }]
@@ -259,83 +260,4 @@ class DynamicTranslator {
 
         container.appendChild(option);
     }
-}
-
-// Initialize the translation system
-const translator = new DynamicTranslator();
-
-// Replace your existing mapsApiLoaded function
-function mapsApiLoaded() {
-    // Check if user explicitly chose a language
-    if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
-        localStorage.removeItem('userExplicitlyChoseLanguage');
-        translator.setupLanguageSwitcher('en');
-        return;
-    }
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const geocoder = new google.maps.Geocoder();
-                const latlng = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-                geocoder.geocode({ location: latlng }, (results, status) => {
-                    if (status === 'OK' && results[0]) {
-                        const addressComponents = results[0].address_components;
-                        let state = null;
-                        for (let component of addressComponents) {
-                            if (component.types.includes('administrative_area_level_1')) {
-                                state = component.long_name;
-                                break;
-                            }
-                        }
-                        const targetLanguage = getLanguageByState(state);
-                        if (targetLanguage && targetLanguage !== 'en') {
-                            translator.showConsentModal(targetLanguage);
-                        } else {
-                            translator.setupLanguageSwitcher('en');
-                        }
-                    } else {
-                        translator.setupLanguageSwitcher('en');
-                    }
-                });
-            },
-            () => {
-                translator.setupLanguageSwitcher('en');
-            }
-        );
-    } else {
-        translator.setupLanguageSwitcher('en');
-    }
-}
-
-// Helper function to map states to languages
-function getLanguageByState(state) {
-    if (!state) return 'en';
-    
-    const s = state.toLowerCase();
-    const stateLanguageMap = {
-        'karnataka': 'kn',
-        'kerala': 'ml',
-        'gujarat': 'gu',
-        'maharashtra': 'mr',
-        'tamil nadu': 'ta',
-        'telangana': 'te',
-        'andhra pradesh': 'te'
-    };
-
-    const hindiStates = [
-        'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 
-        'haryana', 'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh'
-    ];
-
-    for (const [stateName, langCode] of Object.entries(stateLanguageMap)) {
-        if (s.includes(stateName)) return langCode;
-    }
-
-    if (hindiStates.some(hindiState => s.includes(hindiState))) return 'hi';
-    
-    return 'en';
 }
