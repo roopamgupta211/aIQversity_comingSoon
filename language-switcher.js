@@ -8,17 +8,29 @@ class DynamicTranslator {
         this.isTranslating = false;
         this.supportedLanguages = {
             'hi': 'Hindi',
-            'kn': 'Kannada', 
+            'kn': 'Kannada',
             'ml': 'Malayalam',
             'gu': 'Gujarati',
             'mr': 'Marathi',
             'ta': 'Tamil',
             'te': 'Telugu'
         };
+        this.intersectionObserver = null; // To hold the observer instance
+
+        // Store original texts when the class is instantiated
+        this.storeOriginalTexts();
     }
 
-    // User consent modal
+    // New method to store original text content
+    storeOriginalTexts() {
+        document.querySelectorAll('[data-translate="true"]').forEach(element => {
+            // Store the initial text content in a data attribute
+            element.dataset.originalText = element.textContent.trim();
+        });
+    }
+
     showConsentModal(targetLanguage) {
+        // ... (your existing code for consent modal - no changes needed here)
         const modal = document.createElement('div');
         modal.id = 'translationConsentModal';
         modal.innerHTML = `
@@ -43,12 +55,14 @@ class DynamicTranslator {
         
         document.getElementById('declineTranslation').onclick = () => {
             modal.remove();
+            localStorage.setItem('preferredLanguage', 'en'); // User chose English
+            this.currentLanguage = 'en'; // Explicitly set
             this.setupLanguageSwitcher('en');
         };
     }
 
-    // Translate text using Gemini API
     async translateText(text, targetLanguage) {
+        // Use original text for cache key if available, otherwise current text
         const cacheKey = `${text}_${targetLanguage}`;
         if (this.translationCache.has(cacheKey)) {
             return this.translationCache.get(cacheKey);
@@ -62,106 +76,135 @@ class DynamicTranslator {
                 },
                 body: JSON.stringify({
                     contents: [{
-						role:'user',
+                        role: 'user',
                         parts: [{
-                            text: `Translate the following text to ${this.supportedLanguages[targetLanguage]}. Return only the translation, no explanations: "${text}"`
+                            text: `Translate the following text to ${this.supportedLanguages[targetLanguage]}. Return only the translation, no explanations: "${text}"; if "aIQversity" is present in the text, keep it as is and do not translate; Return only the translation`
                         }]
                     }]
                 })
             });
-
+            if (!response.ok) {
+                console.error(`Translation API error: ${response.status}`, await response.text());
+                return text; // Return original text on API error
+            }
             const data = await response.json();
-            const translation = data.candidates[0].content.parts[0].text.trim();
-            
-            // Cache the translation
-            this.translationCache.set(cacheKey, translation);
-            return translation;
+            if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+                const translation = data.candidates[0].content.parts[0].text.trim();
+                this.translationCache.set(cacheKey, translation);
+                return translation;
+            } else {
+                console.error('Translation error: Unexpected API response format.', data);
+                return text;
+            }
         } catch (error) {
-            console.error('Translation error:', error);
+            console.error('Translation fetch error:', error);
             return text; // Return original text if translation fails
         }
     }
 
-    // Start translation process
     async startTranslation(targetLanguage) {
-        if (this.isTranslating) return;
+        // Avoid re-translation if already on the target language and not currently translating
+        if (this.currentLanguage === targetLanguage && !this.isTranslating) {
+             // Check if elements actually need re-translation (e.g. if some failed before)
+            const needsUpdate = Array.from(document.querySelectorAll('[data-translate="true"]'))
+                                   .some(el => el.dataset.translatedTo !== targetLanguage);
+            if (!needsUpdate) return;
+        }
+        if (this.isTranslating && this.currentLanguage === targetLanguage) return;
+
+
         this.isTranslating = true;
         this.currentLanguage = targetLanguage;
 
-        // Show loading indicator
         this.showLoadingIndicator();
 
-        // Get all elements to translate
-        const elementsToTranslate = document.querySelectorAll('[data-translate="true"]');
-        
-        // Translate visible elements first (lazy loading)
-        const visibleElements = Array.from(elementsToTranslate).filter(el => this.isElementVisible(el));
-        const hiddenElements = Array.from(elementsToTranslate).filter(el => !this.isElementVisible(el));
+        const elementsToTranslate = Array.from(document.querySelectorAll('[data-translate="true"]'));
+        const visibleElements = [];
+        const hiddenElements = [];
 
-        // Translate visible elements first
+        elementsToTranslate.forEach(el => {
+            if (this.isElementVisible(el)) {
+                visibleElements.push(el);
+            } else {
+                hiddenElements.push(el);
+            }
+        });
+
         await this.translateElements(visibleElements, targetLanguage);
-        
-        // Set up intersection observer for hidden elements
-        this.setupLazyTranslation(hiddenElements, targetLanguage);
-        
+        this.setupLazyTranslation(hiddenElements, targetLanguage); // This will (re)create the observer
+
         this.hideLoadingIndicator();
         this.setupLanguageSwitcher(targetLanguage);
         this.isTranslating = false;
     }
 
-    // Check if element is visible
     isElementVisible(element) {
         const rect = element.getBoundingClientRect();
-        return rect.top < window.innerHeight && rect.bottom > 0;
+        return rect.top < window.innerHeight && rect.bottom >= 0 && rect.left < window.innerWidth && rect.right >= 0;
     }
 
-    // Translate array of elements
     async translateElements(elements, targetLanguage) {
-        const batchSize = 5; // Process 5 elements at a time
-        
+        const batchSize = 40; // Adjusted batch size
         for (let i = 0; i < elements.length; i += batchSize) {
             const batch = elements.slice(i, i + batchSize);
             const promises = batch.map(async (element) => {
-                const originalText = element.textContent.trim();
-                if (originalText) {
-                    const translation = await this.translateText(originalText, targetLanguage);
+                // Always use originalText if available
+                const textToTranslate = element.dataset.originalText || element.textContent.trim();
+                
+                // Only translate if not already translated to the target language
+                if (textToTranslate && element.dataset.translatedTo !== targetLanguage) {
+                    const translation = await this.translateText(textToTranslate, targetLanguage);
                     element.textContent = translation;
+                    element.dataset.translatedTo = targetLanguage;
                 }
             });
             await Promise.all(promises);
         }
     }
 
-    // Setup lazy translation for hidden elements
-    setupLazyTranslation(hiddenElements, targetLanguage) {
-        const observer = new IntersectionObserver(async (entries) => {
+    setupLazyTranslation(elementsToObserve, targetLanguage) {
+        // Disconnect previous observer if it exists
+        if (this.intersectionObserver) {
+            this.intersectionObserver.disconnect();
+        }
+
+        this.intersectionObserver = new IntersectionObserver(async (entries, observerInstance) => {
+            const elementsForBatch = [];
             for (const entry of entries) {
-                if (entry.isIntersecting && !entry.target.dataset.translated) {
+                if (entry.isIntersecting) {
                     const element = entry.target;
-                    const originalText = element.textContent.trim();
-                    if (originalText) {
-                        const translation = await this.translateText(originalText, targetLanguage);
-                        element.textContent = translation;
-                        element.dataset.translated = 'true';
+                     // Check if it needs translation to the current targetLanguage
+                    if (element.dataset.translatedTo !== targetLanguage) {
+                        elementsForBatch.push(element);
                     }
-                    observer.unobserve(element);
+                    // Unobserve after it has been processed for intersection,
+                    // regardless of whether it was translated this specific time.
+                    // It will be re-observed if startTranslation is called again for a new language.
+                    observerInstance.unobserve(element);
                 }
             }
-        });
+            if (elementsForBatch.length > 0) {
+                await this.translateElements(elementsForBatch, targetLanguage);
+            }
 
-        hiddenElements.forEach(element => observer.observe(element));
+        }, { rootMargin: '0px', threshold: 0.1 }); // Trigger when 10% visible
+
+        elementsToObserve.forEach(element => {
+            // Only observe if it's not already translated to the current target language
+            if (element.dataset.translatedTo !== targetLanguage) {
+                this.intersectionObserver.observe(element);
+            }
+        });
     }
 
-    // Loading indicator
     showLoadingIndicator() {
+        // ... (your existing centered loading indicator code)
         const indicator = document.createElement('div');
         indicator.id = 'translationLoader';
         indicator.innerHTML = `
-            <div style="position: fixed; top: 20px; right: 20px; background: #101E3D; color: white; padding: 15px 20px; border-radius: 8px; z-index: 15000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 20px; height: 20px; border: 2px solid #F7A621; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    <span>Translating page...</span>
-                </div>
+            <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #101E3D; color: white; padding: 20px 30px; border-radius: 10px; z-index: 15000; box-shadow: 0 6px 18px rgba(0,0,0,0.35); display: flex; align-items: center; gap: 15px;">
+                <div style="width: 24px; height: 24px; border: 3px solid #F7A621; border-top: 3px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <span style="font-size: 16px;">Translating page...</span>
             </div>
             <style>
                 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -175,55 +218,62 @@ class DynamicTranslator {
         if (indicator) indicator.remove();
     }
 
-    // Language switcher (updated for dynamic translation)
     setupLanguageSwitcher(currentLang) {
-        const existingSwitcher = document.getElementById('languageSwitcherContainer');
-        if (existingSwitcher) existingSwitcher.remove();
+        // ... (your existing switcher code - but ensure it correctly reflects currentLang)
+        let switcherContainer = document.getElementById('languageSwitcherContainer');
+        let dropdownButton;
+        let dropdownContent;
 
-        const switcherContainer = document.createElement('div');
-        switcherContainer.id = 'languageSwitcherContainer';
-        switcherContainer.style.cssText = `
-            position: fixed; bottom: 20px; left: 20px; z-index: 10000; 
-            font-family: Arial, sans-serif;
-        `;
+        if (!switcherContainer) {
+            switcherContainer = document.createElement('div');
+            switcherContainer.id = 'languageSwitcherContainer';
+            switcherContainer.style.cssText = `
+                position: fixed; bottom: 20px; left: 20px; z-index: 10000; 
+                font-family: Arial, sans-serif;
+            `;
 
-        const currentLangName = currentLang === 'en' ? 'English' : this.supportedLanguages[currentLang];
-        const dropdownButton = document.createElement('button');
+            dropdownButton = document.createElement('button');
+            dropdownButton.id = 'languageSwitcherButton';
+            dropdownButton.style.cssText = `
+                padding: 12px 18px; background: rgba(16, 30, 61, 0.95); color: white;
+                border: 1px solid rgba(247, 166, 33, 0.5); border-radius: 8px;
+                font-size: 14px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            `;
+
+            dropdownContent = document.createElement('div');
+            dropdownContent.id = 'languageSwitcherDropdown';
+            dropdownContent.style.cssText = `
+                display: none; position: absolute; bottom: 100%; left: 0; margin-bottom: 5px;
+                background: rgba(16, 30, 61, 0.95); min-width: 180px; border-radius: 8px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.5); max-height: 200px; overflow-y: auto;
+            `;
+
+            dropdownButton.onclick = () => {
+                dropdownContent.style.display = dropdownContent.style.display === 'none' ? 'block' : 'none';
+            };
+
+            switcherContainer.appendChild(dropdownButton);
+            switcherContainer.appendChild(dropdownContent);
+            document.body.appendChild(switcherContainer);
+
+            document.addEventListener('click', (e) => {
+                if (switcherContainer && !switcherContainer.contains(e.target)) {
+                    const content = document.getElementById('languageSwitcherDropdown');
+                    if (content) content.style.display = 'none';
+                }
+            });
+        } else {
+            dropdownButton = document.getElementById('languageSwitcherButton');
+            dropdownContent = document.getElementById('languageSwitcherDropdown');
+            dropdownContent.innerHTML = ''; 
+        }
+
+        const currentLangName = currentLang === 'en' ? 'English' : (this.supportedLanguages[currentLang] || 'English');
         dropdownButton.innerHTML = `🌐 ${currentLangName}`;
-        dropdownButton.style.cssText = `
-            padding: 12px 18px; background: rgba(16, 30, 61, 0.95); color: white;
-            border: 1px solid rgba(247, 166, 33, 0.5); border-radius: 8px;
-            font-size: 14px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        `;
-
-        const dropdownContent = document.createElement('div');
-        dropdownContent.style.cssText = `
-            display: none; position: absolute; bottom: 100%; left: 0; margin-bottom: 5px;
-            background: rgba(16, 30, 61, 0.95); min-width: 180px; border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5); max-height: 200px; overflow-y: auto;
-        `;
-
-        // Add English option
-        this.addLanguageOption(dropdownContent, 'English', 'en', currentLang);
         
-        // Add other language options
+        this.addLanguageOption(dropdownContent, 'English', 'en', currentLang);
         Object.entries(this.supportedLanguages).forEach(([code, name]) => {
             this.addLanguageOption(dropdownContent, name, code, currentLang);
-        });
-
-        dropdownButton.onclick = () => {
-            dropdownContent.style.display = dropdownContent.style.display === 'none' ? 'block' : 'none';
-        };
-
-        switcherContainer.appendChild(dropdownButton);
-        switcherContainer.appendChild(dropdownContent);
-        document.body.appendChild(switcherContainer);
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!switcherContainer.contains(e.target)) {
-                dropdownContent.style.display = 'none';
-            }
         });
     }
 
@@ -236,28 +286,32 @@ class DynamicTranslator {
             font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.1);
             ${code === currentLang ? 'background: rgba(247, 166, 33, 0.3); font-weight: bold;' : ''}
         `;
-
-        option.onmouseover = () => {
-            if (code !== currentLang) option.style.background = 'rgba(247, 166, 33, 0.2)';
-        };
-        option.onmouseout = () => {
-            if (code !== currentLang) option.style.background = 'transparent';
-        };
+        option.onmouseover = () => { if (code !== currentLang) option.style.background = 'rgba(247, 166, 33, 0.2)'; };
+        option.onmouseout = () => { if (code !== currentLang) option.style.background = 'transparent'; };
 
         option.onclick = async (e) => {
             e.preventDefault();
-            if (code !== currentLang) {
+            container.style.display = 'none'; // Close dropdown first
+            if (code !== this.currentLanguage) { // Check against internal state
+                localStorage.setItem('preferredLanguage', code);
                 if (code === 'en') {
-                    // Reload page for English
-                    window.location.reload();
+                    // Revert to original English text without full reload
+                    document.querySelectorAll('[data-translate="true"]').forEach(el => {
+                        if (el.dataset.originalText) {
+                            el.textContent = el.dataset.originalText;
+                        }
+                        el.dataset.translatedTo = 'en';
+                    });
+                    this.currentLanguage = 'en';
+                    this.setupLanguageSwitcher('en'); // Update switcher display
+                    if (this.intersectionObserver) {
+                        this.intersectionObserver.disconnect(); // Stop observing
+                    }
                 } else {
-                    // Translate to selected language
                     await this.startTranslation(code);
                 }
             }
-            container.style.display = 'none';
         };
-
         container.appendChild(option);
     }
 }
