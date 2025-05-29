@@ -1095,92 +1095,87 @@
         modalOverlay.addEventListener('click', closeModal);
         closeSuccessBtn.addEventListener('click', closeModal);
     </script>
-    <script src="language-switcher.js"></script>
+	<script src="language-switcher.js"></script>
     <script>
-        // This function will be called by the Google Maps API script once it's loaded
-        function mapsApiLoaded() {
-            const englishLangInfo = availableLanguages.find(l => l.code === 'en'); // From language-switcher.js
+// Initialize the translation system
+const translator = new DynamicTranslator();
 
-            // Check if the user explicitly chose a language in this session
-            if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
-                console.log("User explicitly chose a language. Skipping geolocation.");
-                localStorage.removeItem('userExplicitlyChoseLanguage'); // Clear the flag (it's a one-time use for this load)
-                setupLanguageSwitcher(englishLangInfo); // Display language switcher with English as current
-                return; // Don't attempt to geolocate or redirect
-            }
-            
-            console.log("No explicit language choice detected or flag already cleared. Proceeding with geolocation."); // DEBUG LINE
+// Replace your existing mapsApiLoaded function
+function mapsApiLoaded() {
+    // Check if user explicitly chose a language
+    if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
+        localStorage.removeItem('userExplicitlyChoseLanguage');
+        translator.setupLanguageSwitcher('en');
+        return;
+    }
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => { // Success callback
-                        const geocoder = new google.maps.Geocoder();
-                        const latlng = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-                        geocoder.geocode({ location: latlng }, (results, status) => {
-                            if (status === 'OK') {
-                                if (results[0]) {
-                                    const addressComponents = results[0].address_components;
-                                    let state = null;
-                                    for (let component of addressComponents) {
-                                        if (component.types.includes('administrative_area_level_1')) {
-                                            state = component.long_name;
-                                            break;
-                                        }
-                                    }
-                                    redirectToLanguagePageByState(state, englishLangInfo);
-                                } else {
-                                    console.warn('No reverse geocoding results found.');
-                                    setupLanguageSwitcher(englishLangInfo);
-                                }
-                            } else {
-                                console.error('Geocoder failed due to: ' + status);
-                                setupLanguageSwitcher(englishLangInfo);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const geocoder = new google.maps.Geocoder();
+                const latlng = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                geocoder.geocode({ location: latlng }, (results, status) => {
+                    if (status === 'OK' && results[0]) {
+                        const addressComponents = results[0].address_components;
+                        let state = null;
+                        for (let component of addressComponents) {
+                            if (component.types.includes('administrative_area_level_1')) {
+                                state = component.long_name;
+                                break;
                             }
-                        });
-                    },
-                    () => { // Error callback
-                        console.warn('Geolocation permission denied or error.');
-                        setupLanguageSwitcher(englishLangInfo);
+                        }
+                        const targetLanguage = getLanguageByState(state);
+                        if (targetLanguage && targetLanguage !== 'en') {
+                            translator.showConsentModal(targetLanguage);
+                        } else {
+                            translator.setupLanguageSwitcher('en');
+                        }
+                    } else {
+                        translator.setupLanguageSwitcher('en');
                     }
-                );
-            } else {
-                console.warn('Geolocation is not supported by this browser.');
-                setupLanguageSwitcher(englishLangInfo);
+                });
+            },
+            () => {
+                translator.setupLanguageSwitcher('en');
             }
-        }
+        );
+    } else {
+        translator.setupLanguageSwitcher('en');
+    }
+}
 
-        function redirectToLanguagePageByState(state, currentEnglishInfo) {
-            let targetLangInfo = null;
+// Helper function to map states to languages
+function getLanguageByState(state) {
+    if (!state) return 'en';
+    
+    const s = state.toLowerCase();
+    const stateLanguageMap = {
+        'karnataka': 'kn',
+        'kerala': 'ml',
+        'gujarat': 'gu',
+        'maharashtra': 'mr',
+        'tamil nadu': 'ta',
+        'telangana': 'te',
+        'andhra pradesh': 'te'
+    };
 
-            if (state) {
-                const s = state.toLowerCase();
-                const hindiStates = [ /* ... your hindi states list ... */
-                    'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 'haryana',
-                    'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh',
-                    'assam', 'arunachal pradesh', 'manipur', 'meghalaya', 'mizoram', 'nagaland', 'tripura', 'sikkim',
-                    'west bengal', 'odisha'
-                ];
+    const hindiStates = [
+        'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 
+        'haryana', 'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh'
+    ];
 
-                if (s.includes('karnataka')) targetLangInfo = availableLanguages.find(l => l.code === 'kn');
-                else if (s.includes('kerala')) targetLangInfo = availableLanguages.find(l => l.code === 'ml');
-                else if (s.includes('gujarat')) targetLangInfo = availableLanguages.find(l => l.code === 'gu');
-                else if (s.includes('maharashtra')) targetLangInfo = availableLanguages.find(l => l.code === 'mr');
-                else if (s.includes('tamil nadu')) targetLangInfo = availableLanguages.find(l => l.code === 'ta');
-                else if (s.includes('telangana') || s.includes('andhra pradesh')) targetLangInfo = availableLanguages.find(l => l.code === 'te');
-                else if (hindiStates.some(hindiState => s.includes(hindiState))) targetLangInfo = availableLanguages.find(l => l.code === 'hi');
-            }
+    for (const [stateName, langCode] of Object.entries(stateLanguageMap)) {
+        if (s.includes(stateName)) return langCode;
+    }
 
-            if (targetLangInfo && targetLangInfo.file !== currentEnglishInfo.file) {
-                localStorage.setItem('autoRedirectedTo', targetLangInfo.name.split(' ')[0]); // Store only the primary name like "Kannada"
-                window.location.href = targetLangInfo.file;
-            } else {
-                // No specific language match, or target is English itself, stay on index.html
-                setupLanguageSwitcher(currentEnglishInfo);
-            }
-        }
+    if (hindiStates.some(hindiState => s.includes(hindiState))) return 'hi';
+    
+    return 'en';
+}
+
     </script>
     <!-- Google Maps API script - THIS MU BE AFTER your functions that use it, or use `defer` -->
     <!-- Replace YOUR_API_KEY with your actual key -->
