@@ -95,6 +95,17 @@
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
+	/* Consent Modal Styles */
+    #translationConsentModalContainer {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        background: rgba(0,0,0,0.7); z-index: 20000; 
+        display: flex; align-items: center; justify-content: center;
+    }
+    #translationConsentModalDialog {
+        background: white; padding: 30px; border-radius: 12px; 
+        max-width: 400px; text-align: center; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -123,8 +134,8 @@
                     <div class="mb-8 p-8 rounded-xl" style="background: #101E3D">
                         <img src="./images/logo.jpg" alt="aIQversity Logo" class="w-full max-w-md mx-auto" style="max-width: 400px;"/>
                     </div>
-                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl text-center lg:text-left max-w-2xl" data-translate="true">
-                        AI meets education to empower students with <span style="color:#F7A621"><em>personalized knowledge pathways</em></span>, teachers with <span style="color:#F7A621"><em>adaptive tools</em></span>, parents with <span style="color:#F7A621"><em>individualized insights</em></span>, and institutions with <span style="color:#F7A621"><em>targeted analytics</em></span> — all tailored to unique needs and accessible in multiple Indian languages for truly <span style="color:#F7A621"><em>inclusive, personalized learning</em></span>
+                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl text-center lg:text-left max-w-2xl">
+                        <span data-translate="true">AI meets education to empower students with</span> <span style="color:#F7A621" data-translate="true"><em>personalized knowledge pathways</em></span>, <span data-translate="true">teachers with</span> <span style="color:#F7A621" data-translate="true"><em>adaptive tools</em></span>, <span data-translate="true">parents with</span> <span style="color:#F7A621" data-translate="true"><em>individualized insights</em></span>, <span data-translate="true">and institutions with </span><span style="color:#F7A621" data-translate="true"><em>targeted analytics</em></span> — <span data-translate="true">all tailored to unique needs and accessible in multiple Indian languages for truly</span> <span style="color:#F7A621" data-translate="true"><em>inclusive, personalized learning</em></span>
                     </p>
                     <div class="mt-8">
                         <a href="/register" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white shadow-lg transition-all duration-300 hover:scale-105" style="background-color: #F7A621">
@@ -151,7 +162,7 @@
                             <div class="bg-white/10 rounded-lg p-4">
                                 <h3 class="text-lg mb-3" style="color: #45E6C0" data-translate="true">Current Practice Session</h3>
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="text-sm">Physics - Mechanics</span>
+                                    <span class="text-sm" data-translate="true">Physics - Mechanics</span>
                                     <span class="px-2 py-1 rounded text-xs" style="background: #F7A621" data-translate="true">In Progress</span>
                                 </div>
                                 <div class="h-2 bg-white/20 rounded-full mt-2">
@@ -165,11 +176,11 @@
                                 <div class="space-y-2">
                                     <div class="flex justify-between items-center">
                                         <span data-translate="true">Chemistry Test</span>
-                                        <span style="color: #F7A621" data-translate="true">85%</span>
+                                        <span style="color: #F7A621">85%</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span data-translate="true">Physics Quiz</span>
-                                        <span style="color: #F7A621" data-translate="true">92%</span>
+                                        <span style="color: #F7A621">92%</span>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +192,7 @@
                                     <div>
                                         <div class="flex justify-between text-sm mb-1">
                                             <span data-translate="true">Mathematics</span>
-                                            <span data-translate="true">8/10 topics</span>
+                                            <span>8/10 <span data-translate="true">topics</span></span>
                                         </div>
                                         <div class="h-2 bg-white/20 rounded-full">
                                             <div class="h-full w-4/5 rounded-full" style="background: #F7A621"></div>
@@ -190,7 +201,7 @@
                                     <div>
                                         <div class="flex justify-between text-sm mb-1">
                                             <span data-translate="true">Physics</span>
-                                            <span data-translate="true">6/10 topics</span>
+                                            <span>6/10 <span data-translate="true">topics</span></span>
                                         </div>
                                         <div class="h-2 bg-white/20 rounded-full">
                                             <div class="h-full w-3/5 rounded-full" style="background: #F7A621"></div>
@@ -202,12 +213,12 @@
                             <!-- Quick Stats -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="bg-white/10 rounded-lg p-4">
-                                    <div class="text-xs opacity-70"><span data-translate="true">Study Streak</span>span</div>
-                                    <div class="text-lg font-semibold" style="color: #45E6C0"><span data-translate="true">5 Days</span></div>
+                                    <div class="text-xs opacity-70"><span data-translate="true">Study Streak</span></div>
+                                    <div class="text-lg font-semibold" style="color: #45E6C0">5 <span data-translate="true">Days</span></div>
                                 </div>
                                 <div class="bg-white/10 rounded-lg p-4">
                                     <div class="text-xs opacity-70"><span data-translate="true">Questions Solved</span></div>
-                                    <div class="text-lg font-semibold" style="color: #45E6C0"><span data-translate="true">248</span></div>
+                                    <div class="text-lg font-semibold" style="color: #45E6C0">248</div>
                                 </div>
                             </div>
                         </div>
@@ -412,10 +423,10 @@
 
             <!-- User Type Tabs -->
             <div class="flex flex-wrap justify-center gap-2 mt-12 mb-8 px-2">
-                <button onclick="showFeatures('student')" class="px-3 sm:px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium" style="background: #101E3D"><span data-translate="true">Students</span></button>
-                <button onclick="showFeatures('teacher')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300"><span data-translate="true">Teachers</span></button>
-                <button onclick="showFeatures('parent')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300"><span data-translate="true">Parents</span></button>
-                <button onclick="showFeatures('org')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300"><span data-translate="true">Organizations</span></button>
+                <button onclick="showFeatures('student')" class="px-3 sm:px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium" style="background: #101E3D" data-translate="true">Students</button>
+                <button onclick="showFeatures('teacher')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300" data-translate="true">Teachers</button>
+                <button onclick="showFeatures('parent')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300" data-translate="true">Parents</button>
+                <button onclick="showFeatures('org')" class="px-3 sm:px-6 py-2 rounded-full bg-gray-200 text-gray-700 text-sm sm:text-base font-medium hover:bg-gray-300" data-translate="true">Organizations</button>
             </div>
 
             <!-- Features Carousel -->
@@ -824,15 +835,15 @@
                             <div class="space-y-3 mt-6">
                                 <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
                                     <input type="radio" name="answer" class="mr-3" />
-                                    <span data-translate="true">20.4 m</span>
+                                    20.4 m
                                 </div>
                                 <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
                                     <input type="radio" name="answer" class="mr-3" />
-                                    <span data-translate="true">10.2 m</span>
+                                    10.2 m
                                 </div>
                                 <div class="flex items-center p-3 rounded-lg hover:bg-white/5 cursor-pointer border border-white/10">
                                     <input type="radio" name="answer" class="mr-3" />
-                                    <span data-translate="true">15.3 m</span>
+                                    15.3 m
                                 </div>
                             </div>
                         </div>
@@ -961,8 +972,8 @@
             </button>
             
             <div class="text-center mb-6">
-                <h3 class="text-2xl font-bold" style="color: #101E3D">Join aIQversity Waitlist</h3>
-                <p class="text-gray-600 mt-2">Be among the first to experience AI-powered academic excellence</p>
+                <h3 class="text-2xl font-bold" style="color: #101E3D" data-translate="true">Join aIQversity Waitlist</h3>
+                <p class="text-gray-600 mt-2" data-translate="true">Be among the first to experience AI-powered academic excellence</p>
             </div>
             
             <!-- Registration Success Message (Hidden by default) -->
@@ -973,9 +984,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h4 class="text-2xl font-semibold mb-3" style="color: #101E3D">Thank You for Joining!</h4>
-                    <p class="text-gray-600 mb-4 mx-auto max-w-sm">We're thrilled to have you on our waitlist! As one of our early supporters, you'll receive exclusive early bird offers when we launch.</p>
-                    <button class="mt-4 px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105" style="background-color: #F7A621" id="closeSuccessBtn">
+                    <h4 class="text-2xl font-semibold mb-3" style="color: #101E3D" data-translate="true">Thank You for Joining!</h4>
+                    <p class="text-gray-600 mb-4 mx-auto max-w-sm" data-translate="true">We're thrilled to have you on our waitlist! As one of our early supporters, you'll receive exclusive early bird offers when we launch.</p>
+                    <button class="mt-4 px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105" style="background-color: #F7A621" id="closeSuccessBtn" data-translate="true">
                         Got it!
                     </button>
                 </div>
@@ -984,39 +995,39 @@
             <!-- Registration Form -->
             <form id="registrationForm" class="px-1 sm:px-4 py-2" method="PO" onsubmit="submitForm(event)">
                 <div class="mb-5">
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Full Name</label>
                     <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Email Address</label>
                     <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Phone Number (Optional)</label>
                     <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">I am a</label>
                     <select id="userType" name="user_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
-                        <option value="">Please select</option>
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="parent">Parent</option>
-                        <option value="organization">Educational Organization</option>
+                        <option value=""><span data-translate="true">Please select</span></option>
+                        <option value="student"><span data-translate="true">Student</span></option>
+                        <option value="teacher"><span data-translate="true">Teacher</span></option>
+                        <option value="parent"><span data-translate="true">Parent</span></option>
+                        <option value="organization"><span data-translate="true">Educational Organization</span></option>
                     </select>
                 </div>
                 
                 <div class="mb-7">
                     <label class="flex items-start">
                         <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
-                        <span class="text-sm text-gray-600">I agree to receive updates about aIQversity products and services</span>
+                        <span class="text-sm text-gray-600" data-translate="true">I agree to receive updates about aIQversity products and services</span>
                     </label>
                 </div>
                 
-                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621">
+                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621" data-translate="true">
                     Join Waitlist
                 </button>
             </form>
