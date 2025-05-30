@@ -328,6 +328,41 @@
         .difficulty-badge-easy { background: rgba(16, 185, 129, 0.1); color: #10B981; }
         .difficulty-badge-medium { background: rgba(247, 166, 33, 0.1); color: #F7A621; }
         .difficulty-badge-hard { background: rgba(239, 68, 68, 0.1); color: #EF4444; }
+        
+        /* Mobile Navigation Improvements */
+        @media (max-width: 640px) {
+            /* Adjust logo area for mobile home button */
+            nav .flex.items-center.logo-shine.w-1\\/4 {
+                width: auto;
+                min-width: fit-content;
+            }
+            
+            /* Center brand name better on mobile */
+            nav .flex-1.flex.justify-center {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            /* Adjust right section */
+            nav .flex.items-center.space-x-4.w-1\\/4.justify-end {
+                width: auto;
+                flex: 1;
+                justify-content: flex-end;
+            }
+            
+            /* Style mobile home button */
+            nav .sm\\:hidden.flex.items-center {
+                padding: 0.5rem 0.75rem;
+                background: rgba(247, 166, 33, 0.1);
+                border-radius: 0.375rem;
+                font-weight: 500;
+                color: #F7A621;
+            }
+            
+            nav .sm\\:hidden.flex.items-center:hover {
+                background: rgba(247, 166, 33, 0.2);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -335,17 +370,22 @@
     <nav class="bg-white shadow-lg fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center logo-shine w-1/4">
-                    <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
-                </div>
+                div class="flex items-center logo-shine w-1/4">
+                <!-- Logo - hidden on mobile -->
+                <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="hidden sm:block h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                <!-- Home button - visible only on mobile -->
+                <a href="../../../../index.html" class="sm:hidden flex items-center text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m0 0v14"/>
+                    </svg>
+                    Home
+                </a>
+            </div>
                 <div class="flex-1 flex justify-center">
                     <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
                 </div>
                 <div class="flex items-center space-x-4 w-1/4 justify-end">
-                    <a href="../../../../index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        <span class="hidden sm:inline">← Back to Home</span>
-                        <span class="sm:hidden">← Home</span>
-                    </a>
+                    <a href="../../../../index.html" class="hidden sm:inline-flex text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">← Back to Home</a>
                     <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
                 </div>
             </div>
