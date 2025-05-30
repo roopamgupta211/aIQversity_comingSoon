@@ -153,6 +153,44 @@
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
+            /* Navigation Mobile Fixes */
+            nav .flex.justify-between.items-center.h-20 {
+                height: 4rem; /* Reduce height on mobile */
+            }
+
+            nav .flex.items-center.logo-shine.w-1\\/4 {
+                width: auto;
+                min-width: 40px;
+            }
+
+            nav .flex.items-center.logo-shine.w-1\\/4 img {
+                height: 3rem; /* Smaller logo on mobile */
+                max-width: 40px;
+            }
+
+            nav .flex-1.flex.justify-center span {
+                font-size: 1.25rem; /* Smaller brand name */
+            }
+
+            nav .flex.items-center.space-x-4.w-1\\/4 {
+                width: auto;
+                flex: 1;
+                justify-content: flex-end;
+                space-x: 0.5rem;
+            }
+
+            /* Navigation Links Mobile */
+            nav .flex.items-center.space-x-4.w-1\\/4 a:first-child {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+            }
+
+            nav .flex.items-center.space-x-4.w-1\\/4 a:last-child {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+                min-width: auto;
+            }
+
         }
 
         /* Extra Small Screens */
@@ -212,7 +250,7 @@
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
-        
+
         @keyframes shine {
             0% { transform: translateX(-100%) rotate(45deg); }
             100% { transform: translateX(100%) rotate(45deg); }
