@@ -49,16 +49,15 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f0f4f8; /* Match home page background */
+            background: #f0f4f8;
             min-height: 100vh;
-            padding-top: 0;
         }
 
         .container {
-            max-width: 7xl;
+            max-width: 1200px; /* Fixed: Use actual pixel value, not "7xl" */
             margin: 0 auto;
             padding: 20px;
-            padding-top: 100px;
+            padding-top: 120px; /* Increased to account for fixed nav */
             position: relative;
         }
         .container::before {
@@ -459,7 +458,27 @@
         }
 
         /* FIXED: Better mobile responsiveness */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 896px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
         @media (max-width: 768px) {
+            .container {
+                padding-top: 100px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
             .analytics-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -515,6 +534,22 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0" style="box-shadow: 0 4px 6px rgba(16, 30, 61, 0.1);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <div class="timer bg-white px-4 py-2 rounded-lg shadow-md" id="timer" style="font-size: 1.2em; font-weight: bold; color: #e74c3c; border: 1px solid rgba(16, 30, 61, 0.1);">00:00:00</div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <!-- Loading Screen -->
         <div id="loading" class="loading">
@@ -537,23 +572,6 @@
 
         <!-- Exam Interface -->
         <div id="examInterface" class="hidden">
-            <!-- Navigation -->
-            <nav class="bg-white shadow-lg fixed w-full z-50 top-0" style="box-shadow: 0 4px 6px rgba(16, 30, 61, 0.1);">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center h-20">
-                        <div class="flex items-center logo-shine w-1/4">
-                            <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
-                        </div>
-                        <div class="flex-1 flex justify-center">
-                            <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
-                        </div>
-                        <div class="flex items-center space-x-4 w-1/4 justify-end">
-                            <div class="timer bg-white px-4 py-2 rounded-lg shadow-md" id="timer" style="font-size: 1.2em; font-weight: bold; color: #e74c3c; border: 1px solid rgba(16, 30, 61, 0.1);">00:00:00</div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
             <!-- Exam Header -->
             <div class="header" style="margin-top: 80px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px;">
                 <div style="text-align: center;">
