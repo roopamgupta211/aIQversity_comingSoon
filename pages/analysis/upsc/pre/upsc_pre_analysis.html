@@ -881,57 +881,8 @@
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page loaded, initializing tabs and loading default data...');
-            initializeTabs();
             loadData(currentJsonFile);
         });
-
-        // JSON data will be embedded here - replace this with your actual JSON array
-        function initializeTabs() {
-            const tabContainer = document.getElementById('modelTabs');
-            if (!tabContainer) {
-                console.error('Tab container #modelTabs not found.');
-                return;
-            }
-            tabContainer.innerHTML = ''; // Clear any existing buttons
-
-            Object.keys(modelFiles).forEach(modelName => {
-                const button = document.createElement('button');
-                button.textContent = modelName;
-                button.dataset.file = modelFiles[modelName];
-                button.className = 'px-4 py-2 rounded-lg text-sm font-medium mr-2 mb-2 transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
-                
-                if (modelFiles[modelName] === currentJsonFile) {
-                    button.classList.add('bg-blue-600', 'text-white', 'shadow-md');
-                } else {
-                    button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-                }
-
-                button.addEventListener('click', function() {
-                    // Update active tab style
-                    tabContainer.querySelectorAll('button').forEach(btn => {
-                        btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
-                        btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-                    });
-                    this.classList.add('bg-blue-600', 'text-white', 'shadow-md');
-                    this.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
-
-                    const newFile = this.dataset.file;
-                    if (newFile !== currentJsonFile) {
-                        currentJsonFile = newFile;
-                        // Show loading state and hide content before loading new data
-                        document.getElementById('loadingState').classList.remove('hidden');
-                        document.getElementById('mainContent').classList.add('hidden');
-                        document.getElementById('loadingState').innerHTML = `
-                            <div class="text-center">
-                                <div class="loading-spinner mx-auto mb-4"></div>
-                                <p class="text-gray-600">Loading analysis data for ${modelName}...</p>
-                            </div>`;
-                        loadData(currentJsonFile);
-                    }
-                });
-                tabContainer.appendChild(button);
-            });
-        }
         
         // Function to load JSON data
         async function loadData(fileName) {
