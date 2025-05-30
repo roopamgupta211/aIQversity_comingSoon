@@ -156,6 +156,28 @@
         }
 
         /* Extra Small Screens */
+        @media (max-width: 480px) {
+            nav .max-w-7xl.mx-auto.px-4 {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            nav .flex-1.flex.justify-center span {
+                font-size: 1.1rem;
+            }
+            
+            nav .flex.items-center.space-x-4.w-1\\/4 {
+                gap: 0.25rem;
+            }
+            
+            nav .flex.items-center.space-x-4.w-1\\/4 a {
+                padding: 0.5rem 0.5rem;
+                font-size: 0.7rem;
+                min-height: 2.5rem;
+                display: flex;
+                align-items: center;
+            }
+        }
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -190,6 +212,7 @@
             transform: rotate(45deg);
             animation: shine 3s infinite;
         }
+        
         @keyframes shine {
             0% { transform: translateX(-100%) rotate(45deg); }
             100% { transform: translateX(100%) rotate(45deg); }
@@ -281,7 +304,10 @@
                     <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
                 </div>
                 <div class="flex items-center space-x-4 w-1/4 justify-end">
-                    <a href="../../../../index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">← Back to Home</a>
+                    <a href="../../../../index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                        <span class="hidden sm:inline">← Back to Home</span>
+                        <span class="sm:hidden">← Home</span>
+                    </a>
                     <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
                 </div>
             </div>
