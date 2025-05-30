@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Examination Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .question-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #e8eeff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .results-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+        }
+        .score-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+        .score-main {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .score-percentage {
+            font-size: 1.2em;
+            color: #6c757d;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        .score-item.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .score-item.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .score-item.unattempted {
+            background: #e2e3e5;
+            border: 1px solid #d6d8db;
+        }
+
+        .score-number {
+            font-size: 1.4em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .score-value {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .analytics-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .analytics-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .subject-breakdown {
+            margin: 10px 0;
+        }
+
+        .subject-bar {
+            background: #e9ecef;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+
+        .subject-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+        }
+
+        .question-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .question-nav-btn {
+            padding: 10px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .question-nav-btn.answered {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .question-nav-btn.current {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .review-question {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .answer-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .correct {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .unanswered {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .solution-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .steps-section {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .tips-section {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .step-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .tip-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tip-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Screen -->
+        <div id="loading" class="loading">
+            <h2>Loading Examination...</h2>
+            <p>Please wait while we prepare your test.</p>
+        </div>
+
+        <!-- Review Interface -->
+        <div id="reviewInterface" class="hidden">
+            <div class="header">
+                <div>
+                    <h1>Solutions & Review</h1>
+                    <p>Detailed explanations for all questions</p>
+                </div>
+                <button class="btn btn-secondary" onclick="backToResults()">Back to Results</button>
+            </div>
+
+            <div id="reviewContainer"></div>
+        </div>
+
+        <!-- Exam Interface -->
+        <div id="examInterface" class="hidden">
+            <div class="header">
+                <div>
+                    <h1>Static Examination Demo</h1>
+                    <p>Answer all questions and submit when ready</p>
+                </div>
+                <div class="timer" id="timer">00:00:00</div>
+            </div>
+
+            <div class="question-list" id="questionList"></div>
+
+            <div class="question-card" id="questionCard">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Question 1 of 10</span>
+                    <span id="questionMeta"></span>
+                </div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                <button class="btn btn-primary hidden" id="submitBtn" onclick="submitExam()">Submit Exam</button>
+            </div>
+        </div>
+
+        <!-- Results Interface -->
+        <div id="resultsInterface" class="hidden">
+            <div class="results-container">
+                <div class="score-card">
+                    <div class="score-value" id="scoreValue">0%</div>
+                    <div>Overall Score</div>
+                    <div id="scoreDetails"></div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>📊 Performance Summary</h3>
+                        <div id="performanceSummary"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>⏱️ Time Analysis</h3>
+                        <div id="timeAnalysis"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>📚 Subject Breakdown</h3>
+                        <div id="subjectBreakdown"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>📖 Topic Analysis</h3>
+                        <div id="topicBreakdown"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>⚡ Difficulty Analysis</h3>
+                        <div id="difficultyBreakdown"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>🧠 Bloom's Taxonomy</h3>
+                        <div id="bloomsBreakdown"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>💡 Concept Analysis</h3>
+                        <div id="conceptBreakdown"></div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>🎯 SWOT Analysis</h3>
+                        <div id="swotAnalysis"></div>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button class="btn btn-primary" onclick="downloadResults()">Download Results</button>
+                    <button class="btn btn-primary" onclick="showReview()">View Solutions</button>
+                    <button class="btn btn-secondary" onclick="restartExam()">Take Another Exam</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let examData = [];
+        let currentQuestion = 0;
+        let answers = {};
+        let startTime = null;
+        let timerInterval = null;
+        let examDuration = 0;
+
+        // Sample exam data (replace with your JSON file)
+        const sampleExamData = [
+            {
+                "question_id": 1,
+                "Question": "What was the most probable capital of the Kuninda dynasty in ancient Uttarakhand?",
+                "options": {
+                    "a": "Joshimath",
+                    "b": "Kartikeyapura",
+                    "c": "Kalsi (Kalkut)",
+                    "d": "Lakhamandal"
+                },
+                "correct_answer": "c",
+                "Solution": "The Kuninda dynasty, an ancient ruling power in Uttarakhand (200 BC – 300 AD), had several important administrative centers. Kalsi, also known as Kalkut, located near present-day Dehradun, is considered by historians to be one of its most significant capitals.",
+                "step_by_step": [
+                    "Recall the major ancient dynasties of Uttarakhand.",
+                    "Identify the Kuninda dynasty and its general period of rule.",
+                    "Consider the prominent ancient sites in Uttarakhand.",
+                    "Relate archaeological findings to potential capitals."
+                ],
+                "tips_and_tricks": [
+                    "Focus on understanding the geographical spread and important centers of major Uttarakhand dynasties.",
+                    "Archaeological sites with significant inscriptions are often indicative of administrative importance."
+                ],
+                "classification": {
+                    "paper": "Paper 1: General Studies",
+                    "subject": "Uttarakhand GK",
+                    "topic": "History of Uttarakhand",
+                    "subtopic": "Ancient Dynasties of Uttarakhand",
+                    "sub_subtopic": "Kuninda Dynasty",
+                    "concept": "Identifying the capital city of the Kuninda Dynasty based on historical and archaeological evidence."
+                },
+                "difficulty_level": "Moderate",
+                "blooms_taxonomy": "Remembering"
+            },
+            {
+                "question_id": 2,
+                "Question": "The Chipko Movement, a significant environmental movement in Uttarakhand, primarily started in which district?",
+                "options": {
+                    "a": "Nainital",
+                    "b": "Almora", 
+                    "c": "Tehri Garhwal",
+                    "d": "Chamoli"
+                },
+                "correct_answer": "d",
+                "Solution": "The Chipko Movement, known for its non-violent resistance to deforestation, originated in the early 1970s in the Chamoli district of Uttarakhand.",
+                "step_by_step": [
+                    "Recall major people's movements in Uttarakhand.",
+                    "Identify the Chipko Movement and its core objective.",
+                    "Remember the key geographical area associated with the movement."
+                ],
+                "tips_and_tricks": [
+                    "Associate Chipko Movement with prominent figures like Sunderlal Bahuguna.",
+                    "Remember specific incidents like the one in Reni village (1974)."
+                ],
+                "classification": {
+                    "paper": "Paper 1: General Studies",
+                    "subject": "Uttarakhand GK", 
+                    "topic": "People's Movements in Uttarakhand",
+                    "subtopic": "Environmental Movements",
+                    "sub_subtopic": "Chipko Movement",
+                    "concept": "Identifying the geographical origin (district) of the Chipko Movement."
+                },
+                "difficulty_level": "Easy",
+                "blooms_taxonomy": "Remembering"
+            }
+        ];
+
+        // Initialize the application
+        async function initializeApp() {
+            try {
+                // Try to load from external JSON file, fallback to sample data
+                try {
+                    const response = await fetch('exam-data.json');
+                    if (response.ok) {
+                        examData = await response.json();
+                    } else {
+                        throw new Error('File not found');
+                    }
+                } catch (error) {
+                    console.log('Using sample data');
+                    examData = sampleExamData;
+                }
+
+                startTime = new Date();
+                startTimer();
+                createQuestionNavigation();
+                loadQuestion(0);
+                showExamInterface();
+            } catch (error) {
+                console.error('Error initializing app:', error);
+                document.getElementById('loading').innerHTML = '<h2>Error loading examination</h2><p>Please check your exam data file.</p>';
+            }
+        }
+
+        function showExamInterface() {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('examInterface').classList.remove('hidden');
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            const now = new Date();
+            const elapsed = Math.floor((now - startTime) / 1000);
+            const hours = Math.floor(elapsed / 3600);
+            const minutes = Math.floor((elapsed % 3600) / 60);
+            const seconds = elapsed % 60;
+            
+            document.getElementById('timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function createQuestionNavigation() {
+            const questionList = document.getElementById('questionList');
+            questionList.innerHTML = '';
+            
+            examData.forEach((_, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'question-nav-btn';
+                btn.textContent = index + 1;
+                btn.onclick = () => loadQuestion(index);
+                if (index === 0) btn.classList.add('current');
+                questionList.appendChild(btn);
+            });
+        }
+
+        function updateQuestionNavigation() {
+            const buttons = document.querySelectorAll('.question-nav-btn');
+            buttons.forEach((btn, index) => {
+                btn.classList.remove('current');
+                if (index === currentQuestion) {
+                    btn.classList.add('current');
+                }
+                if (answers[index] !== undefined) {
+                    btn.classList.add('answered');
+                }
+            });
+        }
+
+        function loadQuestion(index) {
+            currentQuestion = index;
+            const question = examData[index];
+            
+            document.getElementById('questionNumber').textContent = `Question ${index + 1} of ${examData.length}`;
+            document.getElementById('questionMeta').textContent = `${question.classification.subject} | ${question.difficulty_level}`;
+            document.getElementById('questionText').textContent = question.Question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            Object.entries(question.options).forEach(([key, value]) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.onclick = () => selectOption(key);
+                
+                const isSelected = answers[index] === key;
+                if (isSelected) optionDiv.classList.add('selected');
+                
+                optionDiv.innerHTML = `
+                    <input type="radio" name="option" value="${key}" ${isSelected ? 'checked' : ''}>
+                    <span><strong>${key.toUpperCase()}.</strong> ${value}</span>
+                `;
+                
+                // Prevent radio button from interfering with div click (AFTER innerHTML is set)
+                const radioInput = optionDiv.querySelector('input[type="radio"]');
+                radioInput.onclick = (e) => e.preventDefault();
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').style.display = index === 0 ? 'none' : 'block';
+            document.getElementById('nextBtn').style.display = index === examData.length - 1 ? 'none' : 'block';
+            document.getElementById('submitBtn').style.display = index === examData.length - 1 ? 'block' : 'none';
+            
+            updateQuestionNavigation();
+        }
+
+        function selectOption(option) {
+            answers[currentQuestion] = option;
+            
+            // Update UI
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Update radio buttons
+            const radioButtons = document.querySelectorAll('.option input[type="radio"]');
+            radioButtons.forEach(radio => radio.checked = false);
+            
+            const selectedOption = document.querySelector(`.option input[value="${option}"]`).parentElement;
+            selectedOption.classList.add('selected');
+            selectedOption.querySelector('input[type="radio"]').checked = true;
+            
+            updateQuestionNavigation();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < examData.length - 1) {
+                loadQuestion(currentQuestion + 1);
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                loadQuestion(currentQuestion - 1);
+            }
+        }
+
+        function submitExam() {
+            if (Object.keys(answers).length < examData.length) {
+                if (!confirm('You have not answered all questions. Are you sure you want to submit?')) {
+                    return;
+                }
+            }
+            
+            clearInterval(timerInterval);
+            examDuration = Math.floor((new Date() - startTime) / 1000);
+            
+            calculateResults();
+            showResults();
+        }
+
+        function calculateResults() {
+            let correct = 0;
+            let subjectStats = {};
+            let topicStats = {};
+            let difficultyStats = {};
+            let bloomsStats = {};
+            let conceptStats = {};
+            
+            let totalMarks = 0;
+            let incorrect = 0;
+            let unattempted = 0;
+
+            examData.forEach((question, index) => {
+                const userAnswer = answers[index];
+                const isCorrect = userAnswer === question.correct_answer;
+                const isAttempted = userAnswer !== undefined;
+                
+                if (isAttempted) {
+                    if (isCorrect) {
+                        correct++;
+                        totalMarks += 1; // +1 for correct answer
+                    } else {
+                        incorrect++;
+                        totalMarks -= 0.25; // -0.25 for incorrect answer
+                    }
+                } else {
+                    unattempted++;
+                }
+                
+                // if (isCorrect) correct++; // Keep this for existing stats
+                
+                // Subject-wise analysis
+                const subject = question.classification.subject;
+                if (!subjectStats[subject]) {
+                    subjectStats[subject] = { total: 0, correct: 0 };
+                }
+                subjectStats[subject].total++;
+                if (isCorrect) subjectStats[subject].correct++;
+                
+                // Topic-wise analysis
+                const topic = question.classification.topic;
+                if (!topicStats[topic]) {
+                    topicStats[topic] = { total: 0, correct: 0 };
+                }
+                topicStats[topic].total++;
+                if (isCorrect) topicStats[topic].correct++;
+                
+                // Difficulty analysis
+                const difficulty = question.difficulty_level;
+                if (!difficultyStats[difficulty]) {
+                    difficultyStats[difficulty] = { total: 0, correct: 0 };
+                }
+                difficultyStats[difficulty].total++;
+                if (isCorrect) difficultyStats[difficulty].correct++;
+                
+                // Bloom's Taxonomy analysis
+                const blooms = question.blooms_taxonomy;
+                if (!bloomsStats[blooms]) {
+                    bloomsStats[blooms] = { total: 0, correct: 0 };
+                }
+                bloomsStats[blooms].total++;
+                if (isCorrect) bloomsStats[blooms].correct++;
+                
+                // Concept analysis
+                const concept = question.classification.concept;
+                if (!conceptStats[concept]) {
+                    conceptStats[concept] = { total: 0, correct: 0 };
+                }
+                conceptStats[concept].total++;
+                if (isCorrect) conceptStats[concept].correct++;
+            });
+            
+            const results = {
+                score: Math.round((correct / examData.length) * 100),
+                totalMarks: totalMarks,
+                maxMarks: examData.length,
+                correct: correct,
+                incorrect: incorrect,
+                unattempted: unattempted,
+                total: examData.length,
+                duration: examDuration,
+                subjectStats: subjectStats,
+                topicStats: topicStats,
+                difficultyStats: difficultyStats,
+                bloomsStats: bloomsStats,
+                conceptStats: conceptStats,
+                answers: answers,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store results
+            localStorage.setItem('examResults', JSON.stringify(results));
+            
+            return results;
+        }
+
+        function showResults() {
+            const results = JSON.parse(localStorage.getItem('examResults'));
+            
+            document.getElementById('examInterface').classList.add('hidden');
+            document.getElementById('resultsInterface').classList.remove('hidden');
+            
+            // Score display
+            document.getElementById('scoreValue').innerHTML = `
+            <div class="score-header">
+                <div>
+                    <div class="score-main">${results.totalMarks}/${results.maxMarks}</div>
+                    <div style="font-size: 0.9em; color: #6c757d;">Total Score</div>
+                </div>
+                <div class="score-percentage">${results.score}%</div>
+            </div>
+            
+            <div class="score-breakdown">
+                <div class="score-item correct">
+                    <span class="score-number">${results.correct}</span>
+                    <div style="color: #155724;">Correct</div>
+                    <div style="font-size: 0.8em; color: #155724;">+${results.correct} marks</div>
+                </div>
+                
+                <div class="score-item incorrect">
+                    <span class="score-number">${results.incorrect}</span>
+                    <div style="color: #721c24;">Incorrect</div>
+                    <div style="font-size: 0.8em; color: #721c24;">-${(results.incorrect * 0.25).toFixed(2)} marks</div>
+                </div>
+                
+                <div class="score-item unattempted">
+                    <span class="score-number">${results.unattempted}</span>
+                    <div style="color: #6c757d;">Unattempted</div>
+                    <div style="font-size: 0.8em; color: #6c757d;">0 marks</div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('scoreDetails').textContent = '';
+            
+            // Performance summary
+            const performance = results.score >= 80 ? 'Excellent' : results.score >= 60 ? 'Good' : results.score >= 40 ? 'Average' : 'Needs Improvement';
+            const attemptedCount = Object.keys(results.answers).length;
+            document.getElementById('performanceSummary').innerHTML = `
+                <p><strong>Performance:</strong> ${performance}</p>
+                <p><strong>Total Marks:</strong> ${results.totalMarks} / ${results.maxMarks}</p>
+                <p><strong>Questions Attempted:</strong> ${attemptedCount} / ${results.total}</p>
+                <p><strong>Accuracy:</strong> ${attemptedCount > 0 ? Math.round((results.correct / attemptedCount) * 100) : 0}%</p>
+                <p><strong>Marking Scheme:</strong> +1 for correct, -0.25 for incorrect</p>
+            `;
+            
+            // Time analysis
+            const minutes = Math.floor(results.duration / 60);
+            const seconds = results.duration % 60;
+            const avgTimePerQuestion = Math.round(results.duration / results.total);
+            
+            document.getElementById('timeAnalysis').innerHTML = `
+                <p><strong>Total Time:</strong> ${minutes}m ${seconds}s</p>
+                <p><strong>Average per Question:</strong> ${avgTimePerQuestion}s</p>
+                <p><strong>Time Efficiency:</strong> ${avgTimePerQuestion < 60 ? 'Good' : 'Could be faster'}</p>
+            `;
+            
+            // Subject breakdown (only show if multiple subjects)
+            const subjectCount = Object.keys(results.subjectStats).length;
+            if (subjectCount > 1) {
+                let subjectHtml = '';
+                Object.entries(results.subjectStats).forEach(([subject, stats]) => {
+                    const percentage = Math.round((stats.correct / stats.total) * 100);
+                    subjectHtml += `
+                        <div class="subject-breakdown">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>${subject}</span>
+                                <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+                            </div>
+                            <div class="subject-bar">
+                                <div class="subject-progress" style="width: ${percentage}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('subjectBreakdown').innerHTML = subjectHtml;
+                document.getElementById('subjectBreakdown').parentElement.style.display = 'block';
+            } else {
+                // Hide subject breakdown section if only one subject
+                document.getElementById('subjectBreakdown').parentElement.style.display = 'none';
+            }
+            
+            // Topic breakdown
+            let topicHtml = '';
+            Object.entries(results.topicStats).forEach(([topic, stats]) => {
+                const percentage = Math.round((stats.correct / stats.total) * 100);
+                topicHtml += `
+                    <div class="subject-breakdown">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>${topic}</span>
+                            <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('topicBreakdown').innerHTML = topicHtml;
+            
+            // Difficulty breakdown
+            let difficultyHtml = '';
+            Object.entries(results.difficultyStats).forEach(([difficulty, stats]) => {
+                const percentage = Math.round((stats.correct / stats.total) * 100);
+                difficultyHtml += `
+                    <div class="subject-breakdown">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>${difficulty}</span>
+                            <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('difficultyBreakdown').innerHTML = difficultyHtml;
+            
+            // Bloom's taxonomy breakdown
+            let bloomsHtml = '';
+            Object.entries(results.bloomsStats).forEach(([blooms, stats]) => {
+                const percentage = Math.round((stats.correct / stats.total) * 100);
+                bloomsHtml += `
+                    <div class="subject-breakdown">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>${blooms}</span>
+                            <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('bloomsBreakdown').innerHTML = bloomsHtml;
+            
+            // Concept breakdown (showing top 5 concepts)
+            let conceptHtml = '';
+            const sortedConcepts = Object.entries(results.conceptStats)
+                .sort(([,a], [,b]) => (b.correct/b.total) - (a.correct/a.total))
+                .slice(0, 5);
+            
+            sortedConcepts.forEach(([concept, stats]) => {
+                const percentage = Math.round((stats.correct / stats.total) * 100);
+                const shortConcept = concept.length > 40 ? concept.substring(0, 40) + '...' : concept;
+                conceptHtml += `
+                    <div class="subject-breakdown">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span title="${concept}">${shortConcept}</span>
+                            <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('conceptBreakdown').innerHTML = conceptHtml || '<p>No specific concepts identified</p>';
+            
+            // SWOT Analysis (Enhanced)
+            const topicStrengths = Object.entries(results.topicStats)
+                .filter(([_, stats]) => (stats.correct / stats.total) >= 0.8)
+                .map(([topic, _]) => topic);
+            
+            const topicWeaknesses = Object.entries(results.topicStats)
+                .filter(([_, stats]) => (stats.correct / stats.total) < 0.5)
+                .map(([topic, _]) => topic);
+                
+            const difficultyStrengths = Object.entries(results.difficultyStats)
+                .filter(([_, stats]) => (stats.correct / stats.total) >= 0.8)
+                .map(([difficulty, _]) => difficulty);
+                
+            const difficultyWeaknesses = Object.entries(results.difficultyStats)
+                .filter(([_, stats]) => (stats.correct / stats.total) < 0.5)
+                .map(([difficulty, _]) => difficulty);
+            
+            document.getElementById('swotAnalysis').innerHTML = `
+                <p><strong>Strengths:</strong></p>
+                <ul style="margin: 5px 0 10px 20px;">
+                    ${topicStrengths.length ? topicStrengths.map(t => `<li>Strong in ${t}</li>`).join('') : '<li>Focus on building consistent strengths</li>'}
+                    ${difficultyStrengths.length ? difficultyStrengths.map(d => `<li>Good at ${d} questions</li>`).join('') : ''}
+                </ul>
+                
+                <p><strong>Areas for Improvement:</strong></p>
+                <ul style="margin: 5px 0 10px 20px;">
+                    ${topicWeaknesses.length ? topicWeaknesses.map(t => `<li>Need practice in ${t}</li>`).join('') : '<li>Well balanced performance across topics</li>'}
+                    ${difficultyWeaknesses.length ? difficultyWeaknesses.map(d => `<li>Struggle with ${d} questions</li>`).join('') : ''}
+                </ul>
+                
+                <p><strong>Study Recommendations:</strong></p>
+                <ul style="margin: 5px 0 10px 20px;">
+                    ${results.score < 60 ? '<li>Increase study time and focus on weak topics</li>' : '<li>Maintain current study routine</li>'}
+                    ${topicWeaknesses.length ? '<li>Create topic-wise study plan for weak areas</li>' : ''}
+                    ${difficultyWeaknesses.length ? '<li>Practice more questions of challenging difficulty levels</li>' : ''}
+                    <li>Review solutions and step-by-step approaches for incorrect answers</li>
+                </ul>
+            `;
+        }
+
+        function showReview() {
+            document.getElementById('resultsInterface').classList.add('hidden');
+            document.getElementById('reviewInterface').classList.remove('hidden');
+            generateReview();
+        }
+
+        function backToResults() {
+            document.getElementById('reviewInterface').classList.add('hidden');
+            document.getElementById('resultsInterface').classList.remove('hidden');
+        }
+
+        function generateReview() {
+            const results = JSON.parse(localStorage.getItem('examResults'));
+            const reviewContainer = document.getElementById('reviewContainer');
+            reviewContainer.innerHTML = '';
+
+            examData.forEach((question, index) => {
+                const userAnswer = answers[index];
+                const correctAnswer = question.correct_answer;
+                const isCorrect = userAnswer === correctAnswer;
+                const isAnswered = userAnswer !== undefined;
+
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review-question';
+
+                let statusClass = 'unanswered';
+                let statusText = 'Not Attempted';
+                
+                if (isAnswered) {
+                    statusClass = isCorrect ? 'correct' : 'incorrect';
+                    statusText = isCorrect ? '✓ Correct' : '✗ Incorrect';
+                }
+
+                reviewDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">Question ${index + 1}</span>
+                        <span class="answer-status ${statusClass}">${statusText}</span>
+                    </div>
+                    
+                    <div class="question-text">${question.Question}</div>
+                    
+                    <div class="options" style="margin: 15px 0;">
+                        ${Object.entries(question.options).map(([key, value]) => {
+                            let optionClass = '';
+                            let optionPrefix = '';
+                            
+                            if (key === correctAnswer) {
+                                optionClass = 'style="background: #d4edda; border-color: #28a745; color: #155724;"';
+                                optionPrefix = '✓ ';
+                            } else if (key === userAnswer && !isCorrect) {
+                                optionClass = 'style="background: #f8d7da; border-color: #dc3545; color: #721c24;"';
+                                optionPrefix = '✗ ';
+                            }
+                            
+                            return `<div class="option" ${optionClass}>
+                                <span><strong>${key.toUpperCase()}.</strong> ${optionPrefix}${value}</span>
+                            </div>`;
+                        }).join('')}
+                    </div>
+
+                    ${isAnswered ? `<p><strong>Your Answer:</strong> ${userAnswer ? userAnswer.toUpperCase() : 'None'}</p>` : ''}
+                    <p><strong>Correct Answer:</strong> ${correctAnswer.toUpperCase()}</p>
+
+                    <div class="solution-section">
+                        <h4>💡 Solution</h4>
+                        <p>${question.Solution}</p>
+                    </div>
+
+                    ${question.step_by_step ? `
+                    <div class="steps-section">
+                        <h4>📋 Step-by-Step Approach</h4>
+                        ${question.step_by_step.map((step, i) => 
+                            `<div class="step-item"><strong>Step ${i + 1}:</strong> ${step}</div>`
+                        ).join('')}
+                    </div>
+                    ` : ''}
+
+                    ${question.tips_and_tricks ? `
+                    <div class="tips-section">
+                        <h4>💯 Tips & Tricks</h4>
+                        ${question.tips_and_tricks.map(tip => 
+                            `<div class="tip-item">• ${tip}</div>`
+                        ).join('')}
+                    </div>
+                    ` : ''}
+
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9em; color: #666;">
+                        <strong>Topic:</strong> ${question.classification.subject} → ${question.classification.topic} → ${question.classification.subtopic}<br>
+                        <strong>Difficulty:</strong> ${question.difficulty_level}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(reviewDiv);
+            });
+        }
+
+        function showReview() {
+            document.getElementById('resultsInterface').classList.add('hidden');
+            document.getElementById('reviewInterface').classList.remove('hidden');
+            generateReview();
+        }
+
+        function backToResults() {
+            document.getElementById('reviewInterface').classList.add('hidden');
+            document.getElementById('resultsInterface').classList.remove('hidden');
+        }
+
+        function generateReview() {
+            const results = JSON.parse(localStorage.getItem('examResults'));
+            const reviewContainer = document.getElementById('reviewContainer');
+            reviewContainer.innerHTML = '';
+
+            examData.forEach((question, index) => {
+                const userAnswer = answers[index];
+                const correctAnswer = question.correct_answer;
+                const isCorrect = userAnswer === correctAnswer;
+                const isAnswered = userAnswer !== undefined;
+
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review-question';
+
+                let statusClass = 'unanswered';
+                let statusText = 'Not Attempted';
+                
+                if (isAnswered) {
+                    statusClass = isCorrect ? 'correct' : 'incorrect';
+                    statusText = isCorrect ? '✓ Correct' : '✗ Incorrect';
+                }
+
+                reviewDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">Question ${index + 1}</span>
+                        <span class="answer-status ${statusClass}">${statusText}</span>
+                    </div>
+                    
+                    <div class="question-text">${question.Question}</div>
+                    
+                    <div class="options" style="margin: 15px 0;">
+                        ${Object.entries(question.options).map(([key, value]) => {
+                            let optionClass = '';
+                            let optionPrefix = '';
+                            
+                            if (key === correctAnswer) {
+                                optionClass = 'style="background: #d4edda; border-color: #28a745; color: #155724;"';
+                                optionPrefix = '✓ ';
+                            } else if (key === userAnswer && !isCorrect) {
+                                optionClass = 'style="background: #f8d7da; border-color: #dc3545; color: #721c24;"';
+                                optionPrefix = '✗ ';
+                            }
+                            
+                            return `<div class="option" ${optionClass}>
+                                <span><strong>${key.toUpperCase()}.</strong> ${optionPrefix}${value}</span>
+                            </div>`;
+                        }).join('')}
+                    </div>
+
+                    ${isAnswered ? `<p><strong>Your Answer:</strong> ${userAnswer ? userAnswer.toUpperCase() : 'None'}</p>` : ''}
+                    <p><strong>Correct Answer:</strong> ${correctAnswer.toUpperCase()}</p>
+
+                    <div class="solution-section">
+                        <h4>💡 Solution</h4>
+                        <p>${question.Solution}</p>
+                    </div>
+
+                    ${question.step_by_step ? `
+                    <div class="steps-section">
+                        <h4>📋 Step-by-Step Approach</h4>
+                        ${question.step_by_step.map((step, i) => 
+                            `<div class="step-item"><strong>Step ${i + 1}:</strong> ${step}</div>`
+                        ).join('')}
+                    </div>
+                    ` : ''}
+
+                    ${question.tips_and_tricks ? `
+                    <div class="tips-section">
+                        <h4>💯 Tips & Tricks</h4>
+                        ${question.tips_and_tricks.map(tip => 
+                            `<div class="tip-item">• ${tip}</div>`
+                        ).join('')}
+                    </div>
+                    ` : ''}
+
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9em; color: #666;">
+                        <strong>Topic:</strong> ${question.classification.subject} → ${question.classification.topic} → ${question.classification.subtopic}<br>
+                        <strong>Difficulty:</strong> ${question.difficulty_level}
+                    </div>
+                `;
+
+                reviewContainer.appendChild(reviewDiv);
+            });
+        }
+
+        function downloadResults() {
+            const results = JSON.parse(localStorage.getItem('examResults'));
+            const dataStr = JSON.stringify(results, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `exam-results-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        function restartExam() {
+            currentQuestion = 0;
+            answers = {};
+            startTime = null;
+            examDuration = 0;
+            
+            // Reset subject breakdown visibility
+            document.getElementById('subjectBreakdown').parentElement.style.display = 'block';
+            
+            document.getElementById('resultsInterface').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+            
+            setTimeout(() => {
+                initializeApp();
+            }, 1000);
+        }
+
+        // Initialize app when page loads
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
