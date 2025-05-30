@@ -208,27 +208,53 @@
             margin-bottom: 10px;
         }
 
+        /* FIXED: Better grid layout for analytics cards */
         .analytics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-bottom: 30px;
         }
 
+        /* FIXED: Consistent card styling */
         .analytics-card {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid #F7A621;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
         }
 
         .analytics-card h3 {
             color: #101E3D;
             margin-bottom: 15px;
+            font-size: 1.1em;
+            flex-shrink: 0;
+        }
+
+        /* FIXED: Content area that grows to fill space */
+        .analytics-card > div:last-child {
+            flex-grow: 1;
+        }
+
+        /* FIXED: Consistent spacing for card content */
+        .analytics-card p {
+            margin: 6px 0;
+            font-size: 0.9em;
+        }
+
+        .analytics-card p:last-child {
+            margin-bottom: 0;
         }
 
         .subject-breakdown {
-            margin: 10px 0;
+            margin: 8px 0;
+        }
+
+        .subject-breakdown:last-child {
+            margin-bottom: 0;
         }
 
         .subject-bar {
@@ -361,6 +387,58 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* FIXED: Better mobile responsiveness */
+        @media (max-width: 768px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .analytics-card {
+                min-height: auto;
+                padding: 15px;
+            }
+            /* Mobile-friendly score card */
+            .score-card {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .score-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+
+            .score-main {
+                font-size: 2em;
+            }
+
+            .score-percentage {
+                font-size: 1.5em;
+                margin-top: 5px;
+            }
+
+            .score-breakdown {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .score-item {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .score-number {
+                font-size: 1.8em;
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -875,11 +953,11 @@
                 avgTimeDisplay = 'Less than 1s';
             }
 
-document.getElementById('timeAnalysis').innerHTML = `
-    <p><strong>Total Time:</strong> ${minutes}m ${seconds}s</p>
-    <p><strong>Average per Question:</strong> ${avgTimeDisplay}</p>
-    <p><strong>Time Efficiency:</strong> ${avgTimePerQuestion < 60 ? 'Good' : 'Could be faster'}</p>
-`;
+            document.getElementById('timeAnalysis').innerHTML = `
+                <p><strong>Total Time:</strong> ${minutes}m ${seconds}s</p>
+                <p><strong>Average per Question:</strong> ${avgTimeDisplay}</p>
+                <p><strong>Time Efficiency:</strong> ${avgTimePerQuestion < 60 ? 'Good' : 'Could be faster'}</p>
+            `;
             
             // Subject breakdown (only show if multiple subjects)
             const subjectCount = Object.keys(results.subjectStats).length;
@@ -906,8 +984,7 @@ document.getElementById('timeAnalysis').innerHTML = `
                 document.getElementById('subjectBreakdown').parentElement.style.display = 'none';
             }
             
-            // Topic breakdown
-            // Topic Analysis - Fixed logic to avoid duplicates
+            // Topic Analysis - Using EXACT same styling as Subject Breakdown
             const topicEntries = Object.entries(results.topicStats);
             const topicsByPerformance = topicEntries.map(([topic, stats]) => ({
                 topic,
@@ -916,63 +993,95 @@ document.getElementById('timeAnalysis').innerHTML = `
                 total: stats.total
             })).sort((a, b) => b.percentage - a.percentage);
 
-            // STRONGEST: Only topics with 50%+ performance, max 2
-            const topPerformers = topicsByPerformance.filter(t => t.percentage >= 50).slice(0, 2);
+            let topicHtml = '';
 
-            // FOCUS ON: Bottom performers (excluding those already in STRONGEST), max 2
-            const usedTopics = topPerformers.map(t => t.topic);
-            const needsWork = topicsByPerformance
-                .filter(t => !usedTopics.includes(t.topic) && t.percentage < 50)
-                .slice(-2) // Take the 2 worst from bottom
-                .reverse(); // Show worst first
+            // Show ALL topics, but categorize them using exact same structure as Subject Breakdown
+            const strongTopics = topicsByPerformance.filter(t => t.percentage >= 70);
+            const averageTopics = topicsByPerformance.filter(t => t.percentage >= 40 && t.percentage < 70);
+            const weakTopics = topicsByPerformance.filter(t => t.percentage < 40);
 
-            let topicHtml = `
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                    <!-- Top Performers -->
-                    <div>
-                        <div style="text-align: center; margin-bottom: 10px;">
-                            <span style="font-size: 1.5em;">🏆</span>
-                            <div style="font-size: 0.8em; font-weight: bold; color: #10B981;">STRONGEST</div>
-                        </div>
-                        ${topPerformers.length > 0 ? topPerformers.map(topic => `
-                            <div class="subject-breakdown">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="font-size: 0.9em;" title="${topic.topic}">${topic.topic.length > 18 ? topic.topic.substring(0, 18) + '...' : topic.topic}</span>
-                                    <span style="color: #10B981; font-weight: bold;">${topic.percentage}%</span>
-                                </div>
-                                <div class="subject-bar">
-                                    <div class="subject-progress" style="width: ${topic.percentage}%; background: #10B981;"></div>
-                                </div>
+            // STRONGEST Section (if any)
+            if (strongTopics.length > 0) {
+                topicHtml += `<p style="margin: 8px 0; font-size: 0.9em; font-weight: bold; color: #10B981;">🏆 STRONGEST (${strongTopics.length})</p>`;
+                strongTopics.slice(0, 4).forEach(topic => {
+                    topicHtml += `
+                        <div class="subject-breakdown">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>${topic.topic}</span>
+                                <span>${topic.correct}/${topic.total} (${topic.percentage}%)</span>
                             </div>
-                        `).join('') : '<div style="text-align: center; color: #6c757d; font-size: 0.8em;">Score 50%+ to see strengths!</div>'}
-                    </div>
-                    
-                    <!-- Needs Work -->
-                    <div>
-                        <div style="text-align: center; margin-bottom: 10px;">
-                            <span style="font-size: 1.5em;">🎯</span>
-                            <div style="font-size: 0.8em; font-weight: bold; color: #F7A621;">FOCUS ON</div>
-                        </div>
-                        ${needsWork.length > 0 ? needsWork.map(topic => `
-                            <div class="subject-breakdown">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="font-size: 0.9em;" title="${topic.topic}">${topic.topic.length > 18 ? topic.topic.substring(0, 18) + '...' : topic.topic}</span>
-                                    <span style="color: #F7A621; font-weight: bold;">${topic.percentage}%</span>
-                                </div>
-                                <div class="subject-bar">
-                                    <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%; background: #F7A621;"></div>
-                                </div>
+                            <div class="subject-bar">
+                                <div class="subject-progress" style="width: ${topic.percentage}%; background: #10B981;"></div>
                             </div>
-                        `).join('') : '<div style="text-align: center; color: #6c757d; font-size: 0.8em;">All topics performing well!</div>'}
+                        </div>
+                    `;
+                });
+            }
+
+            // AVERAGE Section (if any)  
+            if (averageTopics.length > 0) {
+                topicHtml += `<p style="margin: 12px 0 8px 0; font-size: 0.9em; font-weight: bold; color: #6C757D;">📊 AVERAGE (${averageTopics.length})</p>`;
+                averageTopics.slice(0, 4).forEach(topic => {
+                    topicHtml += `
+                        <div class="subject-breakdown">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>${topic.topic}</span>
+                                <span>${topic.correct}/${topic.total} (${topic.percentage}%)</span>
+                            </div>
+                            <div class="subject-bar">
+                                <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%; background: #6C757D;"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // NEEDS FOCUS Section (if any)
+            if (weakTopics.length > 0) {
+                topicHtml += `<p style="margin: 12px 0 8px 0; font-size: 0.9em; font-weight: bold; color: #F7A621;">🎯 NEEDS FOCUS (${weakTopics.length})</p>`;
+                weakTopics.slice(0, 6).forEach(topic => {
+                    topicHtml += `
+                        <div class="subject-breakdown">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>${topic.topic}</span>
+                                <span>${topic.correct}/${topic.total} (${topic.percentage}%)</span>
+                            </div>
+                            <div class="subject-bar">
+                                <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%; background: #F7A621;"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // If very few topics, show them all exactly like Subject Breakdown
+            if (topicEntries.length <= 8) {
+                topicHtml = '';
+                topicsByPerformance.forEach(topic => {
+                    topicHtml += `
+                        <div class="subject-breakdown">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>${topic.topic}</span>
+                                <span>${topic.correct}/${topic.total} (${topic.percentage}%)</span>
+                            </div>
+                            <div class="subject-bar">
+                                <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%;"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Add view all button only if there are many topics
+            if (topicEntries.length > 12) {
+                topicHtml += `
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button onclick="showAllTopics()" style="background: none; border: 1px solid #F7A621; color: #F7A621; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em;">
+                            View all ${topicEntries.length} topics
+                        </button>
                     </div>
-                </div>
-                
-                <div style="text-align: center;">
-                    <button onclick="showAllTopics()" style="background: none; border: 1px solid #F7A621; color: #F7A621; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em;">
-                        View all ${topicEntries.length} topics details
-                    </button>
-                </div>
-            `;
+                `;
+            }
 
             document.getElementById('topicBreakdown').innerHTML = topicHtml;
             
@@ -1097,25 +1206,57 @@ document.getElementById('timeAnalysis').innerHTML = `
             
             const content = document.createElement('div');
             content.style.cssText = `
-                background: white; border-radius: 10px; padding: 20px; 
-                max-width: 500px; max-height: 80vh; overflow-y: auto; position: relative;
+                background: white; border-radius: 10px; padding: 25px; 
+                max-width: 650px; width: 100%; max-height: 80vh; overflow-y: auto; 
+                position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             `;
             
-            let allTopicsHtml = '<h3 style="margin-bottom: 15px; color: #101E3D;">All Topics Breakdown</h3>';
-            Object.entries(results.topicStats).forEach(([topic, stats]) => {
-                const percentage = Math.round((stats.correct / stats.total) * 100);
+            // Sort topics by performance for better readability
+            const sortedTopics = Object.entries(results.topicStats)
+                .map(([topic, stats]) => ({
+                    topic,
+                    correct: stats.correct,
+                    total: stats.total,
+                    percentage: Math.round((stats.correct / stats.total) * 100)
+                }))
+                .sort((a, b) => b.percentage - a.percentage);
+            
+            let allTopicsHtml = '<h3 style="margin-bottom: 20px; color: #101E3D; padding-right: 30px;">All Topics Breakdown</h3>';
+            
+            sortedTopics.forEach(topic => {
+                const color = topic.percentage >= 70 ? '#10B981' : topic.percentage >= 40 ? '#6C757D' : '#EF4444';
                 allTopicsHtml += `
-                    <div style="display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
-                        <span style="font-size: 14px;">${topic}</span>
-                        <span style="font-weight: bold; color: ${percentage >= 70 ? '#10B981' : percentage >= 50 ? '#F7A621' : '#EF4444'};">${percentage}%</span>
+                    <div style="padding: 12px 8px; border-bottom: 1px solid #eee;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 14px;">${topic.topic}</span>
+                            <span style="font-weight: bold; color: ${color}; font-size: 14px;">
+                                ${topic.correct}/${topic.total} (${topic.percentage}%)
+                            </span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%; background: ${color};"></div>
+                        </div>
                     </div>
                 `;
             });
             
             content.innerHTML = allTopicsHtml + `
                 <button onclick="this.closest('[style*=fixed]').remove()" 
-                        style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">×</button>
+                        style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #999; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">×</button>
+                
+                <style>
+                    @media (max-width: 768px) {
+                        .modal-content {
+                            max-width: 95vw !important;
+                            padding: 20px !important;
+                            margin: 10px !important;
+                        }
+                    }
+                </style>
             `;
+            
+            // Add mobile-friendly class
+            content.className = 'modal-content';
             
             modal.appendChild(content);
             document.body.appendChild(modal);
