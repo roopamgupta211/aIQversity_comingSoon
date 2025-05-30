@@ -4,7 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Static Examination Demo</title>
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Logo shine effect */
+        .logo-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        /* Update timer styling for navigation */
+        .timer {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -15,25 +49,45 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #101E3D 0%, #45E6C0 100%);
+            background: #f0f4f8; /* Match home page background */
             min-height: 100vh;
+            padding-top: 0;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 7xl;
             margin: 0 auto;
             padding: 20px;
+            padding-top: 100px;
+            position: relative;
+        }
+        .container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#101E3D 0.5px, transparent 0.5px), radial-gradient(#101E3D 0.5px, #f0f4f8 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        h1, h2, h3 {
+            color: #101E3D;
+            font-weight: 700;
         }
 
         .header {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+            border: 1px solid rgba(16, 30, 61, 0.1);
             margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
         }
 
         .timer {
@@ -45,8 +99,9 @@
         .question-card {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+            border: 1px solid rgba(16, 30, 61, 0.1);
             margin-bottom: 20px;
         }
 
@@ -60,13 +115,15 @@
 
         .question-number {
             font-weight: bold;
-            color: #F7A621; /* was #667eea */
+            color: #F7A621;
+            font-size: 1.1em;
         }
 
         .question-text {
             font-size: 1.1em;
             margin-bottom: 20px;
             line-height: 1.7;
+            color: #101E3D;
         }
 
         .options {
@@ -108,10 +165,12 @@
         .btn {
             padding: 12px 30px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1em;
+            font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .btn-primary {
@@ -121,22 +180,27 @@
 
         .btn-primary:hover {
             background: #E69A0C;
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
         .btn-secondary {
-            background: #6c757d;
+            background: #101E3D;
             color: white;
         }
 
         .btn-secondary:hover {
-            background: #5a6268;
+            background: #1a2951;
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
         .results-container {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+            border: 1px solid rgba(16, 30, 61, 0.1);
         }
 
         .score-card {
@@ -286,6 +350,11 @@
             grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
             gap: 10px;
             margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(16, 30, 61, 0.1);
+            border: 1px solid rgba(16, 30, 61, 0.1);
         }
 
         .question-nav-btn {
@@ -440,6 +509,9 @@
                 margin-bottom: 5px;
             }
         }
+        footer {
+            margin-top: 60px !important;
+        }
     </style>
 </head>
 <body>
@@ -465,12 +537,29 @@
 
         <!-- Exam Interface -->
         <div id="examInterface" class="hidden">
-            <div class="header">
-                <div>
+            <!-- Navigation -->
+            <nav class="bg-white shadow-lg fixed w-full z-50 top-0" style="box-shadow: 0 4px 6px rgba(16, 30, 61, 0.1);">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-20">
+                        <div class="flex items-center logo-shine w-1/4">
+                            <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                        </div>
+                        <div class="flex-1 flex justify-center">
+                            <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
+                        </div>
+                        <div class="flex items-center space-x-4 w-1/4 justify-end">
+                            <div class="timer bg-white px-4 py-2 rounded-lg shadow-md" id="timer" style="font-size: 1.2em; font-weight: bold; color: #e74c3c; border: 1px solid rgba(16, 30, 61, 0.1);">00:00:00</div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Exam Header -->
+            <div class="header" style="margin-top: 80px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                <div style="text-align: center;">
                     <h1>Static Examination <span class="gradient-text">Demo</span></h1>
                     <p>Answer all questions and submit when ready</p>
                 </div>
-                <div class="timer" id="timer">00:00:00</div>
             </div>
 
             <div class="question-list" id="questionList"></div>
@@ -1476,5 +1565,36 @@
         // Initialize app when page loads
         document.addEventListener('DOMContentLoaded', initializeApp);
     </script>
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <!-- 3D Cube/Box Being Assembled icon -->
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    with 
+                    <!-- Shield with Heart icon -->
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    in Bangalore by
+                    <img src="../../../../images/TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Curious about what we're building? Reach out at contact@aiqversity.com
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
