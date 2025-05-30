@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #101E3D 0%, #45E6C0 100%);
             min-height: 100vh;
         }
 
@@ -60,7 +60,7 @@
 
         .question-number {
             font-weight: bold;
-            color: #667eea;
+            color: #F7A621; /* was #667eea */
         }
 
         .question-text {
@@ -85,13 +85,13 @@
         }
 
         .option:hover {
-            border-color: #667eea;
-            background: #f8f9ff;
+            border-color: #F7A621; /* was #667eea */
+            background: #FFF7ED; /* was #f8f9ff */
         }
 
         .option.selected {
-            border-color: #667eea;
-            background: #e8eeff;
+            border-color: #F7A621;
+            background: #FEF3E2;
         }
 
         .option input[type="radio"] {
@@ -115,12 +115,12 @@
         }
 
         .btn-primary {
-            background: #667eea;
+            background: #F7A621;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #5a67d8;
+            background: #E69A0C;
         }
 
         .btn-secondary {
@@ -154,12 +154,12 @@
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #F7A621;
         }
         .score-main {
             font-size: 2.5em;
             font-weight: bold;
-            color: #667eea;
+            color: #F7A621;
         }
 
         .score-percentage {
@@ -219,11 +219,11 @@
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #F7A621;
         }
 
         .analytics-card h3 {
-            color: #667eea;
+            color: #101E3D;
             margin-bottom: 15px;
         }
 
@@ -241,7 +241,7 @@
 
         .subject-progress {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #F7A621, #45E6C0);
             transition: width 0.5s ease;
         }
 
@@ -273,15 +273,15 @@
         }
 
         .question-nav-btn.answered {
-            background: #28a745;
+            background: #10B981;
             color: white;
-            border-color: #28a745;
+            border-color: #10B981;
         }
 
         .question-nav-btn.current {
-            background: #667eea;
+            background: #F7A621;
             color: white;
-            border-color: #667eea;
+            border-color: #F7A621;
         }
 
         .review-question {
@@ -356,6 +356,12 @@
         .tip-item:last-child {
             border-bottom: none;
         }
+        .gradient-text {
+            background: linear-gradient(45deg, #F7A621, #45E6C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 <body>
@@ -370,7 +376,7 @@
         <div id="reviewInterface" class="hidden">
             <div class="header">
                 <div>
-                    <h1>Solutions & Review</h1>
+                    <h1>Solutions & <span class="gradient-text">Review</span></h1>
                     <p>Detailed explanations for all questions</p>
                 </div>
                 <button class="btn btn-secondary" onclick="backToResults()">Back to Results</button>
@@ -383,7 +389,7 @@
         <div id="examInterface" class="hidden">
             <div class="header">
                 <div>
-                    <h1>Static Examination Demo</h1>
+                    <h1>Static Examination <span class="gradient-text">Demo</span></h1>
                     <p>Answer all questions and submit when ready</p>
                 </div>
                 <div class="timer" id="timer">00:00:00</div>
@@ -410,9 +416,14 @@
         <!-- Results Interface -->
         <div id="resultsInterface" class="hidden">
             <div class="results-container">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold" style="color: #101E3D;">
+                        Examination <span class="gradient-text">Results</span>
+                    </h1>
+                </div>
                 <div class="score-card">
                     <div class="score-value" id="scoreValue">0%</div>
-                    <div>Overall Score</div>
+                    <!-- <div>Overall Score</div> -->
                     <div id="scoreDetails"></div>
                 </div>
 
@@ -806,8 +817,8 @@
             document.getElementById('scoreValue').innerHTML = `
             <div class="score-header">
                 <div>
+                    <div style="font-size: 0.9em; color: #6c757d; margin-bottom: 8px;">Total Score</div>
                     <div class="score-main">${results.totalMarks}/${results.maxMarks}</div>
-                    <div style="font-size: 0.9em; color: #6c757d;">Total Score</div>
                 </div>
                 <div class="score-percentage">${results.score}%</div>
             </div>
@@ -849,13 +860,26 @@
             // Time analysis
             const minutes = Math.floor(results.duration / 60);
             const seconds = results.duration % 60;
-            const avgTimePerQuestion = Math.round(results.duration / results.total);
-            
-            document.getElementById('timeAnalysis').innerHTML = `
-                <p><strong>Total Time:</strong> ${minutes}m ${seconds}s</p>
-                <p><strong>Average per Question:</strong> ${avgTimePerQuestion}s</p>
-                <p><strong>Time Efficiency:</strong> ${avgTimePerQuestion < 60 ? 'Good' : 'Could be faster'}</p>
-            `;
+            const attemptedQuestions = Object.keys(results.answers).length;
+            const avgTimePerQuestion = results.duration > 0 && attemptedQuestions > 0 ? Math.round(results.duration / attemptedQuestions) : 0;
+
+            // Better formatting for average time
+            let avgTimeDisplay;
+            if (avgTimePerQuestion >= 60) {
+                const avgMins = Math.floor(avgTimePerQuestion / 60);
+                const avgSecs = avgTimePerQuestion % 60;
+                avgTimeDisplay = `${avgMins}m ${avgSecs}s`;
+            } else if (avgTimePerQuestion > 0) {
+                avgTimeDisplay = `${avgTimePerQuestion}s`;
+            } else {
+                avgTimeDisplay = 'Less than 1s';
+            }
+
+document.getElementById('timeAnalysis').innerHTML = `
+    <p><strong>Total Time:</strong> ${minutes}m ${seconds}s</p>
+    <p><strong>Average per Question:</strong> ${avgTimeDisplay}</p>
+    <p><strong>Time Efficiency:</strong> ${avgTimePerQuestion < 60 ? 'Good' : 'Could be faster'}</p>
+`;
             
             // Subject breakdown (only show if multiple subjects)
             const subjectCount = Object.keys(results.subjectStats).length;
@@ -883,21 +907,73 @@
             }
             
             // Topic breakdown
-            let topicHtml = '';
-            Object.entries(results.topicStats).forEach(([topic, stats]) => {
-                const percentage = Math.round((stats.correct / stats.total) * 100);
-                topicHtml += `
-                    <div class="subject-breakdown">
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>${topic}</span>
-                            <span>${stats.correct}/${stats.total} (${percentage}%)</span>
+            // Topic Analysis - Fixed logic to avoid duplicates
+            const topicEntries = Object.entries(results.topicStats);
+            const topicsByPerformance = topicEntries.map(([topic, stats]) => ({
+                topic,
+                percentage: Math.round((stats.correct / stats.total) * 100),
+                correct: stats.correct,
+                total: stats.total
+            })).sort((a, b) => b.percentage - a.percentage);
+
+            // STRONGEST: Only topics with 50%+ performance, max 2
+            const topPerformers = topicsByPerformance.filter(t => t.percentage >= 50).slice(0, 2);
+
+            // FOCUS ON: Bottom performers (excluding those already in STRONGEST), max 2
+            const usedTopics = topPerformers.map(t => t.topic);
+            const needsWork = topicsByPerformance
+                .filter(t => !usedTopics.includes(t.topic) && t.percentage < 50)
+                .slice(-2) // Take the 2 worst from bottom
+                .reverse(); // Show worst first
+
+            let topicHtml = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <!-- Top Performers -->
+                    <div>
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <span style="font-size: 1.5em;">🏆</span>
+                            <div style="font-size: 0.8em; font-weight: bold; color: #10B981;">STRONGEST</div>
                         </div>
-                        <div class="subject-bar">
-                            <div class="subject-progress" style="width: ${percentage}%"></div>
-                        </div>
+                        ${topPerformers.length > 0 ? topPerformers.map(topic => `
+                            <div class="subject-breakdown">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="font-size: 0.9em;" title="${topic.topic}">${topic.topic.length > 18 ? topic.topic.substring(0, 18) + '...' : topic.topic}</span>
+                                    <span style="color: #10B981; font-weight: bold;">${topic.percentage}%</span>
+                                </div>
+                                <div class="subject-bar">
+                                    <div class="subject-progress" style="width: ${topic.percentage}%; background: #10B981;"></div>
+                                </div>
+                            </div>
+                        `).join('') : '<div style="text-align: center; color: #6c757d; font-size: 0.8em;">Score 50%+ to see strengths!</div>'}
                     </div>
-                `;
-            });
+                    
+                    <!-- Needs Work -->
+                    <div>
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <span style="font-size: 1.5em;">🎯</span>
+                            <div style="font-size: 0.8em; font-weight: bold; color: #F7A621;">FOCUS ON</div>
+                        </div>
+                        ${needsWork.length > 0 ? needsWork.map(topic => `
+                            <div class="subject-breakdown">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="font-size: 0.9em;" title="${topic.topic}">${topic.topic.length > 18 ? topic.topic.substring(0, 18) + '...' : topic.topic}</span>
+                                    <span style="color: #F7A621; font-weight: bold;">${topic.percentage}%</span>
+                                </div>
+                                <div class="subject-bar">
+                                    <div class="subject-progress" style="width: ${Math.max(topic.percentage, 5)}%; background: #F7A621;"></div>
+                                </div>
+                            </div>
+                        `).join('') : '<div style="text-align: center; color: #6c757d; font-size: 0.8em;">All topics performing well!</div>'}
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button onclick="showAllTopics()" style="background: none; border: 1px solid #F7A621; color: #F7A621; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8em;">
+                        View all ${topicEntries.length} topics details
+                    </button>
+                </div>
+            `;
+
             document.getElementById('topicBreakdown').innerHTML = topicHtml;
             
             // Difficulty breakdown
@@ -1008,6 +1084,43 @@
         function backToResults() {
             document.getElementById('reviewInterface').classList.add('hidden');
             document.getElementById('resultsInterface').classList.remove('hidden');
+        }
+
+        function showAllTopics() {
+            const results = JSON.parse(localStorage.getItem('examResults'));
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.5); z-index: 1000; display: flex; 
+                align-items: center; justify-content: center; padding: 20px;
+            `;
+            
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: white; border-radius: 10px; padding: 20px; 
+                max-width: 500px; max-height: 80vh; overflow-y: auto; position: relative;
+            `;
+            
+            let allTopicsHtml = '<h3 style="margin-bottom: 15px; color: #101E3D;">All Topics Breakdown</h3>';
+            Object.entries(results.topicStats).forEach(([topic, stats]) => {
+                const percentage = Math.round((stats.correct / stats.total) * 100);
+                allTopicsHtml += `
+                    <div style="display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee;">
+                        <span style="font-size: 14px;">${topic}</span>
+                        <span style="font-weight: bold; color: ${percentage >= 70 ? '#10B981' : percentage >= 50 ? '#F7A621' : '#EF4444'};">${percentage}%</span>
+                    </div>
+                `;
+            });
+            
+            content.innerHTML = allTopicsHtml + `
+                <button onclick="this.closest('[style*=fixed]').remove()" 
+                        style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;">×</button>
+            `;
+            
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
         }
 
         function generateReview() {
