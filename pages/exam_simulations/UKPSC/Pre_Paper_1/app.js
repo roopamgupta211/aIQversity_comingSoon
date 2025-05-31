@@ -28,6 +28,8 @@ const GEMINI_CONFIG = {
 };
 
 let geminiClient = null;
+let skillsRadarChart = null;
+let progressGaugeChart = null;
 
 const PERFORMANCE_LEVELS = {
     EXCELLENT: 'Excellent',
@@ -379,6 +381,8 @@ function buildResultsObject(basicStats, analytics) {
 }
 
 function storeResults(results) {
+    // Add this line to confirm we're storing fresh results
+    console.log('Storing fresh exam results:', results.timestamp);
     localStorage.setItem('examResults', JSON.stringify(results));
 }
 
@@ -849,7 +853,7 @@ function createSkillsRadar(skillsData) {
     if (!ctx) return;
     
     try {
-        new Chart(ctx, {
+        skillsRadarChart = new Chart(ctx, {
             type: 'radar',
             data: skillsData,
             options: {
@@ -900,7 +904,7 @@ function createProgressGauge(currentScore, targetScore) {
     try {
         const progress = (currentScore / targetScore) * 100;
         
-        new Chart(ctx, {
+        progressGaugeChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -1658,8 +1662,19 @@ function downloadResults() {
 }
 
 function restartExam() {
+    // Clear ALL localStorage data - not just examResults
+    localStorage.clear();
+    
+    // Destroy existing charts
+    destroyExistingCharts();
+    
+    // Reset all exam state completely
     resetExamState();
     resetUI();
+    
+    // Clear any cached AI insights
+    clearAIInsights();
+    
     switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.LOADING);
     
     setTimeout(() => {
@@ -1667,13 +1682,50 @@ function restartExam() {
     }, 1000);
 }
 
-function resetExamState() {
-    currentQuestion = 0;
-    answers = {};
-    startTime = null;
-    examDuration = 0;
+function clearAIInsights() {
+    // Clear AI insight containers to force fresh generation
+    const aiInsightContainer = document.getElementById('aiPerformanceInsight');
+    if (aiInsightContainer) {
+        aiInsightContainer.innerHTML = '<p>Analyzing your unique learning patterns...</p><div class="insight-loader"></div>';
+    }
+    
+    // Reset all chart containers
+    const chartContainers = [
+        'skillsRadarChart', 'progressGauge', 'priorityMatrix',
+        'dailyTimeline', 'weeklyFocus', 'monthlyGoals'
+    ];
+    
+    chartContainers.forEach(containerId => {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = '';
+        }
+    });
 }
 
+function destroyExistingCharts() {
+    if (skillsRadarChart) {
+        skillsRadarChart.destroy();
+        skillsRadarChart = null;
+    }
+    if (progressGaugeChart) {
+        progressGaugeChart.destroy();
+        progressGaugeChart = null;
+    }
+}
+
+function resetExamState() {
+    currentQuestion = 0;
+    answers = {}; // This is critical - completely reset answers
+    startTime = null;
+    examDuration = 0;
+    
+    // Clear any timer intervals
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+}
 function resetUI() {
     // Reset subject breakdown visibility
     const subjectBreakdown = document.getElementById('subjectBreakdown');

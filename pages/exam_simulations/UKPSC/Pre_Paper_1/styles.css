@@ -1229,6 +1229,41 @@ h1, h2, h3 {
         display: block;
         margin-top: 2px;
     }
+    /* Monthly Goals - Single column for very small screens */
+    .monthly-grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px;
+    }
+
+    .monthly-week {
+        padding: 12px 8px;
+        font-size: 0.85em;
+    }
+
+    .week-number {
+        font-size: 0.75em;
+        margin-bottom: 4px;
+    }
+
+    .week-target {
+        font-size: 0.8em;
+        margin-bottom: 6px;
+        line-height: 1.2;
+    }
+
+    .week-hours {
+        font-size: 1.1em;
+    }
+
+    /* Also fix the study cards padding */
+    .study-card {
+        padding: 15px 12px;
+    }
+
+    .study-card h3 {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
 }
 
 /* Study Plan Section */
