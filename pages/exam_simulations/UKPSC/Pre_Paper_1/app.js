@@ -21,7 +21,7 @@ const DISPLAY_LIMITS = {
 };
 
 const GEMINI_CONFIG = {
-    API_KEY: 'AIzaSyCDQguYTOFGzlpWLORLDbEcKE5Av--AAX8', // Replace with your actual API key
+    API_KEY: 'AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg',
     MODEL: 'gemini-2.5-pro-preview-05-06',
     BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/models/'
 };
@@ -944,14 +944,235 @@ function createPriorityMatrix(priorityData) {
     container.innerHTML = `
         <div class="priority-matrix">
             ${priorityData.map(item => `
-                <div class="priority-item priority-${item.priority}">
+                <div class="priority-item priority-${item.priority}" onclick="showSubjectDetails('${item.subject.replace(/'/g, "\\'")}', ${item.score})" style="cursor: pointer; transition: transform 0.2s ease;">
                     <div class="priority-title">${item.priorityTitle}</div>
                     <div class="priority-subject">${item.subject}</div>
                     <div class="priority-score score-${item.score < 40 ? 'low' : item.score < 70 ? 'medium' : 'high'}">
                         ${item.score}%
                     </div>
+                    <div style="font-size: 0.7em; color: #6c757d; margin-top: 5px;">
+                        👆 Tap for details
+                    </div>
                 </div>
             `).join('')}
+        </div>
+    `;
+}
+
+function showSubjectDetails(subject, subjectScore) {
+    const results = JSON.parse(localStorage.getItem('examResults'));
+    
+    // Get detailed breakdown for this subject
+    const subjectQuestions = examData.filter(q => q.classification.subject === subject);
+    
+    // Create hierarchical structure: subtopic -> sub-subtopic -> concept
+    const hierarchicalData = {};
+    
+    subjectQuestions.forEach((question, idx) => {
+        const globalIndex = examData.findIndex(q => q.question_id === question.question_id);
+        const userAnswer = answers[globalIndex];
+        const isCorrect = userAnswer === question.correct_answer;
+        const isAttempted = userAnswer !== undefined;
+        
+        const subtopic = question.classification.subtopic || 'General';
+        const subSubtopic = question.classification.sub_subtopic || 'General';
+        const concept = question.classification.concept ? 
+            (question.classification.concept.length > 50 ? 
+                question.classification.concept.substring(0, 50) + '...' : 
+                question.classification.concept) : 'General Concept';
+        
+        // Initialize hierarchical structure
+        if (!hierarchicalData[subtopic]) {
+            hierarchicalData[subtopic] = {
+                stats: { total: 0, correct: 0, attempted: 0 },
+                subSubtopics: {}
+            };
+        }
+        
+        if (!hierarchicalData[subtopic].subSubtopics[subSubtopic]) {
+            hierarchicalData[subtopic].subSubtopics[subSubtopic] = {
+                stats: { total: 0, correct: 0, attempted: 0 },
+                concepts: {}
+            };
+        }
+        
+        if (!hierarchicalData[subtopic].subSubtopics[subSubtopic].concepts[concept]) {
+            hierarchicalData[subtopic].subSubtopics[subSubtopic].concepts[concept] = {
+                total: 0, correct: 0, attempted: 0
+            };
+        }
+        
+        // Update stats at all levels
+        hierarchicalData[subtopic].stats.total++;
+        hierarchicalData[subtopic].subSubtopics[subSubtopic].stats.total++;
+        hierarchicalData[subtopic].subSubtopics[subSubtopic].concepts[concept].total++;
+        
+        if (isAttempted) {
+            hierarchicalData[subtopic].stats.attempted++;
+            hierarchicalData[subtopic].subSubtopics[subSubtopic].stats.attempted++;
+            hierarchicalData[subtopic].subSubtopics[subSubtopic].concepts[concept].attempted++;
+        }
+        
+        if (isCorrect) {
+            hierarchicalData[subtopic].stats.correct++;
+            hierarchicalData[subtopic].subSubtopics[subSubtopic].stats.correct++;
+            hierarchicalData[subtopic].subSubtopics[subSubtopic].concepts[concept].correct++;
+        }
+    });
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        background: rgba(0,0,0,0.6); z-index: 1000; display: flex; 
+        align-items: center; justify-content: center; padding: 15px;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const content = document.createElement('div');
+    content.style.cssText = `
+        background: white; border-radius: 12px; padding: 20px; 
+        max-width: 90vw; width: 100%; max-width: 500px; max-height: 85vh; 
+        overflow-y: auto; position: relative; 
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        animation: slideUp 0.3s ease;
+    `;
+    
+    content.innerHTML = `
+        <style>
+            @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+            .detail-section { margin-bottom: 20px; }
+            .detail-item { 
+                display: flex; justify-content: space-between; align-items: center;
+                padding: 8px 12px; margin: 6px 0; background: #f8f9fa; 
+                border-radius: 6px; border-left: 3px solid #dee2e6;
+                font-size: 0.85em; line-height: 1.3;
+            }
+            .detail-item.good { border-left-color: #10B981; background: #f0fdf4; }
+            .detail-item.average { border-left-color: #F7A621; background: #fffbeb; }
+            .detail-item.poor { border-left-color: #EF4444; background: #fef2f2; }
+            .detail-score { font-weight: bold; min-width: 45px; text-align: right; }
+            .detail-score.good { color: #10B981; }
+            .detail-score.average { color: #F7A621; }
+            .detail-score.poor { color: #EF4444; }
+            .section-header { 
+                font-size: 0.95em; font-weight: 600; color: #101E3D; 
+                margin-bottom: 10px; padding-bottom: 5px; 
+                border-bottom: 2px solid #F7A621;
+            }
+        </style>
+        
+        <button onclick="this.closest('[style*=fixed]').remove()" 
+                style="position: absolute; top: 15px; right: 15px; background: none; 
+                border: none; font-size: 20px; cursor: pointer; color: #999; 
+                width: 28px; height: 28px; border-radius: 50%; display: flex; 
+                align-items: center; justify-content: center; 
+                hover:background-color: #f5f5f5;">✕</button>
+        
+        <h3 style="margin-bottom: 15px; color: #101E3D; padding-right: 35px; font-size: 1.1em;">
+            📊 ${subject} Analysis
+        </h3>
+        
+        <div style="background: linear-gradient(135deg, #F7A621, #E69A0C); 
+                    color: white; padding: 12px; border-radius: 8px; 
+                    text-align: center; margin-bottom: 20px;">
+            <div style="font-size: 1.4em; font-weight: bold;">${subjectScore}%</div>
+            <div style="font-size: 0.8em; opacity: 0.9;">Overall Subject Score</div>
+        </div>
+        
+        ${generateHierarchicalDisplay(hierarchicalData)}
+        
+        <div style="margin-top: 20px; padding: 12px; background: #e6f3ff; 
+                    border-radius: 6px; font-size: 0.8em; color: #1e40af;">
+            💡 Focus on areas below 70% for maximum improvement
+        </div>
+    `;
+    
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    
+    // Close on backdrop click
+    modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+    
+    // Close on escape key
+    const escapeHandler = (e) => {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', escapeHandler);
+        }
+    };
+    document.addEventListener('keydown', escapeHandler);
+}
+
+function generateHierarchicalDisplay(hierarchicalData) {
+    const entries = Object.entries(hierarchicalData);
+    if (entries.length === 0) return '<div style="color: #6c757d;">No detailed data available</div>';
+    
+    return `
+        <div class="detail-section">
+            ${entries.map(([subtopic, subtopicData]) => {
+                const subtopicPercentage = subtopicData.stats.attempted > 0 ? 
+                    Math.round((subtopicData.stats.correct / subtopicData.stats.attempted) * 100) : 0;
+                const subtopicClass = subtopicPercentage >= 70 ? 'good' : subtopicPercentage >= 40 ? 'average' : 'poor';
+                const displaySubtopic = subtopic.length > 35 ? subtopic.substring(0, 35) + '...' : subtopic;
+                
+                return `
+                    <div style="margin-bottom: 20px; border: 1px solid #e9ecef; border-radius: 8px; overflow: hidden;">
+                        <!-- Subtopic Header -->
+                        <div class="detail-item ${subtopicClass}" style="margin: 0; border-radius: 0; border-left: none; border-left: 4px solid ${subtopicClass === 'good' ? '#10B981' : subtopicClass === 'average' ? '#F7A621' : '#EF4444'};">
+                            <span style="font-weight: 600;">📚 ${displaySubtopic}</span>
+                            <span class="detail-score ${subtopicClass}">
+                                ${subtopicData.stats.correct}/${subtopicData.stats.attempted || subtopicData.stats.total}
+                                ${subtopicData.stats.attempted > 0 ? ` (${subtopicPercentage}%)` : ''}
+                            </span>
+                        </div>
+                        
+                        <!-- Sub-Subtopics -->
+                        <div style="padding: 0 0 0 15px;">
+                            ${Object.entries(subtopicData.subSubtopics).map(([subSubtopic, subSubtopicData]) => {
+                                const subSubtopicPercentage = subSubtopicData.stats.attempted > 0 ? 
+                                    Math.round((subSubtopicData.stats.correct / subSubtopicData.stats.attempted) * 100) : 0;
+                                const subSubtopicClass = subSubtopicPercentage >= 70 ? 'good' : subSubtopicPercentage >= 40 ? 'average' : 'poor';
+                                const displaySubSubtopic = subSubtopic.length > 30 ? subSubtopic.substring(0, 30) + '...' : subSubtopic;
+                                
+                                return `
+                                    <div style="border-top: 1px solid #f1f3f4;">
+                                        <!-- Sub-Subtopic -->
+                                        <div class="detail-item ${subSubtopicClass}" style="margin: 0; border-radius: 0; border-left: none; background: #f8f9fa; font-size: 0.8em;">
+                                            <span style="font-weight: 500;">|-> 🔍 ${displaySubSubtopic}</span>
+                                            <span class="detail-score ${subSubtopicClass}">
+                                                ${subSubtopicData.stats.correct}/${subSubtopicData.stats.attempted || subSubtopicData.stats.total}
+                                                ${subSubtopicData.stats.attempted > 0 ? ` (${subSubtopicPercentage}%)` : ''}
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Concepts -->
+                                        <div style="padding-left: 15px; background: #fafbfc;">
+                                            ${Object.entries(subSubtopicData.concepts).map(([concept, conceptData]) => {
+                                                const conceptPercentage = conceptData.attempted > 0 ? 
+                                                    Math.round((conceptData.correct / conceptData.attempted) * 100) : 0;
+                                                const conceptClass = conceptPercentage >= 70 ? 'good' : conceptPercentage >= 40 ? 'average' : 'poor';
+                                                const displayConcept = concept.length > 28 ? concept.substring(0, 28) + '...' : concept;
+                                                
+                                                return `
+                                                    <div class="detail-item ${conceptClass}" style="margin: 0; border-radius: 0; border-left: none; background: transparent; font-size: 0.75em; padding: 6px 12px;">
+                                                        <span style="color: #6c757d;">|--> 💡 ${displayConcept}</span>
+                                                        <span class="detail-score ${conceptClass}">
+                                                            ${conceptData.correct}/${conceptData.attempted || conceptData.total}
+                                                            ${conceptData.attempted > 0 ? ` (${conceptPercentage}%)` : ''}
+                                                        </span>
+                                                    </div>
+                                                `;
+                                            }).join('')}
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('')}
         </div>
     `;
 }
