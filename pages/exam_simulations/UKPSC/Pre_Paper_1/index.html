@@ -1,9 +1,32 @@
+<!-- Static Examination Demo HTML file -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Examination Demo</title>
+    
+    <meta name="description" content="aIQversity - AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions. Supporting multiple Indian languages for inclusive education.">
+    <meta name="keywords" content="AI education, personalized learning, adaptive learning, educational technology, Indian languages, student portal, teacher tools, parent insights">
+    <meta name="author" content="Sakshi Varshney">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aiqversity.com/index.html">
+
+    <meta property="og:title" content="aIQversity - AI-Powered Education Platform">
+    <meta property="og:description" content="Transform education with AI-driven personalized learning pathways, adaptive teaching tools, and comprehensive analytics for students, teachers, parents, and institutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aiqversity.com/">
+    <meta property="og:image" content="https://aiqversity.com/images/logo.jpg">
+
+    <title>UKPSC Examination Demo</title>
     <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/@google/genai@latest/dist/index.js"></script>
     <link rel="stylesheet" href="./styles.css">
@@ -51,8 +74,32 @@
         <div id="examInterface" class="hidden">
             <!-- Exam Header -->
             <div class="exam-header">
-                <h1>Static Examination <span class="gradient-text">Demo</span></h1>
-                <p>Answer all questions and submit when ready</p>
+                <h1>Smart Examination <span class="gradient-text">Experience</span></h1>
+                <p class="hero-subtitle">🚀 Welcome to the future of personalized learning!</p>
+                
+                <div class="demo-info" style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 4px solid #F7A621;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.5em;">🎯</span>
+                        <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">Experience AI-Powered Learning</h3>
+                    </div>
+                    <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                        This <strong>150-question General Studies practice exam</strong> is specially designed for <strong>UKPSC (Uttarakhand Public Service Commission)</strong> aspirants and anyone preparing for competitive exams. Featuring comprehensive coverage of Uttarakhand GK, Indian Polity, History, Geography, Economics, and Current Affairs, this interactive demo showcases our advanced AI analytics that transforms your performance into personalized insights, study plans, and growth recommendations.
+                    </p>
+                    <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; font-size: 0.85em;">
+                        <span style="color: #10B981;">✨ Real-time AI Analysis</span>
+                        <span style="color: #6366f1;">📊 Visual Performance Insights</span>
+                        <span style="color: #F7A621;">🎯 Smart Study Plans</span>
+                        <span style="color: #8B5CF6;">🚀 Personalized Growth Path</span>
+                    </div>
+                    <div style="background: rgba(16, 30, 61, 0.05); padding: 12px; border-radius: 8px; margin-top: 15px; text-align: center;">
+                        <strong style="color: #101E3D;">💡 This is just the tip of the iceberg!</strong><br>
+                        <span style="color: #6c757d; font-size: 0.9em;">Full version features AI tutoring, voice learning, automated evaluations, career guidance, and smart analytics for students, teachers, parents & institutions.</span>
+                    </div>
+                </div>
+                
+                <p style="color: #6c757d; font-size: 0.9em; text-align: center; margin-top: 10px;">
+                    Ready to experience the magic? Answer all questions and submit when ready! ⚡
+                </p>
             </div>
 
             <nav class="question-list" id="questionList" aria-label="Question navigation"></nav>
@@ -84,7 +131,7 @@
                         </div>
                         <div class="hero-score">
                             <div class="score-circle" id="scoreCircle">
-                                <svg width="120" height="120">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="60" cy="60" r="50" stroke="#e9ecef" stroke-width="8" fill="none"/>
                                     <circle cx="60" cy="60" r="50" stroke="#F7A621" stroke-width="8" fill="none" 
                                             stroke-dasharray="314" stroke-dashoffset="314" id="scoreProgress"/>
@@ -115,7 +162,7 @@
 
                 <!-- Growth Opportunities Section -->
                 <div class="growth-section">
-                    <h2 class="section-title">🚀 Your Growth Opportunities</h2>
+                    <h2 class="section-title">🚀 AI-powered personalised Growth Opportunities</h2>
                     <div class="growth-grid">
                         <div class="growth-card performance-radar">
                             <h3>📊 Skills Radar</h3>
@@ -127,7 +174,7 @@
                         </div>
                         
                         <div class="growth-card target-gauge">
-                            <h3>🎯 Progress to Goal</h3>
+                            <h3>🎯 Progress to Goal (You'll set custom targets in our full app)</h3>
                             <div class="gauge-container">
                                 <canvas id="progressGauge"></canvas>
                                 <div class="chart-loader" id="gaugeLoader"></div>
@@ -145,7 +192,7 @@
 
                 <!-- Smart Study Plan Section -->
                 <div class="study-plan-section">
-                    <h2 class="section-title">📚 Your Smart Study Plan</h2>
+                    <h2 class="section-title">📚 AI-powered personalised Smart Study Plan</h2>
                     <div class="study-plan-grid">
                         <div class="study-card daily-card">
                             <h3>📅 Daily Timeline</h3>
@@ -204,11 +251,11 @@
                             <div id="difficultyMatrix"></div>
                         </div>
                         <div class="matrix-card">
-                            <h3>Learning Velocity</h3>
+                            <h3>Answering Velocity</h3>
                             <div id="learningVelocity"></div>
                         </div>
                         <div class="matrix-card">
-                            <h3>Knowledge Coverage</h3>
+                            <h3>Attempted Questions</h3>
                             <div id="knowledgeCoverage"></div>
                         </div>
                     </div>
@@ -225,24 +272,10 @@
                                 <small>Question-by-question breakdown</small>
                             </div>
                         </button>
-                        <button class="action-btn secondary" onclick="generateStudyPlan()">
-                            <span class="action-icon">📋</span>
-                            <div>
-                                <strong>Custom Study Plan</strong>
-                                <small>AI-generated roadmap</small>
-                            </div>
-                        </button>
-                        <button class="action-btn accent" onclick="downloadDashboard()">
-                            <span class="action-icon">📤</span>
-                            <div>
-                                <strong>Export Dashboard</strong>
-                                <small>Share your progress</small>
-                            </div>
-                        </button>
                         <button class="action-btn outline" onclick="restartExam()">
                             <span class="action-icon">🔄</span>
                             <div>
-                                <strong>Take Another Test</strong>
+                                <strong>Take the Test again</strong>
                                 <small>Continue practicing</small>
                             </div>
                         </button>

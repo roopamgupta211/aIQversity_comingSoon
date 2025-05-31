@@ -1,3 +1,4 @@
+// Static Examination Demo app.js
 const CONFIG = {
     TIMER_INTERVAL: 1000,
     SCORE_THRESHOLDS: { EXCELLENT: 80, GOOD: 60, AVERAGE: 40 },
@@ -838,7 +839,7 @@ function calculateGrowthMetrics(results) {
     return {
         skillsData,
         currentScore: results.score,
-        targetScore: 85,
+        targetScore: 95,
         priorityData
     };
 }
@@ -976,10 +977,7 @@ function showSubjectDetails(subject, subjectScore) {
         
         const subtopic = question.classification.subtopic || 'General';
         const subSubtopic = question.classification.sub_subtopic || 'General';
-        const concept = question.classification.concept ? 
-            (question.classification.concept.length > 50 ? 
-                question.classification.concept.substring(0, 50) + '...' : 
-                question.classification.concept) : 'General Concept';
+        const concept = question.classification.concept || 'General Concept';
         
         // Initialize hierarchical structure
         if (!hierarchicalData[subtopic]) {
@@ -1044,10 +1042,14 @@ function showSubjectDetails(subject, subjectScore) {
             @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
             .detail-section { margin-bottom: 20px; }
             .detail-item { 
-                display: flex; justify-content: space-between; align-items: center;
+                display: flex; justify-content: space-between; align-items: flex-start;
                 padding: 8px 12px; margin: 6px 0; background: #f8f9fa; 
                 border-radius: 6px; border-left: 3px solid #dee2e6;
-                font-size: 0.85em; line-height: 1.3;
+                font-size: 0.85em; line-height: 1.4; gap: 8px;
+            }
+            .detail-item .item-text {
+                flex: 1; word-wrap: break-word; overflow-wrap: break-word;
+                hyphens: auto; line-height: 1.4;
             }
             .detail-item.good { border-left-color: #10B981; background: #f0fdf4; }
             .detail-item.average { border-left-color: #F7A621; background: #fffbeb; }
@@ -1115,13 +1117,13 @@ function generateHierarchicalDisplay(hierarchicalData) {
                 const subtopicPercentage = subtopicData.stats.attempted > 0 ? 
                     Math.round((subtopicData.stats.correct / subtopicData.stats.attempted) * 100) : 0;
                 const subtopicClass = subtopicPercentage >= 70 ? 'good' : subtopicPercentage >= 40 ? 'average' : 'poor';
-                const displaySubtopic = subtopic.length > 35 ? subtopic.substring(0, 35) + '...' : subtopic;
+                const displaySubtopic = subtopic;
                 
                 return `
                     <div style="margin-bottom: 20px; border: 1px solid #e9ecef; border-radius: 8px; overflow: hidden;">
                         <!-- Subtopic Header -->
                         <div class="detail-item ${subtopicClass}" style="margin: 0; border-radius: 0; border-left: none; border-left: 4px solid ${subtopicClass === 'good' ? '#10B981' : subtopicClass === 'average' ? '#F7A621' : '#EF4444'};">
-                            <span style="font-weight: 600;">📚 ${displaySubtopic}</span>
+                            <span class="item-text" style="font-weight: 600;">📚 ${displaySubtopic}</span>
                             <span class="detail-score ${subtopicClass}">
                                 ${subtopicData.stats.correct}/${subtopicData.stats.attempted || subtopicData.stats.total}
                                 ${subtopicData.stats.attempted > 0 ? ` (${subtopicPercentage}%)` : ''}
@@ -1134,13 +1136,13 @@ function generateHierarchicalDisplay(hierarchicalData) {
                                 const subSubtopicPercentage = subSubtopicData.stats.attempted > 0 ? 
                                     Math.round((subSubtopicData.stats.correct / subSubtopicData.stats.attempted) * 100) : 0;
                                 const subSubtopicClass = subSubtopicPercentage >= 70 ? 'good' : subSubtopicPercentage >= 40 ? 'average' : 'poor';
-                                const displaySubSubtopic = subSubtopic.length > 30 ? subSubtopic.substring(0, 30) + '...' : subSubtopic;
+                                const displaySubSubtopic = subSubtopic;
                                 
                                 return `
                                     <div style="border-top: 1px solid #f1f3f4;">
                                         <!-- Sub-Subtopic -->
                                         <div class="detail-item ${subSubtopicClass}" style="margin: 0; border-radius: 0; border-left: none; background: #f8f9fa; font-size: 0.8em;">
-                                            <span style="font-weight: 500;">|-> 🔍 ${displaySubSubtopic}</span>
+                                            <span class="item-text" style="font-weight: 500;">↳ 🔍 ${displaySubSubtopic}</span>
                                             <span class="detail-score ${subSubtopicClass}">
                                                 ${subSubtopicData.stats.correct}/${subSubtopicData.stats.attempted || subSubtopicData.stats.total}
                                                 ${subSubtopicData.stats.attempted > 0 ? ` (${subSubtopicPercentage}%)` : ''}
@@ -1153,11 +1155,11 @@ function generateHierarchicalDisplay(hierarchicalData) {
                                                 const conceptPercentage = conceptData.attempted > 0 ? 
                                                     Math.round((conceptData.correct / conceptData.attempted) * 100) : 0;
                                                 const conceptClass = conceptPercentage >= 70 ? 'good' : conceptPercentage >= 40 ? 'average' : 'poor';
-                                                const displayConcept = concept.length > 28 ? concept.substring(0, 28) + '...' : concept;
+                                                const displayConcept = concept;
                                                 
                                                 return `
                                                     <div class="detail-item ${conceptClass}" style="margin: 0; border-radius: 0; border-left: none; background: transparent; font-size: 0.75em; padding: 6px 12px;">
-                                                        <span style="color: #6c757d;">|--> 💡 ${displayConcept}</span>
+                                                        <span class="item-text" style="color: #6c757d;">⤷ 💡 ${displayConcept}</span>
                                                         <span class="detail-score ${conceptClass}">
                                                             ${conceptData.correct}/${conceptData.attempted || conceptData.total}
                                                             ${conceptData.attempted > 0 ? ` (${conceptPercentage}%)` : ''}
@@ -1435,27 +1437,6 @@ function formatTime(seconds) {
 // New dashboard functions
 function showDetailedReview() {
     showReview();
-}
-
-function generateStudyPlan() {
-    alert('Opening personalized study planner... 📚\n\nUpgrade to Premium for:\n• AI-powered study schedules\n• Progress tracking\n• Adaptive learning paths');
-}
-
-function downloadDashboard() {
-    const results = JSON.parse(localStorage.getItem('examResults'));
-    const dashboardData = {
-        ...results,
-        generatedAt: new Date().toISOString(),
-        dashboardType: 'AI-Powered Learning Dashboard'
-    };
-    
-    const dataStr = JSON.stringify(dashboardData, null, 2);
-    const dataBlob = new Blob([dataStr], {type: 'application/json'});
-    
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(dataBlob);
-    link.download = `learning-dashboard-${new Date().toISOString().split('T')[0]}.json`;
-    link.click();
 }
 
 function showReview() {
