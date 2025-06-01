@@ -29,8 +29,6 @@
     <title>aIQversity</title>
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-    <script src="https://formspree.io/js/formspree-client.js"></script>
     <style>
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -126,6 +124,27 @@
             </div>
         </div>
     </nav>
+
+    <!-- What's New Section -->
+    <div class="py-12 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4" style="background: rgba(247, 166, 33, 0.1); color: #F7A621">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <span data-translate="true">Latest Updates</span>
+                </div>
+                <h2 class="text-2xl font-bold" style="color: #101E3D" data-translate="true">Get a Preview of What's Coming</h2>
+                <p class="mt-2 text-gray-600" data-translate="true">Experience early demonstrations of our AI-powered tools while we build the complete platform</p>
+            </div>
+            
+            <!-- Dynamic Features Container -->
+            <div id="liveFeatures" class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+                <!-- Features will be generated dynamically -->
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <div class="pt-24 pb-8 md:pt-32">
@@ -228,6 +247,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <!-- Educational Journey Ecosystem Section -->
     <div class="py-16 relative overflow-hidden" style="background: linear-gradient(135deg, #f0f4f8 0%, #e6f0fa 100%);">
@@ -907,7 +928,6 @@
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script>
         // Scroll to top functionality
         const scrollToTopButton = document.getElementById('scrollToTop');
@@ -960,6 +980,78 @@
                     behavior: 'smooth'
                 });
             });
+        });
+        // Live Features Data - Add new features here
+        const liveFeatures = [
+            {
+                title: "UPSC Prelims Analysis",
+                description: "Comprehensive analysis of UPSC Prelims with AI-powered insights, question patterns, and performance analytics.",
+                icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+                linkText: "Try Analysis Tool",
+                url: "./pages/analysis/upsc/pre/upsc_pre_analysis.html",
+                borderColor: "#F7A621",
+                iconBgColor: "rgba(247, 166, 33, 0.2)",
+                iconColor: "#F7A621",
+                linkColor: "#F7A621",
+                status: "Live Now",
+                statusBg: "#45E6C0",
+                statusColor: "#101E3D"
+            }
+            // Add more features here when ready:
+            /*
+            {
+                title: "UKPSC Exam Simulator",
+                description: "Practice with realistic UKPSC exam simulation featuring timed tests, real exam interface, and instant feedback.",
+                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                linkText: "Start Simulation",
+                url: "https://aiqversity.com/pages/exam_simulations/UKPSC/Pre_Paper_1/",
+                borderColor: "#45E6C0",
+                iconBgColor: "rgba(69, 230, 192, 0.2)",
+                iconColor: "#45E6C0",
+                linkColor: "#45E6C0",
+                status: "Demo Available",
+                statusBg: "#45E6C0",
+                statusColor: "#101E3D"
+            }
+            */
+        ];
+
+        // Function to generate feature cards
+        function generateLiveFeatures() {
+            const container = document.getElementById('liveFeatures');
+            if (!container) return;
+
+            container.innerHTML = liveFeatures.map(feature => `
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 w-full max-w-md" style="border-color: ${feature.borderColor}">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: ${feature.iconBgColor}">
+                                <svg class="w-5 h-5" style="color: ${feature.iconColor}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${feature.icon}"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold" style="color: #101E3D" data-translate="true">${feature.title}</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: ${feature.statusBg}; color: ${feature.statusColor}" data-translate="true">${feature.status}</span>
+                    </div>
+                    <p class="text-gray-600 mb-4" data-translate="true">${feature.description}</p>
+                    <a href="${feature.url}" class="inline-flex items-center text-sm font-medium hover:underline" style="color: ${feature.linkColor}" target="_blank">
+                        <span data-translate="true">${feature.linkText}</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Generate features when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateLiveFeatures();
+            // Store original texts for dynamically generated content
+            if (window.translator) {
+                window.translator.storeOriginalTexts();
+            }
         });
     </script>
     <!-- Registration Modal -->
@@ -1109,85 +1201,86 @@
     </script>
 	<script src="language-switcher.js"></script>
     <script>
-// Initialize the translation system
-const translator = new DynamicTranslator();
+        // Initialize the translation system
+        const translator = new DynamicTranslator();
+        // Make translator globally accessible
+        window.translator = translator;
 
-// Replace your existing mapsApiLoaded function
-function mapsApiLoaded() {
-    // Check if user explicitly chose a language
-    if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
-        localStorage.removeItem('userExplicitlyChoseLanguage');
-        translator.setupLanguageSwitcher('en');
-        return;
-    }
+        // Replace your existing mapsApiLoaded function
+        function mapsApiLoaded() {
+            // Check if user explicitly chose a language
+            if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
+                localStorage.removeItem('userExplicitlyChoseLanguage');
+                translator.setupLanguageSwitcher('en');
+                return;
+            }
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const geocoder = new google.maps.Geocoder();
-                const latlng = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
-                geocoder.geocode({ location: latlng }, (results, status) => {
-                    if (status === 'OK' && results[0]) {
-                        const addressComponents = results[0].address_components;
-                        let state = null;
-                        for (let component of addressComponents) {
-                            if (component.types.includes('administrative_area_level_1')) {
-                                state = component.long_name;
-                                break;
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const geocoder = new google.maps.Geocoder();
+                        const latlng = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        geocoder.geocode({ location: latlng }, (results, status) => {
+                            if (status === 'OK' && results[0]) {
+                                const addressComponents = results[0].address_components;
+                                let state = null;
+                                for (let component of addressComponents) {
+                                    if (component.types.includes('administrative_area_level_1')) {
+                                        state = component.long_name;
+                                        break;
+                                    }
+                                }
+                                const targetLanguage = getLanguageByState(state);
+                                if (targetLanguage && targetLanguage !== 'en') {
+                                    translator.showConsentModal(targetLanguage);
+                                } else {
+                                    translator.setupLanguageSwitcher('en');
+                                }
+                            } else {
+                                translator.setupLanguageSwitcher('en');
                             }
-                        }
-                        const targetLanguage = getLanguageByState(state);
-                        if (targetLanguage && targetLanguage !== 'en') {
-                            translator.showConsentModal(targetLanguage);
-                        } else {
-                            translator.setupLanguageSwitcher('en');
-                        }
-                    } else {
+                        });
+                    },
+                    () => {
                         translator.setupLanguageSwitcher('en');
                     }
-                });
-            },
-            () => {
+                );
+            } else {
                 translator.setupLanguageSwitcher('en');
             }
-        );
-    } else {
-        translator.setupLanguageSwitcher('en');
-    }
-}
+        }
 
-// Helper function to map states to languages
-function getLanguageByState(state) {
-    if (!state) return 'en';
-    
-    const s = state.toLowerCase();
-    const stateLanguageMap = {
-        'karnataka': 'kn',
-        'kerala': 'ml',
-        'gujarat': 'gu',
-        'maharashtra': 'mr',
-        'tamil nadu': 'ta',
-        'telangana': 'te',
-        'andhra pradesh': 'te'
-    };
+        // Helper function to map states to languages
+        function getLanguageByState(state) {
+            if (!state) return 'en';
+            
+            const s = state.toLowerCase();
+            const stateLanguageMap = {
+                'karnataka': 'kn',
+                'kerala': 'ml',
+                'gujarat': 'gu',
+                'maharashtra': 'mr',
+                'tamil nadu': 'ta',
+                'telangana': 'te',
+                'andhra pradesh': 'te'
+            };
 
-    const hindiStates = [
-        'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 
-        'haryana', 'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh'
-    ];
+            const hindiStates = [
+                'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 
+                'haryana', 'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh'
+            ];
 
-    for (const [stateName, langCode] of Object.entries(stateLanguageMap)) {
-        if (s.includes(stateName)) return langCode;
-    }
+            for (const [stateName, langCode] of Object.entries(stateLanguageMap)) {
+                if (s.includes(stateName)) return langCode;
+            }
 
-    if (hindiStates.some(hindiState => s.includes(hindiState))) return 'hi';
-    
-    return 'en';
-}
-
+            if (hindiStates.some(hindiState => s.includes(hindiState))) return 'hi';
+            
+            return 'en';
+        }
     </script>
     <!-- Google Maps API script - THIS MU BE AFTER your functions that use it, or use `defer` -->
     <!-- Replace YOUR_API_KEY with your actual key -->

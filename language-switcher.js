@@ -78,7 +78,7 @@ class DynamicTranslator {
                     contents: [{
                         role: 'user',
                         parts: [{
-                            text: `Translate the following text to ${this.supportedLanguages[targetLanguage]}. Return only the translation, no explanations: "${text}"; if "aIQversity" is present in the text, keep it as is and do not translate; Return only the translation`
+                            text: `Translate the following text to ${this.supportedLanguages[targetLanguage]} based on daily use dialects. Return only the translation, no explanations: "${text}"; if "aIQversity" is present in the text, keep it as is and do not translate; Return only the translation.`
                         }]
                     }]
                 })
