@@ -1811,6 +1811,39 @@ h1, h2, h3 {
     }
 }
 
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(16, 30, 61, 0.1);
+}
+
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+/* Enhanced Modal Styles */
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Video */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 20px;
+        margin-top: 80px;
+    }
+    
+    .aspect-video {
+        height: 200px;
+    }
+}
+
 footer {
     margin-top: 60px;
     clear: both;
