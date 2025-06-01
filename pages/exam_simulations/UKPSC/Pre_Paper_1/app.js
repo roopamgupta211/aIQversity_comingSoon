@@ -1,3 +1,4 @@
+// Static Examination Demo: app.js
 // ==================== CONFIGURATION ====================
 const CONFIG = {
     TIMER_INTERVAL: 1000,
@@ -231,6 +232,7 @@ class DataManager {
 class TimerManager {
     static initialize() {
         examState.startTime = new Date();
+        this.showTimer(); // Show timer when exam starts
         this.start();
     }
 
@@ -256,6 +258,27 @@ class TimerManager {
         examState.clearTimer();
         examState.examDuration = Math.floor((new Date() - examState.startTime) / 1000);
     }
+
+    static showTimer() {
+        const timer = document.getElementById('timer');
+        const homeButton = document.getElementById('homeButton');
+        
+        if (timer && homeButton) {
+            timer.classList.remove('hidden');
+            homeButton.classList.add('hidden');
+        }
+    }
+
+    static hideTimer() {
+        const timer = document.getElementById('timer');
+        const homeButton = document.getElementById('homeButton');
+        
+        if (timer && homeButton) {
+            timer.classList.add('hidden');
+            homeButton.classList.remove('hidden');
+        }
+    }
+
 }
 
 // ==================== QUESTION MANAGER ====================
@@ -1602,6 +1625,8 @@ class AppController {
         examState.reset();
         this.resetUI();
         this.clearAIInsights();
+
+        TimerManager.hideTimer();
         
         Utils.switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.LOADING);
         

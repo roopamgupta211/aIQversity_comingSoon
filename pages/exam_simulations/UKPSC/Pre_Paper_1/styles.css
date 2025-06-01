@@ -1,4 +1,4 @@
-/* Static Examination Demo styles.css - REFACTORED */
+/* Static Examination Demo: styles.css */
 :root {
     --container-sm: 896px;
     --container-md: 1024px;
@@ -152,6 +152,55 @@ main.container {
     font-size: 1em;
     font-weight: bold;
     color: #e74c3c;
+}
+
+/* ===========================================
+   HOME BUTTON STYLES
+   =========================================== */
+.home-button {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--brand-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(16, 30, 61, 0.1);
+    transition: all 0.3s ease;
+    min-height: 44px; /* Touch-friendly size */
+    min-width: 44px;
+}
+
+.home-button:hover {
+    background: #f8f9fa !important;
+    border-color: var(--brand-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 30, 61, 0.15);
+}
+
+.home-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(16, 30, 61, 0.1);
+}
+
+.home-button svg {
+    flex-shrink: 0;
+}
+
+/* Mobile optimization for home button */
+@media (max-width: 768px) {
+    .home-button {
+        font-size: 0.9em;
+        padding: 10px 12px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .home-button svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
 }
 
 /* ===========================================
