@@ -1951,7 +1951,6 @@ window.showRegistrationModal = () => EmailVerification.showRegistrationModal();
 window.hideRegistrationModal = () => EmailVerification.hideRegistrationModal();
 window.submitRegistrationForm = (event) => EmailVerification.submitRegistration(event);
 window.proceedToExamAfterRegistration = () => EmailVerification.proceedToExam();
-
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {
     EmailVerification.initialize();
