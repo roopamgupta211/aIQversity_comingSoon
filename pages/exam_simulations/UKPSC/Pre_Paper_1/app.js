@@ -509,9 +509,9 @@ class ResultsDisplay {
         const greetingElement = document.getElementById('personalizedGreeting');
         const subtextElement = document.getElementById('heroSubtext');
         
-        if (greetingElement) greetingElement.textContent = "Analyzing your performance...";
+        if (greetingElement) greetingElement.textContent = "We are analyzing your performance...";
         if (subtextElement) {
-            subtextElement.textContent = `${results.correct}/${results.total} questions • ${Utils.formatTime(results.duration)} spent`;
+            subtextElement.textContent = `` //`${results.correct}/${results.total} questions • ${Utils.formatTime(results.duration)} spent`;
         }
         
         this.animateScoreCircle(results.score);
@@ -871,7 +871,7 @@ class AIInsights {
 
     static display(insights) {
         this.removeLoadingAnimations();
-        
+
         // Update hero section with AI-generated content
         const greetingElement = document.getElementById('personalizedGreeting');
         const subtextElement = document.getElementById('heroSubtext');
@@ -1661,7 +1661,6 @@ class AppController {
     static async initialize() {
         try {
             await DataManager.loadExamData();
-            TimerManager.initialize();
             this.setupNavigation();
             this.setupEventListeners();
             ExamInterface.show();
@@ -1783,6 +1782,37 @@ class AppController {
         link.download = `exam-results-${new Date().toISOString().split('T')[0]}.json`;
         link.click();
     }
+}
+
+// ==================== START TEST FUNCTION ====================
+function startExamTest() {
+    // Hide the start test button and instructions area
+    const startButton = document.getElementById('startTestButton');
+    if (startButton && startButton.parentElement) {
+        startButton.parentElement.style.display = 'none';
+    }
+    
+    // Show the exam content
+    Utils.showElement('questionList');
+    Utils.showElement('questionCard');
+    Utils.showElement('examNavigation');
+    
+    // Start the timer
+    TimerManager.initialize();
+    
+    // Ensure current question is loaded
+    QuestionManager.load(0);
+    
+    // Scroll to the first question smoothly
+    setTimeout(() => {
+        const questionCard = document.getElementById('questionCard');
+        if (questionCard) {
+            questionCard.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }, 100);
 }
 
 // ==================== MODAL FUNCTIONS ====================
@@ -2063,6 +2093,7 @@ window.showRegistrationModal = () => EmailVerification.showRegistrationModal();
 window.hideRegistrationModal = () => EmailVerification.hideRegistrationModal();
 window.submitRegistrationForm = (event) => EmailVerification.submitRegistration(event);
 window.proceedToExamAfterRegistration = () => EmailVerification.proceedToExam();
+window.startExamTest = startExamTest;
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {
     EmailVerification.initialize();

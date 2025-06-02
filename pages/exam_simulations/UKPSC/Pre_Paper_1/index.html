@@ -304,15 +304,25 @@
                         You can submit the exam at any stage! Simply click on <strong>Q150</strong> in the question navigation and then hit Submit. No need to attempt all questions.
                     </p>
                 </div>
-                
+
+                <div style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; border: 2px solid #F7A621;">
+                    <p style="color: #101E3D; font-size: 1em; margin-bottom: 15px; font-weight: 500;">
+                        📚 Take your time to read the instructions above. The timer will only start when you click the button below.
+                    </p>
+                    <button onclick="startExamTest()" id="startTestButton"
+                            class="btn btn-primary" 
+                            style="background: linear-gradient(135deg, #F7A621, #E69A0C); color: white; font-weight: bold; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; border: none; cursor: pointer; box-shadow: 0 6px 15px rgba(247, 166, 33, 0.3); transition: all 0.3s ease;">
+                        🚀 Start Test Now
+                    </button>
+                </div>
+
                 <p style="color: #6c757d; font-size: 0.9em; text-align: center; margin-top: 10px;">
                     Ready to experience the magic? Answer all questions and submit when ready! ⚡
                 </p>
             </div>
 
-            <nav class="question-list" id="questionList" aria-label="Question navigation"></nav>
-
-            <div class="question-card" id="questionCard">
+            <nav class="question-list hidden" id="questionList" aria-label="Question navigation"></nav>
+            <div class="question-card hidden" id="questionCard">
                 <div class="question-header">
                     <span class="question-number" id="questionNumber">Question 1 of 10</span>
                     <span id="questionMeta"></span>
@@ -321,7 +331,7 @@
                 <div class="options" id="optionsContainer"></div>
             </div>
 
-            <div class="navigation">
+            <div class="navigation hidden" id="examNavigation">
                 <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
                 <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
                 <button class="btn btn-primary hidden" id="submitBtn" onclick="submitExam()">Submit Exam</button>

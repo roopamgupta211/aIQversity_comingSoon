@@ -61,6 +61,20 @@ main.container {
 }
 
 /* ===========================================
+    Start Test Button Styles 
+=========================================== */
+#startTestButton:hover {
+    background: linear-gradient(135deg, #E69A0C, #D4940A) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(247, 166, 33, 0.4) !important;
+}
+
+#startTestButton:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(247, 166, 33, 0.3) !important;
+}
+
+/* ===========================================
    UTILITY CLASSES
    =========================================== */
 .hidden {
@@ -200,6 +214,14 @@ main.container {
         width: 18px;
         height: 18px;
         margin-right: 6px;
+    }
+    #startTestButton {
+        padding: 12px 25px !important;
+        font-size: 1em !important;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
     }
 }
 
