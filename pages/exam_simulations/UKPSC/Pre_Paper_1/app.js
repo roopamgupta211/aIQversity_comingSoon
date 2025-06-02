@@ -511,9 +511,9 @@ class ResultsDisplay {
         
         if (greetingElement) greetingElement.textContent = "We are analyzing your performance...";
         if (subtextElement) {
-            subtextElement.textContent = `` //`${results.correct}/${results.total} questions • ${Utils.formatTime(results.duration)} spent`;
+            const attemptedQuestions = results.correct + results.incorrect;
+            subtextElement.textContent = `Attempted ${attemptedQuestions} questions • ${results.correct} correct answers`;
         }
-        
         this.animateScoreCircle(results.score);
     }
 
@@ -787,6 +787,9 @@ class AIInsights {
 
         return `You are an expert educational psychologist and learning analytics specialist. Analyze this student's comprehensive exam performance to create their unique "Performance DNA" - a personalized cognitive and learning profile.
 
+    **UKPSC EXAM CONTEXT:**
+    This is a practice test for UKPSC Prelims Paper-I (General Studies), which is the gateway exam for Uttarakhand Civil Services. The actual UKPSC exam features 150 questions in 2 hours with negative marking (-0.25 for wrong answers). Success requires mastering Uttarakhand GK, Indian Polity, History, Geography, Economics, and Current Affairs. UKPSC aspirants typically need 60-70% to qualify for mains.
+
     **STUDENT PERFORMANCE DATA:**
     Overall Achievement: ${results.score}% (${results.correct}/${results.total} correct)
     Learning Pace: ${Math.floor(results.duration / 60)}m ${results.duration % 60}s total (${timePerQuestion}s per question - ${efficiencyScore})
@@ -812,7 +815,13 @@ class AIInsights {
     {
       "personalizedGreeting": "Generate a personalized, encouraging greeting based on the student's performance. Consider their score, engagement level, and time spent. Be specific and motivational. Examples: 'Outstanding work on this challenging exam!' or 'Great start - you're building solid foundations!' or 'Every learning journey begins with brave first steps!' Make it 1 sentence, use exclamation mark, and be genuinely encouraging based on their actual performance.",
       
-      "heroSubtext": "Create a personalized subtext that summarizes their performance in an encouraging way. Consider their score, questions attempted, time efficiency, and overall engagement. Examples: 'You tackled 85% of questions with impressive focus' or 'Your thoughtful approach shows real potential for growth' or 'Taking the first step shows your commitment to learning'. Keep it concise and specific to their performance.",
+      "heroSubtext": "Generate a dynamic, celebratory message that shows key metrics in an engaging way. MUST include: performance percentage, correct answers, attempted questions, and total marks earned. Use motivational language that matches their performance level. Format examples: 
+        - High performers (70%+): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> nailed it • <x marks earned>'
+        - Good performers (50-69%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> on target • <x marks earned>' 
+        - Building performers (30-49%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> victories • <x marks earned>'
+        - Early learners (<30%): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>'
+        - Shy learners (no attempts): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>
+        Use appropriate emojis and make it feel like a personal achievement celebration. Always include the actual numbers: score%, correct/attempted, and total marks. Use exmaples for inspiration and format, but generate your own text",
 
       "performanceDNA": "MANDATORY: Provide realistic feedback based on actual performance data. Use only second-person pronouns (you, your, you're). Follow these guidelines:
         IF STUDENT ATTEMPTED 0 QUESTIONS: Start with 'Your learning journey is just beginning...' or 'You're at the starting point...' Acknowledge they haven't attempted questions yet, encourage them to engage with the material, mention that taking the first step is often the hardest, and provide motivation to start attempting questions.
@@ -922,7 +931,7 @@ class AIInsights {
         if (subtextElement) {
             subtextElement.textContent = `${results.correct}/${results.total} questions mastered • ${Utils.formatTime(results.duration)} spent learning`;
         }
-        
+                
         const performanceInsight = document.getElementById('aiPerformanceInsight');
         if (performanceInsight) {
             performanceInsight.innerHTML = '<div style="color: #F7A621; font-style: italic; text-align: center; padding: 20px;">⚠️ AI insights require API configuration.<br><small>Showing sample analysis below.</small></div>';
