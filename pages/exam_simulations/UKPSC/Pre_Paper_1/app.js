@@ -494,29 +494,24 @@ class ResultsDisplay {
         this.displayQuickStats(results);
         this.displayPerformanceMatrix(results);
         AIInsights.generate(results);
+
+        // Ensure scroll after content is rendered
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
 
     static displayHeroSection(results) {
-        const greetings = {
-            excellent: ["Outstanding performance! 🌟", "Exceptional work, Achiever!", "You're on fire! 🔥"],
-            good: ["Great job, Champion! 🏆", "Solid performance! 💪", "You're improving steadily! 📈"],
-            average: ["Good effort! Keep going! 🚀", "You're on the right track! ✨", "Progress in motion! 🎯"],
-            poor: ["Every expert was once a beginner! 🌱", "Growth mindset activated! 💡", "Your journey starts here! 🎯"]
-        };
-        
-        const performance = Utils.getPerformanceLevel(results.score);
-        const category = performance === CONFIG.PERFORMANCE_LEVELS.EXCELLENT ? 'excellent' :
-                        performance === CONFIG.PERFORMANCE_LEVELS.GOOD ? 'good' :
-                        performance === CONFIG.PERFORMANCE_LEVELS.AVERAGE ? 'average' : 'poor';
-        
-        const randomGreeting = greetings[category][Math.floor(Math.random() * greetings[category].length)];
-        
+        // Set default values while AI generates personalized content
         const greetingElement = document.getElementById('personalizedGreeting');
         const subtextElement = document.getElementById('heroSubtext');
         
-        if (greetingElement) greetingElement.textContent = randomGreeting;
+        if (greetingElement) greetingElement.textContent = "Analyzing your performance...";
         if (subtextElement) {
-            subtextElement.textContent = `${results.correct}/${results.total} questions mastered • ${Utils.formatTime(results.duration)} spent learning`;
+            subtextElement.textContent = `${results.correct}/${results.total} questions • ${Utils.formatTime(results.duration)} spent`;
         }
         
         this.animateScoreCircle(results.score);
@@ -787,49 +782,77 @@ class AIInsights {
         });
 
         const attemptedQuestions = questionAnalysis.filter(q => q.attempted);
+        const timePerQuestion = Math.round(results.duration / attemptedQuestions.length);
+        const efficiencyScore = timePerQuestion < 60 ? "highly efficient" : timePerQuestion < 120 ? "balanced" : "thoughtful and deliberate";
 
-        return `Analyze this student's detailed exam performance and provide highly personalized insights in JSON format:
+        return `You are an expert educational psychologist and learning analytics specialist. Analyze this student's comprehensive exam performance to create their unique "Performance DNA" - a personalized cognitive and learning profile.
 
-COMPREHENSIVE PERFORMANCE DATA:
-- Overall Score: ${results.score}% (${results.correct}/${results.total} correct)
-- Time Management: ${Math.floor(results.duration / 60)}m ${results.duration % 60}s total, ${Math.round(results.duration / attemptedQuestions.length)}s per question
-- Questions Attempted: ${attemptedQuestions.length}/${examState.examData.length}
+    **STUDENT PERFORMANCE DATA:**
+    Overall Achievement: ${results.score}% (${results.correct}/${results.total} correct)
+    Learning Pace: ${Math.floor(results.duration / 60)}m ${results.duration % 60}s total (${timePerQuestion}s per question - ${efficiencyScore})
+    Engagement Level: ${attemptedQuestions.length}/${examState.examData.length} questions attempted (${Math.round((attemptedQuestions.length/examState.examData.length)*100)}%)
 
-TOPIC PERFORMANCE:
-- Strong Areas: ${strongTopics.join(', ') || 'Building foundation across all areas'}
-- Growth Areas: ${weakTopics.join(', ') || 'Maintaining consistent performance'}
+    **COGNITIVE PATTERNS:**
+    Mastery Areas: ${strongTopics.join(', ') || 'Building foundational skills across all areas'}
+    Growth Opportunities: ${weakTopics.join(', ') || 'Maintaining consistent high performance'}
+    Subject Performance: ${JSON.stringify(results.subjectStats)}
+    Difficulty Response: ${JSON.stringify(results.difficultyStats)}
+    Cognitive Levels: ${JSON.stringify(results.bloomsStats)}
 
-SUBJECT BREAKDOWN: ${JSON.stringify(results.subjectStats)}
-DIFFICULTY ANALYSIS: ${JSON.stringify(results.difficultyStats)}
-BLOOM'S TAXONOMY: ${JSON.stringify(results.bloomsStats)}
+    **TONE EXAMPLES:**
+    CORRECT: "Your cognitive processing style shows you excel at..."
+    CORRECT: "You demonstrate a natural ability to..."
+    CORRECT: "Your learning pattern reveals you work best when..."
+    WRONG: "The student demonstrates..." 
+    WRONG: "Their learning pattern..."
+    WRONG: "This individual shows..."
 
-Please respond with ONLY a valid JSON object in this exact format:
-{
-  "performanceDNA": "Create a 3-4 sentence highly personalized insight about their unique learning DNA, strengths, and cognitive approach based on the detailed question analysis above.",
-  "studyPlan": {
-      "dailySchedule": [
-        {"day": "Monday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject1", "hours": 1.5}, {"name": "Subject2", "hours": 1.0}]},
-        {"day": "Tuesday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Practice Tests", "hours": 2.0}]},
-        {"day": "Wednesday", "study": 1.5, "rest": 2.0, "subjects": [{"name": "Revision", "hours": 1.5}]},
-        {"day": "Thursday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject3", "hours": 1.5}, {"name": "Subject4", "hours": 1.0}]},
-        {"day": "Friday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Mock Tests", "hours": 2.0}]},
-        {"day": "Saturday", "study": 3.0, "rest": 2.0, "subjects": [{"name": "Comprehensive Study", "hours": 3.0}]},
-        {"day": "Sunday", "study": 1.0, "rest": 3.0, "subjects": [{"name": "Light Review", "hours": 1.0}]}
-      ],
-      "weeklyFocus": [
-        {"subject": "Subject1", "hours": 6, "priority": "high", "color": "#F7A621"},
-        {"subject": "Subject2", "hours": 4, "priority": "medium", "color": "#10B981"},
-        {"subject": "Practice Tests", "hours": 4, "priority": "high", "color": "#6366f1"}
-      ],
-      "monthlyTargets": [
-        {"week": 1, "target": "Foundation Building", "hours": 15},
-        {"week": 2, "target": "Skill Development", "hours": 16},
-        {"week": 3, "target": "Practice & Review", "hours": 14},
-        {"week": 4, "target": "Final Preparation", "hours": 12}
-      ]
-    },
-  "growthAreas": "Provide 4-5 specific, actionable growth opportunities as HTML with bullet points, directly derived from their performance patterns and question analysis."
-}`;
+    Create EXACTLY this JSON format:
+
+    {
+      "personalizedGreeting": "Generate a personalized, encouraging greeting based on the student's performance. Consider their score, engagement level, and time spent. Be specific and motivational. Examples: 'Outstanding work on this challenging exam!' or 'Great start - you're building solid foundations!' or 'Every learning journey begins with brave first steps!' Make it 1 sentence, use exclamation mark, and be genuinely encouraging based on their actual performance.",
+      
+      "heroSubtext": "Create a personalized subtext that summarizes their performance in an encouraging way. Consider their score, questions attempted, time efficiency, and overall engagement. Examples: 'You tackled 85% of questions with impressive focus' or 'Your thoughtful approach shows real potential for growth' or 'Taking the first step shows your commitment to learning'. Keep it concise and specific to their performance.",
+
+      "performanceDNA": "MANDATORY: Provide realistic feedback based on actual performance data. Use only second-person pronouns (you, your, you're). Follow these guidelines:
+        IF STUDENT ATTEMPTED 0 QUESTIONS: Start with 'Your learning journey is just beginning...' or 'You're at the starting point...' Acknowledge they haven't attempted questions yet, encourage them to engage with the material, mention that taking the first step is often the hardest, and provide motivation to start attempting questions.
+        IF STUDENT ATTEMPTED 1-25% OF QUESTIONS: Start with 'Your learning DNA shows you're taking tentative steps...' Acknowledge limited engagement, identify any patterns from attempted questions, encourage more active participation, and highlight that every expert started somewhere.
+        IF STUDENT ATTEMPTED 26-75% OF QUESTIONS: Start with 'Your learning DNA reveals you're actively engaging...' Analyze their actual performance patterns, identify genuine strengths and areas for growth, and provide specific insights based on their responses.
+        IF STUDENT ATTEMPTED 76-100% OF QUESTIONS: Start with 'Your learning DNA demonstrates full engagement...' Provide comprehensive analysis of their cognitive patterns, learning strengths, problem-solving approach, and unique intellectual characteristics.
+        Always be honest about performance while remaining encouraging. Focus on: (1) Their actual engagement level and what it reveals, (2) Genuine patterns from attempted questions, (3) Realistic next steps for improvement, (4) Encouraging but truthful assessment of their approach. Write 4-5 sentences maximum.",
+      
+      "studyPlan": {
+          "dailySchedule": [
+            {"day": "Monday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject1", "hours": 1.5}, {"name": "Subject2", "hours": 1.0}]},
+            {"day": "Tuesday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Practice Tests", "hours": 2.0}]},
+            {"day": "Wednesday", "study": 1.5, "rest": 2.0, "subjects": [{"name": "Revision", "hours": 1.5}]},
+            {"day": "Thursday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject3", "hours": 1.5}, {"name": "Subject4", "hours": 1.0}]},
+            {"day": "Friday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Mock Tests", "hours": 2.0}]},
+            {"day": "Saturday", "study": 3.0, "rest": 2.0, "subjects": [{"name": "Comprehensive Study", "hours": 3.0}]},
+            {"day": "Sunday", "study": 1.0, "rest": 3.0, "subjects": [{"name": "Light Review", "hours": 1.0}]}
+          ],
+          "weeklyFocus": [
+            {"subject": "Subject1", "hours": 6, "priority": "high", "color": "#F7A621"},
+            {"subject": "Subject2", "hours": 4, "priority": "medium", "color": "#10B981"},
+            {"subject": "Practice Tests", "hours": 4, "priority": "high", "color": "#6366f1"}
+          ],
+          "monthlyTargets": [
+            {"week": 1, "target": "Foundation Building", "hours": 15},
+            {"week": 2, "target": "Skill Development", "hours": 16},
+            {"week": 3, "target": "Practice & Review", "hours": 14},
+            {"week": 4, "target": "Final Preparation", "hours": 12}
+          ]
+        },
+      "growthAreas": "Provide 4-5 specific, actionable growth opportunities as HTML with bullet points. Base these directly on performance patterns from the data. Include cognitive strategies, study techniques, and skill-building recommendations."
+    }
+
+    **CRITICAL REQUIREMENTS:**
+    - Address the student directly using "you" and "your"
+    - Be encouraging while remaining truthful to the data
+    - Focus on cognitive patterns and learning characteristics
+    - Make insights specific to their actual performance
+    - Use accessible language, avoid jargon
+    - Ensure JSON is perfectly formatted and parseable`
     }
 
     static parseResponse(aiResponse) {
@@ -849,6 +872,18 @@ Please respond with ONLY a valid JSON object in this exact format:
     static display(insights) {
         this.removeLoadingAnimations();
         
+        // Update hero section with AI-generated content
+        const greetingElement = document.getElementById('personalizedGreeting');
+        const subtextElement = document.getElementById('heroSubtext');
+        
+        if (greetingElement && insights.personalizedGreeting) {
+            greetingElement.textContent = insights.personalizedGreeting;
+        }
+        
+        if (subtextElement && insights.heroSubtext) {
+            subtextElement.textContent = insights.heroSubtext;
+        }
+        
         const performanceInsight = document.getElementById('aiPerformanceInsight');
         if (performanceInsight) {
             performanceInsight.innerHTML = `<div style="font-size: 0.95em; line-height: 1.6; color: #2d3748;">${insights.performanceDNA}</div>`;
@@ -863,6 +898,31 @@ Please respond with ONLY a valid JSON object in this exact format:
     static displayError() {
         this.removeLoadingAnimations();
         
+        // Fallback hero content when AI fails
+        const results = DataManager.getResults();
+        const greetingElement = document.getElementById('personalizedGreeting');
+        const subtextElement = document.getElementById('heroSubtext');
+        
+        if (greetingElement) {
+            const fallbackGreetings = {
+                excellent: "Outstanding performance! 🌟",
+                good: "Great job, Champion! 🏆", 
+                average: "Good effort! Keep going! 🚀",
+                poor: "Every expert was once a beginner! 🌱"
+            };
+            
+            const performance = Utils.getPerformanceLevel(results.score);
+            const category = performance === CONFIG.PERFORMANCE_LEVELS.EXCELLENT ? 'excellent' :
+                            performance === CONFIG.PERFORMANCE_LEVELS.GOOD ? 'good' :
+                            performance === CONFIG.PERFORMANCE_LEVELS.AVERAGE ? 'average' : 'poor';
+            
+            greetingElement.textContent = fallbackGreetings[category];
+        }
+        
+        if (subtextElement) {
+            subtextElement.textContent = `${results.correct}/${results.total} questions mastered • ${Utils.formatTime(results.duration)} spent learning`;
+        }
+        
         const performanceInsight = document.getElementById('aiPerformanceInsight');
         if (performanceInsight) {
             performanceInsight.innerHTML = '<div style="color: #F7A621; font-style: italic; text-align: center; padding: 20px;">⚠️ AI insights require API configuration.<br><small>Showing sample analysis below.</small></div>';
@@ -870,7 +930,6 @@ Please respond with ONLY a valid JSON object in this exact format:
         
         this.displayFallbackStudyPlan();
         
-        const results = DataManager.getResults();
         GrowthDisplay.show(results);
     }
 
@@ -1223,6 +1282,13 @@ class ReviewManager {
     static show() {
         Utils.switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.REVIEW_INTERFACE);
         this.generate();
+        // Ensure scroll after review content is generated
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
 
     static generate() {
@@ -1314,6 +1380,13 @@ class ReviewManager {
 
     static backToResults() {
         Utils.switchInterface(SELECTORS.REVIEW_INTERFACE, SELECTORS.RESULTS_INTERFACE);
+        // Ensure scroll when returning to results
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
 }
 
@@ -1356,6 +1429,12 @@ class EmailVerification {
         if (form) form.reset();
         
         this.hideVerificationError();
+        
+        // Scroll to top when closing modal
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     static async verify(event) {
@@ -1526,7 +1605,11 @@ class EmailVerification {
 
     static proceedToExam() {
         this.hideRegistrationModal();
-        ExamInterface.show();
+        
+        // Small delay to ensure modal is fully closed
+        setTimeout(() => {
+            ExamInterface.show();
+        }, 100);
     }
 }
 
@@ -1551,8 +1634,24 @@ class ExamInterface {
             }
             
             await AppController.initialize();
+            
+            // Scroll to top after exam is fully initialized
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 200);
         } else {
             Utils.switchInterface(SELECTORS.LOADING, SELECTORS.EXAM_INTERFACE);
+            
+            // Additional scroll for non-email flow
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
     }
 }
@@ -1630,8 +1729,21 @@ class AppController {
         
         Utils.switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.LOADING);
         
+        // Immediate scroll for loading screen
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
         setTimeout(() => {
             this.initialize();
+            // Additional scroll after initialization
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }, 1000);
     }
 
