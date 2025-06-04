@@ -1,0 +1,676 @@
+[
+  {
+    "question_id": 1,
+    "Question": "During the process of inspiration in humans, which of the following events does NOT occur?",
+    "options": {
+      "a": "Contraction of the diaphragm",
+      "b": "Contraction of external intercostal muscles",
+      "c": "Increase in intra-pleural pressure",
+      "d": "Decrease in intra-pulmonary pressure"
+    },
+    "correct_answer": "c",
+    "Solution": "Inspiration is an active process involving muscle contraction. The diaphragm contracts and flattens, and the external intercostal muscles contract, lifting the ribs and sternum upwards and outwards. These actions increase the volume of the thoracic cavity, which in turn leads to a decrease in intra-pleural pressure (it becomes more negative). This decrease in intra-pleural pressure causes the lungs to expand, leading to a decrease in intra-pulmonary (intrapulmonic) pressure below atmospheric pressure, allowing air to rush into the lungs. Therefore, an increase in intra-pleural pressure does not occur during inspiration; rather, it decreases.",
+    "step_by_step": [
+      "Recall the mechanism of breathing (inspiration and expiration).",
+      "Identify the muscles involved in normal inspiration.",
+      "Understand how the contraction of these muscles affects thoracic volume.",
+      "Relate changes in thoracic volume to changes in intra-pleural and intra-pulmonary pressures.",
+      "Determine which listed event is contrary to the process of inspiration."
+    ],
+    "tips_and_tricks": [
+      "Remember that inspiration is generally an active process, while normal expiration is passive.",
+      "Pressure gradients are key: air moves from higher to lower pressure.",
+      "Intra-pleural pressure is normally negative and becomes more negative during inspiration."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Human Physiology",
+      "subtopic": "Breathing and Exchange of Gases",
+      "sub_subtopic": "Respiratory Organs and Mechanism of Breathing",
+      "concept": "Mechanism of inspiration and associated pressure changes."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 2,
+    "Question": "A man with blood group A marries a woman with blood group B. Their first child has blood group O. What are the genotypes of the parents?",
+    "options": {
+      "a": "Man: I<sup>A</sup>I<sup>A</sup>, Woman: I<sup>B</sup>I<sup>B</sup>",
+      "b": "Man: I<sup>A</sup>i, Woman: I<sup>B</sup>i",
+      "c": "Man: I<sup>A</sup>I<sup>A</sup>, Woman: I<sup>B</sup>i",
+      "d": "Man: I<sup>A</sup>i, Woman: I<sup>B</sup>I<sup>B</sup>"
+    },
+    "correct_answer": "b",
+    "Solution": "For a child to have blood group O (genotype ii), they must inherit one 'i' allele from each parent. If the man has blood group A, his genotype could be I<sup>A</sup>I<sup>A</sup> or I<sup>A</sup>i. If the woman has blood group B, her genotype could be I<sup>B</sup>I<sup>B</sup> or I<sup>B</sup>i. Since the child is 'ii', both parents must carry the recessive 'i' allele. Therefore, the man's genotype must be I<sup>A</sup>i and the woman's genotype must be I<sup>B</sup>i.",
+    "step_by_step": [
+      "Recall the genetics of ABO blood groups, including the alleles (I<sup>A</sup>, I<sup>B</sup>, i) and their dominance relationships.",
+      "Understand that blood group O corresponds to the genotype 'ii'.",
+      "Determine the possible genotypes for blood group A and blood group B parents.",
+      "Work backwards from the child's genotype (ii) to deduce the alleles contributed by each parent.",
+      "Select the parental genotypes that could produce an 'ii' offspring."
+    ],
+    "tips_and_tricks": [
+      "The 'i' allele is recessive to both I<sup>A</sup> and I<sup>B</sup>.",
+      "An O-type child from A and B type parents is a classic indicator that both parents are heterozygous."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Genetics and Evolution",
+      "subtopic": "Principles of Inheritance and Variation",
+      "sub_subtopic": "Mendel's Laws",
+      "concept": "Inheritance of ABO blood groups and determining parental genotypes based on offspring's phenotype (Multiple alleles, Co-dominance)."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 3,
+    "Question": "Which of the following is NOT a primary function of the Golgi apparatus in a eukaryotic cell?",
+    "options": {
+      "a": "Processing and packaging of proteins and lipids",
+      "b": "Formation of lysosomes",
+      "c": "Synthesis of ATP",
+      "d": "Formation of glycoproteins and glycolipids"
+    },
+    "correct_answer": "c",
+    "Solution": "The Golgi apparatus is primarily involved in modifying, sorting, and packaging proteins and lipids for secretion or delivery to other organelles. It is also responsible for the formation of lysosomes and the synthesis of glycoproteins and glycolipids. ATP synthesis is the primary function of mitochondria through cellular respiration.",
+    "step_by_step": [
+      "Recall the major organelles of a eukaryotic cell.",
+      "List the known functions of the Golgi apparatus.",
+      "List the known functions of other organelles, particularly mitochondria.",
+      "Identify which of the given options is not a function of the Golgi apparatus but is a function of another organelle."
+    ],
+    "tips_and_tricks": [
+      "Associate Golgi with 'post office' functions: modifying, sorting, packaging.",
+      "Remember mitochondria as the 'powerhouse' for ATP synthesis.",
+      "Lysosomes are formed from the Golgi."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Cell Structure and Function",
+      "subtopic": "Cell: The Unit of Life",
+      "sub_subtopic": "Cell Organelles - Endomembrane System",
+      "concept": "Structure and function of Golgi apparatus."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 4,
+    "Question": "The Z-scheme of light reaction in photosynthesis directly involves all of the following EXCEPT:",
+    "options": {
+      "a": "Photosystem I (PS I)",
+      "b": "Photosystem II (PS II)",
+      "c": "Electron transport system",
+      "d": "Carbon fixation"
+    },
+    "correct_answer": "d",
+    "Solution": "The Z-scheme describes the pathway of electron flow during the light-dependent reactions of photosynthesis, involving Photosystem II (PS II), an electron transport system, and Photosystem I (PS I). This process leads to the production of ATP and NADPH. Carbon fixation (reduction of CO2 to form carbohydrates) occurs during the light-independent reactions (Calvin cycle), which utilize the ATP and NADPH produced by the light reactions.",
+    "step_by_step": [
+      "Recall the two main stages of photosynthesis: light-dependent reactions and light-independent reactions (Calvin cycle).",
+      "Understand that the Z-scheme is part of the light-dependent reactions.",
+      "Identify the key components involved in the Z-scheme (PS I, PS II, ETS).",
+      "Differentiate the processes of the light reaction from those of the dark reaction (carbon fixation).",
+      "Select the option that is part of the dark reaction, not the Z-scheme."
+    ],
+    "tips_and_tricks": [
+      "Z-scheme is named for the shape of the electron energy level diagram.",
+      "Light reactions produce ATP and NADPH; dark reactions use them to fix carbon.",
+      "PS II is involved in oxygen evolution (splitting of water)."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Plant Physiology",
+      "subtopic": "Photosynthesis in Higher Plants",
+      "sub_subtopic": "Light Reaction",
+      "concept": "Cyclic and non-cyclic photophosphorylation (Z-scheme)."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 5,
+    "Question": "Which of the following represents a correct pair of a pollutant and its primary effect?",
+    "options": {
+      "a": "Carbon monoxide - Eutrophication",
+      "b": "Sulphur dioxide - Ozone depletion",
+      "c": "Nitrates in drinking water - Blue-baby syndrome (methaemoglobinaemia)",
+      "d": "Phosphates in water - Biomagnification of DDT"
+    },
+    "correct_answer": "c",
+    "Solution": "Excess nitrates in drinking water can be converted to nitrites in the infant gut, which then react with haemoglobin to form methaemoglobin. Methaemoglobin is unable to carry oxygen effectively, leading to a condition called methaemoglobinaemia, or blue-baby syndrome. Carbon monoxide causes asphyxiation by binding to haemoglobin. Sulphur dioxide contributes to acid rain. Phosphates in water contribute to eutrophication, not biomagnification of DDT (which is a separate phenomenon involving persistent organic pollutants).",
+    "step_by_step": [
+      "Recall common environmental pollutants and their effects.",
+      "Analyze each option to see if the pollutant is correctly matched with its primary effect.",
+      "Eliminate incorrect pairings based on known environmental science principles.",
+      "Identify the correctly matched pair."
+    ],
+    "tips_and_tricks": [
+      "Associate specific pollutants with their well-known effects: CO with haemoglobin binding, SO2 with acid rain, nitrates with blue-baby syndrome, phosphates with eutrophication.",
+      "Understand the difference between eutrophication and biomagnification."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Ecology and Environment",
+      "subtopic": "Environmental Issues",
+      "sub_subtopic": "Pollution",
+      "concept": "Water pollution and its control (specifically effects of nitrates)."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 6,
+    "Question": "A block of mass 2 kg is pushed up an inclined plane of inclination 30° with the horizontal. If the coefficient of kinetic friction between the block and the plane is 0.2, what is the frictional force acting on the block? (Take g = 10 m/s²)",
+    "options": {
+      "a": "2 N",
+      "b": "3.46 N (approx. 2√3 N)",
+      "c": "4 N",
+      "d": "10 N"
+    },
+    "correct_answer": "b",
+    "Solution": "The normal reaction (N) on an inclined plane is given by N = mg cosθ. Here, m = 2 kg, g = 10 m/s², and θ = 30°. So, N = 2 * 10 * cos(30°) = 20 * (√3/2) = 10√3 N. The kinetic frictional force (f_k) is given by f_k = μ_k * N, where μ_k is the coefficient of kinetic friction. So, f_k = 0.2 * 10√3 = 2√3 N.  2√3 ≈ 2 * 1.732 = 3.464 N.",
+    "step_by_step": [
+      "Draw a free body diagram of the block on the inclined plane.",
+      "Resolve the gravitational force (mg) into components parallel and perpendicular to the incline.",
+      "Identify that the normal reaction (N) is equal to the perpendicular component of gravity (mg cosθ).",
+      "Calculate the normal reaction.",
+      "Use the formula for kinetic friction: f_k = μ_k * N.",
+      "Substitute the values and calculate the frictional force."
+    ],
+    "tips_and_tricks": [
+      "Always draw a free body diagram for problems involving forces on an incline.",
+      "Remember that cos(30°) = √3/2 and sin(30°) = 1/2.",
+      "Frictional force opposes relative motion (or tendency of motion)."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Physics",
+      "topic": "Mechanics",
+      "subtopic": "Laws of Motion",
+      "sub_subtopic": "Newton's Laws Application",
+      "concept": "Concept of friction (static and kinetic) and its application on an inclined plane."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 7,
+    "Question": "In a Young's double-slit experiment, the slit separation is 0.5 mm and the screen is placed 1.0 m away. If light of wavelength 600 nm is used, what is the fringe width?",
+    "options": {
+      "a": "0.6 mm",
+      "b": "1.2 mm",
+      "c": "0.3 mm",
+      "d": "2.4 mm"
+    },
+    "correct_answer": "b",
+    "Solution": "The fringe width (β) in Young's double-slit experiment is given by the formula β = (λD)/d, where λ is the wavelength of light, D is the distance between the slits and the screen, and d is the slit separation. Given: λ = 600 nm = 600 × 10⁻⁹ m, D = 1.0 m, d = 0.5 mm = 0.5 × 10⁻³ m. So, β = (600 × 10⁻⁹ m × 1.0 m) / (0.5 × 10⁻³ m) = (600 × 10⁻⁹) / (0.5 × 10⁻³) = 1200 × 10⁻⁶ m = 1.2 × 10⁻³ m = 1.2 mm.",
+    "step_by_step": [
+      "Recall the formula for fringe width in Young's double-slit experiment: β = (λD)/d.",
+      "Identify the given values: wavelength (λ), distance to screen (D), and slit separation (d).",
+      "Ensure all units are consistent (convert nm and mm to meters).",
+      "Substitute the values into the formula.",
+      "Calculate the fringe width and convert to the appropriate unit (mm)."
+    ],
+    "tips_and_tricks": [
+      "Pay close attention to units and convert them to a consistent system (SI units are preferred) before calculation.",
+      "Memorize the formula for fringe width as it's frequently tested.",
+      "Understand how fringe width changes with λ, D, and d."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Physics",
+      "topic": "Optics",
+      "subtopic": "Wave Optics",
+      "sub_subtopic": "Interference",
+      "concept": "Young's double-slit experiment (YDSE) - path difference, fringe width."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 8,
+    "Question": "The half-life of a radioactive substance is 20 minutes. What fraction of the original radioactive atoms will remain undecayed after 60 minutes?",
+    "options": {
+      "a": "1/3",
+      "b": "1/6",
+      "c": "1/8",
+      "d": "1/4"
+    },
+    "correct_answer": "c",
+    "Solution": "The number of half-lives (n) that have passed can be calculated as n = Total time / Half-life = 60 minutes / 20 minutes = 3. The fraction of radioactive atoms remaining undecayed after n half-lives is given by (1/2)ⁿ. So, after 3 half-lives, the fraction remaining is (1/2)³ = 1/8.",
+    "step_by_step": [
+      "Identify the given half-life (T½) and the total time elapsed.",
+      "Calculate the number of half-lives (n) that have occurred: n = Total time / T½.",
+      "Use the formula for the fraction of substance remaining after n half-lives: (1/2)ⁿ.",
+      "Substitute the value of n and calculate the fraction."
+    ],
+    "tips_and_tricks": [
+      "After 1 half-life, 1/2 remains.",
+      "After 2 half-lives, (1/2) * (1/2) = 1/4 remains.",
+      "After 3 half-lives, (1/2) * (1/2) * (1/2) = 1/8 remains, and so on.",
+      "This concept is fundamental to radioactive decay problems."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Physics",
+      "topic": "Modern Physics",
+      "subtopic": "Atoms and Nuclei",
+      "sub_subtopic": "Nuclear Structure and Radioactivity",
+      "concept": "Laws of radioactive decay, half-life, mean life, activity."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 9,
+    "Question": "Which of the following statements is correct regarding the p-n junction diode under forward bias?",
+    "options": {
+      "a": "The width of the depletion region increases.",
+      "b": "The potential barrier height increases.",
+      "c": "The positive terminal of the battery is connected to the n-side and the negative terminal to the p-side.",
+      "d": "The majority charge carriers are injected across the junction, leading to a significant current."
+    },
+    "correct_answer": "d",
+    "Solution": "Under forward bias, the positive terminal of the battery is connected to the p-side and the negative terminal to the n-side. This applied voltage opposes the potential barrier, reducing its height and the width of the depletion region. As a result, majority charge carriers (holes from p-side and electrons from n-side) are injected across the junction, leading to a significant forward current.",
+    "step_by_step": [
+      "Recall the structure of a p-n junction diode and the formation of the depletion region and potential barrier.",
+      "Understand the conditions for forward biasing a p-n junction (p-side to positive, n-side to negative).",
+      "Analyze how forward bias affects the depletion region width and potential barrier height.",
+      "Determine the movement of majority and minority charge carriers under forward bias and its effect on current flow."
+    ],
+    "tips_and_tricks": [
+      "Forward bias: P-Positive, N-Negative. This 'pushes' majority carriers towards the junction.",
+      "Forward bias reduces the barrier, allowing current to flow easily.",
+      "Reverse bias increases the barrier and depletion width, allowing very little current (due to minority carriers)."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Physics",
+      "topic": "Modern Physics",
+      "subtopic": "Semiconductor Electronics",
+      "sub_subtopic": "Diodes",
+      "concept": "p-n junction diode (formation, biasing - forward and reverse)."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 10,
+    "Question": "A 2μF capacitor is charged to 100V and then its plates are connected by a conducting wire. The heat produced is:",
+    "options": {
+      "a": "0.005 J",
+      "b": "0.01 J",
+      "c": "0.02 J",
+      "d": "0.04 J"
+    },
+    "correct_answer": "b",
+    "Solution": "The energy stored in a capacitor is given by U = (1/2)CV². When the capacitor is discharged through a conducting wire, all this stored energy is dissipated as heat. Given C = 2μF = 2 × 10⁻⁶ F and V = 100V. So, U = (1/2) × (2 × 10⁻⁶ F) × (100V)² = (1 × 10⁻⁶) × 10000 J = 1 × 10⁻² J = 0.01 J. This energy is dissipated as heat.",
+    "step_by_step": [
+      "Recall the formula for energy stored in a capacitor: U = (1/2)CV².",
+      "Identify the given values for capacitance (C) and voltage (V).",
+      "Ensure units are consistent (convert μF to F).",
+      "Calculate the stored energy.",
+      "Understand that when a charged capacitor is discharged through a resistor (or a conducting wire with some resistance), the stored energy is converted into heat."
+    ],
+    "tips_and_tricks": [
+      "The energy stored in a capacitor is electrostatic potential energy.",
+      "When discharged, this energy is typically lost as heat in the connecting wires/resistors.",
+      "Be careful with units, especially micro (μ) which is 10⁻⁶."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Physics",
+      "topic": "Electrodynamics",
+      "subtopic": "Electrostatics (Electrostatic Potential and Capacitance)",
+      "sub_subtopic": "Capacitors and Capacitance",
+      "concept": "Energy stored in a capacitor and its dissipation."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 11,
+    "Question": "The pH of a solution obtained by mixing 50 mL of 0.2 M HCl with 50 mL of 0.1 M NaOH is:",
+    "options": {
+      "a": "1.0",
+      "b": "1.3",
+      "c": "2.0",
+      "d": "7.0"
+    },
+    "correct_answer": "b",
+    "Solution": "Moles of HCl = Molarity × Volume (L) = 0.2 M × 0.050 L = 0.01 moles. Moles of NaOH = 0.1 M × 0.050 L = 0.005 moles. HCl and NaOH react in a 1:1 ratio: HCl + NaOH → NaCl + H₂O. Since moles of HCl > moles of NaOH, NaOH is the limiting reactant and will be completely consumed. Moles of HCl remaining = 0.01 - 0.005 = 0.005 moles. Total volume of the solution = 50 mL + 50 mL = 100 mL = 0.1 L. Concentration of remaining HCl = [H⁺] = Moles / Volume (L) = 0.005 moles / 0.1 L = 0.05 M. pH = -log[H⁺] = -log(0.05) = -log(5 × 10⁻²) = -(log5 - 2log10) = -(0.699 - 2) = -(-1.301) = 1.301 ≈ 1.3.",
+    "step_by_step": [
+      "Calculate the number of moles of HCl.",
+      "Calculate the number of moles of NaOH.",
+      "Determine the limiting reactant in the neutralization reaction.",
+      "Calculate the moles of the excess reactant remaining.",
+      "Calculate the total volume of the solution after mixing.",
+      "Calculate the concentration of the remaining H⁺ ions (from excess HCl).",
+      "Calculate the pH using pH = -log[H⁺]."
+    ],
+    "tips_and_tricks": [
+      "Always convert volumes to liters when working with molarity.",
+      "Identify the limiting reactant in acid-base neutralization problems.",
+      "Remember that pH is the negative logarithm of the hydrogen ion concentration."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Chemistry",
+      "topic": "Physical Chemistry",
+      "subtopic": "Equilibrium",
+      "sub_subtopic": "Ionic Equilibrium - Acids and Bases",
+      "concept": "pH calculations for mixtures of strong acids and strong bases."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 12,
+    "Question": "Which of the following species has a bond order of 2.5?",
+    "options": {
+      "a": "O₂",
+      "b": "N₂⁺",
+      "c": "CN⁻",
+      "d": "O₂⁻"
+    },
+    "correct_answer": "b",
+    "Solution": "Using Molecular Orbital Theory (MOT): N₂ (14 electrons): (σ2s)² (σ*2s)² (π2px)² (π2py)² (σ2pz)². Bond Order = (Nb - Na)/2 = (10 - 4)/2 = 3. For N₂⁺ (13 electrons), one electron is removed from the highest occupied molecular orbital (HOMO), which is σ2pz. So, N₂⁺: (σ2s)² (σ*2s)² (π2px)² (π2py)² (σ2pz)¹. Bond Order = (9 - 4)/2 = 5/2 = 2.5. O₂ (16 electrons): Bond Order = 2. CN⁻ (6+7+1 = 14 electrons, isoelectronic with N₂): Bond Order = 3. O₂⁻ (17 electrons): Bond Order = (10 - 7)/2 = 1.5.",
+    "step_by_step": [
+      "Recall the principles of Molecular Orbital Theory (MOT).",
+      "Write the molecular orbital configuration for each species.",
+      "Count the number of electrons in bonding molecular orbitals (Nb) and antibonding molecular orbitals (Na).",
+      "Calculate the bond order using the formula: Bond Order = (Nb - Na)/2.",
+      "Identify the species with a bond order of 2.5."
+    ],
+    "tips_and_tricks": [
+      "Memorize the MOT filling order for diatomic molecules up to Ne₂.",
+      "Species with 14 valence electrons (like N₂, CO, CN⁻) typically have a bond order of 3.",
+      "Adding an electron to an antibonding MO decreases bond order; removing an electron from a bonding MO decreases bond order (and vice-versa)."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Chemistry",
+      "topic": "Inorganic Chemistry",
+      "subtopic": "Chemical Bonding and Molecular Structure",
+      "sub_subtopic": "Molecular Orbital Theory (MOT)",
+      "concept": "MO diagrams for homonuclear diatomic molecules and calculation of bond order."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 13,
+    "Question": "The major product formed when toluene undergoes Friedel-Crafts alkylation with CH₃Cl in the presence of anhydrous AlCl₃ is:",
+    "options": {
+      "a": "m-Xylene",
+      "b": "A mixture of o-Xylene and p-Xylene",
+      "c": "Benzene",
+      "d": "Ethylbenzene"
+    },
+    "correct_answer": "b",
+    "Solution": "Toluene has a methyl group (-CH₃) attached to the benzene ring. The methyl group is an ortho-, para- directing and activating group for electrophilic aromatic substitution. In Friedel-Crafts alkylation with CH₃Cl/AlCl₃, the electrophile is CH₃⁺. This electrophile will attack the ortho and para positions of toluene, leading to the formation of o-Xylene (1,2-dimethylbenzene) and p-Xylene (1,4-dimethylbenzene). The para product is usually major due to less steric hindrance, but a mixture is formed.",
+    "step_by_step": [
+      "Identify the starting material (toluene) and the type of reaction (Friedel-Crafts alkylation).",
+      "Recognize the directing influence of the methyl group (-CH₃) on the benzene ring (ortho-, para- directing).",
+      "Identify the electrophile generated in the reaction (CH₃⁺ from CH₃Cl/AlCl₃).",
+      "Predict the positions where the electrophile will attack on the toluene ring.",
+      "Determine the structures of the resulting products (o-Xylene and p-Xylene)."
+    ],
+    "tips_and_tricks": [
+      "Memorize the directing effects of common substituents on benzene rings (activating/deactivating, ortho/para vs. meta directing).",
+      "Methyl group is activating and o,p-directing.",
+      "Friedel-Crafts reactions are important electrophilic aromatic substitution reactions."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Chemistry",
+      "topic": "Organic Chemistry",
+      "subtopic": "Hydrocarbons",
+      "sub_subtopic": "Aromatic Hydrocarbons (Benzene)",
+      "concept": "Electrophilic substitution mechanism (Friedel-Crafts alkylation) and directive influence of functional groups."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 14,
+    "Question": "Which of the following coordination compounds will exhibit geometrical isomerism?",
+    "options": {
+      "a": "[Co(NH₃)₅Cl]Cl₂",
+      "b": "[Pt(NH₃)₂Cl₂] (square planar)",
+      "c": "[Co(NH₃)₆]Cl₃",
+      "d": "[Ni(CO)₄] (tetrahedral)"
+    },
+    "correct_answer": "b",
+    "Solution": "Geometrical isomerism (cis-trans isomerism) occurs in square planar complexes of the type [Ma₂b₂] or [Mabcd], and in octahedral complexes of the type [Ma₄b₂], [Ma₃b₃], etc. [Co(NH₃)₅Cl]Cl₂ is of type [Ma₅b] (octahedral), which does not show geometrical isomerism. [Pt(NH₃)₂Cl₂] is a square planar complex of type [Ma₂b₂], which exhibits cis and trans isomers. [Co(NH₃)₆]Cl₃ is of type [Ma₆] (octahedral), no geometrical isomerism. [Ni(CO)₄] is tetrahedral; tetrahedral complexes with identical ligands or even of type [Mabcd] (if all different) do not typically show geometrical isomerism in the same way as square planar or octahedral (though optical isomerism is possible for [Mabcd] tetrahedral). For NEET purposes, [Ma₂b₂] square planar is a classic example of geometrical isomerism.",
+    "step_by_step": [
+      "Recall the conditions for geometrical isomerism in coordination compounds.",
+      "Identify the geometry of each complex (octahedral, square planar, tetrahedral).",
+      "Determine the type of complex based on the ligands (e.g., Ma₂b₂, Ma₅b, etc.).",
+      "Apply the rules for geometrical isomerism to each complex type and geometry.",
+      "Select the complex that fits the criteria for exhibiting geometrical isomerism."
+    ],
+    "tips_and_tricks": [
+      "Square planar complexes of type [Ma₂b₂] and [Mabcd] show geometrical isomerism.",
+      "Octahedral complexes of type [Ma₄b₂] and [Ma₃b₃] show geometrical isomerism.",
+      "Tetrahedral complexes generally do not show geometrical isomerism (except with unsymmetrical bidentate ligands, which is advanced for NEET)."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Chemistry",
+      "topic": "Inorganic Chemistry",
+      "subtopic": "Coordination Compounds",
+      "sub_subtopic": "Isomerism",
+      "concept": "Stereoisomerism (geometrical isomerism) in square planar complexes."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 15,
+    "Question": "The rate constant for a first-order reaction is 6.93 × 10⁻³ s⁻¹. The time required for 80% completion of the reaction is approximately:",
+    "options": {
+      "a": "100 s",
+      "b": "160 s",
+      "c": "232 s",
+      "d": "320 s"
+    },
+    "correct_answer": "c",
+    "Solution": "For a first-order reaction, the integrated rate law is t = (2.303/k) log([A]₀/[A]t). If 80% of the reaction is completed, then 20% of the reactant remains. So, [A]t = 0.20 [A]₀, which means [A]₀/[A]t = 1/0.20 = 5. Given k = 6.93 × 10⁻³ s⁻¹. t = (2.303 / (6.93 × 10⁻³)) log(5). We know log(5) ≈ 0.699. t = (2.303 / 6.93) × 10³ × 0.699. (2.303 / 6.93) is approximately 1/3. So, t ≈ (1/3) × 10³ × 0.699 ≈ 0.333 × 699 ≈ 232.767 s. Alternatively, t½ = 0.693/k = 0.693 / (6.93 × 10⁻³) = 100 s. For 80% completion, it's more than one half-life and less than three half-lives (75% completion is 2 half-lives = 200s; 87.5% completion is 3 half-lives = 300s). Using the formula: t = (2.303/k) log(100/(100-80)) = (2.303/(6.93 × 10⁻³)) log(100/20) = (2.303/(6.93 × 10⁻³)) log(5) ≈ (2.303/(6.93 × 10⁻³)) × 0.6989 ≈ 232.2 s.",
+    "step_by_step": [
+      "Recall the integrated rate law for a first-order reaction: t = (2.303/k) log([A]₀/[A]t).",
+      "Determine the ratio [A]₀/[A]t when the reaction is 80% complete ([A]t = 20% of [A]₀).",
+      "Substitute the given rate constant (k) and the ratio [A]₀/[A]t into the formula.",
+      "Calculate the value of log(5).",
+      "Compute the time (t)."
+    ],
+    "tips_and_tricks": [
+      "For first-order reactions, t½ = 0.693/k.",
+      "Remember common logarithm values or how to estimate them (log 2 ≈ 0.3, log 3 ≈ 0.47, log 5 = log(10/2) = log10 - log2 = 1 - 0.3 = 0.7).",
+      "80% completion means 20% remains."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Chemistry",
+      "topic": "Physical Chemistry",
+      "subtopic": "Chemical Kinetics",
+      "sub_subtopic": "Integrated Rate Equations",
+      "concept": "Calculation of time required for a certain percentage completion of a first-order reaction."
+    },
+    "difficulty_level": "Hard",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 16,
+    "Question": "In the context of the Lac operon, what is the role of the inducer (lactose)?",
+    "options": {
+      "a": "It binds to the operator region and activates transcription.",
+      "b": "It binds to the promoter region and enhances RNA polymerase activity.",
+      "c": "It binds to the repressor protein, causing it to detach from the operator and allowing transcription.",
+      "d": "It directly activates the structural genes for enzyme synthesis."
+    },
+    "correct_answer": "c",
+    "Solution": "In the Lac operon, the repressor protein, in the absence of lactose, binds to the operator region, preventing RNA polymerase from transcribing the structural genes. When lactose (or its isomer allolactose) is present, it acts as an inducer by binding to the repressor protein. This binding causes a conformational change in the repressor, making it unable to bind to the operator. As a result, RNA polymerase can access the promoter and transcribe the structural genes (lacZ, lacY, lacA).",
+    "step_by_step": [
+      "Recall the components of the Lac operon (promoter, operator, structural genes, repressor gene).",
+      "Understand the default state of the Lac operon in the absence of lactose (repressor bound to operator, transcription off).",
+      "Identify lactose (or allolactose) as the inducer.",
+      "Describe how the inducer interacts with the repressor protein.",
+      "Explain the consequence of this interaction on the binding of the repressor to the operator and on transcription."
+    ],
+    "tips_and_tricks": [
+      "Lac operon is an example of an inducible operon, typically 'off' and turned 'on' by an inducer.",
+      "The repressor protein is the key regulatory molecule that is affected by the inducer.",
+      "Inducer inactivates the repressor."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Genetics and Evolution",
+      "subtopic": "Molecular Basis of Inheritance",
+      "sub_subtopic": "Translation and Gene Regulation",
+      "concept": "Lac operon concept."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 17,
+    "Question": "Which of the following plant growth regulators is primarily responsible for apical dominance?",
+    "options": {
+      "a": "Gibberellin",
+      "b": "Cytokinin",
+      "c": "Auxin",
+      "d": "Abscisic acid"
+    },
+    "correct_answer": "c",
+    "Solution": "Apical dominance is the phenomenon where the apical bud inhibits the growth of lateral buds. This is primarily mediated by auxins, such as Indole-3-Acetic Acid (IAA), produced in the apical bud. Auxins move downwards and suppress the growth of lateral buds. Cytokinins, often produced in root tips, promote lateral bud growth and can counteract apical dominance if the auxin/cytokinin ratio is appropriate.",
+    "step_by_step": [
+      "Define apical dominance.",
+      "Recall the major plant growth regulators (PGRs) and their primary functions.",
+      "Specifically, identify the PGR responsible for maintaining apical dominance.",
+      "Consider the roles of other PGRs in relation to bud growth (e.g., cytokinins promoting lateral bud growth)."
+    ],
+    "tips_and_tricks": [
+      "Auxin = Apical dominance. Remember 'A' for 'A'.",
+      "Cytokinins often have effects opposite to auxins in terms of bud growth.",
+      "Removal of the apical bud (decapitation) removes the auxin source, allowing lateral buds to grow."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Plant Physiology",
+      "subtopic": "Plant Growth and Development",
+      "sub_subtopic": "Plant Growth Regulators (PGRs) - Auxins, Gibberellins, Cytokinins",
+      "concept": "Physiological effects and applications of Auxins (specifically apical dominance)."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 18,
+    "Question": "The technique of Polymerase Chain Reaction (PCR) is NOT used for:",
+    "options": {
+      "a": "Amplification of DNA",
+      "b": "Detection of very low amounts of DNA",
+      "c": "Synthesis of proteins from mRNA",
+      "d": "Detection of pathogens in early infection stages"
+    },
+    "correct_answer": "c",
+    "Solution": "Polymerase Chain Reaction (PCR) is a technique used to amplify specific DNA sequences, allowing for the creation of many copies from a small initial amount. This makes it useful for detecting low amounts of DNA and for identifying pathogens by amplifying their DNA. Protein synthesis from mRNA is the process of translation, which occurs on ribosomes and is not a function of PCR. PCR works with DNA, not directly with protein synthesis from mRNA (though RT-PCR can convert mRNA to cDNA first for amplification).",
+    "step_by_step": [
+      "Recall the primary purpose and mechanism of PCR.",
+      "Understand that PCR involves DNA replication in vitro.",
+      "Consider the common applications of PCR (amplification, detection of DNA, pathogen detection).",
+      "Identify the process listed in the options that is fundamentally different from DNA amplification and involves protein synthesis."
+    ],
+    "tips_and_tricks": [
+      "PCR = DNA amplification.",
+      "It requires DNA template, primers, DNA polymerase (Taq polymerase), and nucleotides.",
+      "Protein synthesis is translation, a separate cellular process."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Biotechnology",
+      "subtopic": "Principles and Processes",
+      "sub_subtopic": "Processes of Recombinant DNA Technology",
+      "concept": "Polymerase Chain Reaction (PCR) principles and applications."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 19,
+    "Question": "Which of the following hormones is primarily responsible for the reabsorption of water from the distal parts of the tubule in the kidney, thereby preventing diuresis?",
+    "options": {
+      "a": "Aldosterone",
+      "b": "Atrial Natriuretic Factor (ANF)",
+      "c": "Antidiuretic Hormone (ADH) / Vasopressin",
+      "d": "Renin"
+    },
+    "correct_answer": "c",
+    "Solution": "Antidiuretic Hormone (ADH), also known as vasopressin, is released from the posterior pituitary. Its primary role is to increase water reabsorption in the distal convoluted tubule (DCT) and collecting ducts of the nephrons in the kidney. This reduces water loss in urine (antidiuresis). Aldosterone primarily regulates sodium reabsorption (and indirectly water). ANF promotes sodium excretion and diuresis. Renin is an enzyme involved in the RAAS pathway, which ultimately leads to aldosterone and ADH release but is not the direct effector for water reabsorption in this context.",
+    "step_by_step": [
+      "Recall the major hormones involved in kidney function and water/salt balance.",
+      "Understand the specific role of each hormone listed.",
+      "Identify the hormone whose primary function is to increase water reabsorption in the distal tubules and collecting ducts.",
+      "Relate this function to the prevention of diuresis (excessive urine production)."
+    ],
+    "tips_and_tricks": [
+      "ADH = Anti-Diuretic Hormone; it acts against diuresis by conserving water.",
+      "Aldosterone primarily acts on Na⁺ reabsorption, and water follows osmotically.",
+      "ANF has effects opposite to ADH and aldosterone regarding water and Na⁺ balance."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Human Physiology",
+      "subtopic": "Excretory Products and their Elimination",
+      "sub_subtopic": "Regulation of Kidney Function",
+      "concept": "Role of ADH (Vasopressin) in water reabsorption."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 20,
+    "Question": "Adaptive radiation is exemplified by:",
+    "options": {
+      "a": "Wings of butterfly and bird",
+      "b": "Darwin's finches in the Galapagos Islands",
+      "c": "Australian platypus and Indian pangolin",
+      "d": "Heart of fish and heart of mammal"
+    },
+    "correct_answer": "b",
+    "Solution": "Adaptive radiation is the evolutionary process by which an ancestral species diversifies into a number of new species, each adapted to a different ecological niche. Darwin's finches in the Galapagos Islands are a classic example, where an ancestral finch species radiated into multiple species with different beak shapes adapted to different food sources. Wings of butterfly and bird are examples of analogous organs (convergent evolution). Australian platypus and Indian pangolin are geographically separated and show some convergent features but not adaptive radiation from a recent common ancestor in the same lineage. Hearts of fish and mammals show evolutionary progression but not adaptive radiation in this context.",
+    "step_by_step": [
+      "Define adaptive radiation.",
+      "Recall classic examples of adaptive radiation discussed in evolutionary biology.",
+      "Analyze each option to see if it fits the definition of adaptive radiation.",
+      "Differentiate adaptive radiation from convergent evolution (analogous structures) and general evolutionary trends."
+    ],
+    "tips_and_tricks": [
+      "Key features of adaptive radiation: common ancestry, diversification, adaptation to different niches.",
+      "Darwin's finches and Australian marsupials are prime examples.",
+      "Convergent evolution leads to analogous structures in unrelated organisms adapting to similar environments."
+    ],
+    "classification": {
+      "paper": "NEET Sample",
+      "subject": "Biology",
+      "topic": "Genetics and Evolution",
+      "subtopic": "Evolution",
+      "sub_subtopic": "Mechanisms of Evolution",
+      "concept": "Adaptive radiation (Darwin's finches, Australian marsupials)."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  }
+]

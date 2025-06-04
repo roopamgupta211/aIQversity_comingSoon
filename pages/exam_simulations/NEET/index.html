@@ -1,0 +1,584 @@
+<!-- NEET Examination Demo HTML file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="aIQversity - AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions. Supporting multiple Indian languages for inclusive education.">
+    <meta name="keywords" content="AI education, personalized learning, adaptive learning, educational technology, Indian languages, student portal, teacher tools, parent insights">
+    <meta name="author" content="Sakshi Varshney">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aiqversity.com/index.html">
+
+    <meta property="og:title" content="aIQversity - AI-Powered Education Platform">
+    <meta property="og:description" content="Transform education with AI-driven personalized learning pathways, adaptive teaching tools, and comprehensive analytics for students, teachers, parents, and institutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aiqversity.com/">
+    <meta property="og:image" content="https://aiqversity.com/images/logo.jpg">
+
+    <title>NEET Examination Demo</title>
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/@google/genai@latest/dist/index.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0 nav-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold brand-primary-text">a<span class="brand-accent-text">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <!-- Home Button - Initially Visible -->
+                    <a href="../../../../index.html" id="homeButton" class="home-button bg-white px-4 py-2 rounded-lg shadow-md timer-border text-brand-primary hover:bg-gray-50 transition-colors duration-300">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-7a1 1 0 011-1h2a1 1 0 011 1v7a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        Home
+                    </a>
+                    
+                    <!-- Timer - Initially Hidden -->
+                    <div class="timer bg-white px-4 py-2 rounded-lg shadow-md timer-border hidden" id="timer">00:00:00</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto p-8">
+        <!-- Hero Section -->
+        <div class="container mx-auto px-4 py-12" style="padding-top: 120px;">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                    Experience AI-Powered <span class="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">NEET Preparation</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    See how our advanced AI analytics transforms your exam performance into personalized learning insights
+                </p>
+
+                <h2 class="text-2xl font-bold text-center mb-6" style="color: #101E3D;">
+                    🎯 Experience AI-Powered NEET Preparation
+                </h2>
+
+                <!-- NEET Features Highlight -->
+                <div class="mb-6 p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl border border-blue-200">
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span>20 Demo Questions • No Time Limit</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Physics, Chemistry, Biology</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            <span>NCERT-based Questions</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
+                            <span>+4/-1 Marking Scheme</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main CTA Button -->
+                <button onclick="initiateExamAccess()" 
+                        class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-8">
+                    🚀 Take the Smart Exam Now
+                </button>
+                
+                <p class="text-sm text-gray-500">
+                    Experience personalized AI insights • 20 carefully crafted questions • Instant detailed feedback
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">AI Performance Analysis</h3>
+                    <p class="text-gray-600">Get personalized insights about your strengths and improvement areas</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Smart Study Plans</h3>
+                    <p class="text-gray-600">Receive customized daily, weekly, and monthly study recommendations</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Authentic NEET Experience</h3>
+                    <p class="text-gray-600">Based on latest NEET pattern and NCERT syllabus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Verification Modal -->
+    <div id="emailVerificationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Access Smart Exam</h3>
+                <p class="text-gray-600 mt-2">Enter your email to begin your personalized learning journey</p>
+            </div>
+            
+            <!-- Verification Form -->
+            <form id="verificationForm" onsubmit="return false;">
+                <div class="mb-5">
+                    <label for="verifyEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="verifyEmail" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                           placeholder="Enter your email address">
+                </div>
+                
+                <!-- CRITICAL: Button with proper event handling -->
+                <button type="button" id="verifyButton"
+                        class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                    🔍 Verify & Start Exam
+                </button>
+            </form>
+            
+            <!-- Error Message -->
+            <div id="verificationError" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p id="errorMessage" class="text-red-700 text-sm"></p>
+                <button onclick="showRegistrationFromError()" 
+                        class="mt-3 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                    📝 Register Now (Takes 30 seconds)
+                </button>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="verificationLoading" class="hidden mt-4 text-center">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-2">Verifying your access...</p>
+            </div>
+
+            <!-- Close Button -->
+            <button onclick="hideEmailVerificationModal()" 
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+        <div class="absolute inset-0 bg-black opacity-50" id="modalOverlay"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeModal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Quick Registration</h3>
+                <p class="text-gray-600 mt-2">Join our exclusive early access program</p>
+            </div>
+            
+            <!-- Registration Success Message -->
+            <div id="registrationSuccess" class="hidden text-center py-6">
+                <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h4 class="text-2xl font-semibold mb-3 text-gray-800">🎉 Registration Successful!</h4>
+                <p class="text-gray-600 mb-4">Welcome! You can now access the exam.</p>
+                <button onclick="proceedToExamAfterRegistration()" 
+                        class="px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 bg-orange-500 hover:bg-orange-600">
+                    🚀 Start Your Exam
+                </button>
+            </div>
+            
+            <!-- Registration Form -->
+            <form id="registrationForm" onsubmit="submitRegistrationForm(event)">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone (Optional)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                    <select id="userType" name="user_type" required 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                        <option value="">Please select</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="parent">Parent</option>
+                        <option value="organization">Educational Organization</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
+                        <span class="text-sm text-gray-600">I agree to receive updates about products and services</span>
+                    </label>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                    Register & Access Exam
+                </button>
+            </form>
+        </div>
+    </div>
+    <main class="container hidden" id="examContainer">
+        <!-- Loading Screen -->
+        <div id="loading" class="loading">
+            <h2>Loading Examination...</h2>
+            <p>Please wait while we prepare your test.</p>
+        </div>
+
+        <!-- Review Interface -->
+        <div id="reviewInterface" class="hidden">
+            <div class="header">
+                <div>
+                    <h1>Solutions & <span class="gradient-text">Review</span></h1>
+                    <p>Detailed explanations for all questions</p>
+                </div>
+                <button class="btn btn-secondary" onclick="backToResults()">Back to Results</button>
+            </div>
+
+            <div id="reviewContainer"></div>
+        </div>
+
+        <!-- Exam Interface -->
+        <div id="examInterface" class="hidden">
+            <!-- Exam Header -->
+            <div class="exam-header">
+                <h1>Smart Examination <span class="gradient-text">Experience</span></h1>
+                <p class="hero-subtitle">🚀 Welcome to the future of personalized learning!</p>
+                
+                <div class="demo-info" style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 4px solid #F7A621;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.5em;">🎯</span>
+                        <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">Experience AI-Powered Learning</h3>
+                    </div>
+                    <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                        <strong>About This Exam:</strong> This 20-question NEET practice exam has been meticulously developed based on the latest NEET pattern and NCERT syllabus. It covers Physics, Chemistry, and Biology (Botany + Zoology), matching the exact level and structure of actual NEET papers with the official +4/-1 marking scheme.
+                    </p>
+                    <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                        <strong>What You'll Experience:</strong> Our advanced AI analytics will transform your performance into personalized insights, custom study plans, and targeted growth recommendations - giving you a preview of our complete learning platform.
+                    </p>
+                    <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; font-size: 0.85em;">
+                        <span style="color: #10B981;">✨ Real-time AI Analysis</span>
+                        <span style="color: #6366f1;">📊 Visual Performance Insights</span>
+                        <span style="color: #F7A621;">🎯 Smart Study Plans</span>
+                        <span style="color: #8B5CF6;">🚀 Personalized Growth Path</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E6F3FF, #F0F8FF); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #6366f1;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                            <span style="font-size: 1.5em;">📋</span>
+                            <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">Official NEET Exam Instructions</h3>
+                        </div>
+                        <ul style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.6; padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><strong>Duration:</strong> No time limit for this 20-question demo (actual NEET: 3 hours for 180 questions)</li>
+                            <li style="margin-bottom: 8px;"><strong>Marking Scheme:</strong> +4 marks for correct answer, -1 mark for wrong answer</li>
+                            <li style="margin-bottom: 8px;"><strong>Total Marks:</strong> 80 marks for this demo (20 questions × 4 marks each)</li>
+                            <li style="margin-bottom: 8px;"><strong>Question Type:</strong> Multiple Choice Questions (MCQs) with four options and one correct answer</li>
+                            <li style="margin-bottom: 8px;"><strong>Subjects:</strong> Mixed questions from Physics, Chemistry, and Biology</li>
+                            <li style="margin-bottom: 8px;"><strong>Navigation:</strong> Use the question numbers at the top to jump between questions</li>
+                            <li style="margin-bottom: 8px;"><strong>Strategy:</strong> Leave questions unattended if you're not sure (due to negative marking)</li>
+                            <li style="margin-bottom: 8px;"><strong>Submission:</strong> You can submit at any stage - timer starts when you click "Start Test Now"</li>
+                            <li style="margin-bottom: 8px;"><strong>Results:</strong> Get instant AI-powered analysis upon submission</li>
+                        </ul>
+                        <div style="background: #E3F2FD; padding: 12px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196F3;">
+                            <p style="margin: 0; color: #1565C0; font-size: 0.9em; font-weight: 500;">
+                                📝 <strong>Demo Note:</strong> This is a focused 20-question practice set to demonstrate our AI-powered analysis. The actual NEET exam has 180 questions across 3 hours.
+                            </p>
+                        </div>
+                        <div style="background: #FFF3CD; padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #F7A621;">
+                            <p style="margin: 0; color: #856404; font-size: 0.9em; font-weight: 500;">
+                                ⚠️ <strong>Important:</strong> This follows the exact NEET negative marking pattern (+4/-1) - answer wisely!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #E8F5E8, #F0FDF4); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #10B981; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.2em;">💡</span>
+                        <strong style="color: #047857; font-size: 1em;">Pro Tip</strong>
+                    </div>
+                    <p style="margin: 0; color: #065f46; font-size: 0.9em; line-height: 1.4;">
+                        You can submit the exam at any stage! Simply click on <strong>Q20</strong> in the question navigation and then hit Submit. No need to attempt all questions.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; border: 2px solid #F7A621;">
+                    <p style="color: #101E3D; font-size: 1em; margin-bottom: 15px; font-weight: 500;">
+                        ⏱️ Ready to begin? The timer will only start when you click the button below.
+                    </p>
+                    <button onclick="startExamTest()" id="startTestButton"
+                            class="btn btn-primary" 
+                            style="background: linear-gradient(135deg, #F7A621, #E69A0C); color: white; font-weight: bold; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; border: none; cursor: pointer; box-shadow: 0 6px 15px rgba(247, 166, 33, 0.3); transition: all 0.3s ease;">
+                        🚀 Start Test Now
+                    </button>
+                </div>
+
+                <p style="color: #6c757d; font-size: 0.9em; text-align: center; margin-top: 10px;">
+                    Ready to experience AI-powered NEET preparation? Answer questions and submit when ready! ⚡
+                </p>
+            </div>
+
+            <nav class="question-list hidden" id="questionList" aria-label="Question navigation"></nav>
+            <div class="question-card hidden" id="questionCard">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Question 1 of 10</span>
+                    <span id="questionMeta"></span>
+                </div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="navigation hidden" id="examNavigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                <button class="btn btn-primary hidden" id="submitBtn" onclick="submitExam()">Submit Exam</button>
+            </div>
+        </div>
+        <!-- Results Interface -->
+        <div id="resultsInterface" class="hidden">
+            <div class="dashboard-container">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 id="personalizedGreeting">Great job, Champion!</h1>
+                            <p id="heroSubtext">Your personalized learning insights are ready</p>
+                        </div>
+                        <div class="hero-score">
+                            <div class="score-circle" id="scoreCircle">
+                                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="60" cy="60" r="50" stroke="#e9ecef" stroke-width="8" fill="none"/>
+                                    <circle cx="60" cy="60" r="50" stroke="#F7A621" stroke-width="8" fill="none" 
+                                            stroke-dasharray="314" stroke-dashoffset="314" id="scoreProgress"/>
+                                </svg>
+                                <div class="score-text">
+                                    <span id="scoreValue">0%</span>
+                                    <small>Overall</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Insights Section -->
+                <div class="ai-insights-section">
+                    <h2 class="section-title">🤖 AI-Powered Insights</h2>
+                    <div class="insights-grid">
+                        <div class="insight-card primary-insight">
+                            <div class="insight-icon"></div>
+                            <h3>🎯 Your Performance DNA</h3>
+                            <div class="insight-content" id="aiPerformanceInsight">
+                                <p>Analyzing your unique learning patterns...</p>
+                                <div class="insight-loader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Opportunities Section -->
+                <div class="growth-section">
+                    <h2 class="section-title">🚀 AI-powered personalised Growth Opportunities</h2>
+                    <div class="growth-grid">
+                        <div class="growth-card performance-radar">
+                            <h3>📊 Skills Radar</h3>
+                            <div class="chart-container">
+                                <canvas id="skillsRadarChart"></canvas>
+                                <div class="chart-loader" id="radarLoader"></div>
+                            </div>
+                            <div class="radar-legend" id="radarLegend"></div>
+                        </div>
+                        
+                        <div class="growth-card target-gauge">
+                            <h3>🎯 Progress to Goal (You'll set custom targets in our full app)</h3>
+                            <div class="gauge-container">
+                                <canvas id="progressGauge"></canvas>
+                                <div class="chart-loader" id="gaugeLoader"></div>
+                            </div>
+                            <div class="gauge-info" id="gaugeInfo"></div>
+                        </div>
+                        
+                        <div class="growth-card focus-matrix">
+                            <h3>🎲 Focus Priority Matrix</h3>
+                            <div class="chart-loader" id="matrixLoader"></div>
+                            <div id="priorityMatrix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Study Plan Section -->
+                <div class="study-plan-section">
+                    <h2 class="section-title">📚 AI-powered personalised Smart Study Plan</h2>
+                    <div class="study-plan-grid">
+                        <div class="study-card daily-card">
+                            <h3>📅 Daily Timeline</h3>
+                            <div class="chart-loader" id="dailyLoader"></div>
+                            <div id="dailyTimeline"></div>
+                        </div>
+                        
+                        <div class="study-card weekly-card">
+                            <h3>📊 Weekly Focus</h3>
+                            <div class="chart-loader" id="weeklyLoader"></div>
+                            <div id="weeklyFocus"></div>
+                        </div>
+                        
+                        <div class="study-card monthly-card">
+                            <h3>🎯 Monthly Goals</h3>
+                            <div class="chart-loader" id="monthlyLoader"></div>
+                            <div id="monthlyGoals"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Dashboard -->
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="correctCount">0</div>
+                        <div class="stat-label">Correct</div>
+                        <div class="stat-change positive">+2 from last attempt</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="timeTaken">0m</div>
+                        <div class="stat-label">Time Taken</div>
+                        <div class="stat-change neutral">Optimal pace</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="strengthCount">0</div>
+                        <div class="stat-label">Strong Topics</div>
+                        <div class="stat-change positive">Well balanced</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="focusCount">0</div>
+                        <div class="stat-label">Focus Areas</div>
+                        <div class="stat-change improvement">Ready to improve</div>
+                    </div>
+                </div>
+
+                <!-- Performance Matrix -->
+                <div class="performance-matrix">
+                    <h2 class="section-title">📊 Performance Matrix</h2>
+                    <div class="matrix-grid">
+                        <div class="matrix-card">
+                            <h3>Subject Mastery</h3>
+                            <div id="subjectMatrix"></div>
+                        </div>
+                        <div class="matrix-card">
+                            <h3>Difficulty Progression</h3>
+                            <div id="difficultyMatrix"></div>
+                        </div>
+                        <div class="matrix-card">
+                            <h3>Answering Velocity</h3>
+                            <div id="learningVelocity"></div>
+                        </div>
+                        <div class="matrix-card">
+                            <h3>Attempted Questions</h3>
+                            <div id="knowledgeCoverage"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Center -->
+                <div class="action-center">
+                    <h2 class="section-title">🎯 Your Next Moves</h2>
+                    <div class="action-grid">
+                        <button class="action-btn primary" onclick="showDetailedReview()">
+                            <span class="action-icon">🔍</span>
+                            <div>
+                                <strong>Deep Dive Analysis</strong>
+                                <small>Question-by-question breakdown</small>
+                            </div>
+                        </button>
+                        <button class="action-btn primary" onclick="restartExam()">
+                            <span class="action-icon">🔄</span>
+                            <div>
+                                <strong>Take the Test again</strong>
+                                <small>Continue practicing</small>
+                            </div>
+                        </button>
+                        <button class="action-btn primary" onclick="window.location.reload()">
+                            <span class="action-icon">🔄</span>
+                            <div>
+                                <strong>Back to Exam Home</strong>
+                                <small>Practice using another email id</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <!-- 3D Cube/Box Being Assembled icon -->
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    with 
+                    <!-- Shield with Heart icon -->
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    in Bangalore by
+                    <img src="../../../../images/TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Curious about what we're building? Reach out at contact@aiqversity.com
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <button id="scrollToTop" class="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hidden hover:bg-blue-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+    <script src="./app.js"></script>
+</body>
+</html>

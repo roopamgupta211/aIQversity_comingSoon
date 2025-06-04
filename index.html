@@ -140,8 +140,23 @@
             </div>
             
             <!-- Dynamic Features Container -->
-            <div id="liveFeatures" class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-                <!-- Features will be generated dynamically -->
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Navigation Arrows -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollLiveFeatures('left')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <div class="overflow-x-auto hide-scrollbar px-2" id="liveFeatures" style="scroll-behavior: smooth;">
+                    <!-- Features will be generated dynamically -->
+                </div>
+
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-1 sm:p-2 shadow-lg hover:bg-gray-50" onclick="scrollLiveFeatures('right')">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
@@ -972,6 +987,16 @@
             }
         }
 
+        function scrollLiveFeatures(direction) {
+            const container = document.getElementById('liveFeatures');
+            const scrollAmount = 400;
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -989,27 +1014,55 @@
                 icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
                 linkText: "Try Analysis Tool",
                 url: "./pages/analysis/upsc/pre/upsc_pre_analysis.html",
-                borderColor: "#F7A621",
-                iconBgColor: "rgba(247, 166, 33, 0.2)",
-                iconColor: "#F7A621",
+                borderColor: "#101E3D",
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D",
                 linkColor: "#F7A621",
                 status: "Live Now",
                 statusBg: "#45E6C0",
                 statusColor: "#101E3D"
             },
-            // Add more features here when ready:
             {
                 title: "UKPSC Exam Simulator",
                 description: "Practice with realistic UKPSC exam simulation featuring timed tests, real exam interface, and instant feedback.",
                 icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
                 linkText: "Start Simulation",
                 url: "https://aiqversity.com/pages/exam_simulations/UKPSC/Pre_Paper_1/",
-                borderColor: "#45E6C0",
-                iconBgColor: "rgba(69, 230, 192, 0.2)",
-                iconColor: "#45E6C0",
-                linkColor: "#45E6C0",
+                borderColor: "#101E3D",        // Same primary
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D",
+                linkColor: "#F7A621",          // Same CTA color
                 status: "Demo Available",
-                statusBg: "#45E6C0",
+                statusBg: "#F7A621",           // Orange for demo status
+                statusColor: "white"
+            },
+            {
+                title: "NEET Exam Simulator",
+                description: "AI-powered NEET preparation with personalized study plans and authentic NCERT-based questions.",
+                icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+                linkText: "Start NEET Demo",
+                url: "./pages/exam_simulations/NEET/",
+                borderColor: "#101E3D",        // Same primary
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D", 
+                linkColor: "#F7A621",          // Same CTA color
+                status: "Demo Available",
+                statusBg: "#F7A621",           // Same demo status color
+                statusColor: "white"
+            },
+            {
+                title: "Expanding Our Demos",
+                description: "School exams, civil services, JEE, SSC, and more - with objective and subjective formats. Coming very soon!",
+                icon: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                linkText: "Stay Updated",
+                url: "javascript:void(0)",
+                onclick: "openRegistrationModal()",
+                borderColor: "#45E6C0",        // Use teal for "coming soon"
+                iconBgColor: "rgba(69, 230, 192, 0.1)",
+                iconColor: "#45E6C0",
+                linkColor: "#F7A621",          // Consistent CTA color
+                status: "Coming Soon", 
+                statusBg: "#45E6C0",           // Teal for future status
                 statusColor: "#101E3D"
             }
         ];
@@ -1019,8 +1072,8 @@
             const container = document.getElementById('liveFeatures');
             if (!container) return;
 
-            container.innerHTML = liveFeatures.map(feature => `
-                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 w-full max-w-md" style="border-color: ${feature.borderColor}">
+            container.innerHTML = `<div class="flex space-x-4 sm:space-x-6 p-4 min-w-max">${liveFeatures.map(feature => `
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 w-72 sm:w-80 md:w-88 flex-shrink-0" style="border-color: ${feature.borderColor}">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: ${feature.iconBgColor}">
@@ -1030,17 +1083,17 @@
                             </div>
                             <h3 class="text-lg font-semibold" style="color: #101E3D" data-translate="true">${feature.title}</h3>
                         </div>
-                        <span class="px-3 py-1 rounded-full text-xs font-medium" style="background: ${feature.statusBg}; color: ${feature.statusColor}" data-translate="true">${feature.status}</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium flex items-center justify-center text-center" style="background: ${feature.statusBg}; color: ${feature.statusColor}" data-translate="true">${feature.status}</span>
                     </div>
                     <p class="text-gray-600 mb-4" data-translate="true">${feature.description}</p>
-                    <a href="${feature.url}" class="inline-flex items-center text-sm font-medium hover:underline" style="color: ${feature.linkColor}" target="_blank">
+                    <a href="${feature.url}" ${feature.onclick ? `onclick="${feature.onclick}"` : 'target="_blank"'} class="inline-flex items-center text-sm font-medium hover:underline" style="color: ${feature.linkColor}">
                         <span data-translate="true">${feature.linkText}</span>
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                         </svg>
                     </a>
                 </div>
-            `).join('');
+            `).join('')}</div>`;
         }
 
         // Generate features when page loads
@@ -1196,6 +1249,11 @@
         closeModalBtn.addEventListener('click', closeModal);
         modalOverlay.addEventListener('click', closeModal);
         closeSuccessBtn.addEventListener('click', closeModal);
+
+        function openRegistrationModal() {
+            registrationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
     </script>
 	<script src="language-switcher.js"></script>
     <script>
