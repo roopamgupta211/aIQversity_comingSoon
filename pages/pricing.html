@@ -136,8 +136,7 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-2 sm:space-x-4 w-1/4 justify-end">
-                    <a href="../index.html" class="hidden sm:block text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium" data-translate="true">Home</a>
-                    <a href="#" class="register-btn text-white px-3 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium transform hover:scale-105 transition-all duration-300 shadow-lg" style="background: #F7A621" data-translate="true">Join Waitlist</a>
+                    <a href="../index.html" class="bg-blue-600 text-white px-3 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="true">Home</a>
                 </div>
             </div>
         </div>
@@ -666,30 +665,69 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800">
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-start">
-                <p class="text-gray-400 text-sm mb-2 flex items-center">
-                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
-                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    </svg>
-                    with 
-                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
-                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
-                    </svg>
-                    in Bangalore by
-                    <img src="../images/TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;">
-                </p>
-                <p class="text-gray-400 text-sm mb-2 flex items-center">
-                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Curious about what we're building? Reach out at contact@aiqversity.com
-                </p>
-                <p class="text-base text-gray-400">
-                    © 2025 aIQversity. All rights reserved.
-                </p>
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="../images/logo.jpg" alt="TetraTech Logo" class="h-12 w-auto mr-3"/>
+                        <span class="text-xl font-bold" style="color: white">a<span style="color: #F7A621">IQ</span>versity</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions.
+                    </p>
+                    <div class="flex flex-col space-y-2">
+                        <p class="text-gray-400 text-sm flex items-center">
+                            <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                                <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            </svg>                      
+                            with 
+                            <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                                <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                            </svg>                      
+                            in Bangalore by Tetratech Dynamics
+                        </p>
+                        <p class="text-gray-400 text-sm flex items-center">
+                            <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            contact@aiqversity.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4" data-translate="true">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Home</a></li>
+                        <li><a href="./about.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">About Us</a></li>
+                        <li><a href="./whyus.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Why Choose Us</a></li>
+                        <li><a href="./pricing.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Pricing</a></li>
+                        <li><a href="./faqs.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Support -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4" data-translate="true">Legal & Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./privacy.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Privacy Policy</a></li>
+                        <li><a href="./terms.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Terms of Service</a></li>
+                        <li><a href="./refund.html" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Refund Policy</a></li>
+                        <li><a href="mailto:contact@aiqversity.com" class="text-gray-400 hover:text-white transition-colors" data-translate="true">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 aIQversity. All rights reserved.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
