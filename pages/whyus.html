@@ -49,6 +49,19 @@
             transform: scale(1.02);
             box-shadow: 0 15px 35px rgba(16, 30, 61, 0.1);
         }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 640px) {
+            .feature-card {
+                padding: 1rem;
+            }
+            .user-benefit-card {
+                padding: 1.5rem;
+            }
+            .comparison-highlight {
+                padding: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -64,9 +77,9 @@
                 <div class="flex-1 flex justify-center">
                     <a href="index.html" class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</a>
                 </div>
-                <div class="flex items-center space-x-4 w-1/4 justify-end">
-                    <a href="../index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">Join Waitlist</a>
+                <div class="flex items-center space-x-2 sm:space-x-4 w-1/4 justify-end">
+                    <a href="../index.html" class="hidden sm:block text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium" data-translate="true">Home</a>
+                    <a href="/register" class="bg-blue-600 text-white px-3 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="true">Join Waitlist</a>
                 </div>
             </div>
         </div>
@@ -77,152 +90,815 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color: #101E3D">
-                    Why Choose a<span style="color: #F7A621">IQ</span>versity?
+                    <span data-translate="true">Why Choose</span> a<span style="color: #F7A621">IQ</span>versity?
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8">
-                    We are redefining learning with <span style="color: #F7A621; font-weight: 600;">Generative AI (GenAI)</span>—an advanced AI-driven approach that not only delivers personalized study plans, automated tutoring, and smart assessment tools, but also creates real-time, adaptive learning experiences.
+                    <span data-translate="true">We are redefining learning with</span> <span style="color: #F7A621; font-weight: 600;" data-translate="true">Generative AI (GenAI)</span>—<span data-translate="true">an advanced AI-driven approach that not only delivers personalized study plans, automated tutoring, and smart assessment tools, but also creates real-time, adaptive learning experiences.</span>
                 </p>
-                <div class="flex justify-center items-center space-x-8 mt-12">
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 mt-12">
                     <div class="text-center">
-                        <div class="text-3xl font-bold" style="color: #F7A621">24/7</div>
-                        <div class="text-sm text-gray-600">AI Tutoring</div>
+                        <div class="text-2xl sm:text-3xl font-bold" style="color: #F7A621">24/7</div>
+                        <div class="text-xs sm:text-sm text-gray-600" data-translate="true">AI Tutoring</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold" style="color: #45E6C0">11+</div>
-                        <div class="text-sm text-gray-600">Unique Features</div>
+                        <div class="text-2xl sm:text-3xl font-bold" style="color: #45E6C0">21+</div>
+                        <div class="text-xs sm:text-sm text-gray-600" data-translate="true">Unique Features</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl font-bold" style="color: #F7A621">Multi-Language</div>
-                        <div class="text-sm text-gray-600">Support</div>
+                        <div class="text-2xl sm:text-3xl font-bold" style="color: #F7A621" data-translate="true">Multi-Language</div>
+                        <div class="text-xs sm:text-sm text-gray-600" data-translate="true">Support</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- How GenAI Sets Us Apart -->
+    <!-- Complete Feature Comparison -->
     <div class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #101E3D">
-                    How GenAI Sets aIQversity Apart
+                    <span data-translate="true">Complete Feature Comparison</span>: aIQversity <span data-translate="true">vs Others</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    From traditional EdTech platforms to the most advanced learning systems available today, here's what makes us fundamentally different.
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-translate="true">
+                    See how aIQversity's AI-powered features stack up against traditional EdTech platforms
+                </p>
+            </div>
+
+            <!-- Mobile-First Responsive Comparison -->
+            <!-- Mobile Card Layout (visible on mobile/tablet) -->
+            <div class="block lg:hidden space-y-4">
+                <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                    <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Personalized Study Plan</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                ✅ Full End-to-End
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">Others:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                ⚠️ Limited
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                    <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Probable Questions Prediction</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                ✅ AI-Driven
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">Others:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                ❌ Not Available
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                    <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Voice-Based AI Tutor</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                ✅ Advanced AI
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">Others:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                ❌ Not Available
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                    <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Parent Dashboard</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                ✅ Complete Analytics
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">Others:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                ⚠️ Limited
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                    <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Goal-Based Learning</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">a<span style="color: #F7A621">IQ</span>versity:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                ✅ Fully Goal-Oriented
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium" data-translate="true">Others:</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                ❌ Not Available
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Features Button for Mobile -->
+                <div class="text-center mt-6">
+                    <button onclick="toggleMobileFeatures()" id="mobileFeatureBtn" class="px-6 py-3 rounded-lg text-white shadow-lg transition-all duration-300" style="background: #F7A621" data-translate="true">
+                        View All 21 Features
+                    </button>
+                </div>
+
+                <!-- Additional Mobile Features (Hidden by default) -->
+                <div id="additionalMobileFeatures" class="hidden mt-6 space-y-4">
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">AI-Based Answer Evaluation</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Available
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Question Paper Generator</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ AI-Powered
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Basic Version
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">AI-Based Doubt Solving</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Strength-Based
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not Adaptive
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Live Performance Benchmarking</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Goal-Based
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Adaptive Learning Engine</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Fully Adaptive
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Dynamic Revision Plan</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Auto-Adjusts
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Manual Only
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Multi-Language Support</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Comprehensive
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Career Path Suggestions</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ AI-Driven
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Exam Simulation Environment</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Realistic
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Basic
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Peer Matchmaking</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Smart Matching
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Real-Time Exam Notifications</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Instant Updates
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">AI-Based Video + Text Learning</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Multi-Modal AI
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Analytics for Teachers</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Analytics
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">AI Mentoring & Post-Test Feedback</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-teal-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">Bloom's Taxonomy-Based Learning</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Full Mastery
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ No Mastery Focus
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-4 shadow-lg border-l-4 border-orange-400">
+                        <h3 class="font-bold text-gray-900 mb-3" data-translate="true">School-Wide Student Analytics</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium">a<span style="color: #F7A621">IQ</span>versity:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Analytics
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium" data-translate="true">Others:</span>
+                                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Table Layout (visible on desktop) -->
+            <div class="hidden lg:block overflow-x-auto shadow-2xl rounded-xl">
+                <table class="w-full bg-white rounded-xl overflow-hidden">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #101E3D, #1e3a5f);">
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider" data-translate="true">FEATURES</th>
+                            <th class="px-6 py-4 text-center text-sm font-bold text-white tracking-wider">
+                                <div class="flex items-center justify-center">
+                                    <span>a</span><span style="color: #F7A621">IQ</span><span>versity</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-center text-sm font-bold text-white uppercase tracking-wider" data-translate="true">OTHER PLATFORMS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Personalized Study Plan</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Full End-to-End Journey
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not end-to-end based on pace, goal & weak areas
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">AI-Based Answer Evaluation</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Available
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Question Paper Generator</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ AI-Powered
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Basic Version
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Probable Questions Prediction</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ AI-Driven Prediction
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">AI-Based Doubt Solving</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Strength-Based Solutions
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not adjusted to student strengths
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Live Performance Benchmarking</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Goal & Weakness Based
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not adjusted to goals & weaknesses
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Adaptive Learning Engine</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Goal, Pace & Difficulty Based
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not adjusted to goal, pace & difficulty
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Dynamic Revision Plan</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Auto-Adjusts to Strengths
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Not automatically adjusted
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Multi-Language Support</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Comprehensive Support
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited Languages
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Voice-Based Input/Tutor</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Advanced Voice AI
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Career Path Suggestions</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ AI-Driven Guidance
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Exam Simulation Environment</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Realistic Simulation
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Basic Version
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Peer Matchmaking</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Smart Matching
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Parent Dashboard</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Analytics & Suggestions
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited analytics, no suggestions
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Real-Time Exam Notifications</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Instant Updates
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">AI-Based Video + Text Learning</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Multi-Modal AI Learning
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Analytics for Teachers</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Student Analytics
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited student analytics
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">AI Mentoring & Post-Test Feedback</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Analytics & Recommendations
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited analytics & recommendations
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Bloom's Taxonomy–Based Adaptive Learning</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Remember → Create (Full Mastery)
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Apply → Evaluate (No mastery focus)
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">School/College-Wide Student Analytics</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Complete Bloom + Academic Analytics
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" data-translate="true">
+                                    ⚠️ Limited analytics available
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900" data-translate="true">Goal-Based Personalized Learning</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" data-translate="true">
+                                    ✅ Fully Goal-Oriented
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800" data-translate="true">
+                                    ❌ Not Available
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Legend - Mobile Responsive -->
+            <div class="mt-8 text-center">
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-6 px-4 sm:px-8 py-4 rounded-xl shadow-lg" style="background: linear-gradient(135deg, rgba(247, 166, 33, 0.1), rgba(69, 230, 192, 0.1));">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                        <span class="text-sm font-medium text-gray-700" data-translate="true">✅ Fully Available</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-4 h-4 bg-yellow-500 rounded-full"></span>
+                        <span class="text-sm font-medium text-gray-700" data-translate="true">⚠️ Limited/Basic</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-4 h-4 bg-red-500 rounded-full"></span>
+                        <span class="text-sm font-medium text-gray-700" data-translate="true">❌ Not Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How We Leverage GenAI Technology -->
+    <div class="py-20" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #101E3D">
+                    <span data-translate="true">How We Leverage GenAI Technology</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-translate="true">
+                    Discover the cutting-edge AI technology that powers aIQversity's revolutionary learning experience
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Feature 1: AI-Powered Question Paper Generation -->
+                <!-- GenAI Technology Stack -->
                 <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
                     <div class="flex items-start mb-4">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Powered Question Paper Generation</h3>
-                    </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Generates question papers for 10th and 12th-grade exams across all subjects</li>
-                            <li>• Uses a database of 20+ years of past exam papers to curate probable questions</li>
-                            <li>• Categorizes questions by topic, difficulty level, and mark distribution</li>
-                            <li>• Adapts based on exam syllabus updates and changing trends</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Traditional learning apps provide only static question banks</li>
-                            <li>• Other AI platforms generate randomized tests but lack pattern-based question prediction</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Feature 2: AI-Based Answer Assistance -->
-                <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
-                    <div class="flex items-start mb-4">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #45E6C0">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Based Answer Assistance</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Advanced GenAI Technology Stack</span>
+                        </h3>
                     </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Provides step-by-step guidance for writing structured answers</li>
-                            <li>• AI-generated model answers help students improve writing skills</li>
-                            <li>• Breaks down long-answer responses into key components</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Large Language Models (LLMs)</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">We leverage cutting-edge LLMs fine-tuned on educational content to understand context, generate personalized explanations, and adapt to individual learning styles in real-time.</p>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Some offer instant solutions, but do not guide students in framing answers</li>
-                            <li>• Most platforms provide static answer keys rather than AI-driven personalized guidance</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Feature 3: Smart Answer Submission & Feedback -->
-                <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
-                    <div class="flex items-start mb-4">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #F7A621">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Pattern Recognition AI</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our AI analyzes 20+ years of exam patterns, student performance data, and curriculum changes to predict probable questions and optimize study plans with unprecedented accuracy.</p>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">Smart Answer Submission & Feedback</h3>
-                    </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Allows students to submit answers by typing directly or uploading photos</li>
-                            <li>• Provides automated scoring and evaluation</li>
-                            <li>• AI explains mark deductions and improvements</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Many EdTech apps lack automated answer evaluation</li>
-                            <li>• Other platforms focus on video lessons but do not provide personalized scoring</li>
-                        </ul>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Multi-Modal AI Processing</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Seamlessly processes text, voice, images, and video to create immersive learning experiences that adapt to how each student learns best.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Feature 4: AI-Powered Exam Prediction -->
+                <!-- Adaptive Learning Engine -->
                 <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
                     <div class="flex items-start mb-4">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #45E6C0">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Powered Exam Prediction</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Intelligent Adaptive Learning Engine</span>
+                        </h3>
                     </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Predicts likely exam questions based on past paper trends</li>
-                            <li>• Weightage analysis of topics and latest syllabus updates</li>
-                            <li>• Suggests high-probability topics for last-minute revision</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Real-Time Performance Analysis</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our GenAI continuously monitors student interactions, learning pace, and comprehension levels to dynamically adjust content difficulty and teaching methodology.</p>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Most learning platforms offer only static revision plans</li>
-                            <li>• No other solution provides real-time AI-driven exam predictions</li>
-                        </ul>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Cognitive Load Optimization</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">AI algorithms optimize the cognitive load by breaking down complex concepts into digestible chunks, ensuring students aren't overwhelmed while maintaining engagement.</p>
+                        </div>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Bloom's Taxonomy Integration</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our system progressively guides students through all cognitive levels—from basic remembering to creative synthesis—ensuring deep conceptual mastery.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Feature 5: AI-Powered Virtual Tutor -->
+                <!-- Generative Content Creation -->
                 <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
                     <div class="flex items-start mb-4">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #F7A621">
@@ -230,56 +906,116 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Powered Virtual Tutor (Text, Audio, Video)</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Dynamic Content Generation</span>
+                        </h3>
                     </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• AI explains concepts in text, audio, and AI-generated video formats</li>
-                            <li>• Students can choose their preferred teaching style (friendly, strict, detailed, fast-paced)</li>
-                            <li>• Available 24/7 with dynamic voice and avatar interaction</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">AI-Powered Question Synthesis</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our GenAI doesn't just store questions—it creates entirely new, contextually relevant questions based on syllabus requirements, difficulty progression, and student knowledge gaps.</p>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Some offer live human tutors, but sessions are not available 24/7</li>
-                            <li>• No other platform provides an AI tutor with dynamic voice and avatar interaction</li>
-                        </ul>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Personalized Explanation Generation</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Every explanation is generated specifically for the individual student, considering their learning history, preferred communication style, and current knowledge level.</p>
+                        </div>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Interactive AI Tutoring</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our AI tutor generates conversational interactions that feel natural and engaging, adapting personality, tone, and teaching approach based on student preferences and emotional state.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Feature 6: Multi-Language Learning -->
+                <!-- Predictive Analytics & Intelligence -->
                 <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
                     <div class="flex items-start mb-4">
                         <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #45E6C0">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Predictive Intelligence System</span>
+                        </h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Probabilistic Exam Forecasting</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Advanced machine learning models analyze historical patterns, curriculum changes, and current trends to predict likely exam questions with remarkable accuracy.</p>
+                    </div>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Learning Path Optimization</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">AI predicts the most efficient learning sequence for each student, identifying knowledge dependencies and optimizing the order of concept introduction for maximum retention.</p>
+                        </div>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Performance Trajectory Modeling</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our system forecasts student performance trends, identifies potential challenges before they become problems, and proactively suggests interventions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Natural Language Processing -->
+                <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #F7A621">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">Multi-Language Learning & Voice Support</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Advanced NLP & Understanding</span>
+                        </h3>
                     </div>
-                    <div class="comparison-highlight p-4 rounded-lg mb-4">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Supports bilingual learning (English & Hindi)</li>
-                            <li>• Real-time translation of study material and explanations</li>
-                            <li>• Voice-based AI tutor answers student queries</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Contextual Answer Evaluation</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our NLP engine understands the semantic meaning of student answers, providing nuanced feedback that goes beyond keyword matching to assess true comprehension.</p>
                     </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
-                        <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Most apps focus only on English content</li>
-                            <li>• Limited platforms provide voice-based learning in multiple languages</li>
-                        </ul>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Multi-Language Intelligence</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Advanced translation and cross-linguistic understanding allows seamless learning in multiple languages while maintaining conceptual accuracy and cultural context.</p>
+                        </div>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Voice-to-Learning Conversion</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Sophisticated speech recognition and natural language understanding converts voice queries into personalized learning experiences, making education truly conversational.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emotional Intelligence & Personalization -->
+                <div class="feature-card bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mr-4" style="background: #45E6C0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: #101E3D">
+                            <span data-translate="true">Emotional AI & Deep Personalization</span>
+                        </h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Emotional State Recognition</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Our AI recognizes student frustration, confidence levels, and engagement through interaction patterns, adjusting teaching approach and encouragement accordingly.</p>
+                    </div>
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Behavioral Pattern Analysis</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">Advanced algorithms identify subtle learning behaviors, study habits, and motivation triggers to create hyper-personalized educational experiences that maximize student success.</p>
+                        </div>
+                        <div class="border-l-4 border-teal-400 pl-4">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="true">Goal-Oriented AI Coaching</h4>
+                            <p class="text-gray-600 text-sm" data-translate="true">The system becomes a personal academic coach, understanding each student's aspirations and creating motivational frameworks that drive consistent progress toward their goals.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+
+
             <!-- More Features Button -->
             <div class="text-center mt-12">
-                <button onclick="toggleMoreFeatures()" id="moreFeatureBtn" class="px-8 py-3 rounded-lg text-white shadow-lg transition-all duration-300 hover:scale-105" style="background: #F7A621">
+                <button onclick="toggleMoreFeatures()" id="moreFeatureBtn" class="px-8 py-3 rounded-lg text-white shadow-lg transition-all duration-300 hover:scale-105" style="background: #F7A621" data-translate="true">
                     See 5 More Unique Features
                 </button>
             </div>
@@ -294,21 +1030,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">Hyper-Personalized Study Plans</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D" data-translate="true">Hyper-Personalized Study Plans</h3>
                     </div>
                     <div class="comparison-highlight p-4 rounded-lg mb-4">
                         <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• AI analyzes student strengths and weaknesses to create customized plans</li>
-                            <li>• Study schedules adjust dynamically if a student falls behind</li>
-                            <li>• Suggests optimal study time allocation per subject</li>
+                            <li data-translate="true">• AI analyzes student strengths and weaknesses to create customized plans</li>
+                            <li data-translate="true">• Study schedules adjust dynamically if a student falls behind</li>
+                            <li data-translate="true">• Suggests optimal study time allocation per subject</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
+                        <p class="font-semibold mb-2 text-gray-800" data-translate="true">🔻 Compared to Others:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Most apps provide fixed study schedules that do not adapt to student progress</li>
-                            <li>• Existing platforms lack real-time dynamic study plan adjustments</li>
+                            <li data-translate="true">• Most apps provide fixed study schedules that do not adapt to student progress</li>
+                            <li data-translate="true">• Existing platforms lack real-time dynamic study plan adjustments</li>
                         </ul>
                     </div>
                 </div>
@@ -320,21 +1056,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Based Homework & Doubt Solver</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D" data-translate="true">AI-Based Homework & Doubt Solver</h3>
                     </div>
                     <div class="comparison-highlight p-4 rounded-lg mb-4">
                         <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Allows students to upload PDFs or write questions</li>
-                            <li>• AI provides step-by-step explanations, not just direct answers</li>
-                            <li>• Suggests related concepts and similar problems for better understanding</li>
+                            <li data-translate="true">• Allows students to upload PDFs or write questions</li>
+                            <li data-translate="true">• AI provides step-by-step explanations, not just direct answers</li>
+                            <li data-translate="true">• Suggests related concepts and similar problems for better understanding</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
+                        <p class="font-semibold mb-2 text-gray-800" data-translate="true">🔻 Compared to Others:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Some offer instant solutions but lack deep conceptual explanations</li>
-                            <li>• Some provide live tutor-based doubt clearing, but not AI-driven smart explanations</li>
+                            <li data-translate="true">• Some offer instant solutions but lack deep conceptual explanations</li>
+                            <li data-translate="true">• Some provide live tutor-based doubt clearing, but not AI-driven smart explanations</li>
                         </ul>
                     </div>
                 </div>
@@ -346,20 +1082,20 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">Parental Insights & Dashboard</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D" data-translate="true">Parental Insights & Dashboard</h3>
                     </div>
                     <div class="comparison-highlight p-4 rounded-lg mb-4">
                         <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Provides a separate dashboard for parents</li>
-                            <li>• Tracks student performance trends, weak areas, and progress</li>
-                            <li>• Offers AI-driven recommendations for parental guidance</li>
+                            <li data-translate="true">• Provides a separate dashboard for parents</li>
+                            <li data-translate="true">• Tracks student performance trends, weak areas, and progress</li>
+                            <li data-translate="true">• Offers AI-driven recommendations for parental guidance</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
+                        <p class="font-semibold mb-2 text-gray-800" data-translate="true">🔻 Compared to Others:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• No major learning app offers a dedicated parent insights dashboard</li>
+                            <li data-translate="true">• No major learning app offers a dedicated parent insights dashboard</li>
                         </ul>
                     </div>
                 </div>
@@ -371,19 +1107,19 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Driven Career Path Guidance</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D" data-translate="true">AI-Driven Career Path Guidance</h3>
                     </div>
                     <div class="comparison-highlight p-4 rounded-lg mb-4">
                         <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Recommends career options based on student subject preferences & strengths</li>
-                            <li>• AI suggests higher education opportunities and industry trends</li>
+                            <li data-translate="true">• Recommends career options based on student subject preferences & strengths</li>
+                            <li data-translate="true">• AI suggests higher education opportunities and industry trends</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
+                        <p class="font-semibold mb-2 text-gray-800" data-translate="true">🔻 Compared to Others:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Other apps focus on exam preparation only and do not offer career guidance based on AI analysis</li>
+                            <li data-translate="true">• Other apps focus on exam preparation only and do not offer career guidance based on AI analysis</li>
                         </ul>
                     </div>
                 </div>
@@ -395,21 +1131,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold" style="color: #101E3D">AI-Based Exam Simulation & Performance Analytics</h3>
+                        <h3 class="text-xl font-bold" style="color: #101E3D" data-translate="true">AI-Based Exam Simulation & Performance Analytics</h3>
                     </div>
                     <div class="comparison-highlight p-4 rounded-lg mb-4">
                         <p class="font-semibold mb-2" style="color: #101E3D">🔹 aIQversity:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Provides realistic timed exams with AI-driven difficulty adjustment</li>
-                            <li>• AI tracks exam performance trends and recommends study strategies</li>
-                            <li>• Offers peer benchmarking to compare scores with other students</li>
+                            <li data-translate="true">• Provides realistic timed exams with AI-driven difficulty adjustment</li>
+                            <li data-translate="true">• AI tracks exam performance trends and recommends study strategies</li>
+                            <li data-translate="true">• Offers peer benchmarking to compare scores with other students</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <p class="font-semibold mb-2 text-gray-800">🔻 Compared to Others:</p>
+                        <p class="font-semibold mb-2 text-gray-800" data-translate="true">🔻 Compared to Others:</p>
                         <ul class="text-gray-600 space-y-1 text-sm">
-                            <li>• Most apps provide mock tests but lack adaptive difficulty</li>
-                            <li>• Other platforms do not offer real-time comparative analysis</li>
+                            <li data-translate="true">• Most apps provide mock tests but lack adaptive difficulty</li>
+                            <li data-translate="true">• Other platforms do not offer real-time comparative analysis</li>
                         </ul>
                     </div>
                 </div>
@@ -422,9 +1158,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #101E3D">
-                    Benefits for Everyone in the Education Ecosystem
+                    <span data-translate="true">Benefits for Everyone in the Education Ecosystem</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-translate="true">
                     aIQversity is not just an EdTech platform—it is a comprehensive AI-powered learning ecosystem that benefits everyone in the education chain.
                 </p>
             </div>
@@ -438,36 +1174,36 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold" style="color: #101E3D">🎓 Benefits for Students</h3>
+                        <h3 class="text-2xl font-bold" style="color: #101E3D">🎓 <span data-translate="true">Benefits for Students</span></h3>
                     </div>
                     <div class="space-y-3">
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Personalized Learning Paths</strong> – AI adapts to each student's strengths and weaknesses</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Personalized Learning Paths</strong> – AI adapts to each student's strengths and weaknesses</span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>AI-Powered Virtual Tutor (24/7 Learning)</strong> – Interactive AI tutor available anytime</span>
+                            <span class="text-gray-700" data-translate="true"><strong>AI-Powered Virtual Tutor (24/7 Learning)</strong> – <span data-translate="true">Interactive AI tutor available anytime</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>AI-Generated Exam Papers & Mock Tests</strong> – Practice with AI-predicted probable questions</span>
+                            <span class="text-gray-700" data-translate="true"><strong>AI-Generated Exam Papers & Mock Tests</strong> – <span data-translate="true">Practice with AI-predicted probable questions</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Smart Doubt Solver</strong> – Upload questions and get detailed explanations</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Smart Doubt Solver</strong> – <span data-translate="true">Upload questions and get detailed explanations</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Multilingual Learning Support</strong> – Learn in English, Hindi, and regional languages</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Multilingual Learning Support</strong> – <span data-translate="true">Learn in English, Hindi, and regional languages</span></span>
                         </div>
                     </div>
                     <div class="mt-6 p-4 rounded-lg" style="background: rgba(247, 166, 33, 0.1);">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 How It Helps:</p>
+                        <p class="font-semibold mb-2" style="color: #101E3D" data-translate="true">🔹 How It Helps:</p>
                         <ul class="text-sm text-gray-600 space-y-1">
-                            <li>🚀 Boosts exam performance with AI-driven insights</li>
-                            <li>📚 Reduces exam stress with smart planning and doubt-solving</li>
-                            <li>🎯 Makes learning engaging through voice-based and visual AI tutors</li>
+                            <li data-translate="true">🚀 Boosts exam performance with AI-driven insights</li>
+                            <li data-translate="true">📚 Reduces exam stress with smart planning and doubt-solving</li>
+                            <li data-translate="true">🎯 Makes learning engaging through voice-based and visual AI tutors</li>
                         </ul>
                     </div>
                 </div>
@@ -480,36 +1216,36 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold" style="color: #101E3D">👨‍👩‍👧 Benefits for Parents</h3>
+                        <h3 class="text-2xl font-bold" style="color: #101E3D">👨‍👩‍👧 <span data-translate="true">Benefits for Parents</span></h3>
                     </div>
                     <div class="space-y-3">
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Live Performance Tracking</strong> – Real-time progress reports with detailed analysis</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Live Performance Tracking</strong> – <span data-translate="true">Real-time progress reports with detailed analysis</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Parental Insights Dashboard</strong> – Monitor study habits and improvements at a glance</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Parental Insights Dashboard</strong> – <span data-translate="true">Monitor study habits and improvements at a glance</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>AI-Based Study Plan Optimization</strong> – Personalized revision schedules</span>
+                            <span class="text-gray-700" data-translate="true"><strong>AI-Based Study Plan Optimization</strong> – <span data-translate="true">Personalized revision schedules</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Real-Time Alerts & Notifications</strong> – Updates on study progress and performance trends</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Real-Time Alerts & Notifications</strong> – <span data-translate="true">Updates on study progress and performance trends</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Career & Higher Education Guidance</strong> – AI-driven career recommendations</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Career & Higher Education Guidance</strong> – <span data-translate="true">AI-driven career recommendations</span></span>
                         </div>
                     </div>
                     <div class="mt-6 p-4 rounded-lg" style="background: rgba(69, 230, 192, 0.1);">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 How It Helps:</p>
+                        <p class="font-semibold mb-2" style="color: #101E3D" data-translate="true">🔹 How It Helps:</p>
                         <ul class="text-sm text-gray-600 space-y-1">
-                            <li>📊 Gives complete visibility into a child's learning progress</li>
-                            <li>💡 Helps parents make informed decisions about study strategies</li>
-                            <li>⏳ Saves time with AI-generated insights instead of manual tracking</li>
+                            <li data-translate="true">📊 Gives complete visibility into a child's learning progress</li>
+                            <li data-translate="true">💡 Helps parents make informed decisions about study strategies</li>
+                            <li data-translate="true">⏳ Saves time with AI-generated insights instead of manual tracking</li>
                         </ul>
                     </div>
                 </div>
@@ -522,36 +1258,36 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold" style="color: #101E3D">👩‍🏫 Benefits for Teachers</h3>
+                        <h3 class="text-2xl font-bold" style="color: #101E3D">👩‍🏫 <span data-translate="true">Benefits for Teachers</span></h3>
                     </div>
                     <div class="space-y-3">
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Automated Question Paper Generation</strong> – Create customized papers in seconds</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Automated Question Paper Generation</strong> – <span data-translate="true">Create customized papers in seconds</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Smart Answer Evaluation & Feedback</strong> – AI auto-evaluates with instant feedback</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Smart Answer Evaluation & Feedback</strong> – <span data-translate="true">AI auto-evaluates with instant feedback</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Performance Benchmarking & Analytics</strong> – Compare class performance and get insights</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Performance Benchmarking & Analytics</strong> – <span data-translate="true">Compare class performance and get insights</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>AI-Generated Personalized Assignments</strong> – Customized quizzes based on student weaknesses</span>
+                            <span class="text-gray-700" data-translate="true"><strong>AI-Generated Personalized Assignments</strong> – <span data-translate="true">Customized quizzes based on student weaknesses</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Multilingual Teaching Support</strong> – AI translates content into regional languages</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Multilingual Teaching Support</strong> – <span data-translate="true">AI translates content into regional languages</span></span>
                         </div>
                     </div>
                     <div class="mt-6 p-4 rounded-lg" style="background: rgba(247, 166, 33, 0.1);">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 How It Helps:</p>
+                        <p class="font-semibold mb-2" style="color: #101E3D" data-translate="true">🔹 How It Helps:</p>
                         <ul class="text-sm text-gray-600 space-y-1">
-                            <li>📝 Reduces workload by automating repetitive tasks</li>
-                            <li>📈 Improves teaching effectiveness by identifying weak areas</li>
-                            <li>🚀 Enhances engagement with AI-powered teaching tools</li>
+                            <li data-translate="true">📝 Reduces workload by automating repetitive tasks</li>
+                            <li data-translate="true">📈 Improves teaching effectiveness by identifying weak areas</li>
+                            <li data-translate="true">🚀 Enhances engagement with AI-powered teaching tools</li>
                         </ul>
                     </div>
                 </div>
@@ -564,36 +1300,36 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold" style="color: #101E3D">🏫 Benefits for Schools & Organizations</h3>
+                        <h3 class="text-2xl font-bold" style="color: #101E3D">🏫 <span data-translate="true">Benefits for Schools & Organizations</span></h3>
                     </div>
                     <div class="space-y-3">
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>AI-Enhanced Curriculum Planning</strong> – Design better curriculum based on performance trends</span>
+                            <span class="text-gray-700" data-translate="true"><strong>AI-Enhanced Curriculum Planning</strong> – <span data-translate="true">Design better curriculum based on performance trends</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Automated Exam Management</strong> – AI generates papers, evaluates answers, provides instant grading</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Automated Exam Management</strong> – <span data-translate="true">AI generates papers, evaluates answers, provides instant grading</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>School-Wide Performance Analytics</strong> – Detailed reports on student & teacher effectiveness</span>
+                            <span class="text-gray-700" data-translate="true"><strong>School-Wide Performance Analytics</strong> – <span data-translate="true">Detailed reports on student & teacher effectiveness</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Smart Student Monitoring System</strong> – Identify students who need extra support</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Smart Student Monitoring System</strong> – <span data-translate="true">Identify students who need extra support</span></span>
                         </div>
                         <div class="flex items-start">
                             <span class="text-green-500 mr-2">✅</span>
-                            <span class="text-gray-700"><strong>Cost-Effective & Scalable Solution</strong> – AI automates tasks, reducing overhead</span>
+                            <span class="text-gray-700" data-translate="true"><strong>Cost-Effective & Scalable Solution</strong> – <span data-translate="true">AI automates tasks, reducing overhead</span></span>
                         </div>
                     </div>
                     <div class="mt-6 p-4 rounded-lg" style="background: rgba(69, 230, 192, 0.1);">
-                        <p class="font-semibold mb-2" style="color: #101E3D">🔹 How It Helps:</p>
+                        <p class="font-semibold mb-2" style="color: #101E3D" data-translate="true">🔹 How It Helps:</p>
                         <ul class="text-sm text-gray-600 space-y-1">
-                            <li>📊 Improves student results & rankings with AI-powered insights</li>
-                            <li>⏳ Saves teachers' time and enhances school efficiency</li>
-                            <li>🌍 Modernizes education with AI-driven learning methods & technology</li>
+                            <li data-translate="true">📊 Improves student results & rankings with AI-powered insights</li>
+                            <li data-translate="true">⏳ Saves teachers' time and enhances school efficiency</li>
+                            <li data-translate="true">🌍 Modernizes education with AI-driven learning methods & technology</li>
                         </ul>
                     </div>
                 </div>
@@ -606,9 +1342,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #101E3D">
-                    🎯 Why aIQversity is the Future of Learning?
+                    <span data-translate="true">Why</span> aIQversity <span data-translate="true">is the Future of Learning</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8" data-translate="true">
                     aIQversity is the first AI-powered learning platform that truly revolutionizes education with Generative AI
                 </p>
             </div>
@@ -620,8 +1356,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">Uses Generative AI</h3>
-                    <p class="text-gray-600">Create personalized study experiences with advanced AI technology</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D"><span data-translate="true">Uses Generative AI</span></h3>
+                    <p class="text-gray-600" data-translate="true">Create personalized study experiences with advanced AI technology</p>
                 </div>
 
                 <div class="text-center p-6 rounded-xl shadow-lg bg-gradient-to-br from-green-50 to-emerald-50">
@@ -630,8 +1366,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">24/7 AI Tutoring</h3>
-                    <p class="text-gray-600">Combines text, voice, and video for comprehensive AI tutoring</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">24/7 <span data-translate="true">AI Tutoring</span></h3>
+                    <p class="text-gray-600" data-translate="true">Combines text, voice, and video for comprehensive AI tutoring</p>
                 </div>
 
                 <div class="text-center p-6 rounded-xl shadow-lg bg-gradient-to-br from-purple-50 to-pink-50">
@@ -640,8 +1376,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">Dynamic Adaptation</h3>
-                    <p class="text-gray-600">Adapts to student progress with AI-driven study plans</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D"><span data-translate="true">Dynamic Adaptation</span></h3>
+                    <p class="text-gray-600" data-translate="true">Adapts to student progress with AI-driven study plans</p>
                 </div>
 
                 <div class="text-center p-6 rounded-xl shadow-lg bg-gradient-to-br from-yellow-50 to-orange-50">
@@ -650,8 +1386,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">Multilingual Learning</h3>
-                    <p class="text-gray-600">Provides inclusivity across regions with multiple language support</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D" data-translate="true">Multilingual Learning</h3>
+                    <p class="text-gray-600" data-translate="true">Provides inclusivity across regions with multiple language support</p>
                 </div>
 
                 <div class="text-center p-6 rounded-xl shadow-lg bg-gradient-to-br from-indigo-50 to-blue-50">
@@ -660,8 +1396,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a2 2 0 011 1v5m-4 0h4"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">School Efficiency</h3>
-                    <p class="text-gray-600">Enhances school efficiency with AI-powered automation & analytics</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D" data-translate="true">School Efficiency</h3>
+                    <p class="text-gray-600" data-translate="true">Enhances school efficiency with AI-powered automation & analytics</p>
                 </div>
 
                 <div class="text-center p-6 rounded-xl shadow-lg bg-gradient-to-br from-teal-50 to-cyan-50">
@@ -670,14 +1406,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D">Smarter & Faster</h3>
-                    <p class="text-gray-600">AI makes education smarter, faster, and more effective for everyone</p>
+                    <h3 class="text-lg font-bold mb-2" style="color: #101E3D" data-translate="true">Smarter & Faster</h3>
+                    <p class="text-gray-600" data-translate="true">AI makes education smarter, faster, and more effective for everyone</p>
                 </div>
             </div>
 
             <div class="text-center mt-16">
                 <div class="inline-flex items-center px-8 py-4 rounded-xl shadow-lg" style="background: linear-gradient(135deg, #F7A621, #45E6C0);">
-                    <span class="text-white text-xl font-bold">🚀 For students, parents, teachers, and schools—AI makes education revolutionary!</span>
+                    <span class="text-white text-xl font-bold" data-translate="true">🚀 For students, parents, teachers, and schools—AI makes education revolutionary!</span>
                 </div>
             </div>
         </div>
@@ -686,17 +1422,17 @@
     <!-- CTA Section -->
     <div class="py-20" style="background: #101E3D">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-translate="true">
                 Ready to Experience the Future of Learning?
             </h2>
-            <p class="text-xl mb-8" style="color: #45E6C0">
+            <p class="text-xl mb-8" style="color: #45E6C0" data-translate="true">
                 Join thousands of students, parents, and educators who are already transforming their educational journey with AI
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="/register" class="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-lg transition-all duration-300 hover:scale-105" style="background: #F7A621">
+                <a href="/register" class="px-8 py-4 rounded-lg text-white font-bold text-lg shadow-lg transition-all duration-300 hover:scale-105" style="background: #F7A621" data-translate="true">
                     Join the Waitlist - It's Free!
                 </a>
-                <a href="index.html" class="px-8 py-4 rounded-lg border-2 border-white text-white font-bold text-lg transition-all duration-300 hover:bg-white hover:text-gray-900">
+                <a href="index.html" class="px-8 py-4 rounded-lg border-2 border-white text-white font-bold text-lg transition-all duration-300 hover:bg-white hover:text-gray-900" data-translate="true">
                     Learn More About aIQversity
                 </a>
             </div>
@@ -751,8 +1487,8 @@
             </button>
             
             <div class="text-center mb-6">
-                <h3 class="text-2xl font-bold" style="color: #101E3D">Join aIQversity Waitlist</h3>
-                <p class="text-gray-600 mt-2">Be among the first to experience AI-powered academic excellence</p>
+                <h3 class="text-2xl font-bold" style="color: #101E3D" data-translate="true">Join aIQversity Waitlist</h3>
+                <p class="text-gray-600 mt-2" data-translate="true">Be among the first to experience AI-powered academic excellence</p>
             </div>
             
             <!-- Registration Success Message (Hidden by default) -->
@@ -774,39 +1510,39 @@
             <!-- Registration Form -->
             <form id="registrationForm" class="px-1 sm:px-4 py-2" method="PO" onsubmit="submitForm(event)">
                 <div class="mb-5">
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Full Name</label>
                     <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Email Address</label>
                     <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">Phone Number (Optional)</label>
                     <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
                 </div>
                 
                 <div class="mb-5">
-                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2" data-translate="true">I am a</label>
                     <select id="userType" name="user_type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
-                        <option value="">Please select</option>
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="parent">Parent</option>
-                        <option value="organization">Educational Organization</option>
+                        <option value="" data-translate="true">Please select</option>
+                        <option value="student" data-translate="true">Student</option>
+                        <option value="teacher" data-translate="true">Teacher</option>
+                        <option value="parent" data-translate="true">Parent</option>
+                        <option value="organization" data-translate="true">Educational Organization</option>
                     </select>
                 </div>
                 
                 <div class="mb-7">
                     <label class="flex items-start">
                         <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
-                        <span class="text-sm text-gray-600">I agree to receive updates about aIQversity products and services</span>
+                        <span class="text-sm text-gray-600" data-translate="true">I agree to receive updates about aIQversity products and services</span>
                     </label>
                 </div>
                 
-                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621">
+                <button type="submit" class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg" style="background-color: #F7A621" data-translate="true">
                     Join Waitlist
                 </button>
             </form>
@@ -846,6 +1582,26 @@
             } else {
                 moreFeatures.classList.add('hidden');
                 btn.textContent = 'See 5 More Unique Features';
+            }
+        }
+
+        // Mobile features toggle functionality
+        function toggleMobileFeatures() {
+            const additionalFeatures = document.getElementById('additionalMobileFeatures');
+            const btn = document.getElementById('mobileFeatureBtn');
+            
+            if (additionalFeatures.classList.contains('hidden')) {
+                additionalFeatures.classList.remove('hidden');
+                btn.textContent = 'Show Less Features';
+                // Smooth scroll to the additional features
+                setTimeout(() => {
+                    additionalFeatures.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                additionalFeatures.classList.add('hidden');
+                btn.textContent = 'View All 21 Features';
+                // Scroll back to the button
+                btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
@@ -920,14 +1676,18 @@
             });
         }
     </script>
-    <script src="language-switcher.js"></script>
+    <script src="../js/app.js"></script>
     <script>
-        // Language switcher setup for non-index pages
+        // Initialize app for non-index pages
         document.addEventListener('DOMContentLoaded', () => {
-            const currentPagePath = window.location.pathname;
-            const currentPageFilename = currentPagePath.substring(currentPagePath.lastIndexOf('/') + 1) || 'index.html';
-            const currentLangInfo = getCurrentLanguageInfo(currentPageFilename);
-            setupLanguageSwitcher(currentLangInfo);
+            // Initialize translation system
+            if (!window.translator) {
+                window.translator = new DynamicTranslator();
+            }
+            
+            // Check for preferred language and set up the language switcher
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            window.translator.setupLanguageSwitcher(preferredLanguage);
         });
     </script>
 </body>
