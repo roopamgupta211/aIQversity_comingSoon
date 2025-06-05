@@ -1,4 +1,3 @@
-<!-- Pre Sales Landing HTML Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,106 +7,73 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-WCW8M9JPEZ');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="aIQversity - AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions. Supporting multiple Indian languages for inclusive education.">
-    <meta name="keywords" content="AI education, personalized learning, adaptive learning, educational technology, Indian languages, student portal, teacher tools, parent insights">
+    <meta name="keywords" content="AI education, personalized learning, adaptive learning, educational technology, Indian languages, student portal, teacher tools, parent insights, NEET preparation, JEE preparation, UPSC preparation">
     <meta name="author" content="Sakshi Varshney">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://aiqversity.com/index.html">
-
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aiqversity.com/">
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="aIQversity - AI-Powered Education Platform">
     <meta property="og:description" content="Transform education with AI-driven personalized learning pathways, adaptive teaching tools, and comprehensive analytics for students, teachers, parents, and institutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aiqversity.com/">
     <meta property="og:image" content="https://aiqversity.com/images/logo.jpg">
-    <link rel="canonical" href="https://aiqversity.com">
+    <meta property="og:site_name" content="aIQversity">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="hi_IN">
+    <meta property="og:locale:alternate" content="ta_IN">
+    <meta property="og:locale:alternate" content="mr_IN">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="aIQversity - AI-Powered Education Platform">
+    <meta name="twitter:description" content="Transform education with AI-driven personalized learning pathways, adaptive teaching tools, and comprehensive analytics.">
+    <meta name="twitter:image" content="https://aiqversity.com/images/logo.jpg">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "aIQversity",
+        "url": "https://aiqversity.com",
+        "logo": "https://aiqversity.com/images/logo.jpg",
+        "description": "AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions.",
+        "sameAs": [
+            "https://www.facebook.com/aiqversity",
+            "https://www.twitter.com/aiqversity",
+            "https://www.linkedin.com/company/aiqversity"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "support@aiqversity.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+        },
+        "inLanguage": ["en", "hi", "ta", "mr", "ml", "gu", "kn", "te"]
+    }
+    </script>
 
-    <title>aIQversity</title>
+    <title>aIQversity - AI-Powered Education Platform | Personalized Learning in Indian Languages</title>
 
+    <!-- Favicon -->
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Resources - Consolidated -->
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        .gradient-text {
-            background: linear-gradient(45deg, #F7A621, #45E6C0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text
-        }
-        .logo-shine {
-            position: relative;
-            overflow: hidden;
-        }
-        .logo-shine::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-        .hero-pattern {
-            background-color: #ffffff;
-            background-image: radial-gradient(#101E3D 0.5px, transparent 0.5px), radial-gradient(#101E3D 0.5px, #ffffff 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0,10px 10px;
-            opacity: 0.1;
-        }
-        .app-screenshot {
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
-            border: 1px solid rgba(16, 30, 61, 0.1);
-        }
-        .dashboard-mockup {
-            background: #101E3D;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(16, 30, 61, 0.2);
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-	/* Consent Modal Styles */
-    #translationConsentModalContainer {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-        background: rgba(0,0,0,0.7); z-index: 20000; 
-        display: flex; align-items: center; justify-content: center;
-    }
-    #translationConsentModalDialog {
-        background: white; padding: 30px; border-radius: 12px; 
-        max-width: 400px; text-align: center; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -1180,168 +1146,7 @@
         </div>
     </div>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const form = document.getElementById('registrationForm');
-            const formData = new FormData(form);
-            
-            // Convert FormData to URL params
-            const data = new URLSearchParams();
-            for (const pair of formData) {
-                data.append(pair[0], pair[1]);
-            }
-            
-            // Your Google Apps Script web app URL from step 3
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzddb27FVgEJ61ZoGJr6ZV8bk76KR4bY3YDqXLP8v-p2LLy6ptkScfUewwjBQPk_Yo1XA/exec'; // Replace this with your actual web app URL
-            
-            // Show loading state
-            document.querySelector('button[type="submit"]').textContent = 'Submitting...';
-            
-            // Send data to Google Apps Script
-            fetch(scriptURL, {
-                method: 'POST',
-                body: data
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Show success message
-                form.style.display = 'none';
-                document.getElementById('registrationSuccess').classList.remove('hidden');
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert('Something went wrong. Please try again later.');
-            })
-            .finally(() => {
-                // Reset button text
-                document.querySelector('button[type="submit"]').textContent = 'Join Waitlist';
-            });
-        }
-        
-        // Registration Modal Functionality
-        const registrationButtons = document.querySelectorAll('a[href="/register"]');
-        const registrationModal = document.getElementById('registrationModal');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const closeModalBtn = document.getElementById('closeModal');
-        const registrationForm = document.getElementById('registrationForm');
-        const registrationSuccess = document.getElementById('registrationSuccess');
-        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-        
-        // Open modal when registration buttons are clicked
-        registrationButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                registrationModal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-        });
-        
-        // Close modal functionality
-        function closeModal() {
-            registrationModal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Enable scrolling
-            registrationForm.reset();
-            registrationForm.style.display = 'block';
-            registrationSuccess.classList.add('hidden');
-        }
-        
-        closeModalBtn.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', closeModal);
-        closeSuccessBtn.addEventListener('click', closeModal);
-
-        function openRegistrationModal() {
-            registrationModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-    </script>
-	<script src="language-switcher.js"></script>
-    <script>
-        // Initialize the translation system
-        const translator = new DynamicTranslator();
-        // Make translator globally accessible
-        window.translator = translator;
-
-        // Replace your existing mapsApiLoaded function
-        function mapsApiLoaded() {
-            // Check if user explicitly chose a language
-            if (localStorage.getItem('userExplicitlyChoseLanguage') === 'true') {
-                localStorage.removeItem('userExplicitlyChoseLanguage');
-                translator.setupLanguageSwitcher('en');
-                return;
-            }
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const geocoder = new google.maps.Geocoder();
-                        const latlng = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-                        geocoder.geocode({ location: latlng }, (results, status) => {
-                            if (status === 'OK' && results[0]) {
-                                const addressComponents = results[0].address_components;
-                                let state = null;
-                                for (let component of addressComponents) {
-                                    if (component.types.includes('administrative_area_level_1')) {
-                                        state = component.long_name;
-                                        break;
-                                    }
-                                }
-                                const targetLanguage = getLanguageByState(state);
-                                if (targetLanguage && targetLanguage !== 'en') {
-                                    translator.showConsentModal(targetLanguage);
-                                } else {
-                                    translator.setupLanguageSwitcher('en');
-                                }
-                            } else {
-                                translator.setupLanguageSwitcher('en');
-                            }
-                        });
-                    },
-                    () => {
-                        translator.setupLanguageSwitcher('en');
-                    }
-                );
-            } else {
-                translator.setupLanguageSwitcher('en');
-            }
-        }
-
-        // Helper function to map states to languages
-        function getLanguageByState(state) {
-            if (!state) return 'en';
-            
-            const s = state.toLowerCase();
-            const stateLanguageMap = {
-                'karnataka': 'kn',
-                'kerala': 'ml',
-                'gujarat': 'gu',
-                'maharashtra': 'mr',
-                'tamil nadu': 'ta',
-                'telangana': 'te',
-                'andhra pradesh': 'te'
-            };
-
-            const hindiStates = [
-                'uttar pradesh', 'delhi', 'bihar', 'rajasthan', 'madhya pradesh', 
-                'haryana', 'jharkhand', 'chhattisgarh', 'uttarakhand', 'himachal pradesh'
-            ];
-
-            for (const [stateName, langCode] of Object.entries(stateLanguageMap)) {
-                if (s.includes(stateName)) return langCode;
-            }
-
-            if (hindiStates.some(hindiState => s.includes(hindiState))) return 'hi';
-            
-            return 'en';
-        }
-    </script>
-    <!-- Google Maps API script - THIS MU BE AFTER your functions that use it, or use `defer` -->
-    <!-- Replace YOUR_API_KEY with your actual key -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg&callback=mapsApiLoaded"></script>
+    <!-- Load consolidated JavaScript -->
+    <script src="./js/app.js"></script>
 </body>
 </html>

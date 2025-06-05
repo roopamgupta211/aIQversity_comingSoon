@@ -1,0 +1,432 @@
+/* aIQversity Main Styles - Consolidated and Optimized */
+
+/* ============================================================================
+   ANIMATIONS & KEYFRAMES
+   ============================================================================ */
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes quickFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #F7A621, #45E6C0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.ai-icon {
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; opacity: 0; }
+.stagger-2 { animation-delay: 0.2s; opacity: 0; }
+.stagger-3 { animation-delay: 0.3s; opacity: 0; }
+.stagger-4 { animation-delay: 0.4s; opacity: 0; }
+.stagger-5 { animation-delay: 0.5s; opacity: 0; }
+.stagger-6 { animation-delay: 0.6s; opacity: 0; }
+
+/* ============================================================================
+   BRAND ELEMENTS
+   ============================================================================ */
+
+.logo-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+.hero-pattern {
+    background-color: #ffffff;
+    background-image: radial-gradient(#101E3D 0.5px, transparent 0.5px), radial-gradient(#101E3D 0.5px, #ffffff 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0,10px 10px;
+    opacity: 0.1;
+}
+
+/* ============================================================================
+   UI COMPONENTS
+   ============================================================================ */
+
+.app-screenshot {
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(16, 30, 61, 0.15);
+    border: 1px solid rgba(16, 30, 61, 0.1);
+}
+
+.dashboard-mockup {
+    background: #101E3D;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(16, 30, 61, 0.2);
+}
+
+/* Cards */
+.category-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.policy-card {
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.05) 0%, rgba(69, 230, 192, 0.05) 100%);
+    transition: all 0.3s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.user-benefit-card {
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    transition: all 0.3s ease;
+}
+
+.user-benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(16, 30, 61, 0.1);
+}
+
+.contact-card {
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.05) 0%, rgba(69, 230, 192, 0.05) 100%);
+    transition: all 0.3s ease;
+    border-left: 4px solid #F7A621;
+}
+
+/* ============================================================================
+   TRANSLATION SYSTEM STYLES
+   ============================================================================ */
+
+.translating {
+    opacity: 0.7;
+    background: linear-gradient(to right, transparent 0%, #e0e0e0 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.translated {
+    animation: quickFadeIn 0.3s ease-out;
+}
+
+.translation-progress {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    max-width: 90%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 15px;
+    z-index: 20000;
+    transition: opacity 0.3s ease-out;
+}
+
+.translation-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.translation-progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #F7A621;
+    transition: width 0.3s ease-out;
+}
+
+/* Translation Consent Modal Styles */
+#translationConsentModalContainer {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.7); 
+    z-index: 20000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+#translationConsentModalDialog {
+    background: white; 
+    padding: 30px; 
+    border-radius: 12px; 
+    max-width: 400px; 
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ============================================================================
+   FAQ COMPONENTS
+   ============================================================================ */
+
+.faq-accordion {
+    transition: all 0.3s ease;
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    transition: all 0.3s ease-out;
+}
+
+.faq-content.open {
+    max-height: 500px;
+    padding: 0 24px 24px 24px;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #f9fafb;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.highlight {
+    background-color: #fef3c7;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* ============================================================================
+   SECTION-SPECIFIC STYLES
+   ============================================================================ */
+
+.privacy-section {
+    border-left: 4px solid #F7A621;
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.05) 0%, rgba(69, 230, 192, 0.05) 100%);
+}
+
+.terms-section {
+    border-left: 4px solid #F7A621;
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.05) 0%, rgba(69, 230, 192, 0.05) 100%);
+}
+
+.terms-section:hover {
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.08) 0%, rgba(69, 230, 192, 0.08) 100%);
+}
+
+.refund-section {
+    border-left: 4px solid #F7A621;
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.05) 0%, rgba(69, 230, 192, 0.05) 100%);
+}
+
+.refund-section:hover {
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.08) 0%, rgba(69, 230, 192, 0.08) 100%);
+}
+
+/* ============================================================================
+   ALERT BOXES
+   ============================================================================ */
+
+.highlight-box {
+    background: linear-gradient(135deg, rgba(247, 166, 33, 0.1) 0%, rgba(69, 230, 192, 0.1) 100%);
+    border-left: 4px solid #F7A621;
+}
+
+.section-number {
+    background: linear-gradient(135deg, #F7A621, #45E6C0);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+    border-left: 4px solid #ef4444;
+}
+
+.success-box {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+    border-left: 4px solid #22c55e;
+}
+
+.info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-left: 4px solid #3b82f6;
+}
+
+.comparison-highlight {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+    border-left: 4px solid #a855f7;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN HELPERS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .translation-progress {
+        width: 280px;
+        padding: 12px;
+    }
+    
+    .logo-shine img {
+        max-width: 50px;
+    }
+    
+    .dashboard-mockup {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .translation-progress {
+        width: 250px;
+        padding: 10px;
+    }
+    
+    #translationConsentModalDialog {
+        padding: 20px;
+        margin: 20px;
+    }
+} 

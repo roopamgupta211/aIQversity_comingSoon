@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Allow all bots to access the site
+Disallow: /js/
+Disallow: /css/
+
+# Sitemap location
+Sitemap: https://aiqversity.com/sitemap.xml
+
+# Common crawl directives
+Crawl-delay: 1
+
+# Allow specific important paths
+Allow: /pages/
+Allow: /images/
+
+# Block any temporary or private directories
+Disallow: /temp/
+Disallow: /private/
+Disallow: /.git/ 
