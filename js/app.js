@@ -10,6 +10,12 @@ const CONFIG = {
     MAPS_API_KEY: 'AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg',
     FORM_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzddb27FVgEJ61ZoGJr6ZV8bk76KR4bY3YDqXLP8v-p2LLy6ptkScfUewwjBQPk_Yo1XA/exec',
     
+    // Page-specific form URLs
+    FORM_URLS: {
+        'default': 'https://script.google.com/macros/s/AKfycbzddb27FVgEJ61ZoGJr6ZV8bk76KR4bY3YDqXLP8v-p2LLy6ptkScfUewwjBQPk_Yo1XA/exec',
+        'pricing': 'https://script.google.com/macros/s/AKfycbxE9_af7rm1jgql-pp4Iz5Rjjd94aMqczfCrP3SRLYcLIc0ZTAhf7DNa3MEsG1h5s33ag/exec'
+    },
+    
     // Supported languages
     SUPPORTED_LANGUAGES: {
         'hi': 'Hindi',
@@ -359,6 +365,73 @@ class DynamicTranslator {
 }
 
 // ============================================================================
+// PRICING MANAGER CLASS
+// ============================================================================
+
+class PricingManager {
+    constructor() {
+        this.currentPeriod = 'monthly';
+        this.init();
+    }
+
+    init() {
+        // Only initialize if we're on a page with pricing elements
+        if (document.querySelector('.billing-btn')) {
+            this.bindEvents();
+            this.updateSavingsText();
+        }
+    }
+
+    bindEvents() {
+        document.querySelectorAll('.billing-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const period = e.target.getAttribute('data-period');
+                this.changeBillingPeriod(period);
+            });
+        });
+    }
+
+    changeBillingPeriod(period) {
+        this.currentPeriod = period;
+        
+        // Update active button
+        document.querySelectorAll('.billing-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        const activeBtn = document.querySelector(`[data-period="${period}"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+        
+        // Hide all price displays
+        document.querySelectorAll('.price-display').forEach(price => {
+            price.classList.add('hidden');
+        });
+        
+        // Show selected period prices
+        document.querySelectorAll(`.${period}-price`).forEach(price => {
+            price.classList.remove('hidden');
+        });
+        
+        this.updateSavingsText();
+    }
+
+    updateSavingsText() {
+        const savingsText = document.getElementById('savingsText');
+        if (!savingsText) return;
+        
+        const messages = {
+            'monthly': 'Flexible monthly billing',
+            'three-month': 'Better value with quarterly billing',
+            'six-month': 'Save more with 6-month plans',
+            'annual': 'Best value with annual billing'
+        };
+        
+        savingsText.textContent = messages[this.currentPeriod] || messages.monthly;
+    }
+}
+
+// ============================================================================
 // GEOLOCATION & LANGUAGE DETECTION
 // ============================================================================
 
@@ -430,6 +503,15 @@ function initializeGeolocationTranslation() {
 // FORM HANDLING
 // ============================================================================
 
+function getFormURL() {
+    // Detect which page we're on and return appropriate form URL
+    const path = window.location.pathname;
+    if (path.includes('pricing')) {
+        return CONFIG.FORM_URLS.pricing;
+    }
+    return CONFIG.FORM_URLS.default;
+}
+
 function submitForm(event) {
     event.preventDefault();
     
@@ -441,18 +523,22 @@ function submitForm(event) {
         data.append(pair[0], pair[1]);
     }
     
-    const submitBtn = document.querySelector('button[type="submit"]');
+    const submitBtn = document.querySelector('button[type="submit"]') || document.getElementById('submitBtn');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
     
-    fetch(CONFIG.FORM_SCRIPT_URL, {
+    fetch(getFormURL(), {
         method: 'POST',
         body: data
     })
-    .then(response => response.json())
-    .then(data => {
-        form.style.display = 'none';
-        document.getElementById('registrationSuccess').classList.remove('hidden');
+    .then(response => {
+        if (response.ok) {
+            form.style.display = 'none';
+            document.getElementById('registrationSuccess').classList.remove('hidden');
+        } else {
+            throw new Error('Submission failed');
+        }
     })
     .catch(error => {
         console.error('Error!', error.message);
@@ -460,6 +546,7 @@ function submitForm(event) {
     })
     .finally(() => {
         submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     });
 }
 
@@ -620,6 +707,140 @@ function initScrollToTop() {
 }
 
 // ============================================================================
+// FAQ FUNCTIONALITY
+// ============================================================================
+
+// FAQ Data for Search
+const faqData = [
+    { question: "What is aIQversity?", answer: "aIQversity is an AI-powered learning platform that helps students prepare for exams using Generative AI (GenAI). We provide smart study plans, AI-based tutoring, question paper generation, doubt-solving, and real-time exam predictions.", category: "general" },
+    { question: "Who can use aIQversity?", answer: "Students, Parents, Teachers, Schools & Organizations", category: "general" },
+    { question: "Is aIQversity available on mobile?", answer: "Yes! aIQversity is available on desktop, mobile, and tablet. We will soon launch a dedicated mobile app for Android and iOS.", category: "general" },
+    { question: "Does aIQversity support multiple languages?", answer: "Yes! We provide learning support in English, Hindi, and other regional languages, with AI-powered translations and voice-based explanations.", category: "general" },
+    { question: "How does AI-powered question paper generation work?", answer: "Our Generative AI analyzes 20+ years of past exam papers and syllabus trends to create realistic, probable exam papers.", category: "features" },
+    { question: "Can I get AI-generated answers and explanations?", answer: "Yes! Our AI tutor provides step-by-step explanations for every subject.", category: "features" },
+    { question: "How does the AI-powered study planner work?", answer: "AI analyzes your strengths, weaknesses, and available study time to create a customized study plan.", category: "features" },
+    { question: "Does aIQversity provide live tutoring?", answer: "We offer AI-based virtual tutoring that works 24/7. Students can ask questions via chat, voice, or video.", category: "features" },
+    { question: "How does AI predict exam questions?", answer: "Our AI uses historical data, syllabus changes, and weightage analysis to suggest likely exam questions.", category: "features" },
+    { question: "Can parents track their child's progress?", answer: "Yes! Parents get a dedicated dashboard to monitor student progress, view detailed performance analytics, and get AI-driven study recommendations.", category: "features" },
+    { question: "How does the AI doubt solver work?", answer: "Students can upload a question or a photo, and AI will analyze the problem, explain step-by-step solutions, and provide related concepts.", category: "tutoring" },
+    { question: "Does the AI tutor only provide answers, or does it explain concepts?", answer: "Unlike other platforms, aIQversity doesn't just provide final answers. Our AI guides students step by step, explaining the why and how behind every answer.", category: "tutoring" },
+    { question: "Is aIQversity free to use?", answer: "We offer free basic access to question papers and doubt-solving. Premium features like AI tutoring, exam predictions, and advanced analytics are available under affordable subscription plans.", category: "pricing" },
+    { question: "What are the subscription plans?", answer: "Basic Plan (Free), Premium Plan, School/Institution Plan with special pricing.", category: "pricing" },
+    { question: "Do you offer discounts for students or schools?", answer: "Yes! We offer discounts for early subscribers, schools, and group enrollments.", category: "pricing" },
+    { question: "Is my data safe with aIQversity?", answer: "Absolutely! We use secure encryption and privacy protection measures to keep student and school data safe.", category: "security" },
+    { question: "Does aIQversity share my personal information?", answer: "No. We never sell or share student data. Our AI is built to assist learning without compromising privacy.", category: "security" },
+    { question: "How can I contact aIQversity for support?", answer: "Email: support@aiqversity.com, Website: www.aIQversity.com", category: "support" },
+    { question: "Can I request new features or improvements?", answer: "Yes! We love feedback. If you have feature suggestions, send them to feedback@aiqversity.com.", category: "support" }
+];
+
+// FAQ Toggle Function
+function toggleFAQ(button) {
+    if (!button) return;
+    
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('.faq-icon');
+    
+    if (!content) return;
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-content').forEach(item => {
+        if (item !== content && item.classList.contains('open')) {
+            item.classList.remove('open');
+            const otherIcon = item.previousElementSibling.querySelector('.faq-icon');
+            if (otherIcon) otherIcon.classList.remove('rotate');
+        }
+    });
+    
+    // Toggle current FAQ
+    content.classList.toggle('open');
+    if (icon) icon.classList.toggle('rotate');
+}
+
+// FAQ Search Functionality
+function initFAQSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!searchInput || !searchResults) return;
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+
+        const filteredFAQs = faqData.filter(faq => 
+            faq.question.toLowerCase().includes(query) || 
+            faq.answer.toLowerCase().includes(query)
+        );
+
+        if (filteredFAQs.length > 0) {
+            searchResults.innerHTML = filteredFAQs.map(faq => `
+                <div class="search-result-item" onclick="scrollToFAQ('${faq.question}')">
+                    <div class="font-semibold text-sm" style="color: #101E3D">${highlightText(faq.question, query)}</div>
+                    <div class="text-xs text-gray-600 mt-1">${highlightText(faq.answer.substring(0, 100) + '...', query)}</div>
+                </div>
+            `).join('');
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+            searchResults.style.display = 'block';
+        }
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', function(event) {
+        const searchContainer = document.querySelector('.search-container');
+        if (searchContainer && !searchContainer.contains(event.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+}
+
+function highlightText(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<span class="highlight">$1</span>');
+}
+
+function scrollToFAQ(question) {
+    const searchResults = document.getElementById('searchResults');
+    const searchInput = document.getElementById('searchInput');
+    
+    if (searchResults) searchResults.style.display = 'none';
+    if (searchInput) searchInput.value = '';
+    
+    // Find the FAQ and open it
+    const faqButtons = document.querySelectorAll('.faq-accordion');
+    faqButtons.forEach(button => {
+        if (button.textContent.trim().includes(question)) {
+            const content = button.nextElementSibling;
+            if (content && !content.classList.contains('open')) {
+                toggleFAQ(button);
+            }
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
+
+// Initialize smooth scrolling for category links
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// ============================================================================
 // APPLICATION INITIALIZATION
 // ============================================================================
 
@@ -631,6 +852,13 @@ function initializeApp() {
     initRegistrationModal();
     initScrollAnimations();
     initScrollToTop();
+    
+    // Initialize pricing manager (only runs if pricing elements exist)
+    window.pricingManager = new PricingManager();
+    
+    // Initialize FAQ functionality (only runs if FAQ elements exist)
+    initFAQSearch();
+    initSmoothScrolling();
     
     // Load Google Maps API and initialize geolocation
     if (typeof google === 'undefined') {
