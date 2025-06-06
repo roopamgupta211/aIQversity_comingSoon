@@ -1841,7 +1841,7 @@ class EmailVerification {
 // ==================== EXAM INTERFACE ====================
 class ExamInterface {
     static async show() {
-        const testSection = document.querySelector('.container.mx-auto.p-8');
+        const testSection = document.querySelector('.container.mx-auto.px-4');
         const isEmailVerificationFlow = testSection && testSection.style.display !== 'none';
         
         if (isEmailVerificationFlow) {
@@ -1852,6 +1852,9 @@ class ExamInterface {
                 examContainer.className = 'container';
                 examContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important;';
             }
+            
+            // Hide the loading screen that's visible by default
+            Utils.hideElement('loading');
             
             const examInterface = document.getElementById('examInterface');
             if (examInterface) {
