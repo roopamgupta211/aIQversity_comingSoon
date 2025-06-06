@@ -196,7 +196,7 @@ class Utils {
 class DataManager {
     static async loadExamData() {
         try {
-            const response = await fetch('exam-data.json');
+            const response = await fetch('exam-data_1.json');
             if (response.ok) {
                 examState.examData = await response.json();
             } else {
@@ -312,26 +312,61 @@ class QuestionManager {
         });
     }
 
-    static load(index) {
+    static async load(index) {
         examState.currentQuestion = index;
         const question = examState.examData[index];
         
         // Update question display
-        this.updateQuestionDisplay(question, index);
+        await this.updateQuestionDisplay(question, index);
         this.updateOptions(question, index);
         this.updateNavigationButtons(index);
         this.updateNavigation();
+        this.updateClearButton();
     }
 
-    static updateQuestionDisplay(question, index) {
+    static async updateQuestionDisplay(question, index) {
         const questionNumber = document.getElementById('questionNumber');
         const questionMeta = document.getElementById('questionMeta');
         const questionText = document.getElementById('questionText');
         
         if (questionNumber) questionNumber.textContent = `Question ${index + 1} of ${examState.examData.length}`;
         if (questionMeta) questionMeta.textContent = `${question.classification.subject} | ${question.difficulty_level}`;
-        if (questionText) questionText.textContent = question.Question;
+        
+        if (questionText) {
+            // Clear previous content
+            questionText.innerHTML = '';
+            
+            // Add question text
+            const textDiv = document.createElement('div');
+            textDiv.textContent = question.Question;
+            textDiv.className = 'question-text-content';
+            questionText.appendChild(textDiv);
+        
+        // Only load image if it exists in our index
+        const availableImages = await this.getAvailableImages();
+        if (availableImages.includes(question.question_id)) {
+            const img = document.createElement('img');
+            img.src = `./images/Q${question.question_id}.png`;
+            img.className = 'question-image';
+            img.alt = `Question ${question.question_id} diagram`;
+            questionText.appendChild(img);
+        }
     }
+}
+
+static async getAvailableImages() {
+    if (!this.availableImagesList) {
+        try {
+            const response = await fetch('./images/index.json');
+            const data = await response.json();
+            this.availableImagesList = data.available_images;
+        } catch (error) {
+            console.log('No images index found');
+            this.availableImagesList = [];
+        }
+    }
+    return this.availableImagesList;
+}
 
     static updateOptions(question, index) {
         const optionsContainer = document.getElementById('optionsContainer');
@@ -363,10 +398,22 @@ class QuestionManager {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
+        const clearBtn = document.getElementById('clearBtn');
         
         if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'block';
         if (nextBtn) nextBtn.style.display = index === examState.examData.length - 1 ? 'none' : 'block';
-        if (submitBtn) submitBtn.style.display = index === examState.examData.length - 1 ? 'block' : 'none';
+        if (submitBtn) {
+            if (index === examState.examData.length - 1) {
+                submitBtn.classList.remove('hidden');
+                submitBtn.style.display = 'block';
+            } else {
+                submitBtn.classList.add('hidden');
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        if (clearBtn) clearBtn.style.display = 'block';
+        this.updateClearButton();
     }
 
     static selectOption(option) {
@@ -387,7 +434,37 @@ class QuestionManager {
         }
         
         this.updateNavigation();
+        this.updateClearButton();
     }
+
+    static clearCurrentAnswer() {
+        // Remove the answer for current question
+        delete examState.answers[examState.currentQuestion];
+        
+        // Update UI - remove selected state from all options
+        const options = document.querySelectorAll('.option');
+        options.forEach(opt => opt.classList.remove('selected'));
+        
+        // Uncheck all radio buttons
+        const radioButtons = document.querySelectorAll('.option input[type="radio"]');
+        radioButtons.forEach(radio => radio.checked = false);
+        
+        // Update navigation to reflect cleared state
+        this.updateNavigation();
+        
+        // Update clear button state
+        this.updateClearButton();
+    }
+
+    static updateClearButton() {
+        const clearBtn = document.getElementById('clearBtn');
+        if (clearBtn) {
+            const hasAnswer = examState.answers[examState.currentQuestion] !== undefined;
+            clearBtn.style.opacity = hasAnswer ? '1' : '0.5';
+            clearBtn.disabled = !hasAnswer;
+        }
+    }
+
 
     static next() {
         if (examState.currentQuestion < examState.examData.length - 1) {
@@ -816,12 +893,12 @@ class AIInsights {
       "personalizedGreeting": "Generate a personalized, encouraging greeting based on the student's performance. Consider their score, engagement level, and time spent. Be specific and motivational. Examples: 'Outstanding work on this challenging exam!' or 'Great start - you're building solid foundations!' or 'Every learning journey begins with brave first steps!' Make it 1 sentence, use exclamation mark, and be genuinely encouraging based on their actual performance.",
       
       "heroSubtext": "Generate a dynamic, celebratory message that shows key metrics in an engaging way. MUST include: performance percentage, correct answers, attempted questions, and total marks earned. Use motivational language that matches their performance level. Format examples: 
-        - High performers (70%+): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> nailed it • <x marks earned>'
-        - Good performers (50-69%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> on target • <x marks earned>' 
-        - Building performers (30-49%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> victories • <x marks earned>'
+        - High performers (70%+): '<appropriate emoji> <a short message>! <x% (can be decimal) score> • <correct answers/attempted questions> nailed it • <x (can be decimal) marks earned>'
+        - Good performers (50-69%): '<appropriate emoji> <a short message>! <x% (can be decimal) score> • <correct answers/attempted questions> on target • <x (can be decimal) marks earned>' 
+        - Building performers (30-49%): '<appropriate emoji> <a short message>! <x% (can be decimal) score> • <correct answers/attempted questions> victories • <x (can be decimal) marks earned>'
         - Early learners (<30%): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>'
         - Shy learners (no attempts): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>
-        Use appropriate emojis and make it feel like a personal achievement celebration. Always include the actual numbers: score%, correct/attempted, and total marks. Use exmaples for inspiration and format, but generate your own text",
+        Use appropriate emojis and make it feel like a personal achievement celebration. Always include the actual numbers: score% (can be decimal), correct/attempted, and total marks. Use exmaples for inspiration and format, but generate your own text",
 
       "performanceDNA": "MANDATORY: Provide realistic feedback based on actual performance data. Use only second-person pronouns (you, your, you're). Follow these guidelines:
         IF STUDENT ATTEMPTED 0 QUESTIONS: Start with 'Your learning journey is just beginning...' or 'You're at the starting point...' Acknowledge they haven't attempted questions yet, encourage them to engage with the material, mention that taking the first step is often the hardest, and provide motivation to start attempting questions.
@@ -2321,6 +2398,7 @@ window.showRegistrationModal = () => EmailVerification.showRegistrationModal();
 window.hideRegistrationModal = () => EmailVerification.hideRegistrationModal();
 window.submitRegistrationForm = (event) => EmailVerification.submitRegistration(event);
 window.proceedToExamAfterRegistration = () => EmailVerification.proceedToExam();
+window.clearCurrentAnswer = () => QuestionManager.clearCurrentAnswer();
 window.startExamTest = startExamTest;
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,3415 @@
+[
+  {
+    "question_id": 1,
+    "Question": "Select the option that is related to the third term in the same way as the second term is related to the first term. \nDoctor : Hospital :: Teacher : ?",
+    "options": {
+      "a": "Laboratory",
+      "b": "School",
+      "c": "Factory",
+      "d": "Field"
+    },
+    "correct_answer": "b",
+    "Solution": "A doctor works in a hospital. Similarly, a teacher works in a school. The relationship is between a professional and their primary place of work.",
+    "step_by_step": [
+      "Identify the relationship between the first pair of words (Doctor : Hospital). A doctor's primary workplace is a hospital.",
+      "Apply the same relationship to the third term (Teacher).",
+      "Find the word from the options that represents a teacher's primary workplace.",
+      "A teacher's primary workplace is a school."
+    ],
+    "tips_and_tricks": [
+      "Understand the type of analogy: 'Worker and Workplace' is a common type.",
+      "Eliminate options that don't fit the relationship. For example, a laboratory might be used by some teachers (science teachers), but 'school' is the general primary workplace for all teachers."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Analogy",
+      "subtopic": "Semantic Analogy",
+      "sub_subtopic": "Profession and Workplace",
+      "concept": "Identifying relationships between words based on profession and their place of work."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 2,
+    "Question": "Select the option that is related to the third number in the same way as the second number is related to the first number. \n8 : 512 :: 6 : ?",
+    "options": {
+      "a": "216",
+      "b": "343",
+      "c": "125",
+      "d": "180"
+    },
+    "correct_answer": "a",
+    "Solution": "The relationship is that the second number is the cube of the first number. \n8³ = 8 × 8 × 8 = 512. \nSimilarly, 6³ = 6 × 6 × 6 = 216.",
+    "step_by_step": [
+      "Analyze the relationship between the first pair of numbers (8 and 512).",
+      "Observe that 8 × 8 = 64, and 64 × 8 = 512. So, 512 is 8 cubed (8³).",
+      "Apply the same relationship (cubing the number) to the third number (6).",
+      "Calculate 6³: 6 × 6 × 6 = 36 × 6 = 216."
+    ],
+    "tips_and_tricks": [
+      "Memorize squares and cubes of numbers up to at least 20 (or 30 for squares, 15 for cubes) to quickly identify such relationships.",
+      "Test common mathematical operations: addition, subtraction, multiplication, division, squares, cubes, etc."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Analogy",
+      "subtopic": "Number Analogy",
+      "concept": "Identifying mathematical relationships (cubes) between numbers."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 3,
+    "Question": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series. \nACEG : IKMO :: QSUW : ?",
+    "options": {
+      "a": "YACE",
+      "b": "XZBD",
+      "c": "ACEG",
+      "d": "BDFH"
+    },
+    "correct_answer": "a",
+    "Solution": "In ACEG, the letters are A (+2) C (+2) E (+2) G. \nFrom G to I (next term's first letter): G (+2) I. \nSo, ACEG to IKMO: Each letter in ACEG is shifted by +8 positions to get IKMO. \nA (1) + 8 = I (9) \nC (3) + 8 = K (11) \nE (5) + 8 = M (13) \nG (7) + 8 = O (15) \nApplying the same logic to QSUW: \nQ (17) + 8 = Y (25) \nS (19) + 8 = A (27 -> 26+1, so A) \nU (21) + 8 = C (29 -> 26+3, so C) \nW (23) + 8 = E (31 -> 26+5, so E) \nSo the answer is YACE.",
+    "step_by_step": [
+      "Analyze the pattern in the first pair 'ACEG : IKMO'.",
+      "A is the 1st letter, C is 3rd, E is 5th, G is 7th. (Pattern: +2 for each letter within the group)",
+      "I is the 9th letter, K is 11th, M is 13th, O is 15th. (Pattern: +2 for each letter within the group)",
+      "Find the relationship between the corresponding letters of ACEG and IKMO.",
+      "A (1) -> I (9) is +8.",
+      "C (3) -> K (11) is +8.",
+      "E (5) -> M (13) is +8.",
+      "G (7) -> O (15) is +8.",
+      "The pattern is that each letter in the first term is shifted forward by 8 positions to get the corresponding letter in the second term.",
+      "Apply this pattern to 'QSUW'.",
+      "Q (17) + 8 = 25th letter, which is Y.",
+      "S (19) + 8 = 27th letter. Since there are 26 letters, 27th is 26+1, which is A.",
+      "U (21) + 8 = 29th letter. 29th is 26+3, which is C.",
+      "W (23) + 8 = 31st letter. 31st is 26+5, which is E.",
+      "So, the required letter-cluster is YACE."
+    ],
+    "tips_and_tricks": [
+      "Assign numerical positions to alphabets (A=1, B=2, ..., Z=26).",
+      "Look for patterns within the group of letters and between the groups.",
+      "Be careful with cyclic counting of alphabets (after Z comes A)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Analogy",
+      "subtopic": "Letter Analogy",
+      "concept": "Identifying patterns in letter positions and applying them."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 4,
+    "Question": "In a certain code language, 'MASTER' is written as 'RETSAM'. How will 'POWDER' be written in that language?",
+    "options": {
+      "a": "REDWOP",
+      "b": "REWOPD",
+      "c": "REDWPO",
+      "d": "REWODP"
+    },
+    "correct_answer": "a",
+    "Solution": "The letters of the word 'MASTER' are reversed to get 'RETSAM'. \nM A S T E R -> R E T S A M \nSimilarly, for 'POWDER': \nP O W D E R -> R E D W O P",
+    "step_by_step": [
+      "Analyze the coding pattern for 'MASTER' to 'RETSAM'.",
+      "Observe that 'RETSAM' is the reverse of 'MASTER'.",
+      "Apply the same reversal pattern to the word 'POWDER'.",
+      "Reverse of P O W D E R is R E D W O P."
+    ],
+    "tips_and_tricks": [
+      "Check for common coding patterns like reversal, letter shifting, opposite letters, etc.",
+      "Write down the given word and its code vertically to easily spot simple patterns."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Coding-Decoding",
+      "subtopic": "Letter Coding",
+      "sub_subtopic": "Reversal of letters",
+      "concept": "Understanding and applying letter reversal coding."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 5,
+    "Question": "In a certain code language, if 'BRIGHT' is coded as 'CSJHIU', then how will 'SYSTEM' be coded in that language?",
+    "options": {
+      "a": "TZTUEN",
+      "b": "TZTUFN",
+      "c": "TZSUFN",
+      "d": "SZTUFN"
+    },
+    "correct_answer": "b",
+    "Solution": "The pattern is that each letter in the word is replaced by the next letter in the alphabet. \nB + 1 = C \nR + 1 = S \nI + 1 = J \nG + 1 = H \nH + 1 = I \nT + 1 = U \nSimilarly, for 'SYSTEM': \nS + 1 = T \nY + 1 = Z \nS + 1 = T \nT + 1 = U \nE + 1 = F \nM + 1 = N \nSo, 'SYSTEM' will be coded as 'TZTUFN'.",
+    "step_by_step": [
+      "Analyze the coding pattern for 'BRIGHT' to 'CSJHIU'.",
+      "Compare the first letter of 'BRIGHT' (B) with the first letter of 'CSJHIU' (C). C is B+1.",
+      "Compare the second letter of 'BRIGHT' (R) with the second letter of 'CSJHIU' (S). S is R+1.",
+      "Continue this for all letters: I+1=J, G+1=H, H+1=I, T+1=U.",
+      "The pattern is that each letter is shifted one position forward in the alphabet.",
+      "Apply this pattern to the word 'SYSTEM'.",
+      "S + 1 = T",
+      "Y + 1 = Z",
+      "S + 1 = T",
+      "T + 1 = U",
+      "E + 1 = F",
+      "M + 1 = N",
+      "Thus, 'SYSTEM' is coded as 'TZTUFN'."
+    ],
+    "tips_and_tricks": [
+      "Write down the alphabets and their numerical positions if needed.",
+      "Check for simple shifts (+1, -1, +2, -2, etc.) first."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Coding-Decoding",
+      "subtopic": "Letter Coding",
+      "sub_subtopic": "Letter shifting (forward)",
+      "concept": "Understanding and applying letter shifting coding."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 6,
+    "Question": "If PALE is coded as 2134 and EARTH is coded as 41590, how is PEARL coded?",
+    "options": {
+      "a": "24153",
+      "b": "25413",
+      "c": "24150",
+      "d": "25143"
+    },
+    "correct_answer": "a",
+    "Solution": "This is a direct letter-to-number coding. \nFrom PALE = 2134: P=2, A=1, L=3, E=4. \nFrom EARTH = 41590: E=4, A=1, R=5, T=9, H=0. \nFor PEARL: \nP = 2 \nE = 4 \nA = 1 \nR = 5 \nL = 3 \nSo, PEARL is coded as 24153.",
+    "step_by_step": [
+      "Identify the type of coding. Since two examples are given with common letters having the same codes (A=1, E=4), it's likely direct coding.",
+      "Extract the code for each letter from the given examples:",
+      "From PALE = 2134: P → 2, A → 1, L → 3, E → 4.",
+      "From EARTH = 41590: E → 4, A → 1, R → 5, T → 9, H → 0.",
+      "Verify consistency: A is 1 in both, E is 4 in both.",
+      "Now, find the codes for the letters in PEARL:",
+      "P from PALE is 2.",
+      "E from PALE or EARTH is 4.",
+      "A from PALE or EARTH is 1.",
+      "R from EARTH is 5.",
+      "L from PALE is 3.",
+      "Combine these codes: 24153."
+    ],
+    "tips_and_tricks": [
+      "When multiple words are coded, look for common letters and see if their codes are consistent. This indicates direct coding.",
+      "Make a small table of letters and their assigned codes for clarity."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Coding-Decoding",
+      "subtopic": "Direct Letter Coding",
+      "concept": "Assigning specific codes to letters based on given examples."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 7,
+    "Question": "Find the next number in the series: 2, 6, 12, 20, 30, ?",
+    "options": {
+      "a": "40",
+      "b": "42",
+      "c": "44",
+      "d": "38"
+    },
+    "correct_answer": "b",
+    "Solution": "The differences between consecutive terms are: \n6 - 2 = 4 \n12 - 6 = 6 \n20 - 12 = 8 \n30 - 20 = 10 \nThe differences are increasing by 2: 4, 6, 8, 10. \nThe next difference should be 10 + 2 = 12. \nSo, the next number in the series is 30 + 12 = 42. \nAlternatively, the series can be represented as n(n+1): \n1×2 = 2 \n2×3 = 6 \n3×4 = 12 \n4×5 = 20 \n5×6 = 30 \nNext will be 6×7 = 42.",
+    "step_by_step": [
+      "Examine the differences between consecutive terms in the series.",
+      "Difference between 6 and 2 is 4.",
+      "Difference between 12 and 6 is 6.",
+      "Difference between 20 and 12 is 8.",
+      "Difference between 30 and 20 is 10.",
+      "The differences are 4, 6, 8, 10. This is an arithmetic progression with a common difference of 2.",
+      "The next difference in this sequence of differences will be 10 + 2 = 12.",
+      "Add this difference to the last term of the original series: 30 + 12 = 42.",
+      "Alternatively, observe the pattern: 1*2=2, 2*3=6, 3*4=12, 4*5=20, 5*6=30. The next term is 6*7=42."
+    ],
+    "tips_and_tricks": [
+      "Look for the difference between terms (first-level difference).",
+      "If the first-level differences are not constant, look for the difference between these differences (second-level difference).",
+      "Also check for patterns like n², n²+1, n²-1, n³, n³+1, n(n+1), etc."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Number Series",
+      "subtopic": "Difference Series / Pattern Series",
+      "concept": "Identifying patterns in number sequences based on differences or specific formulas."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 8,
+    "Question": "What will come in place of the question mark (?) in the following number series? \n3, 7, 16, 35, ?, 153",
+    "options": {
+      "a": "74",
+      "b": "78",
+      "c": "84",
+      "d": "63"
+    },
+    "correct_answer": "a",
+    "Solution": "The pattern is ×2 + n, where n increases by 1 for each step. \n3 × 2 + 1 = 7 \n7 × 2 + 2 = 16 \n16 × 2 + 3 = 35 \nSo, the next term will be: \n35 × 2 + 4 = 70 + 4 = 74 \nLet's check the next term: \n74 × 2 + 5 = 148 + 5 = 153. This matches.",
+    "step_by_step": [
+      "Analyze the relationship between consecutive terms.",
+      "From 3 to 7: 3 × 2 + 1 = 7.",
+      "From 7 to 16: 7 × 2 + 2 = 14 + 2 = 16.",
+      "From 16 to 35: 16 × 2 + 3 = 32 + 3 = 35.",
+      "The pattern appears to be: current number × 2 + (a sequentially increasing number starting from 1).",
+      "For the next term after 35, the increasing number will be 4.",
+      "So, ? = 35 × 2 + 4 = 70 + 4 = 74.",
+      "Verify with the last term: 74 × 2 + 5 = 148 + 5 = 153. This matches the given series."
+    ],
+    "tips_and_tricks": [
+      "Look for patterns involving multiplication and addition/subtraction.",
+      "Sometimes the added/subtracted number itself follows a pattern (e.g., increasing, decreasing, prime numbers, etc.)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Number Series",
+      "subtopic": "Mixed Series (Multiplication and Addition)",
+      "concept": "Identifying series patterns involving multiplication and sequential addition."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 9,
+    "Question": "Find the next term in the series: B, E, I, N, ?",
+    "options": {
+      "a": "S",
+      "b": "T",
+      "c": "U",
+      "d": "R"
+    },
+    "correct_answer": "b",
+    "Solution": "Convert letters to their positions: \nB = 2 \nE = 5 \nI = 9 \nN = 14 \nThe differences are: \n5 - 2 = 3 \n9 - 5 = 4 \n14 - 9 = 5 \nThe differences are increasing by 1: 3, 4, 5. \nThe next difference should be 6. \nSo, the position of the next letter is 14 + 6 = 20. \nThe 20th letter is T.",
+    "step_by_step": [
+      "Convert each letter in the series to its corresponding alphabetical position.",
+      "B → 2",
+      "E → 5",
+      "I → 9",
+      "N → 14",
+      "Find the differences between consecutive positions:",
+      "5 - 2 = 3",
+      "9 - 5 = 4",
+      "14 - 9 = 5",
+      "The differences are 3, 4, 5. This is an arithmetic progression.",
+      "The next difference will be 5 + 1 = 6.",
+      "Add this difference to the last position: 14 + 6 = 20.",
+      "The letter at the 20th position in the alphabet is T."
+    ],
+    "tips_and_tricks": [
+      "Always convert letters to their numerical positions when dealing with alphabet series.",
+      "Look for patterns in the differences between these positions."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Alphabet Series",
+      "subtopic": "Difference based series",
+      "concept": "Identifying patterns in alphabet sequences based on positional differences."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 10,
+    "Question": "Statements: \nI. All pens are pencils. \nII. Some pencils are erasers. \nConclusions: \nI. Some erasers are pens. \nII. Some pencils are pens.",
+    "options": {
+      "a": "Only conclusion I follows",
+      "b": "Only conclusion II follows",
+      "c": "Both I and II follow",
+      "d": "Neither I nor II follows"
+    },
+    "correct_answer": "b",
+    "Solution": "Using Venn diagrams: \nStatement I: All pens are pencils. This means the circle for 'pens' is entirely inside the circle for 'pencils'. \nStatement II: Some pencils are erasers. This means the circle for 'pencils' and the circle for 'erasers' overlap. \nConclusion I: Some erasers are pens. From the Venn diagram, the 'erasers' circle might or might not overlap with the 'pens' circle. There is no definite relationship. So, conclusion I does not necessarily follow. \nConclusion II: Some pencils are pens. Since all pens are pencils, it implies that the part of pencils which are pens, exists. So, some pencils are indeed pens. This conclusion follows.",
+    "step_by_step": [
+      "Draw a Venn diagram for the first statement: 'All pens are pencils'. Draw a circle for 'Pens' completely inside a larger circle for 'Pencils'.",
+      "Draw a Venn diagram for the second statement: 'Some pencils are erasers'. Draw a circle for 'Erasers' that overlaps with the 'Pencils' circle. The overlap can be with the part of 'Pencils' that is not 'Pens', or it could also overlap with 'Pens'.",
+      "Evaluate Conclusion I: 'Some erasers are pens'. Based on the diagram, the 'Erasers' circle may or may not overlap with the 'Pens' circle. There's no definite conclusion. So, it does not follow.",
+      "Evaluate Conclusion II: 'Some pencils are pens'. Since 'All pens are pencils', this means that the set of 'Pens' is a subset of 'Pencils'. Therefore, those items that are 'Pens' are also 'Pencils'. Thus, some pencils are pens. This follows."
+    ],
+    "tips_and_tricks": [
+      "Venn diagrams are very helpful for solving syllogism questions.",
+      "Consider all possible diagrammatic representations for 'some' statements.",
+      "A conclusion must be true in all possible scenarios to be considered valid.",
+      "If 'All A are B', then 'Some B are A' is always true (if A is not an empty set, which is assumed in syllogisms)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Syllogism",
+      "subtopic": "Two Statements Syllogism",
+      "concept": "Logical deduction from given statements using Venn diagrams."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 11,
+    "Question": "Statements: \nI. Some cats are rats. \nII. All rats are bats. \nConclusions: \nI. Some cats are bats. \nII. All bats are rats.",
+    "options": {
+      "a": "Only conclusion I follows",
+      "b": "Only conclusion II follows",
+      "c": "Both I and II follow",
+      "d": "Neither I nor II follows"
+    },
+    "correct_answer": "a",
+    "Solution": "Using Venn diagrams: \nStatement I: Some cats are rats. The 'cats' circle and 'rats' circle overlap. \nStatement II: All rats are bats. The 'rats' circle is entirely inside the 'bats' circle. \nConclusion I: Some cats are bats. Since some cats are rats, and all rats are bats, that portion of cats which are rats must also be bats. So, some cats are bats. This conclusion follows. \nConclusion II: All bats are rats. From 'All rats are bats', we cannot conclude 'All bats are rats'. The 'bats' circle is larger than or equal to the 'rats' circle. So, conclusion II does not follow.",
+    "step_by_step": [
+      "Draw a Venn diagram for 'Some cats are rats': Draw two overlapping circles for 'Cats' and 'Rats'.",
+      "Draw a Venn diagram for 'All rats are bats': Draw the 'Rats' circle completely inside a larger circle for 'Bats'. Ensure the 'Cats' circle still overlaps with the 'Rats' circle (and thus with the 'Bats' circle).",
+      "Evaluate Conclusion I: 'Some cats are bats'. The overlapping region of 'Cats' and 'Rats' is entirely within 'Bats'. Therefore, the cats that are rats are also bats. So, some cats are bats. This follows.",
+      "Evaluate Conclusion II: 'All bats are rats'. The 'Bats' circle contains the 'Rats' circle. It's possible for there to be bats that are not rats. So, this does not necessarily follow."
+    ],
+    "tips_and_tricks": [
+      "For 'All A are B', the B circle encompasses the A circle.",
+      "For 'Some A are B', the A and B circles overlap.",
+      "Deduce conclusions based on the definite relationships shown in the combined Venn diagram."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Syllogism",
+      "subtopic": "Two Statements Syllogism",
+      "concept": "Logical deduction from given statements using Venn diagrams."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 12,
+    "Question": "Select the odd word from the given alternatives.",
+    "options": {
+      "a": "Carrot",
+      "b": "Radish",
+      "c": "Potato",
+      "d": "Spinach"
+    },
+    "correct_answer": "d",
+    "Solution": "Carrot, Radish, and Potato are root vegetables (or a tuber in the case of potato, which grows underground). Spinach is a leafy vegetable. Therefore, Spinach is the odd one out.",
+    "step_by_step": [
+      "Analyze the given words: Carrot, Radish, Potato, Spinach.",
+      "Identify the category or common property of these words. They are all vegetables.",
+      "Look for a sub-category or characteristic that differentiates one from the others.",
+      "Carrot grows underground (root).",
+      "Radish grows underground (root).",
+      "Potato grows underground (tuber, a modified stem).",
+      "Spinach grows above ground (leaves).",
+      "Carrot, Radish, and Potato are parts of plants that grow underground, while Spinach consists of leaves that grow above ground.",
+      "Therefore, Spinach is the odd one out."
+    ],
+    "tips_and_tricks": [
+      "Think about the common characteristics of the items.",
+      "Identify the item that does not share a key characteristic with the others.",
+      "Consider categories like type, origin, function, etc."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Classification/Odd One Out",
+      "subtopic": "Word Classification (General Knowledge)",
+      "concept": "Identifying the item that does not belong to a group based on common properties."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 13,
+    "Question": "Select the odd number pair from the given alternatives.",
+    "options": {
+      "a": "12 - 144",
+      "b": "15 - 225",
+      "c": "13 - 169",
+      "d": "14 - 194"
+    },
+    "correct_answer": "d",
+    "Solution": "In each pair except (d), the second number is the square of the first number. \n12² = 144 \n15² = 225 \n13² = 169 \nBut, 14² = 196, not 194. \nSo, 14 - 194 is the odd pair.",
+    "step_by_step": [
+      "Analyze the relationship between the numbers in each pair.",
+      "For pair (a) 12 - 144: 12 × 12 = 144. So, the second number is the square of the first.",
+      "For pair (b) 15 - 225: 15 × 15 = 225. So, the second number is the square of the first.",
+      "For pair (c) 13 - 169: 13 × 13 = 169. So, the second number is the square of the first.",
+      "For pair (d) 14 - 194: 14 × 14 = 196. The given second number is 194, which is not 196.",
+      "Pairs (a), (b), and (c) follow the pattern 'number - square of the number'. Pair (d) does not follow this pattern.",
+      "Therefore, 14 - 194 is the odd one out."
+    ],
+    "tips_and_tricks": [
+      "Quickly check for common mathematical relationships like squares, cubes, multiples, factors, etc.",
+      "Knowing squares of numbers up to 20-25 helps immensely."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Classification/Odd One Out",
+      "subtopic": "Number Pair Classification",
+      "concept": "Identifying the number pair that does not follow a specific mathematical relationship."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 14,
+    "Question": "Select the odd letter group from the given alternatives.",
+    "options": {
+      "a": "BDF",
+      "b": "GIK",
+      "c": "LNO",
+      "d": "PRT"
+    },
+    "correct_answer": "c",
+    "Solution": "Check the differences in the positions of the letters: \na) B(2) D(4) F(6) -> Differences are +2, +2 \nb) G(7) I(9) K(11) -> Differences are +2, +2 \nc) L(12) N(14) O(15) -> Differences are +2, +1 \nd) P(16) R(18) T(20) -> Differences are +2, +2 \nAll groups except LNO have a consistent difference of +2 between consecutive letters. LNO has differences +2, +1.",
+    "step_by_step": [
+      "Convert the letters in each group to their alphabetical positions.",
+      "a) BDF: B=2, D=4, F=6. Differences: 4-2=2, 6-4=2. Pattern: +2, +2.",
+      "b) GIK: G=7, I=9, K=11. Differences: 9-7=2, 11-9=2. Pattern: +2, +2.",
+      "c) LNO: L=12, N=14, O=15. Differences: 14-12=2, 15-14=1. Pattern: +2, +1.",
+      "d) PRT: P=16, R=18, T=20. Differences: 18-16=2, 20-18=2. Pattern: +2, +2.",
+      "Groups (a), (b), and (d) follow the pattern of consecutive letters having a difference of +2 in their positions.",
+      "Group (c) does not follow this pattern.",
+      "Therefore, LNO is the odd one out."
+    ],
+    "tips_and_tricks": [
+      "Convert letters to numbers to easily see arithmetic patterns.",
+      "Check for consistent differences, sums, or other relationships between the letter positions within each group."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Classification/Odd One Out",
+      "subtopic": "Letter Group Classification",
+      "concept": "Identifying the letter group that does not follow a specific positional pattern."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 15,
+    "Question": "Pointing to a photograph, a man said, \"I have no brother or sister, but that man's father is my father's son.\" Whose photograph was it?",
+    "options": {
+      "a": "His own",
+      "b": "His son's",
+      "c": "His father's",
+      "d": "His nephew's"
+    },
+    "correct_answer": "b",
+    "Solution": "The man says, \"I have no brother or sister.\" This means 'my father's son' is the man himself. \nSo, the statement becomes \"that man's father is me (the speaker).\" \nIf the man in the photograph's father is the speaker, then the man in the photograph is the speaker's son.",
+    "step_by_step": [
+      "Analyze the first part of the statement: \"I have no brother or sister.\"",
+      "Consider the phrase \"my father's son\". Since the speaker has no brother, \"my father's son\" must be the speaker himself.",
+      "Substitute this into the main statement: \"that man's father is my father's son\" becomes \"that man's father is me (the speaker)\".",
+      "If the father of the man in the photograph is the speaker, then the man in the photograph is the speaker's son."
+    ],
+    "tips_and_tricks": [
+      "Break down complex statements into smaller parts.",
+      "Start from 'my' or 'I' and work outwards or backwards.",
+      "Use simple diagrams or notations if helpful (e.g., M for male, F for female, arrows for relationships)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Blood Relations",
+      "subtopic": "Pointing/Describing Relations",
+      "concept": "Deducing relationships from descriptive statements."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 16,
+    "Question": "Rohan walks 10 km towards North. From there, he walks 6 km towards South. Then, he walks 3 km towards East. How far and in which direction is he with reference to his starting point?",
+    "options": {
+      "a": "5 km North-East",
+      "b": "5 km East",
+      "c": "7 km East",
+      "d": "5 km South-East"
+    },
+    "correct_answer": "a",
+    "Solution": "1. Rohan walks 10 km North. \n2. Then 6 km South. So, his net displacement in North-South is 10 - 6 = 4 km North from the starting point. \n3. Then he walks 3 km East. \nNow, he is 4 km North and 3 km East from his starting point. \nTo find the distance, use Pythagoras theorem: Distance = √(4² + 3²) = √(16 + 9) = √25 = 5 km. \nThe direction is North-East.",
+    "step_by_step": [
+      "Let the starting point be O.",
+      "Rohan walks 10 km North to point A. (OA = 10 km North)",
+      "From A, he walks 6 km South to point B. (AB = 6 km South). So, B is 10 - 6 = 4 km North of O.",
+      "From B, he walks 3 km East to point C. (BC = 3 km East).",
+      "His final position is C. We need to find the distance OC and its direction from O.",
+      "Relative to O, C is 4 km North and 3 km East.",
+      "Using Pythagoras theorem for the right-angled triangle formed (with sides 4 km North and 3 km East):",
+      "Distance OC = √( (North displacement)² + (East displacement)² ) = √(4² + 3²) = √(16 + 9) = √25 = 5 km.",
+      "The direction is from O to C, which is North-East."
+    ],
+    "tips_and_tricks": [
+      "Draw a simple diagram to visualize the movements.",
+      "Calculate net displacement along North-South and East-West axes separately.",
+      "Use Pythagoras theorem for the final distance if there are movements in perpendicular directions."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Direction Sense",
+      "subtopic": "Distance and Direction from Starting Point",
+      "concept": "Calculating final distance and direction after multiple movements."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 17,
+    "Question": "Statement: Should luxury hotels be banned in India? \nArguments: \nI. Yes, they are places from where international criminals operate. \nII. No, affluent foreign tourists will have no place to stay.",
+    "options": {
+      "a": "Only argument I is strong",
+      "b": "Only argument II is strong",
+      "c": "Both I and II are strong",
+      "d": "Neither I nor II is strong"
+    },
+    "correct_answer": "b",
+    "Solution": "Argument I: 'Yes, they are places from where international criminals operate.' This is a sweeping generalization and not a primary characteristic or purpose of luxury hotels. Banning all luxury hotels based on potential misuse by a few is an extreme step and not a strong argument. Security measures can be strengthened instead. \nArgument II: 'No, affluent foreign tourists will have no place to stay.' Luxury hotels cater to a specific segment of tourists and business travelers, contributing to tourism revenue and international relations. If there are no such places, it could negatively impact tourism and the economy. This is a practical consideration and thus a strong argument.",
+    "step_by_step": [
+      "Analyze Argument I: 'Yes, they are places from where international criminals operate.'",
+      "Is this statement universally true or a primary function of luxury hotels? No, it's an overgeneralization and attributes a negative activity that might occur but isn't inherent to the existence of luxury hotels. Banning them for this reason is disproportionate. Thus, Argument I is weak.",
+      "Analyze Argument II: 'No, affluent foreign tourists will have no place to stay.'",
+      "Does this argument address a significant consequence of banning luxury hotels? Yes, luxury hotels serve a specific clientele, including affluent tourists, and their absence could deter such tourism, impacting foreign exchange and the hospitality industry. This is a relevant and practical concern. Thus, Argument II is strong."
+    ],
+    "tips_and_tricks": [
+      "A strong argument is directly related to the statement and is supported by facts or logic.",
+      "A weak argument is often irrelevant, ambiguous, a mere opinion, or a generalization.",
+      "Consider the socio-economic impact and practicality of the arguments.",
+      "Avoid arguments that are too simplistic or based on extreme scenarios."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Statement & Arguments",
+      "subtopic": "Evaluating Strength of Arguments",
+      "concept": "Assessing the strength and relevance of arguments related to a given statement."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Evaluating"
+  },
+  {
+    "question_id": 18,
+    "Question": "Choose the correct mirror image of the given figure (X) from amongst the four alternatives (a, b, c, d) given along with it, when the mirror is placed on the right side.",
+    "options": {
+      "a": "Image A (Description or link to image A showing left-right reversal of X)",
+      "b": "Image B (Description or link to image B)",
+      "c": "Image C (Description or link to image C)",
+      "d": "Image D (Description or link to image D)"
+    },
+    "correct_answer": "a",
+    "Solution": "In a mirror image, the left side of the object appears on the right side and the right side appears on the left. The top and bottom parts remain unchanged. (Assuming Figure X is 'F'. Its mirror image when mirror is on right would be 'ꟻ'). Option (a) correctly depicts this transformation.",
+    "step_by_step": [
+      "Understand that a mirror image involves a lateral inversion (left becomes right and right becomes left).",
+      "Imagine placing a mirror to the right of Figure (X).",
+      "Visualize how each part of Figure (X) would appear in the mirror.",
+      "The part of the figure closest to the mirror will appear closest in the image, and the part farthest will appear farthest but on the opposite side.",
+      "Compare this visualized image with the given options (a, b, c, d).",
+      "Select the option that matches the correct mirror image. (Assuming X is a simple asymmetric figure like 'F', option 'a' would be its correct mirror image 'ꟻ')."
+    ],
+    "tips_and_tricks": [
+      "Focus on asymmetric parts of the figure to quickly identify the correct mirror image.",
+      "If letters or numbers are present, their individual mirror images are important.",
+      "The object's orientation with respect to the mirror line is key."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Mirror Images",
+      "concept": "Understanding lateral inversion in mirror reflections."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 19,
+    "Question": "Choose the correct water image of the given figure (Y) from amongst the four alternatives (a, b, c, d) given along with it.",
+    "options": {
+      "a": "Image A (Description or link to image A showing top-bottom inversion of Y)",
+      "b": "Image B (Description or link to image B)",
+      "c": "Image C (Description or link to image C)",
+      "d": "Image D (Description or link to image D)"
+    },
+    "correct_answer": "a",
+    "Solution": "In a water image, the top part of the object appears at the bottom and the bottom part appears at the top. The left and right sides remain unchanged. (Assuming Figure Y is 'UP'. Its water image would be '∩Ԁ'). Option (a) correctly depicts this transformation.",
+    "step_by_step": [
+      "Understand that a water image involves a vertical inversion (top becomes bottom and bottom becomes top).",
+      "Imagine the figure being reflected in water placed horizontally below it.",
+      "Visualize how each part of Figure (Y) would appear in the water.",
+      "The top part of the figure will appear at the bottom in the image, and the bottom part will appear at the top.",
+      "The left and right sides of the figure remain in their respective positions.",
+      "Compare this visualized image with the given options (a, b, c, d).",
+      "Select the option that matches the correct water image. (Assuming Y is a simple figure like 'UP', option 'a' would be its correct water image '∩Ԁ')."
+    ],
+    "tips_and_tricks": [
+      "Focus on parts of the figure that are different at the top and bottom.",
+      "If letters or numbers are present, their individual water images are important.",
+      "The horizontal orientation (left-right) does not change in a water image."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Water Images",
+      "concept": "Understanding vertical inversion in water reflections."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 20,
+    "Question": "A piece of paper is folded and punched as shown below in the question figures. From the given answer figures, indicate how it will appear when opened.",
+    "options": {
+      "a": "Opened Figure A (Description or link)",
+      "b": "Opened Figure B (Description or link)",
+      "c": "Opened Figure C (Description or link)",
+      "d": "Opened Figure D (Description or link)"
+    },
+    "correct_answer": "b",
+    "Solution": "The solution involves visualizing the unfolding process in reverse. Each unfold will mirror the punches onto the newly opened section. (Assuming a specific fold and punch pattern, option 'b' would be the correct unfolded pattern). For example, if a paper is folded in half vertically, then in half horizontally, and a punch is made in one corner, opening it will create four symmetrical punches.",
+    "step_by_step": [
+      "Carefully observe the sequence of folds shown in the question figures.",
+      "Note the location and shape of the punch(es) made in the final folded state.",
+      "Start unfolding the paper mentally, step by step, in the reverse order of folding.",
+      "With each unfold, the punches will be mirrored onto the newly opened section relative to the fold line.",
+      "If a fold was along a vertical line, the punches will be mirrored horizontally.",
+      "If a fold was along a horizontal line, the punches will be mirrored vertically.",
+      "Continue until the paper is fully opened.",
+      "Compare the final pattern with the given answer figures."
+    ],
+    "tips_and_tricks": [
+      "Work backwards from the punched figure.",
+      "Pay attention to the axis of the fold when mirroring the punches.",
+      "The number of punches often multiplies with each unfold, depending on the location of the punch relative to the folds."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Paper Folding and Cutting",
+      "concept": "Visualizing the appearance of paper after folding, punching, and unfolding."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 21,
+    "Question": "A square transparent sheet with a pattern is given. Figure out from amongst the four options as to how the pattern would appear when the transparent sheet is folded along the dotted line.",
+    "options": {
+      "a": "Folded Figure A (Description or link)",
+      "b": "Folded Figure B (Description or link)",
+      "c": "Folded Figure C (Description or link)",
+      "d": "Folded Figure D (Description or link)"
+    },
+    "correct_answer": "c",
+    "Solution": "When the transparent sheet is folded along the dotted line, the part of the pattern on one side of the dotted line will superimpose on the other side. The lines and shapes will combine. (Assuming a specific pattern and fold line, option 'c' would be the correct folded appearance). For example, if one half has a circle and the other half has a line passing through where the circle's center would be, the folded image will show the circle with the line through it.",
+    "step_by_step": [
+      "Identify the dotted line as the fold line.",
+      "Visualize one part of the transparent sheet being folded over the other part along this line.",
+      "Since the sheet is transparent, the pattern on the folded part will be visible and will superimpose on the pattern of the part it is folded onto.",
+      "Carefully observe how the lines and shapes from both parts combine or overlap.",
+      "Compare this combined pattern with the given answer figures.",
+      "Select the option that correctly represents the appearance after folding."
+    ],
+    "tips_and_tricks": [
+      "Imagine the fold line as a mirror for the part being folded, but the image superimposes instead of replacing.",
+      "Pay attention to the orientation of the pattern elements after folding.",
+      "Trace the pattern and physically fold it if you are having trouble visualizing."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Paper Folding (Transparent Sheet)",
+      "concept": "Visualizing the appearance of a transparent sheet after folding."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 22,
+    "Question": "Select the option in which the given figure (X) is embedded (rotation is NOT allowed).",
+    "options": {
+      "a": "Figure A (Contains X)",
+      "b": "Figure B (Does not contain X)",
+      "c": "Figure C (Contains X but rotated)",
+      "d": "Figure D (Partially contains X)"
+    },
+    "correct_answer": "a",
+    "Solution": "The task is to find which of the answer figures contains the exact shape of figure (X) hidden within it, without any rotation. (Assuming figure X is a simple, unique shape, and figure A contains it as a part of a more complex design).",
+    "step_by_step": [
+      "Carefully examine the given figure (X) and note its shape, size, and orientation.",
+      "Systematically inspect each of the answer figures (a, b, c, d).",
+      "Try to locate Figure (X) within each answer figure without rotating it.",
+      "The embedded figure must be of the same size and orientation as Figure (X).",
+      "Eliminate options where Figure (X) is not present, is rotated, or is of a different size.",
+      "Select the option that perfectly contains Figure (X)."
+    ],
+    "tips_and_tricks": [
+      "Focus on distinctive features or corners of Figure (X).",
+      "Sometimes it helps to trace Figure (X) on a piece of transparent paper and try to overlay it on the answer figures.",
+      "Be careful about the 'rotation not allowed' condition."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Embedded Figures",
+      "concept": "Identifying a given figure hidden within a more complex figure."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 23,
+    "Question": "Select the figure from the options that will replace the question mark (?) and complete the given figure series.",
+    "options": {
+      "a": "Next Figure A",
+      "b": "Next Figure B",
+      "c": "Next Figure C",
+      "d": "Next Figure D"
+    },
+    "correct_answer": "d",
+    "Solution": "The series shows a specific pattern of movement or change in elements. For example, an element might be rotating clockwise by 90 degrees in each step, or a new element is added, or an existing element changes position. (Assuming a specific series where option 'd' is the logical next step, e.g., a line rotating 45 degrees clockwise in each step).",
+    "step_by_step": [
+      "Analyze the sequence of figures given in the series.",
+      "Identify the elements within the figures and how they change from one figure to the next.",
+      "Look for patterns such as rotation (clockwise or anti-clockwise, specific angles), translation (movement in a specific direction), addition or deletion of elements, change in size or shape of elements, or a combination of these.",
+      "Determine the rule governing the series.",
+      "Apply this rule to the last figure in the series to predict the next figure (the one that replaces the question mark).",
+      "Select the option that matches your predicted figure."
+    ],
+    "tips_and_tricks": [
+      "Break down the changes into individual components if multiple elements are changing.",
+      "Consider each element's transformation separately.",
+      "Sometimes the pattern repeats after a certain number of steps."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Figure Series",
+      "concept": "Identifying and continuing a visual pattern in a sequence of figures."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 24,
+    "Question": "Which of the answer figures is the correct continuation of the problem figures series?",
+    "options": {
+      "a": "Continuation Figure A",
+      "b": "Continuation Figure B",
+      "c": "Continuation Figure C",
+      "d": "Continuation Figure D"
+    },
+    "correct_answer": "b",
+    "Solution": "The problem figures follow a sequence. For instance, a dot might be moving one step clockwise around the corners of a square in each figure. The answer figure 'b' would be the one that shows the dot in the next logical position. (This is a placeholder solution, a real question would have specific figures).",
+    "step_by_step": [
+      "Examine the series of problem figures to understand the transformation or movement of elements from one figure to the next.",
+      "Identify the rule or pattern of change. This could involve rotation, addition/deletion of elements, change in position, or a combination of changes.",
+      "Apply this rule to the last problem figure to determine what the next figure in the series should look like.",
+      "Compare your predicted figure with the given answer figures.",
+      "Choose the answer figure that correctly continues the series."
+    ],
+    "tips_and_tricks": [
+      "Look for a repeating cycle of changes.",
+      "If there are multiple elements, track the change of each element individually.",
+      "Sometimes the change itself follows a pattern (e.g., rotation angle increases with each step)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Non-Verbal Reasoning",
+      "subtopic": "Figure Series",
+      "concept": "Identifying and continuing a visual pattern in a sequence of figures."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 25,
+    "Question": "If '+' means '÷', '−' means '+', '×' means '−', and '÷' means '×', then what will be the value of the following expression? \n 16 + 4 × 4 − 0 ÷ 5",
+    "options": {
+      "a": "6",
+      "b": "12",
+      "c": "0",
+      "d": "3"
+    },
+    "correct_answer": "c",
+    "Solution": "Given expression: 16 + 4 × 4 − 0 ÷ 5 \nSubstitute the operators according to the given rules: \n'+' becomes '÷' \n'×' becomes '−' \n'−' becomes '+' \n'÷' becomes '×' \nThe expression becomes: 16 ÷ 4 − 4 + 0 × 5 \nNow, apply BODMAS rule (Brackets, Orders, Division, Multiplication, Addition, Subtraction): \n1. Division: 16 ÷ 4 = 4 \n2. Multiplication: 0 × 5 = 0 \nThe expression is now: 4 − 4 + 0 \n3. Subtraction: 4 − 4 = 0 \n4. Addition: 0 + 0 = 0 \nSo, the value of the expression is 0.",
+    "step_by_step": [
+      "Write down the given expression: 16 + 4 × 4 − 0 ÷ 5.",
+      "Replace each operator with its new meaning:",
+      "'+' becomes '÷'",
+      "'×' becomes '−'",
+      "'−' becomes '+'",
+      "'÷' becomes '×'",
+      "The new expression is: 16 ÷ 4 − 4 + 0 × 5.",
+      "Apply the BODMAS rule to solve the new expression.",
+      "Perform Division: 16 ÷ 4 = 4.",
+      "The expression becomes: 4 − 4 + 0 × 5.",
+      "Perform Multiplication: 0 × 5 = 0.",
+      "The expression becomes: 4 − 4 + 0.",
+      "Perform Subtraction (from left to right): 4 − 4 = 0.",
+      "The expression becomes: 0 + 0.",
+      "Perform Addition: 0 + 0 = 0."
+    ],
+    "tips_and_tricks": [
+      "Carefully substitute each operator with its new meaning.",
+      "Always follow the BODMAS rule for calculation: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction.",
+      "Perform operations from left to right if they have the same precedence (e.g., multiple additions and subtractions)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Intelligence & Reasoning",
+      "topic": "Mathematical Operations",
+      "subtopic": "Symbol Substitution and BODMAS",
+      "concept": "Solving expressions after interchanging mathematical signs using BODMAS."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 26,
+    "Question": "Who was appointed as the new Chief of the Indian Army in 2024?",
+    "options": {
+      "a": "General Manoj Pande",
+      "b": "General Upendra Dwivedi",
+      "c": "General Anil Chauhan",
+      "d": "General Bipin Rawat"
+    },
+    "correct_answer": "b",
+    "Solution": "General Upendra Dwivedi was appointed as the Chief of Army Staff (COAS) of the Indian Army on June 30, 2024, succeeding General Manoj Pande.",
+    "step_by_step": [
+      "Recall recent appointments in key government and military positions.",
+      "Identify the Chief of the Indian Army appointed in 2024.",
+      "General Manoj Pande's tenure ended in June 2024.",
+      "General Upendra Dwivedi took over as the new Chief of Army Staff on June 30, 2024."
+    ],
+    "tips_and_tricks": [
+      "Stay updated with current affairs, especially appointments to important national posts.",
+      "Follow reputable news sources for such information."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "National News - Appointments",
+      "concept": "Knowledge of recent high-profile appointments in India."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 27,
+    "Question": "Which country hosted the G20 Summit in 2024?",
+    "options": {
+      "a": "India",
+      "b": "Brazil",
+      "c": "South Africa",
+      "d": "Indonesia"
+    },
+    "correct_answer": "b",
+    "Solution": "Brazil holds the presidency of the G20 from December 1, 2023, to November 30, 2024. Therefore, Brazil hosted the G20 Summit in 2024.",
+    "step_by_step": [
+      "Recall the sequence of G20 presidencies.",
+      "India held the G20 presidency in 2023.",
+      "Brazil took over the G20 presidency from India for the term starting December 1, 2023, and hosted the summit in 2024.",
+      "The summit typically takes place towards the end of the presidency term."
+    ],
+    "tips_and_tricks": [
+      "Keep track of major international summits and their host countries.",
+      "G20 presidencies rotate annually among member countries."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "International News - Summits",
+      "concept": "Awareness of major international forums and their host nations."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 28,
+    "Question": "Which film won the Best Picture award at the Academy Awards (Oscars) in 2024?",
+    "options": {
+      "a": "Dune: Part Two",
+      "b": "Oppenheimer",
+      "c": "Barbie",
+      "d": "Poor Things"
+    },
+    "correct_answer": "b",
+    "Solution": "Oppenheimer won the Academy Award for Best Picture at the 96th Academy Awards ceremony held in March 2024. The film was directed by Christopher Nolan.",
+    "step_by_step": [
+      "Identify the relevant Academy Awards ceremony (96th Academy Awards in March 2024).",
+      "Recall major film awards and their winners for 2024.",
+      "Oppenheimer, directed by Christopher Nolan, won the Best Picture award.",
+      "The film was based on the life of J. Robert Oppenheimer, the physicist who led the Manhattan Project."
+    ],
+    "tips_and_tricks": [
+      "Follow major film awards like the Oscars, Golden Globes, BAFTAs.",
+      "Pay attention to the year the films were released versus the year the awards were presented."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "Awards and Honours - International Film Awards",
+      "concept": "Knowledge of major international film awards."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 29,
+    "Question": "The 'PM Surya Ghar Muft Bijli Yojana', launched in early 2024, is primarily aimed at promoting:",
+    "options": {
+      "a": "Rural electrification with conventional power",
+      "b": "Rooftop solar power generation for households",
+      "c": "Large-scale solar parks for industrial use",
+      "d": "Subsidies for electricity consumption"
+    },
+    "correct_answer": "b",
+    "Solution": "The 'PM Surya Ghar: Muft Bijli Yojana' was launched by the Indian government to promote rooftop solar power generation. The scheme aims to provide free electricity up to 300 units per month to one crore households by encouraging the installation of rooftop solar systems.",
+    "step_by_step": [
+      "Recall major government schemes launched recently.",
+      "Identify the objective of the 'PM Surya Ghar Muft Bijli Yojana'.",
+      "The scheme focuses on enabling households to install rooftop solar panels to generate their own electricity.",
+      "This initiative aims to reduce electricity bills for consumers and promote clean energy."
+    ],
+    "tips_and_tricks": [
+      "Keep track of new government schemes and their main objectives.",
+      "Understand the target beneficiaries and the sector the scheme addresses (e.g., energy, health, education)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "Government Schemes",
+      "concept": "Understanding the objectives of recent government initiatives."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 30,
+    "Question": "Which Indian cricketer was awarded the Polly Umrigar Award for Best International Cricketer (Men) for the period 2022-23 at the BCCI Awards?",
+    "options": {
+      "a": "Virat Kohli",
+      "b": "Rohit Sharma",
+      "c": "Jasprit Bumrah",
+      "d": "Shubman Gill"
+    },
+    "correct_answer": "d",
+    "Solution": "Shubman Gill was awarded the Polly Umrigar Award for the best men's international cricketer of the year for 2022-23 at the BCCI Awards ceremony.",
+    "step_by_step": [
+      "Recall major sports awards in India, particularly cricket awards by BCCI.",
+      "Identify the winner of the Polly Umrigar Award for the specified period (2022-23).",
+      "Shubman Gill received this prestigious award for his performances in the 2022-23 season."
+    ],
+    "tips_and_tricks": [
+      "Follow major sports events and awards ceremonies.",
+      "BCCI awards are significant for Indian cricket."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "Sports - Awards",
+      "concept": "Knowledge of recent sports awards and recipients."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 31,
+    "Question": "A significant advancement in gene-editing technology, 'Casgevy', approved in late 2023/early 2024 by several countries, is a therapy primarily for which genetic disorders?",
+    "options": {
+      "a": "Cystic Fibrosis and Muscular Dystrophy",
+      "b": "Sickle Cell Disease and Beta-Thalassemia",
+      "c": "Down Syndrome and Turner Syndrome",
+      "d": "Huntington's Disease and Alzheimer's Disease"
+    },
+    "correct_answer": "b",
+    "Solution": "Casgevy is a CRISPR-based gene therapy that was approved for the treatment of Sickle Cell Disease and transfusion-dependent Beta-Thalassemia. This marked a significant milestone as the first CRISPR-based therapy to receive regulatory approval in countries like the UK and USA.",
+    "step_by_step": [
+      "Recall recent breakthroughs in science and technology, particularly in medicine.",
+      "Identify the purpose of the gene therapy 'Casgevy'.",
+      "Casgevy uses CRISPR-Cas9 gene-editing technology.",
+      "It is indicated for the treatment of specific inherited blood disorders: sickle cell disease and beta-thalassemia."
+    ],
+    "tips_and_tricks": [
+      "Keep an eye on major scientific and technological developments reported in the news.",
+      "Understand the basic applications of new technologies like CRISPR."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "Science and Technology - Medical Breakthroughs",
+      "concept": "Awareness of recent advancements in medical treatments and gene therapy."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 32,
+    "Question": "The book 'Knife: Meditations After an Attempted Murder' released in 2024, is authored by which renowned writer?",
+    "options": {
+      "a": "J.K. Rowling",
+      "b": "Salman Rushdie",
+      "c": "Margaret Atwood",
+      "d": "Haruki Murakami"
+    },
+    "correct_answer": "b",
+    "Solution": "The memoir 'Knife: Meditations After an Attempted Murder' was written by Salman Rushdie and published in April 2024. It details his experience and recovery following the assassination attempt on him in August 2022.",
+    "step_by_step": [
+      "Recall recently published significant books by well-known authors.",
+      "Identify the author of the book 'Knife: Meditations After an Attempted Murder'.",
+      "Salman Rushdie is the author of this memoir, which discusses the attack he survived."
+    ],
+    "tips_and_tricks": [
+      "Follow literary news and book releases by prominent authors.",
+      "Pay attention to books that generate significant public or critical discussion."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Current Affairs",
+      "subtopic": "Books and Authors - Recent Releases",
+      "concept": "Knowledge of recently published important books and their authors."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 33,
+    "Question": "The Harappan site of Lothal is situated in which present-day Indian state?",
+    "options": {
+      "a": "Rajasthan",
+      "b": "Gujarat",
+      "c": "Punjab",
+      "d": "Haryana"
+    },
+    "correct_answer": "b",
+    "Solution": "Lothal is one of the southernmost cities of the ancient Indus Valley Civilization, located in the Bhāl region of the modern state of Gujarat. It was an important port city.",
+    "step_by_step": [
+      "Recall major Harappan (Indus Valley Civilization) sites.",
+      "Identify the geographical location of Lothal.",
+      "Lothal is located in present-day Gujarat, India."
+    ],
+    "tips_and_tricks": [
+      "Memorize the locations of important ancient historical sites in India.",
+      "Associate sites with unique features (e.g., Lothal with its dockyard)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "History",
+      "subtopic": "Ancient Indian History - Indus Valley Civilization",
+      "concept": "Geographical location of Harappan sites."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 34,
+    "Question": "Who was the founder of the Mauryan Empire?",
+    "options": {
+      "a": "Ashoka",
+      "b": "Bindusara",
+      "c": "Chandragupta Maurya",
+      "d": "Samudragupta"
+    },
+    "correct_answer": "c",
+    "Solution": "Chandragupta Maurya founded the Mauryan Empire in 322 BCE after overthrowing the Nanda Dynasty. He was guided by his mentor Chanakya (Kautilya).",
+    "step_by_step": [
+      "Recall major ancient Indian empires and their founders.",
+      "Identify the founder of the Mauryan Empire.",
+      "Chandragupta Maurya is credited with establishing the Mauryan Empire."
+    ],
+    "tips_and_tricks": [
+      "Create timelines of major dynasties and their important rulers.",
+      "Remember key figures associated with the founding of empires."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "History",
+      "subtopic": "Ancient Indian History - Mauryan Empire",
+      "concept": "Founders of major Indian dynasties."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 35,
+    "Question": "The 'Quit India Movement' was launched by Mahatma Gandhi in which year?",
+    "options": {
+      "a": "1930",
+      "b": "1940",
+      "c": "1942",
+      "d": "1945"
+    },
+    "correct_answer": "c",
+    "Solution": "The Quit India Movement (Bharat Chhodo Andolan) was launched by Mahatma Gandhi on August 8, 1942, at the Bombay session of the All-India Congress Committee, demanding an end to British rule in India.",
+    "step_by_step": [
+      "Recall major events of the Indian independence movement.",
+      "Identify the year the Quit India Movement was launched.",
+      "Mahatma Gandhi launched this movement in August 1942."
+    ],
+    "tips_and_tricks": [
+      "Memorize important dates and years related to the Indian freedom struggle.",
+      "Associate movements with key leaders and slogans (e.g., 'Do or Die' with Quit India Movement)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "History",
+      "subtopic": "Modern Indian History - Freedom Struggle",
+      "concept": "Chronology of major national movements."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 36,
+    "Question": "Which is the longest river in Peninsular India?",
+    "options": {
+      "a": "Narmada",
+      "b": "Godavari",
+      "c": "Krishna",
+      "d": "Mahanadi"
+    },
+    "correct_answer": "b",
+    "Solution": "The Godavari River is the longest river in Peninsular India, with a length of about 1,465 kilometers. It is also known as the 'Dakshina Ganga' (Ganga of the South).",
+    "step_by_step": [
+      "Recall major rivers of Peninsular India.",
+      "Compare their lengths or significance.",
+      "The Godavari is the longest among them."
+    ],
+    "tips_and_tricks": [
+      "Study the river systems of India, including their origins, lengths, tributaries, and states they flow through.",
+      "Remember nicknames or alternative names for important rivers."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Geography",
+      "subtopic": "Indian Geography - River Systems",
+      "concept": "Major rivers of Peninsular India and their characteristics."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 37,
+    "Question": "The 'Roaring Forties' are strong westerly winds found in the:",
+    "options": {
+      "a": "Northern Hemisphere, between 40° and 50° latitude",
+      "b": "Southern Hemisphere, between 40° and 50° latitude",
+      "c": "Equatorial region",
+      "d": "Polar regions"
+    },
+    "correct_answer": "b",
+    "Solution": "The Roaring Forties are strong westerly winds found in the Southern Hemisphere, generally between the latitudes of 40°S and 50°S. Their strength is due to the large expanse of ocean and lack of landmasses to slow them down.",
+    "step_by_step": [
+      "Recall concepts related to global wind patterns.",
+      "Identify the location of the 'Roaring Forties'.",
+      "These winds are characteristic of the Southern Hemisphere, specifically between 40°S and 50°S latitude."
+    ],
+    "tips_and_tricks": [
+      "Understand the naming conventions for planetary winds (e.g., Roaring Forties, Furious Fifties, Shrieking Sixties).",
+      "Know the general circulation of the atmosphere."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Geography",
+      "subtopic": "Physical Geography - Climatology (Winds)",
+      "concept": "Global wind patterns and specific wind systems."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 38,
+    "Question": "Which Indian state shares the longest international border?",
+    "options": {
+      "a": "Rajasthan",
+      "b": "West Bengal",
+      "c": "Arunachal Pradesh",
+      "d": "Uttar Pradesh"
+    },
+    "correct_answer": "b",
+    "Solution": "West Bengal shares the longest international border among Indian states, primarily with Bangladesh. The state has an international border of approximately 2,217 km with Bangladesh.",
+    "step_by_step": [
+      "Recall Indian states that share international borders.",
+      "Consider the length of these borders with neighboring countries.",
+      "West Bengal shares a significant border with Bangladesh, and also smaller borders with Nepal and Bhutan.",
+      "Comparing the total international border length, West Bengal's is the longest among all states."
+    ],
+    "tips_and_tricks": [
+      "Study the political map of India, focusing on states sharing international boundaries and the countries they border.",
+      "Be aware of states with multiple international borders."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Geography",
+      "subtopic": "Indian Geography - International Borders",
+      "concept": "Indian states and their international boundary lengths."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 39,
+    "Question": "The power to summon the joint sitting of both Houses of Parliament in India is vested with the:",
+    "options": {
+      "a": "President of India",
+      "b": "Prime Minister of India",
+      "c": "Speaker of Lok Sabha",
+      "d": "Chairman of Rajya Sabha"
+    },
+    "correct_answer": "a",
+    "Solution": "Article 108 of the Indian Constitution provides for a joint sitting of both Houses of Parliament in certain cases of deadlock over a bill. The President of India is empowered to summon this joint sitting.",
+    "step_by_step": [
+      "Recall the provisions related to the functioning of the Indian Parliament.",
+      "Identify who has the authority to summon a joint sitting of the Lok Sabha and Rajya Sabha.",
+      "According to Article 108 of the Constitution, this power is vested in the President of India."
+    ],
+    "tips_and_tricks": [
+      "Understand the roles and powers of key constitutional functionaries like the President, Prime Minister, Speaker, etc.",
+      "Memorize important articles of the Constitution related to Parliament."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Indian Polity & Constitution",
+      "subtopic": "Parliament - Joint Sitting",
+      "concept": "Constitutional powers related to parliamentary procedures."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 40,
+    "Question": "Which part of the Indian Constitution deals with Fundamental Rights?",
+    "options": {
+      "a": "Part I",
+      "b": "Part II",
+      "c": "Part III",
+      "d": "Part IV"
+    },
+    "correct_answer": "c",
+    "Solution": "Part III of the Indian Constitution, from Articles 12 to 35, deals with Fundamental Rights. These are basic human rights guaranteed to all citizens.",
+    "step_by_step": [
+      "Recall the structure of the Indian Constitution and its various parts.",
+      "Identify the part that enumerates the Fundamental Rights.",
+      "Part III of the Constitution is dedicated to Fundamental Rights."
+    ],
+    "tips_and_tricks": [
+      "Memorize the key Parts and Schedules of the Indian Constitution and the subjects they deal with.",
+      "Fundamental Rights, Directive Principles, and Fundamental Duties are particularly important."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Indian Polity & Constitution",
+      "subtopic": "Fundamental Rights",
+      "concept": "Structure of the Indian Constitution - Parts dealing with fundamental aspects."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 41,
+    "Question": "The concept of 'Directive Principles of State Policy' in the Indian Constitution is borrowed from the Constitution of:",
+    "options": {
+      "a": "United Kingdom",
+      "b": "United States of America",
+      "c": "Ireland",
+      "d": "Canada"
+    },
+    "correct_answer": "c",
+    "Solution": "The framers of the Indian Constitution borrowed the concept of Directive Principles of State Policy (DPSP) from the Constitution of Ireland (Irish Constitution of 1937).",
+    "step_by_step": [
+      "Recall the sources from which various features of the Indian Constitution were borrowed.",
+      "Identify the source country for the Directive Principles of State Policy.",
+      "This feature was adopted from the Constitution of Ireland."
+    ],
+    "tips_and_tricks": [
+      "Make a list of important features of the Indian Constitution and the countries from which they were inspired.",
+      "This is a frequently asked topic in competitive exams."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Indian Polity & Constitution",
+      "subtopic": "Sources of the Constitution - Directive Principles",
+      "concept": "Borrowed features of the Indian Constitution."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 42,
+    "Question": "What does 'Fiscal Deficit' mean?",
+    "options": {
+      "a": "Total expenditure minus total revenue receipts",
+      "b": "Total expenditure minus total receipts excluding borrowings",
+      "c": "Revenue expenditure minus revenue receipts",
+      "d": "Capital expenditure minus capital receipts"
+    },
+    "correct_answer": "b",
+    "Solution": "Fiscal Deficit is the difference between the government's total expenditure and its total receipts, excluding borrowings. It indicates the amount of borrowing the government needs to meet its expenses.",
+    "step_by_step": [
+      "Understand basic economic terms related to government budgeting.",
+      "Define Fiscal Deficit.",
+      "Fiscal Deficit = Total Expenditure - (Revenue Receipts + Non-debt Creating Capital Receipts). Essentially, it's total expenditure minus total receipts net of borrowings."
+    ],
+    "tips_and_tricks": [
+      "Differentiate between various types of deficits: fiscal deficit, revenue deficit, primary deficit.",
+      "Understand the implications of these deficits for the economy."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Economy",
+      "subtopic": "Basic Economic Concepts - Government Budgeting",
+      "concept": "Understanding key fiscal terms like Fiscal Deficit."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 43,
+    "Question": "Which of the following is NOT a function of the Reserve Bank of India (RBI)?",
+    "options": {
+      "a": "Issuing currency notes",
+      "b": "Banker to the Government",
+      "c": "Formulating fiscal policy",
+      "d": "Controller of credit"
+    },
+    "correct_answer": "c",
+    "Solution": "The Reserve Bank of India (RBI) is India's central bank. Its functions include issuing currency, acting as a banker to the government, managing foreign exchange, and controlling credit (monetary policy). Fiscal policy, which deals with government revenue and expenditure (taxation, public spending), is formulated by the Ministry of Finance, Government of India, not the RBI.",
+    "step_by_step": [
+      "Recall the functions of the Reserve Bank of India.",
+      "RBI's key functions include: monetary policy formulation, currency issuance, regulation of banks, banker to government, managing foreign reserves.",
+      "Fiscal policy is related to government taxation and spending decisions and is handled by the government (Ministry of Finance).",
+      "Therefore, formulating fiscal policy is NOT a function of the RBI."
+    ],
+    "tips_and_tricks": [
+      "Clearly distinguish between monetary policy (RBI's domain) and fiscal policy (Government's domain).",
+      "Memorize the main functions of the RBI."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Economy",
+      "subtopic": "Indian Economy - Banking and Financial Institutions (RBI)",
+      "concept": "Functions of the Reserve Bank of India."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 44,
+    "Question": "The term 'GST' in India stands for:",
+    "options": {
+      "a": "General Sales Tax",
+      "b": "Goods and Services Tax",
+      "c": "Government Service Tax",
+      "d": "Gross Standard Tax"
+    },
+    "correct_answer": "b",
+    "Solution": "GST stands for Goods and Services Tax. It is an indirect tax levied on the supply of goods and services in India, implemented from July 1, 2017.",
+    "step_by_step": [
+      "Recall common economic abbreviations and their full forms.",
+      "GST is a major tax reform in India.",
+      "The full form of GST is Goods and Services Tax."
+    ],
+    "tips_and_tricks": [
+      "Be aware of important economic reforms and terminologies.",
+      "Understand the basic concept of GST as a comprehensive indirect tax."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Economy",
+      "subtopic": "Indian Economy - Taxation",
+      "concept": "Understanding key economic abbreviations (GST)."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 45,
+    "Question": "Which of the following is responsible for the red color of human blood?",
+    "options": {
+      "a": "Plasma",
+      "b": "Hemoglobin",
+      "c": "White Blood Cells (WBCs)",
+      "d": "Platelets"
+    },
+    "correct_answer": "b",
+    "Solution": "Hemoglobin is a protein found in red blood cells that contains iron. It is responsible for transporting oxygen from the lungs to the body's tissues and also gives blood its characteristic red color.",
+    "step_by_step": [
+      "Recall the components of human blood and their functions.",
+      "Identify the pigment responsible for the color of blood.",
+      "Hemoglobin, present in red blood cells, contains iron and binds to oxygen, giving blood its red color."
+    ],
+    "tips_and_tricks": [
+      "Understand the basic composition and functions of blood components.",
+      "Associate specific proteins/pigments with their roles (e.g., hemoglobin with oxygen transport and red color)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Science",
+      "subtopic": "Biology - Human Physiology (Blood)",
+      "concept": "Components of blood and their functions/characteristics."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 46,
+    "Question": "What is the chemical symbol for Gold?",
+    "options": {
+      "a": "Ag",
+      "b": "Au",
+      "c": "Gd",
+      "d": "Go"
+    },
+    "correct_answer": "b",
+    "Solution": "The chemical symbol for Gold is Au. It is derived from its Latin name 'Aurum'.",
+    "step_by_step": [
+      "Recall common chemical elements and their symbols.",
+      "Identify the symbol for Gold.",
+      "The symbol for Gold is Au."
+    ],
+    "tips_and_tricks": [
+      "Memorize the chemical symbols of common elements, especially those with symbols derived from Latin names (e.g., Gold - Au, Silver - Ag, Iron - Fe, Sodium - Na, Potassium - K).",
+      "The periodic table is a good resource for this."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Science",
+      "subtopic": "Chemistry - Elements and Symbols",
+      "concept": "Chemical symbols of common elements."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 47,
+    "Question": "Which physical quantity is measured in 'Hertz' (Hz)?",
+    "options": {
+      "a": "Energy",
+      "b": "Frequency",
+      "c": "Force",
+      "d": "Power"
+    },
+    "correct_answer": "b",
+    "Solution": "Hertz (Hz) is the SI unit of frequency, defined as one cycle per second. It is used to measure the frequency of waves, vibrations, and oscillations.",
+    "step_by_step": [
+      "Recall SI units for various physical quantities.",
+      "Identify the quantity measured in Hertz.",
+      "Hertz (Hz) is the unit of frequency."
+    ],
+    "tips_and_tricks": [
+      "Memorize the SI units of fundamental and derived physical quantities.",
+      "Understand the definitions of these quantities."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Science",
+      "subtopic": "Physics - Units and Measurements",
+      "concept": "SI units of physical quantities."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 48,
+    "Question": "Scurvy is caused by the deficiency of which vitamin?",
+    "options": {
+      "a": "Vitamin A",
+      "b": "Vitamin B12",
+      "c": "Vitamin C",
+      "d": "Vitamin D"
+    },
+    "correct_answer": "c",
+    "Solution": "Scurvy is a disease resulting from a deficiency of Vitamin C (ascorbic acid). Symptoms include swollen bleeding gums, weakness, fatigue, and skin problems.",
+    "step_by_step": [
+      "Recall vitamins and the deficiency diseases associated with them.",
+      "Identify the vitamin whose deficiency causes Scurvy.",
+      "Scurvy is caused by a lack of Vitamin C."
+    ],
+    "tips_and_tricks": [
+      "Make a table of important vitamins, their chemical names, sources, and deficiency diseases.",
+      "This is a common topic in general science questions."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Science",
+      "subtopic": "Biology - Nutrition and Health (Vitamins)",
+      "concept": "Vitamins and their deficiency diseases."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 49,
+    "Question": "'Kathakali' is a classical dance form originated from which Indian state?",
+    "options": {
+      "a": "Tamil Nadu",
+      "b": "Kerala",
+      "c": "Karnataka",
+      "d": "Andhra Pradesh"
+    },
+    "correct_answer": "b",
+    "Solution": "Kathakali is one of the major forms of classical Indian dance. It is a 'story play' genre of art, distinguished by its elaborately colorful make-up, costumes and face masks that the traditionally male actor-dancers wear. It originated in the state of Kerala.",
+    "step_by_step": [
+      "Recall major classical dance forms of India and their states of origin.",
+      "Identify the origin state of Kathakali.",
+      "Kathakali originated in Kerala."
+    ],
+    "tips_and_tricks": [
+      "Memorize the list of classical dances of India recognized by the Sangeet Natak Akademi and their respective states.",
+      "Be aware of the distinct features of each dance form."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Miscellaneous",
+      "subtopic": "Art & Culture - Classical Dances",
+      "concept": "Origin states of Indian classical dances."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 50,
+    "Question": "World Environment Day is celebrated every year on:",
+    "options": {
+      "a": "April 22",
+      "b": "June 5",
+      "c": "July 11",
+      "d": "October 16"
+    },
+    "correct_answer": "b",
+    "Solution": "World Environment Day is celebrated annually on June 5th. It is the United Nations' principal vehicle for encouraging awareness and action for the protection of the environment.",
+    "step_by_step": [
+      "Recall important international days and their dates of observance.",
+      "Identify the date for World Environment Day.",
+      "World Environment Day is on June 5th."
+    ],
+    "tips_and_tricks": [
+      "Maintain a list of important national and international days/weeks and their themes (if any for the current year).",
+      "Focus on days related to environment, health, human rights, etc."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "General Awareness",
+      "topic": "Miscellaneous",
+      "subtopic": "Important Days - International",
+      "concept": "Dates of significant international observances."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 51,
+    "Question": "If the price of an item is increased by 20% and then decreased by 10%, what is the net percentage change in the price?",
+    "options": {
+      "a": "10% increase",
+      "b": "8% increase",
+      "c": "8% decrease",
+      "d": "12% increase"
+    },
+    "correct_answer": "b",
+    "Solution": "Let the original price be 100. \nAfter a 20% increase, the price becomes 100 + (20/100)*100 = 100 + 20 = 120. \nNow, this price is decreased by 10%. \nDecrease amount = (10/100)*120 = 12. \nNew price = 120 - 12 = 108. \nOriginal price was 100, final price is 108. \nNet change = 108 - 100 = 8. \nNet percentage change = (8/100)*100 = 8% increase. \nAlternatively, using successive percentage change formula: x + y + (xy/100). \nHere x = +20, y = -10. \nNet change = 20 - 10 + (20 * -10)/100 = 10 - 200/100 = 10 - 2 = 8%. Since it's positive, it's an 8% increase.",
+    "step_by_step": [
+      "Assume the initial price of the item is 100 units for easy calculation.",
+      "Calculate the price after a 20% increase: New Price = 100 * (1 + 20/100) = 100 * 1.20 = 120.",
+      "Now, calculate the price after a 10% decrease on this new price (120): Final Price = 120 * (1 - 10/100) = 120 * 0.90 = 108.",
+      "Calculate the net change in price: Net Change = Final Price - Initial Price = 108 - 100 = 8.",
+      "Calculate the net percentage change: (Net Change / Initial Price) * 100 = (8 / 100) * 100 = 8%.",
+      "Since the final price (108) is greater than the initial price (100), it is an 8% increase.",
+      "Alternative method (Successive percentage change): If there are two successive changes of x% and y%, the net change is (x + y + xy/100)%. Use + for increase and - for decrease.",
+      "x = +20 (20% increase), y = -10 (10% decrease).",
+      "Net % change = 20 + (-10) + (20 * -10)/100 = 20 - 10 - 200/100 = 10 - 2 = 8%. A positive result means an increase."
+    ],
+    "tips_and_tricks": [
+      "Using 100 as the base value simplifies percentage calculations.",
+      "The formula for successive percentage change (x + y + xy/100) is very efficient for such problems."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Percentage",
+      "subtopic": "Successive Percentage Change",
+      "concept": "Calculating net percentage change after multiple successive changes."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 52,
+    "Question": "A shopkeeper sells an article for ₹540 at a loss of 10%. At what price should he sell it to make a profit of 20%?",
+    "options": {
+      "a": "₹720",
+      "b": "₹660",
+      "c": "₹700",
+      "d": "₹600"
+    },
+    "correct_answer": "a",
+    "Solution": "Let the Cost Price (CP) be x. \nSelling Price (SP) = ₹540, Loss = 10%. \nSP = CP * (1 - Loss%/100) \n540 = x * (1 - 10/100) = x * (90/100) = x * (9/10) \nx = 540 * (10/9) = 60 * 10 = ₹600. \nSo, the Cost Price is ₹600. \nNow, to make a profit of 20%: \nNew SP = CP * (1 + Profit%/100) \nNew SP = 600 * (1 + 20/100) = 600 * (120/100) = 600 * (6/5) = 120 * 6 = ₹720.",
+    "step_by_step": [
+      "Let the Cost Price (CP) of the article be 'C'.",
+      "Given Selling Price (SP1) = ₹540 and Loss = 10%.",
+      "We know that SP = CP * (1 - Loss%/100).",
+      "So, 540 = C * (1 - 10/100) = C * (90/100) = C * (0.9).",
+      "Calculate CP: C = 540 / 0.9 = 5400 / 9 = ₹600.",
+      "Now, the shopkeeper wants to make a profit of 20% on this CP.",
+      "New Selling Price (SP2) = CP * (1 + Profit%/100).",
+      "SP2 = 600 * (1 + 20/100) = 600 * (120/100) = 600 * 1.2.",
+      "SP2 = ₹720."
+    ],
+    "tips_and_tricks": [
+      "First, always find the Cost Price if it's not given directly.",
+      "Use the formulas: SP = CP * (100 + Profit%)/100 and SP = CP * (100 - Loss%)/100.",
+      "Alternatively, if SP and loss% are given, CP = SP * 100 / (100 - Loss%). If SP and profit% are given, CP = SP * 100 / (100 + Profit%)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Profit & Loss",
+      "subtopic": "Finding new SP for desired profit",
+      "concept": "Calculating cost price from selling price and loss, then new selling price for a given profit."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 53,
+    "Question": "A shopkeeper offers a discount of 15% on an item marked at ₹2000. What is the selling price of the item?",
+    "options": {
+      "a": "₹1700",
+      "b": "₹1850",
+      "c": "₹300",
+      "d": "₹1600"
+    },
+    "correct_answer": "a",
+    "Solution": "Marked Price (MP) = ₹2000. \nDiscount = 15%. \nDiscount Amount = 15% of MP = (15/100) * 2000 = 15 * 20 = ₹300. \nSelling Price (SP) = Marked Price - Discount Amount \nSP = 2000 - 300 = ₹1700.",
+    "step_by_step": [
+      "Given Marked Price (MP) = ₹2000.",
+      "Given Discount Percentage = 15%.",
+      "Calculate the Discount Amount: Discount Amount = (Discount Percentage / 100) * MP.",
+      "Discount Amount = (15 / 100) * 2000 = 0.15 * 2000 = ₹300.",
+      "Calculate the Selling Price (SP): SP = MP - Discount Amount.",
+      "SP = 2000 - 300 = ₹1700.",
+      "Alternatively, SP = MP * (1 - Discount%/100) = 2000 * (1 - 15/100) = 2000 * (85/100) = 20 * 85 = ₹1700."
+    ],
+    "tips_and_tricks": [
+      "Selling Price = Marked Price - Discount.",
+      "Discount is always calculated on the Marked Price.",
+      "SP = MP * (100 - Discount%)/100."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Discount",
+      "subtopic": "Calculating Selling Price after Discount",
+      "concept": "Applying discount percentage to marked price to find selling price."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 54,
+    "Question": "The ratio of two numbers is 3:5. If their sum is 120, find the larger number.",
+    "options": {
+      "a": "45",
+      "b": "75",
+      "c": "60",
+      "d": "90"
+    },
+    "correct_answer": "b",
+    "Solution": "Let the two numbers be 3x and 5x. \nTheir sum is 3x + 5x = 8x. \nGiven that the sum is 120. \nSo, 8x = 120. \nx = 120 / 8 = 15. \nThe two numbers are: \nFirst number = 3x = 3 * 15 = 45. \nSecond number = 5x = 5 * 15 = 75. \nThe larger number is 75.",
+    "step_by_step": [
+      "Let the two numbers be 3k and 5k, where k is a common multiplier.",
+      "Given that the sum of the two numbers is 120.",
+      "So, 3k + 5k = 120.",
+      "Combine the terms: 8k = 120.",
+      "Solve for k: k = 120 / 8 = 15.",
+      "The first number is 3k = 3 * 15 = 45.",
+      "The second number is 5k = 5 * 15 = 75.",
+      "The larger of the two numbers is 75."
+    ],
+    "tips_and_tricks": [
+      "When a ratio is given, represent the numbers as multiples of a variable (e.g., x or k).",
+      "Form an equation based on the other information given (sum, difference, product, etc.)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Ratio & Proportion",
+      "subtopic": "Problems on Numbers",
+      "concept": "Finding numbers when their ratio and sum are given."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 55,
+    "Question": "The average of 5 consecutive odd numbers is 27. What is the largest of these numbers?",
+    "options": {
+      "a": "29",
+      "b": "31",
+      "c": "33",
+      "d": "25"
+    },
+    "correct_answer": "b",
+    "Solution": "For consecutive numbers (odd, even, or natural), the average is the middle number. \nSince there are 5 consecutive odd numbers, the 3rd number (the middle one) is the average, which is 27. \nThe numbers are: \n1st: 27 - 2 - 2 = 23 \n2nd: 27 - 2 = 25 \n3rd: 27 \n4th: 27 + 2 = 29 \n5th: 27 + 2 + 2 = 31 \nThe largest number is 31. \nAlternatively, let the numbers be x, x+2, x+4, x+6, x+8. \nTheir average is (x + x+2 + x+4 + x+6 + x+8) / 5 = 27. \n(5x + 20) / 5 = 27 \n5x + 20 = 135 \n5x = 115 \nx = 23. \nThe largest number is x+8 = 23+8 = 31.",
+    "step_by_step": [
+      "For an odd number of consecutive terms, the average is the middle term.",
+      "Given 5 consecutive odd numbers, the 3rd number is the average, which is 27.",
+      "The five consecutive odd numbers are: (Average - 2*2), (Average - 2), Average, (Average + 2), (Average + 2*2).",
+      "So the numbers are: 27-4, 27-2, 27, 27+2, 27+4.",
+      "The numbers are: 23, 25, 27, 29, 31.",
+      "The largest of these numbers is 31.",
+      "Alternative method: Let the first odd number be 'n'. The five consecutive odd numbers are n, n+2, n+4, n+6, n+8.",
+      "Their sum is n + (n+2) + (n+4) + (n+6) + (n+8) = 5n + 20.",
+      "Their average is (5n + 20) / 5 = n + 4.",
+      "Given average = 27, so n + 4 = 27.",
+      "n = 27 - 4 = 23.",
+      "The largest number is n+8 = 23 + 8 = 31."
+    ],
+    "tips_and_tricks": [
+      "The average of an arithmetic progression is the middle term if the number of terms is odd.",
+      "If the number of terms is even, the average is the average of the two middle terms.",
+      "Consecutive odd (or even) numbers differ by 2."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Average",
+      "subtopic": "Consecutive Numbers",
+      "concept": "Finding numbers in a consecutive series given their average."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 56,
+    "Question": "A mixture of 40 litres of milk and water contains 10% water. How much water should be added to make the water 20% in the new mixture?",
+    "options": {
+      "a": "4 litres",
+      "b": "5 litres",
+      "c": "6 litres",
+      "d": "8 litres"
+    },
+    "correct_answer": "b",
+    "Solution": "Initial mixture = 40 litres. \nWater in initial mixture = 10% of 40 = (10/100) * 40 = 4 litres. \nMilk in initial mixture = 40 - 4 = 36 litres. \nLet 'x' litres of water be added. \nNew mixture quantity = 40 + x litres. \nNew water quantity = 4 + x litres. \nMilk quantity remains the same = 36 litres. \nIn the new mixture, water is 20%. \nSo, (New water quantity / New mixture quantity) * 100 = 20. \n(4 + x) / (40 + x) = 20/100 = 1/5. \n5(4 + x) = 1(40 + x). \n20 + 5x = 40 + x. \n4x = 20. \nx = 5 litres.",
+    "step_by_step": [
+      "Calculate the initial quantities of water and milk.",
+      "Total initial mixture = 40 litres.",
+      "Initial water = 10% of 40 = (10/100) * 40 = 4 litres.",
+      "Initial milk = 40 - 4 = 36 litres.",
+      "Let 'w' litres of water be added to the mixture.",
+      "New quantity of water = 4 + w litres.",
+      "New total quantity of mixture = 40 + w litres.",
+      "The quantity of milk remains unchanged = 36 litres.",
+      "In the new mixture, water is 20%. This means milk is 100% - 20% = 80%.",
+      "So, (Quantity of milk / Total new mixture) * 100 = 80 OR (Quantity of new water / Total new mixture) * 100 = 20.",
+      "Using the water percentage: (4 + w) / (40 + w) = 20/100 = 1/5.",
+      "Cross-multiply: 5 * (4 + w) = 1 * (40 + w).",
+      "20 + 5w = 40 + w.",
+      "5w - w = 40 - 20.",
+      "4w = 20.",
+      "w = 20 / 4 = 5 litres."
+    ],
+    "tips_and_tricks": [
+      "Focus on the quantity that remains unchanged (in this case, milk) when one component is added.",
+      "Set up the proportion based on the final percentage required."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Ratio & Proportion",
+      "subtopic": "Mixtures and Alligation",
+      "sub_subtopic": "Adding one component to change percentage",
+      "concept": "Calculating the amount of a substance to be added to a mixture to achieve a desired concentration."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 57,
+    "Question": "A can do a piece of work in 10 days and B can do it in 15 days. In how many days will they together finish the work?",
+    "options": {
+      "a": "5 days",
+      "b": "6 days",
+      "c": "8 days",
+      "d": "4 days"
+    },
+    "correct_answer": "b",
+    "Solution": "A's 1 day's work = 1/10. \nB's 1 day's work = 1/15. \n(A+B)'s 1 day's work = 1/10 + 1/15. \nLCM of 10 and 15 is 30. \n= (3+2)/30 = 5/30 = 1/6. \nSo, A and B together can finish the work in 6 days.",
+    "step_by_step": [
+      "Find the amount of work A can do in one day: A's 1 day work = 1/10.",
+      "Find the amount of work B can do in one day: B's 1 day work = 1/15.",
+      "Find the amount of work A and B can do together in one day: (A+B)'s 1 day work = A's 1 day work + B's 1 day work.",
+      "(A+B)'s 1 day work = 1/10 + 1/15.",
+      "To add these fractions, find the LCM of 10 and 15, which is 30.",
+      "1/10 = 3/30; 1/15 = 2/30.",
+      "(A+B)'s 1 day work = 3/30 + 2/30 = 5/30 = 1/6.",
+      "If they do 1/6 of the work in one day, they will complete the whole work in the reciprocal of this fraction, which is 6/1 = 6 days."
+    ],
+    "tips_and_tricks": [
+      "Work done is the reciprocal of the time taken.",
+      "Combined work rate = Sum of individual work rates.",
+      "Time taken = Total Work / Work rate. (Assuming Total Work = 1 unit).",
+      "Alternatively, use LCM method: Let total work be LCM(10, 15) = 30 units. A's efficiency = 30/10 = 3 units/day. B's efficiency = 30/15 = 2 units/day. Combined efficiency = 3+2 = 5 units/day. Time taken = Total work / Combined efficiency = 30/5 = 6 days."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Time & Work",
+      "subtopic": "Basic Time and Work Problem",
+      "concept": "Calculating time taken by two individuals working together."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 58,
+    "Question": "Two pipes A and B can fill a tank in 20 minutes and 30 minutes respectively. If both pipes are opened together, how long will it take to fill the tank?",
+    "options": {
+      "a": "10 minutes",
+      "b": "12 minutes",
+      "c": "15 minutes",
+      "d": "25 minutes"
+    },
+    "correct_answer": "b",
+    "Solution": "Part filled by pipe A in 1 minute = 1/20. \nPart filled by pipe B in 1 minute = 1/30. \nPart filled by both pipes A and B in 1 minute = 1/20 + 1/30. \nLCM of 20 and 30 is 60. \n= (3+2)/60 = 5/60 = 1/12. \nSo, both pipes together will fill the tank in 12 minutes.",
+    "step_by_step": [
+      "Part of the tank filled by pipe A in 1 minute = 1/20.",
+      "Part of the tank filled by pipe B in 1 minute = 1/30.",
+      "Part of the tank filled by both pipes A and B together in 1 minute = (1/20) + (1/30).",
+      "Find the LCM of 20 and 30, which is 60.",
+      "So, (1/20) + (1/30) = (3/60) + (2/60) = 5/60 = 1/12.",
+      "This means that 1/12 of the tank is filled in 1 minute when both pipes are open.",
+      "Therefore, the time taken to fill the whole tank is the reciprocal of 1/12, which is 12 minutes."
+    ],
+    "tips_and_tricks": [
+      "This is similar to Time & Work problems. Rate of filling is analogous to rate of work.",
+      "If time taken by A is 'a' and by B is 'b', time taken together is (a*b)/(a+b). Here, (20*30)/(20+30) = 600/50 = 12 minutes.",
+      "LCM method: Let capacity of tank be LCM(20, 30) = 60 units. A's efficiency = 60/20 = 3 units/min. B's efficiency = 60/30 = 2 units/min. Combined efficiency = 3+2 = 5 units/min. Time = Capacity / Efficiency = 60/5 = 12 minutes."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Pipes & Cisterns",
+      "subtopic": "Filling a tank with two pipes",
+      "concept": "Calculating combined time taken by two pipes to fill a tank."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 59,
+    "Question": "A train 150 m long is running at a speed of 72 km/hr. In how much time will it pass a pole?",
+    "options": {
+      "a": "7.5 seconds",
+      "b": "10 seconds",
+      "c": "12.5 seconds",
+      "d": "15 seconds"
+    },
+    "correct_answer": "a",
+    "Solution": "Speed of the train = 72 km/hr. \nConvert speed to m/s: 72 * (5/18) m/s = 4 * 5 = 20 m/s. \nLength of the train = 150 m. \nWhen a train passes a pole, the distance covered is equal to the length of the train. \nDistance = 150 m. \nTime = Distance / Speed = 150 / 20 = 15 / 2 = 7.5 seconds.",
+    "step_by_step": [
+      "The length of the train is the distance it needs to cover to pass a pole (a point object). Distance (d) = 150 m.",
+      "The speed of the train is given in km/hr, convert it to m/s. Speed (s) = 72 km/hr.",
+      "Conversion factor: 1 km/hr = 5/18 m/s.",
+      "Speed in m/s = 72 * (5/18) = (72/18) * 5 = 4 * 5 = 20 m/s.",
+      "Time taken (t) = Distance / Speed.",
+      "t = 150 m / 20 m/s = 15/2 seconds = 7.5 seconds."
+    ],
+    "tips_and_tricks": [
+      "When a train passes a stationary object of negligible length (like a pole or a man), the distance covered is the length of the train itself.",
+      "Always ensure units are consistent before calculation (e.g., convert km/hr to m/s if distance is in meters and time is required in seconds). Formula: km/hr * (5/18) = m/s."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Time, Speed & Distance",
+      "subtopic": "Problems on Trains - Passing a Pole",
+      "concept": "Calculating time taken by a train to pass a stationary point object."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 60,
+    "Question": "A man covers a certain distance at a speed of 45 km/hr in 6 hours. If he wants to cover the same distance in 5 hours, what should be his speed?",
+    "options": {
+      "a": "50 km/hr",
+      "b": "54 km/hr",
+      "c": "60 km/hr",
+      "d": "48 km/hr"
+    },
+    "correct_answer": "b",
+    "Solution": "Distance = Speed × Time. \nDistance = 45 km/hr × 6 hours = 270 km. \nNow, he wants to cover the same distance (270 km) in 5 hours. \nNew Speed = Distance / New Time = 270 km / 5 hours = 54 km/hr.",
+    "step_by_step": [
+      "First, calculate the distance covered by the man.",
+      "Given Speed1 = 45 km/hr and Time1 = 6 hours.",
+      "Distance = Speed1 × Time1 = 45 × 6 = 270 km.",
+      "Now, the man wants to cover the same distance (270 km) in a new time.",
+      "Given New Time2 = 5 hours.",
+      "Let the New Speed be Speed2.",
+      "Speed2 = Distance / Time2 = 270 / 5.",
+      "Speed2 = 54 km/hr."
+    ],
+    "tips_and_tricks": [
+      "Understand the relationship: Distance = Speed × Time.",
+      "If distance is constant, speed is inversely proportional to time (S1*T1 = S2*T2)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Time, Speed & Distance",
+      "subtopic": "Constant Distance, Variable Speed and Time",
+      "concept": "Calculating speed required to cover a fixed distance in a different time."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 61,
+    "Question": "Find the simple interest on ₹5000 for 3 years at 8% per annum.",
+    "options": {
+      "a": "₹1000",
+      "b": "₹1200",
+      "c": "₹1500",
+      "d": "₹800"
+    },
+    "correct_answer": "b",
+    "Solution": "Principal (P) = ₹5000. \nTime (T) = 3 years. \nRate of Interest (R) = 8% per annum. \nSimple Interest (SI) = (P × R × T) / 100. \nSI = (5000 × 8 × 3) / 100 = 50 × 8 × 3 = 50 × 24 = ₹1200.",
+    "step_by_step": [
+      "Identify the given values: Principal (P) = ₹5000, Time (T) = 3 years, Rate of Interest (R) = 8% per annum.",
+      "Use the formula for Simple Interest (SI): SI = (P * R * T) / 100.",
+      "Substitute the values into the formula: SI = (5000 * 8 * 3) / 100.",
+      "Calculate the result: SI = (50 * 8 * 3) = 400 * 3 = ₹1200."
+    ],
+    "tips_and_tricks": [
+      "Memorize the basic formula for Simple Interest: SI = (PRT)/100.",
+      "Ensure the time period and rate of interest are in the same units (e.g., if rate is per annum, time should be in years)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Simple & Compound Interest",
+      "subtopic": "Simple Interest Calculation",
+      "concept": "Calculating simple interest given principal, rate, and time."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 62,
+    "Question": "What will be the compound interest on ₹10000 for 2 years at 10% per annum, compounded annually?",
+    "options": {
+      "a": "₹2000",
+      "b": "₹2100",
+      "c": "₹2200",
+      "d": "₹1900"
+    },
+    "correct_answer": "b",
+    "Solution": "Principal (P) = ₹10000. \nRate (R) = 10% per annum. \nTime (n) = 2 years. \nAmount (A) = P * (1 + R/100)ⁿ \nA = 10000 * (1 + 10/100)² = 10000 * (1 + 1/10)² = 10000 * (11/10)² \nA = 10000 * (121/100) = 100 * 121 = ₹12100. \nCompound Interest (CI) = Amount - Principal = 12100 - 10000 = ₹2100. \nAlternatively, for 2 years, CI = P * ( (1+R/100)² - 1 ) or use successive percentage: 10% + 10% + (10*10)/100 = 20 + 1 = 21%. CI = 21% of 10000 = 2100.",
+    "step_by_step": [
+      "Identify the given values: Principal (P) = ₹10000, Rate of Interest (R) = 10% per annum, Time (n) = 2 years.",
+      "Use the formula for Amount (A) in compound interest (compounded annually): A = P * (1 + R/100)ⁿ.",
+      "Substitute the values: A = 10000 * (1 + 10/100)².",
+      "A = 10000 * (1 + 0.1)² = 10000 * (1.1)². ",
+      "A = 10000 * 1.21 = ₹12100.",
+      "Compound Interest (CI) = Amount - Principal.",
+      "CI = 12100 - 10000 = ₹2100.",
+      "Alternative method (for 2 years): Effective rate = R1 + R2 + (R1*R2)/100. Here R1=10, R2=10.",
+      "Effective rate = 10 + 10 + (10*10)/100 = 20 + 1 = 21%.",
+      "CI = 21% of 10000 = (21/100) * 10000 = ₹2100."
+    ],
+    "tips_and_tricks": [
+      "Formula for Amount: A = P(1 + R/100)ⁿ.",
+      "CI = A - P.",
+      "For 2 years, effective CI rate = (2R + R²/100)% if R is same for both years.",
+      "For successive percentage increase, use x + y + xy/100."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Simple & Compound Interest",
+      "subtopic": "Compound Interest Calculation (Annual Compounding)",
+      "concept": "Calculating compound interest when compounded annually."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 63,
+    "Question": "If x + 1/x = 5, then what is the value of x² + 1/x²?",
+    "options": {
+      "a": "23",
+      "b": "25",
+      "c": "27",
+      "d": "20"
+    },
+    "correct_answer": "a",
+    "Solution": "Given x + 1/x = 5. \nSquare both sides: (x + 1/x)² = 5². \nx² + (1/x)² + 2 * x * (1/x) = 25. \nx² + 1/x² + 2 = 25. \nx² + 1/x² = 25 - 2 = 23.",
+    "step_by_step": [
+      "Given the equation: x + 1/x = 5.",
+      "We need to find the value of x² + 1/x².",
+      "Square both sides of the given equation: (x + 1/x)² = 5².",
+      "Expand the left side using the identity (a+b)² = a² + b² + 2ab:",
+      "x² + (1/x)² + 2 * x * (1/x) = 25.",
+      "Simplify the term 2 * x * (1/x): 2 * 1 = 2.",
+      "So, the equation becomes: x² + 1/x² + 2 = 25.",
+      "To find x² + 1/x², subtract 2 from both sides: x² + 1/x² = 25 - 2.",
+      "x² + 1/x² = 23."
+    ],
+    "tips_and_tricks": [
+      "Remember the algebraic identity: (a+b)² = a² + b² + 2ab.",
+      "If x + 1/x = k, then x² + 1/x² = k² - 2.",
+      "If x - 1/x = k, then x² + 1/x² = k² + 2."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Algebra",
+      "subtopic": "Algebraic Identities",
+      "concept": "Using algebraic identities to find values of expressions."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 64,
+    "Question": "If a - b = 3 and ab = 4, find the value of a³ - b³.",
+    "options": {
+      "a": "63",
+      "b": "27",
+      "c": "36",
+      "d": "45"
+    },
+    "correct_answer": "a",
+    "Solution": "We know that a³ - b³ = (a - b)(a² + ab + b²). \nWe need a² + b². \n(a - b)² = a² + b² - 2ab. \n3² = a² + b² - 2(4). \n9 = a² + b² - 8. \na² + b² = 9 + 8 = 17. \nNow, a³ - b³ = (a - b)( (a² + b²) + ab ). \n= 3 * (17 + 4) = 3 * 21 = 63. \nAlternatively, a³ - b³ = (a-b)³ + 3ab(a-b) \n= (3)³ + 3(4)(3) \n= 27 + 36 = 63.",
+    "step_by_step": [
+      "Given: a - b = 3 and ab = 4.",
+      "We need to find a³ - b³.",
+      "Use the algebraic identity: a³ - b³ = (a - b)(a² + ab + b²).",
+      "We have (a - b) and ab. We need to find a² + b².",
+      "Consider the identity: (a - b)² = a² + b² - 2ab.",
+      "Substitute the given values: (3)² = a² + b² - 2(4).",
+      "9 = a² + b² - 8.",
+      "So, a² + b² = 9 + 8 = 17.",
+      "Now substitute all known values into the formula for a³ - b³:",
+      "a³ - b³ = (3) * (17 + 4).",
+      "a³ - b³ = 3 * 21 = 63.",
+      "Alternative identity: a³ - b³ = (a-b)³ + 3ab(a-b).",
+      "Substitute values: a³ - b³ = (3)³ + 3(4)(3) = 27 + 36 = 63."
+    ],
+    "tips_and_tricks": [
+      "Memorize key algebraic identities: (a±b)², (a±b)³, a²-b², a³±b³.",
+      "Choose the identity that directly uses the given information or can be easily manipulated to use it."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Algebra",
+      "subtopic": "Algebraic Identities",
+      "concept": "Applying algebraic identities to evaluate expressions."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 65,
+    "Question": "Find the roots of the quadratic equation x² - 7x + 12 = 0.",
+    "options": {
+      "a": "3, 4",
+      "b": "-3, -4",
+      "c": "3, -4",
+      "d": "-3, 4"
+    },
+    "correct_answer": "a",
+    "Solution": "We need to find two numbers whose sum is 7 and product is 12. These numbers are 3 and 4. \nSo, x² - 7x + 12 = 0 can be written as: \nx² - 3x - 4x + 12 = 0 \nx(x - 3) - 4(x - 3) = 0 \n(x - 3)(x - 4) = 0 \nSo, x - 3 = 0 or x - 4 = 0. \nTherefore, x = 3 or x = 4.",
+    "step_by_step": [
+      "The given quadratic equation is x² - 7x + 12 = 0.",
+      "We can solve this by factorization. We need two numbers that multiply to 12 (the constant term) and add up to -7 (the coefficient of x).",
+      "The numbers are -3 and -4 (since (-3) * (-4) = 12 and (-3) + (-4) = -7).",
+      "Rewrite the middle term using these numbers: x² - 3x - 4x + 12 = 0.",
+      "Factor by grouping: x(x - 3) - 4(x - 3) = 0.",
+      "Take out the common factor (x - 3): (x - 3)(x - 4) = 0.",
+      "For the product of two factors to be zero, at least one of them must be zero.",
+      "So, either x - 3 = 0  =>  x = 3.",
+      "Or, x - 4 = 0  =>  x = 4.",
+      "The roots are 3 and 4."
+    ],
+    "tips_and_tricks": [
+      "For a quadratic equation ax² + bx + c = 0, if it can be factored into (x-p)(x-q)=0, then p and q are the roots.",
+      "Alternatively, use the quadratic formula: x = [-b ± √(b²-4ac)] / 2a."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Algebra",
+      "subtopic": "Quadratic Equations",
+      "concept": "Finding roots of a quadratic equation by factorization."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 66,
+    "Question": "In a triangle ABC, ∠B = 90°. If AB = 8 cm and BC = 6 cm, find the length of AC.",
+    "options": {
+      "a": "10 cm",
+      "b": "12 cm",
+      "c": "14 cm",
+      "d": "9 cm"
+    },
+    "correct_answer": "a",
+    "Solution": "Since ∠B = 90°, triangle ABC is a right-angled triangle with AC as the hypotenuse. \nBy Pythagoras theorem: AC² = AB² + BC². \nAC² = 8² + 6². \nAC² = 64 + 36. \nAC² = 100. \nAC = √100 = 10 cm.",
+    "step_by_step": [
+      "Identify that triangle ABC is a right-angled triangle because ∠B = 90°.",
+      "The sides AB and BC are the perpendicular sides, and AC is the hypotenuse.",
+      "Given AB = 8 cm and BC = 6 cm.",
+      "Apply the Pythagoras theorem: Hypotenuse² = Base² + Perpendicular².",
+      "So, AC² = AB² + BC².",
+      "Substitute the values: AC² = 8² + 6².",
+      "AC² = 64 + 36.",
+      "AC² = 100.",
+      "Take the square root of both sides: AC = √100.",
+      "AC = 10 cm (length cannot be negative)."
+    ],
+    "tips_and_tricks": [
+      "Memorize the Pythagoras theorem: a² + b² = c² for a right-angled triangle.",
+      "Recognize Pythagorean triplets (e.g., 3-4-5, 6-8-10, 5-12-13) to solve problems faster."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Geometry",
+      "subtopic": "Triangles - Pythagoras Theorem",
+      "concept": "Applying Pythagoras theorem to find the hypotenuse of a right-angled triangle."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 67,
+    "Question": "The length of a chord of a circle is 16 cm and its distance from the center is 6 cm. Find the radius of the circle.",
+    "options": {
+      "a": "8 cm",
+      "b": "10 cm",
+      "c": "12 cm",
+      "d": "14 cm"
+    },
+    "correct_answer": "b",
+    "Solution": "Let the chord be AB and the center of the circle be O. Let M be the midpoint of AB. Then OM is perpendicular to AB. \nLength of chord AB = 16 cm. So, AM = MB = 16/2 = 8 cm. \nDistance from the center OM = 6 cm. \nIn right-angled triangle OMA, OA is the radius (r). \nBy Pythagoras theorem: OA² = OM² + AM². \nr² = 6² + 8². \nr² = 36 + 64. \nr² = 100. \nr = √100 = 10 cm.",
+    "step_by_step": [
+      "Draw a diagram: a circle with center O, a chord AB, and a perpendicular OM from O to AB.",
+      "The perpendicular from the center to a chord bisects the chord. So, AM = MB.",
+      "Given length of chord AB = 16 cm, so AM = 16/2 = 8 cm.",
+      "Given distance from the center to the chord OM = 6 cm.",
+      "Triangle OMA is a right-angled triangle with ∠OMA = 90°.",
+      "OA is the radius (r) of the circle, which is the hypotenuse of ΔOMA.",
+      "Apply Pythagoras theorem to ΔOMA: OA² = OM² + AM².",
+      "r² = 6² + 8².",
+      "r² = 36 + 64.",
+      "r² = 100.",
+      "r = √100 = 10 cm."
+    ],
+    "tips_and_tricks": [
+      "Remember the property: The perpendicular from the center of a circle to a chord bisects the chord.",
+      "This problem often reduces to applying the Pythagoras theorem in a right-angled triangle formed by the radius, half the chord, and the distance of the chord from the center."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Geometry",
+      "subtopic": "Circles - Chords and Radius",
+      "concept": "Relationship between radius, chord length, and distance of chord from center."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 68,
+    "Question": "The angles of a quadrilateral are in the ratio 1:2:3:4. Find the measure of the largest angle.",
+    "options": {
+      "a": "72°",
+      "b": "108°",
+      "c": "144°",
+      "d": "36°"
+    },
+    "correct_answer": "c",
+    "Solution": "Let the angles be x, 2x, 3x, and 4x. \nThe sum of angles in a quadrilateral is 360°. \nSo, x + 2x + 3x + 4x = 360°. \n10x = 360°. \nx = 360 / 10 = 36°. \nThe angles are: \n1x = 36° \n2x = 2 * 36 = 72° \n3x = 3 * 36 = 108° \n4x = 4 * 36 = 144° \nThe largest angle is 144°.",
+    "step_by_step": [
+      "Let the angles of the quadrilateral be k, 2k, 3k, and 4k, where k is a common multiplier.",
+      "The sum of the interior angles of any quadrilateral is 360°.",
+      "So, k + 2k + 3k + 4k = 360°.",
+      "Combine the terms: 10k = 360°.",
+      "Solve for k: k = 360° / 10 = 36°.",
+      "Now find the measure of each angle:",
+      "First angle = k = 36°.",
+      "Second angle = 2k = 2 * 36° = 72°.",
+      "Third angle = 3k = 3 * 36° = 108°.",
+      "Fourth angle = 4k = 4 * 36° = 144°.",
+      "The largest angle is 144°."
+    ],
+    "tips_and_tricks": [
+      "The sum of interior angles of an n-sided polygon is (n-2) × 180°. For a quadrilateral (n=4), sum = (4-2) × 180° = 2 × 180° = 360°.",
+      "When ratios are given, use a variable to represent the actual values."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Geometry",
+      "subtopic": "Quadrilaterals - Angle Sum Property",
+      "concept": "Calculating angles of a quadrilateral given their ratio."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 69,
+    "Question": "The length and breadth of a rectangle are 12 cm and 5 cm respectively. Find its perimeter.",
+    "options": {
+      "a": "17 cm",
+      "b": "34 cm",
+      "c": "60 cm",
+      "d": "29 cm"
+    },
+    "correct_answer": "b",
+    "Solution": "Length (l) = 12 cm. \nBreadth (b) = 5 cm. \nPerimeter of a rectangle = 2 × (length + breadth). \nPerimeter = 2 × (12 + 5) = 2 × 17 = 34 cm.",
+    "step_by_step": [
+      "Given: Length (l) = 12 cm, Breadth (b) = 5 cm.",
+      "The formula for the perimeter of a rectangle is P = 2(l + b).",
+      "Substitute the given values into the formula: P = 2 * (12 + 5).",
+      "P = 2 * (17).",
+      "P = 34 cm."
+    ],
+    "tips_and_tricks": [
+      "Memorize the formulas for perimeter and area of basic 2D shapes (rectangle, square, triangle, circle).",
+      "Perimeter is the total length of the boundary of a shape."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Mensuration",
+      "subtopic": "2D Mensuration - Rectangle",
+      "sub_subtopic": "Perimeter of a rectangle",
+      "concept": "Calculating the perimeter of a rectangle."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 70,
+    "Question": "Find the volume of a cube whose edge is 4 cm.",
+    "options": {
+      "a": "16 cm³",
+      "b": "32 cm³",
+      "c": "64 cm³",
+      "d": "24 cm³"
+    },
+    "correct_answer": "c",
+    "Solution": "Edge of the cube (a) = 4 cm. \nVolume of a cube = a³. \nVolume = 4³ = 4 × 4 × 4 = 16 × 4 = 64 cm³.",
+    "step_by_step": [
+      "Given: Edge of the cube (a) = 4 cm.",
+      "The formula for the volume of a cube is V = a³, where 'a' is the length of its edge.",
+      "Substitute the given value into the formula: V = 4³.",
+      "V = 4 * 4 * 4 = 16 * 4 = 64 cm³."
+    ],
+    "tips_and_tricks": [
+      "Memorize the formulas for volume and surface area of basic 3D shapes (cube, cuboid, cylinder, cone, sphere).",
+      "Ensure the units are correct (volume is in cubic units)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Mensuration",
+      "subtopic": "3D Mensuration - Cube",
+      "sub_subtopic": "Volume of a cube",
+      "concept": "Calculating the volume of a cube."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 71,
+    "Question": "If sin θ = 3/5, find the value of cos θ (where θ is an acute angle).",
+    "options": {
+      "a": "4/5",
+      "b": "3/4",
+      "c": "5/4",
+      "d": "5/3"
+    },
+    "correct_answer": "a",
+    "Solution": "We know that sin²θ + cos²θ = 1. \nGiven sin θ = 3/5. \nSo, (3/5)² + cos²θ = 1. \n9/25 + cos²θ = 1. \ncos²θ = 1 - 9/25 = (25 - 9)/25 = 16/25. \ncos θ = √(16/25) = 4/5 (since θ is acute, cos θ is positive). \nAlternatively, sin θ = Perpendicular/Hypotenuse = 3/5. \nLet Perpendicular = 3k, Hypotenuse = 5k. \nBase = √(Hypotenuse² - Perpendicular²) = √((5k)² - (3k)²) = √(25k² - 9k²) = √(16k²) = 4k. \ncos θ = Base/Hypotenuse = 4k/5k = 4/5.",
+    "step_by_step": [
+      "Given sin θ = 3/5.",
+      "We know the trigonometric identity: sin²θ + cos²θ = 1.",
+      "Substitute the value of sin θ: (3/5)² + cos²θ = 1.",
+      "9/25 + cos²θ = 1.",
+      "cos²θ = 1 - 9/25.",
+      "cos²θ = (25 - 9) / 25 = 16/25.",
+      "cos θ = ±√(16/25) = ±4/5.",
+      "Since θ is an acute angle (0° < θ < 90°), cos θ is positive.",
+      "Therefore, cos θ = 4/5.",
+      "Alternative method (using right-angled triangle):",
+      "sin θ = Perpendicular (P) / Hypotenuse (H) = 3/5. Let P=3, H=5.",
+      "Using Pythagoras theorem, Base (B) = √(H² - P²) = √(5² - 3²) = √(25 - 9) = √16 = 4.",
+      "cos θ = Base (B) / Hypotenuse (H) = 4/5."
+    ],
+    "tips_and_tricks": [
+      "Memorize fundamental trigonometric identities like sin²θ + cos²θ = 1.",
+      "Understand the relationship between trigonometric ratios and sides of a right-angled triangle (SOH-CAH-TOA).",
+      "Remember the signs of trigonometric ratios in different quadrants (though here θ is acute, so all are positive)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Trigonometry",
+      "subtopic": "Trigonometric Identities and Ratios",
+      "concept": "Finding one trigonometric ratio given another using identities or right triangle properties."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 72,
+    "Question": "What is the value of tan 45° + sin 30°?",
+    "options": {
+      "a": "1",
+      "b": "1.5",
+      "c": "2",
+      "d": "0.5"
+    },
+    "correct_answer": "b",
+    "Solution": "We know the standard values: \ntan 45° = 1. \nsin 30° = 1/2 = 0.5. \nSo, tan 45° + sin 30° = 1 + 0.5 = 1.5.",
+    "step_by_step": [
+      "Recall the standard values of trigonometric ratios for common angles (0°, 30°, 45°, 60°, 90°).",
+      "Value of tan 45° = 1.",
+      "Value of sin 30° = 1/2.",
+      "Add these values: tan 45° + sin 30° = 1 + 1/2.",
+      "1 + 1/2 = 2/2 + 1/2 = 3/2 = 1.5."
+    ],
+    "tips_and_tricks": [
+      "Memorize the table of trigonometric values for standard angles.",
+      "Practice using these values in expressions."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Trigonometry",
+      "subtopic": "Standard Angle Values",
+      "concept": "Evaluating trigonometric expressions using standard angle values."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 73,
+    "Question": "Directions: The following table shows the production of different types of cars (in thousands) by a company over the years. Study the table and answer the question. \nYear | Type A | Type B | Type C | Type D \n--- | --- | --- | --- | --- \n2020 | 25 | 30 | 40 | 20 \n2021 | 30 | 35 | 38 | 25 \n2022 | 35 | 40 | 42 | 30 \n2023 | 40 | 45 | 45 | 35 \n\nWhat was the total production of Type B cars from 2020 to 2023?",
+    "options": {
+      "a": "130 thousands",
+      "b": "140 thousands",
+      "c": "150 thousands",
+      "d": "160 thousands"
+    },
+    "correct_answer": "c",
+    "Solution": "Production of Type B cars: \nIn 2020 = 30 thousands \nIn 2021 = 35 thousands \nIn 2022 = 40 thousands \nIn 2023 = 45 thousands \nTotal production of Type B cars = 30 + 35 + 40 + 45 = 150 thousands.",
+    "step_by_step": [
+      "Locate the column for 'Type B' cars in the table.",
+      "Read the production values for Type B cars for each year from 2020 to 2023.",
+      "Production in 2020 = 30.",
+      "Production in 2021 = 35.",
+      "Production in 2022 = 40.",
+      "Production in 2023 = 45.",
+      "Add these values: Total = 30 + 35 + 40 + 45 = 150.",
+      "The unit is in thousands, so the total production is 150 thousands."
+    ],
+    "tips_and_tricks": [
+      "Read the question carefully to understand what data needs to be extracted.",
+      "Double-check the row and column you are looking at.",
+      "Perform calculations accurately."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Data Interpretation",
+      "subtopic": "Table Chart",
+      "concept": "Reading and summing data from a table."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 74,
+    "Question": "Directions: The following table shows the production of different types of cars (in thousands) by a company over the years. Study the table and answer the question. \nYear | Type A | Type B | Type C | Type D \n--- | --- | --- | --- | --- \n2020 | 25 | 30 | 40 | 20 \n2021 | 30 | 35 | 38 | 25 \n2022 | 35 | 40 | 42 | 30 \n2023 | 40 | 45 | 45 | 35 \n\nIn which year was the total production of all types of cars the highest?",
+    "options": {
+      "a": "2020",
+      "b": "2021",
+      "c": "2022",
+      "d": "2023"
+    },
+    "correct_answer": "d",
+    "Solution": "Calculate total production for each year: \n2020: 25 + 30 + 40 + 20 = 115 thousands \n2021: 30 + 35 + 38 + 25 = 128 thousands \n2022: 35 + 40 + 42 + 30 = 147 thousands \n2023: 40 + 45 + 45 + 35 = 165 thousands \nThe highest total production was in 2023.",
+    "step_by_step": [
+      "Calculate the total production of all types of cars for each year.",
+      "For 2020: Total = 25 (A) + 30 (B) + 40 (C) + 20 (D) = 115 thousands.",
+      "For 2021: Total = 30 (A) + 35 (B) + 38 (C) + 25 (D) = 128 thousands.",
+      "For 2022: Total = 35 (A) + 40 (B) + 42 (C) + 30 (D) = 147 thousands.",
+      "For 2023: Total = 40 (A) + 45 (B) + 45 (C) + 35 (D) = 165 thousands.",
+      "Compare the total production for all years: 115, 128, 147, 165.",
+      "The highest total production is 165 thousands, which occurred in 2023."
+    ],
+    "tips_and_tricks": [
+      "Be systematic when calculating sums for multiple rows or columns.",
+      "Clearly label your intermediate calculations to avoid confusion."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Data Interpretation",
+      "subtopic": "Table Chart",
+      "concept": "Comparing sums of data across different categories in a table."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 75,
+    "Question": "Directions: The following table shows the production of different types of cars (in thousands) by a company over the years. Study the table and answer the question. \nYear | Type A | Type B | Type C | Type D \n--- | --- | --- | --- | --- \n2020 | 25 | 30 | 40 | 20 \n2021 | 30 | 35 | 38 | 25 \n2022 | 35 | 40 | 42 | 30 \n2023 | 40 | 45 | 45 | 35 \n\nWhat is the percentage increase in the production of Type A cars from 2020 to 2023?",
+    "options": {
+      "a": "50%",
+      "b": "60%",
+      "c": "75%",
+      "d": "40%"
+    },
+    "correct_answer": "b",
+    "Solution": "Production of Type A cars in 2020 = 25 thousands. \nProduction of Type A cars in 2023 = 40 thousands. \nIncrease in production = 40 - 25 = 15 thousands. \nPercentage increase = (Increase / Initial Production) * 100 \n= (15 / 25) * 100 = (3/5) * 100 = 3 * 20 = 60%.",
+    "step_by_step": [
+      "Find the production of Type A cars in 2020: 25 thousands.",
+      "Find the production of Type A cars in 2023: 40 thousands.",
+      "Calculate the increase in production: Increase = Production in 2023 - Production in 2020 = 40 - 25 = 15 thousands.",
+      "Calculate the percentage increase using the formula: Percentage Increase = (Increase / Initial Production) * 100.",
+      "Percentage Increase = (15 / 25) * 100.",
+      "Simplify the fraction: 15/25 = 3/5.",
+      "Percentage Increase = (3/5) * 100 = 3 * 20 = 60%."
+    ],
+    "tips_and_tricks": [
+      "Formula for percentage increase: ((Final Value - Initial Value) / Initial Value) * 100.",
+      "Ensure you use the correct initial value as the base for percentage calculation."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Data Interpretation",
+      "subtopic": "Table Chart",
+      "sub_subtopic": "Percentage Increase/Decrease",
+      "concept": "Calculating percentage change from table data."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 76,
+    "Question": "Directions: The following table shows the production of different types of cars (in thousands) by a company over the years. Study the table and answer the question. \nYear | Type A | Type B | Type C | Type D \n--- | --- | --- | --- | --- \n2020 | 25 | 30 | 40 | 20 \n2021 | 30 | 35 | 38 | 25 \n2022 | 35 | 40 | 42 | 30 \n2023 | 40 | 45 | 45 | 35 \n\nWhat is the ratio of the total production of Type C cars in 2021 to the total production of Type D cars in 2022?",
+    "options": {
+      "a": "19:15",
+      "b": "15:19",
+      "c": "38:25",
+      "d": "25:38"
+    },
+    "correct_answer": "a",
+    "Solution": "Production of Type C cars in 2021 = 38 thousands. \nProduction of Type D cars in 2022 = 30 thousands. \nRatio = Production of Type C in 2021 : Production of Type D in 2022 \n= 38 : 30 \nDivide both by their GCD (2): \n= 19 : 15.",
+    "step_by_step": [
+      "Find the production of Type C cars in 2021 from the table: 38 thousands.",
+      "Find the production of Type D cars in 2022 from the table: 30 thousands.",
+      "Form the ratio: (Production of Type C in 2021) / (Production of Type D in 2022) = 38 / 30.",
+      "Simplify the ratio by dividing both numbers by their greatest common divisor (GCD).",
+      "GCD of 38 and 30 is 2.",
+      "38 / 2 = 19.",
+      "30 / 2 = 15.",
+      "The ratio is 19:15."
+    ],
+    "tips_and_tricks": [
+      "Ensure you pick the correct values for the specified car type and year.",
+      "Always simplify the ratio to its lowest terms."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Data Interpretation",
+      "subtopic": "Table Chart",
+      "sub_subtopic": "Ratio Calculation",
+      "concept": "Calculating ratios from table data."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 77,
+    "Question": "Directions: The following table shows the production of different types of cars (in thousands) by a company over the years. Study the table and answer the question. \nYear | Type A | Type B | Type C | Type D \n--- | --- | --- | --- | --- \n2020 | 25 | 30 | 40 | 20 \n2021 | 30 | 35 | 38 | 25 \n2022 | 35 | 40 | 42 | 30 \n2023 | 40 | 45 | 45 | 35 \n\nThe production of Type D cars in 2023 is what percentage of the production of Type A cars in the same year?",
+    "options": {
+      "a": "87.5%",
+      "b": "114.28%",
+      "c": "80%",
+      "d": "125%"
+    },
+    "correct_answer": "a",
+    "Solution": "Production of Type D cars in 2023 = 35 thousands. \nProduction of Type A cars in 2023 = 40 thousands. \nRequired percentage = (Production of Type D in 2023 / Production of Type A in 2023) * 100 \n= (35 / 40) * 100 \n= (7/8) * 100 = 7 * 12.5 = 87.5%.",
+    "step_by_step": [
+      "Find the production of Type D cars in 2023 from the table: 35 thousands.",
+      "Find the production of Type A cars in 2023 from the table: 40 thousands.",
+      "Calculate the required percentage: (Production of Type D in 2023 / Production of Type A in 2023) * 100.",
+      "Percentage = (35 / 40) * 100.",
+      "Simplify the fraction: 35/40 = 7/8.",
+      "Percentage = (7/8) * 100 = 700 / 8 = 87.5%."
+    ],
+    "tips_and_tricks": [
+      "Carefully identify the 'base' value for the percentage calculation (the value that comes after 'of').",
+      "Percentage = (Value / Base Value) * 100."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "Quantitative Aptitude",
+      "topic": "Data Interpretation",
+      "subtopic": "Table Chart",
+      "sub_subtopic": "Percentage Calculation",
+      "concept": "Calculating one value as a percentage of another from table data."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 78,
+    "Question": "Read the following passage carefully and answer the questions that follow. \n\nUrbanization, the process of population shift from rural to urban areas, is a global phenomenon with profound implications. While it often brings economic opportunities, improved infrastructure, and access to better education and healthcare, it also presents significant challenges. Overcrowding, pollution, housing shortages, and increased strain on resources like water and energy are common issues in rapidly urbanizing regions. Effective urban planning and sustainable development strategies are crucial to mitigate these negative impacts and harness the potential benefits of urbanization. This involves investing in public transportation, affordable housing, green spaces, and waste management systems. Furthermore, fostering inclusive growth ensures that the benefits of urban development reach all segments of the population, preventing the exacerbation of social inequalities. The future of our planet is increasingly urban, making it imperative to create cities that are not only economically vibrant but also environmentally sustainable and socially equitable.\n\nWhat is the primary focus of the passage?",
+    "options": {
+      "a": "The economic benefits of rural development.",
+      "b": "The challenges and opportunities of urbanization.",
+      "c": "The history of urban planning.",
+      "d": "The decline of rural populations globally."
+    },
+    "correct_answer": "b",
+    "Solution": "The passage discusses both the positive aspects (economic opportunities, better infrastructure) and negative aspects (overcrowding, pollution) of urbanization, and then talks about how to manage it. This clearly points to 'challenges and opportunities of urbanization' as the primary focus.",
+    "step_by_step": [
+      "Read the passage thoroughly to understand its main theme.",
+      "Identify the key topics discussed: urbanization, its benefits (opportunities), its problems (challenges), and solutions (effective planning).",
+      "Evaluate the given options.",
+      "Option (a) is incorrect as the passage focuses on urban areas.",
+      "Option (b) accurately reflects the dual nature of the discussion on urbanization.",
+      "Option (c) is incorrect; while planning is mentioned, the history of it is not the focus.",
+      "Option (d) is a related aspect but not the primary focus, which is the broader implications of urbanization itself."
+    ],
+    "tips_and_tricks": [
+      "Look for the central idea that is discussed throughout the passage.",
+      "The introduction and conclusion often provide clues to the main focus."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Reading Comprehension",
+      "subtopic": "Identifying Main Idea/Focus",
+      "concept": "Understanding the central theme of a passage."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 79,
+    "Question": "According to the passage, which of the following is NOT mentioned as a common challenge of urbanization?",
+    "options": {
+      "a": "Pollution",
+      "b": "Housing shortages",
+      "c": "Decreased access to education",
+      "d": "Strain on resources"
+    },
+    "correct_answer": "c",
+    "Solution": "The passage states that urbanization often brings \"access to better education and healthcare\". It lists \"Overcrowding, pollution, housing shortages, and increased strain on resources\" as challenges. Therefore, 'decreased access to education' is not mentioned as a challenge; in fact, the opposite is suggested as a benefit.",
+    "step_by_step": [
+      "Scan the passage for keywords related to challenges of urbanization.",
+      "The passage explicitly mentions: \"Overcrowding, pollution, housing shortages, and increased strain on resources like water and energy are common issues...\"",
+      "Compare these with the given options.",
+      "Pollution (a), Housing shortages (b), and Strain on resources (d) are directly mentioned.",
+      "The passage states urbanization offers \"access to better education\", so 'decreased access to education' (c) is contrary to what is stated and thus not a mentioned challenge."
+    ],
+    "tips_and_tricks": [
+      "Pay close attention to negations like 'NOT' in the question.",
+      "Locate the specific part of the passage that lists challenges."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Reading Comprehension",
+      "subtopic": "Detail-Oriented Questions (Specific Information)",
+      "concept": "Identifying information explicitly stated or not stated in the passage."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 80,
+    "Question": "What does the passage suggest as a key to managing the negative impacts of urbanization?",
+    "options": {
+      "a": "Slowing down the rate of urbanization.",
+      "b": "Focusing solely on economic growth.",
+      "c": "Effective urban planning and sustainable development.",
+      "d": "Encouraging population shift back to rural areas."
+    },
+    "correct_answer": "c",
+    "Solution": "The passage states, \"Effective urban planning and sustainable development strategies are crucial to mitigate these negative impacts and harness the potential benefits of urbanization.\" This directly answers the question.",
+    "step_by_step": [
+      "Look for phrases in the passage that suggest solutions or ways to manage urbanization's negative effects.",
+      "The sentence \"Effective urban planning and sustainable development strategies are crucial to mitigate these negative impacts...\" directly addresses this.",
+      "Compare this with the options.",
+      "Option (c) matches the passage's suggestion.",
+      "Options (a), (b), and (d) are not supported by the passage as key solutions."
+    ],
+    "tips_and_tricks": [
+      "Identify keywords in the question (e.g., 'key to managing', 'negative impacts').",
+      "Scan the passage for sentences that discuss solutions or mitigation strategies."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Reading Comprehension",
+      "subtopic": "Inferential Questions (Identifying Solutions/Suggestions)",
+      "concept": "Understanding suggested solutions or approaches from the passage."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 81,
+    "Question": "The passage implies that for cities to be truly successful, they must be:",
+    "options": {
+      "a": "Only economically vibrant.",
+      "b": "Environmentally sustainable and socially equitable, in addition to being economically vibrant.",
+      "c": "Primarily focused on technological advancement.",
+      "d": "Independent of rural areas."
+    },
+    "correct_answer": "b",
+    "Solution": "The last sentence of the passage states, \"...making it imperative to create cities that are not only economically vibrant but also environmentally sustainable and socially equitable.\" This clearly indicates that all three aspects are necessary for successful cities.",
+    "step_by_step": [
+      "Look for statements in the passage that define successful or ideal cities.",
+      "The concluding sentence says: \"...imperative to create cities that are not only economically vibrant but also environmentally sustainable and socially equitable.\"",
+      "This means economic vibrancy is one component, but environmental sustainability and social equity are also crucial.",
+      "Option (b) accurately captures this multifaceted requirement."
+    ],
+    "tips_and_tricks": [
+      "Pay attention to concluding remarks as they often summarize the author's main point or vision.",
+      "Words like 'not only... but also' indicate multiple essential components."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Reading Comprehension",
+      "subtopic": "Inferential Questions (Author's Implication)",
+      "concept": "Inferring the author's perspective on the characteristics of successful cities."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  },
+  {
+    "question_id": 82,
+    "Question": "What is the meaning of the word 'mitigate' as used in the passage?",
+    "options": {
+      "a": "To intensify",
+      "b": "To lessen or reduce the severity of",
+      "c": "To ignore",
+      "d": "To understand"
+    },
+    "correct_answer": "b",
+    "Solution": "The passage says, \"Effective urban planning and sustainable development strategies are crucial to mitigate these negative impacts...\". In this context, 'mitigate' means to make the negative impacts less severe or serious.",
+    "step_by_step": [
+      "Locate the word 'mitigate' in the passage: \"...crucial to mitigate these negative impacts...\"",
+      "Understand the context: The sentence talks about dealing with 'negative impacts'.",
+      "Consider the meaning of the options.",
+      "Option (a) 'To intensify' is the opposite.",
+      "Option (b) 'To lessen or reduce the severity of' fits the context of dealing with negative impacts.",
+      "Option (c) 'To ignore' and (d) 'To understand' do not fit the action implied.",
+      "Therefore, 'mitigate' means to lessen or reduce severity."
+    ],
+    "tips_and_tricks": [
+      "Use context clues from the surrounding words and sentences to determine the meaning of an unfamiliar word.",
+      "Substitute the options into the sentence to see which one makes the most sense."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Reading Comprehension",
+      "subtopic": "Vocabulary-based (Contextual Meaning)",
+      "concept": "Determining the meaning of a word from its context in the passage."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 83,
+    "Question": "Directions: In the following questions, out of the four alternatives, choose the one which best expresses the meaning of the given word. \nPERILOUS",
+    "options": {
+      "a": "Safe",
+      "b": "Dangerous",
+      "c": "Beneficial",
+      "d": "Easy"
+    },
+    "correct_answer": "b",
+    "Solution": "Perilous means full of danger or risk. Therefore, 'Dangerous' is the best synonym.",
+    "step_by_step": [
+      "Understand the meaning of the given word 'PERILOUS'.",
+      "'Perilous' means involving or full of danger or risk.",
+      "Evaluate the options:",
+      "a) Safe: Opposite of perilous.",
+      "b) Dangerous: Similar in meaning to perilous.",
+      "c) Beneficial: Means advantageous, not related.",
+      "d) Easy: Means not difficult, not related.",
+      "The closest synonym is 'Dangerous'."
+    ],
+    "tips_and_tricks": [
+      "Improve vocabulary by reading regularly and learning new words with their synonyms and antonyms.",
+      "Use a thesaurus for practice."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Synonyms",
+      "concept": "Identifying the word with the closest meaning."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 84,
+    "Question": "Directions: In the following questions, out of the four alternatives, choose the one which best expresses the meaning of the given word. \nABUNDANT",
+    "options": {
+      "a": "Scarce",
+      "b": "Plentiful",
+      "c": "Limited",
+      "d": "Rare"
+    },
+    "correct_answer": "b",
+    "Solution": "Abundant means existing or available in large quantities; plentiful. Therefore, 'Plentiful' is the best synonym.",
+    "step_by_step": [
+      "Understand the meaning of the given word 'ABUNDANT'.",
+      "'Abundant' means existing in large quantities; more than enough.",
+      "Evaluate the options:",
+      "a) Scarce: Opposite of abundant.",
+      "b) Plentiful: Similar in meaning to abundant.",
+      "c) Limited: Means restricted in size or amount, opposite.",
+      "d) Rare: Means not common, opposite.",
+      "The closest synonym is 'Plentiful'."
+    ],
+    "tips_and_tricks": [
+      "Contextual understanding from reading helps in remembering synonyms.",
+      "Look for root words or prefixes/suffixes if any."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Synonyms",
+      "concept": "Identifying the word with the closest meaning."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 85,
+    "Question": "Directions: In the following questions, choose the word opposite in meaning to the given word. \nHOSTILE",
+    "options": {
+      "a": "Friendly",
+      "b": "Aggressive",
+      "c": "Unfavorable",
+      "d": "Negative"
+    },
+    "correct_answer": "a",
+    "Solution": "Hostile means showing or feeling opposition or dislike; unfriendly. The opposite would be 'Friendly'.",
+    "step_by_step": [
+      "Understand the meaning of the given word 'HOSTILE'.",
+      "'Hostile' means unfriendly, antagonistic.",
+      "Evaluate the options to find the one opposite in meaning:",
+      "a) Friendly: Means kind and pleasant, opposite of hostile.",
+      "b) Aggressive: Similar in connotation to hostile.",
+      "c) Unfavorable: Means not conducive to success, can be related but not a direct opposite.",
+      "d) Negative: Means expressing denial or refusal, not a direct opposite of hostile in terms of behavior.",
+      "The best antonym is 'Friendly'."
+    ],
+    "tips_and_tricks": [
+      "When looking for antonyms, first understand the precise meaning of the given word.",
+      "Consider the context in which the word is typically used."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Antonyms",
+      "concept": "Identifying the word with the opposite meaning."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 86,
+    "Question": "Directions: In the following questions, choose the word opposite in meaning to the given word. \nEXPAND",
+    "options": {
+      "a": "Enlarge",
+      "b": "Widen",
+      "c": "Contract",
+      "d": "Stretch"
+    },
+    "correct_answer": "c",
+    "Solution": "Expand means to become or make larger or more extensive. The opposite would be to become smaller or narrower, which is 'Contract'.",
+    "step_by_step": [
+      "Understand the meaning of the given word 'EXPAND'.",
+      "'Expand' means to increase in size, number, or importance.",
+      "Evaluate the options to find the one opposite in meaning:",
+      "a) Enlarge: Synonym of expand.",
+      "b) Widen: Synonym of expand.",
+      "c) Contract: Means to decrease in size, number, or scope; the opposite of expand.",
+      "d) Stretch: Means to make longer or wider, often a synonym.",
+      "The best antonym is 'Contract'."
+    ],
+    "tips_and_tricks": [
+      "Pay attention to prefixes that can indicate opposition (e.g., 'un-', 'in-', 'dis-').",
+      "Think of pairs of words that represent opposite actions or states."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Antonyms",
+      "concept": "Identifying the word with the opposite meaning."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 87,
+    "Question": "Select the most appropriate one-word substitution for the given group of words: \nA person who can speak two languages fluently.",
+    "options": {
+      "a": "Monolingual",
+      "b": "Bilingual",
+      "c": "Multilingual",
+      "d": "Linguist"
+    },
+    "correct_answer": "b",
+    "Solution": "A person who can speak two languages fluently is called bilingual. 'Mono-' means one, 'bi-' means two, 'multi-' means many. A linguist is someone who studies linguistics.",
+    "step_by_step": [
+      "Understand the meaning of the given phrase: 'A person who can speak two languages fluently'.",
+      "Analyze the options:",
+      "a) Monolingual: Speaks only one language.",
+      "b) Bilingual: Speaks two languages.",
+      "c) Multilingual: Speaks more than two languages.",
+      "d) Linguist: An expert in or student of linguistics.",
+      "The correct term for someone who speaks two languages is 'Bilingual'."
+    ],
+    "tips_and_tricks": [
+      "Learn common prefixes related to numbers (mono-, bi-, tri-, poly-, multi-).",
+      "Differentiate between someone who speaks languages and someone who studies language itself (linguist)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "One-Word Substitution",
+      "concept": "Finding a single word to replace a descriptive phrase."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 88,
+    "Question": "Select the most appropriate one-word substitution for the given group of words: \nA place where government records are kept.",
+    "options": {
+      "a": "Museum",
+      "b": "Library",
+      "c": "Archives",
+      "d": "Hangar"
+    },
+    "correct_answer": "c",
+    "Solution": "Archives are a collection of historical documents or records providing information about a place, institution, or group of people. A museum displays objects, a library lends books, and a hangar stores aircraft.",
+    "step_by_step": [
+      "Understand the meaning of the given phrase: 'A place where government records are kept'.",
+      "Analyze the options:",
+      "a) Museum: A building in which objects of historical, scientific, artistic, or cultural interest are stored and exhibited.",
+      "b) Library: A building or room containing collections of books, periodicals, and sometimes films and recorded music for use or borrowing by the public or the members of an institution.",
+      "c) Archives: A collection of historical documents or records providing information about a place, institution, or group of people; also the place where these are stored.",
+      "d) Hangar: A large building with an extensive floor area, typically for housing aircraft.",
+      "The most appropriate word for a place where government records are kept is 'Archives'."
+    ],
+    "tips_and_tricks": [
+      "Learn specific terms for places with particular functions.",
+      "Distinguish between similar-sounding or related terms (e.g., library vs. archives)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "One-Word Substitution",
+      "concept": "Finding a single word to replace a descriptive phrase related to places."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 89,
+    "Question": "Select the most appropriate meaning of the given idiom: \nTo beat around the bush",
+    "options": {
+      "a": "To talk about irrelevant things",
+      "b": "To hit a bush repeatedly",
+      "c": "To speak directly about something",
+      "d": "To search for something hidden"
+    },
+    "correct_answer": "a",
+    "Solution": "To 'beat around the bush' means to avoid talking about what is important, or to delay or avoid getting to the main point.",
+    "step_by_step": [
+      "Understand the literal meaning of the words in the idiom, but recognize that idioms have figurative meanings.",
+      "Recall or deduce the figurative meaning of 'to beat around the bush'.",
+      "It means to avoid the main topic by talking about other things.",
+      "Evaluate the options:",
+      "a) To talk about irrelevant things: This aligns with the meaning of avoiding the main point.",
+      "b) To hit a bush repeatedly: This is a literal interpretation.",
+      "c) To speak directly about something: This is the opposite of the idiom's meaning.",
+      "d) To search for something hidden: This is not related.",
+      "The correct meaning is 'To talk about irrelevant things'."
+    ],
+    "tips_and_tricks": [
+      "Learn common idioms and their meanings through usage and examples.",
+      "Context can often help in understanding idioms."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Idioms & Phrases",
+      "concept": "Understanding the figurative meaning of common idioms."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 90,
+    "Question": "Select the most appropriate meaning of the given idiom: \nA piece of cake",
+    "options": {
+      "a": "A very difficult task",
+      "b": "Something very easy to do",
+      "c": "A delicious food item",
+      "d": "A share in a property"
+    },
+    "correct_answer": "b",
+    "Solution": "'A piece of cake' is an idiom that means something is very easy to accomplish.",
+    "step_by_step": [
+      "Understand that 'a piece of cake' is an idiomatic expression.",
+      "Recall its figurative meaning.",
+      "It refers to a task or job that is easy or simple.",
+      "Evaluate the options:",
+      "a) A very difficult task: This is the opposite.",
+      "b) Something very easy to do: This matches the idiom's meaning.",
+      "c) A delicious food item: This is the literal meaning.",
+      "d) A share in a property: This is unrelated.",
+      "The correct meaning is 'Something very easy to do'."
+    ],
+    "tips_and_tricks": [
+      "Many idioms have origins that are not immediately obvious, so memorization through exposure is key.",
+      "Think about the imagery: eating a piece of cake is generally an easy and pleasant activity."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Idioms & Phrases",
+      "concept": "Understanding the figurative meaning of common idioms."
+    },
+    "difficulty_level": "Easy",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 91,
+    "Question": "Select the correctly spelt word.",
+    "options": {
+      "a": "Accomodate",
+      "b": "Acommodate",
+      "c": "Accommodate",
+      "d": "Acomodate"
+    },
+    "correct_answer": "c",
+    "Solution": "The correct spelling is 'Accommodate', with double 'c' and double 'm'.",
+    "step_by_step": [
+      "Examine each option carefully for spelling errors.",
+      "Focus on common areas of spelling mistakes, such as double letters, vowel combinations, and silent letters.",
+      "The word 'accommodate' has two 'c's and two 'm's.",
+      "Option (a) has one 'm'.",
+      "Option (b) has one 'c' and one 'm'.",
+      "Option (c) 'Accommodate' has the correct spelling.",
+      "Option (d) has one 'c' and one 'm'."
+    ],
+    "tips_and_tricks": [
+      "Practice common English spellings, especially words with double letters or tricky vowel combinations.",
+      "Maintain a list of frequently misspelled words."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Vocabulary",
+      "subtopic": "Spellings",
+      "concept": "Identifying the correctly spelt word."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Remembering"
+  },
+  {
+    "question_id": 92,
+    "Question": "Identify the segment in the sentence which contains a grammatical error. If there is no error, select 'No error'. \nHe is one of the tallest boy (a) / in the class (b) / and is very intelligent. (c) / No error (d)",
+    "options": {
+      "a": "He is one of the tallest boy",
+      "b": "in the class",
+      "c": "and is very intelligent.",
+      "d": "No error"
+    },
+    "correct_answer": "a",
+    "Solution": "The phrase 'one of the' is always followed by a plural noun. Here, 'boy' should be 'boys'. So, the error is in part (a). The correct sentence would be: \"He is one of the tallest boys in the class and is very intelligent.\"",
+    "step_by_step": [
+      "Read the sentence carefully: \"He is one of the tallest boy in the class and is very intelligent.\"",
+      "Examine each part for grammatical errors.",
+      "Part (a): \"He is one of the tallest boy\". The structure 'one of the + superlative adjective' should be followed by a plural noun.",
+      "Here, 'tallest' is a superlative adjective. 'boy' is a singular noun, but it should be plural ('boys').",
+      "So, the error is in part (a). It should be 'one of the tallest boys'.",
+      "Parts (b) and (c) are grammatically correct in context."
+    ],
+    "tips_and_tricks": [
+      "Remember the rule: 'one of the' is followed by a plural noun/pronoun.",
+      "Pay attention to subject-verb agreement and noun plurality after such phrases."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Error Spotting",
+      "sub_subtopic": "Noun Plurality after 'one of the'",
+      "concept": "Identifying errors related to noun number after specific determiners."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 93,
+    "Question": "Identify the segment in the sentence which contains a grammatical error. If there is no error, select 'No error'. \nNeither the students nor their teacher (a) / were present (b) / in the auditorium. (c) / No error (d)",
+    "options": {
+      "a": "Neither the students nor their teacher",
+      "b": "were present",
+      "c": "in the auditorium.",
+      "d": "No error"
+    },
+    "correct_answer": "b",
+    "Solution": "When two subjects are connected by 'neither...nor', the verb agrees with the subject closer to it. Here, 'their teacher' is singular and is closer to the verb. So, the verb should be 'was' instead of 'were'. The error is in part (b). The correct sentence: \"Neither the students nor their teacher was present in the auditorium.\"",
+    "step_by_step": [
+      "Read the sentence: \"Neither the students nor their teacher were present in the auditorium.\"",
+      "Focus on subject-verb agreement, especially with correlative conjunctions like 'neither...nor'.",
+      "The rule for 'neither...nor' (and 'either...or') is that the verb agrees with the subject nearer to it.",
+      "In this sentence, the subjects are 'the students' (plural) and 'their teacher' (singular).",
+      "The subject closer to the verb 'were' is 'their teacher', which is singular.",
+      "Therefore, the verb should be singular ('was') to agree with 'teacher'.",
+      "The error is in part (b) 'were present'. It should be 'was present'."
+    ],
+    "tips_and_tricks": [
+      "Memorize subject-verb agreement rules, especially for compound subjects joined by 'or', 'nor', 'either...or', 'neither...nor'.",
+      "The verb agrees with the subject closest to it in such cases (proximity rule)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Error Spotting",
+      "sub_subtopic": "Subject-Verb Agreement (Neither...nor)",
+      "concept": "Applying subject-verb agreement rules with correlative conjunctions."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 94,
+    "Question": "Select the most appropriate option to improve the underlined segment in the given sentence. If there is no need to improve it, select 'No improvement'. \nShe has been working here **since four years**.",
+    "options": {
+      "a": "for four years",
+      "b": "from four years",
+      "c": "by four years",
+      "d": "No improvement"
+    },
+    "correct_answer": "a",
+    "Solution": "'Since' is used for a point in time (e.g., since 2020, since Monday). 'For' is used for a period of time (e.g., for four years, for two hours). Here, 'four years' is a period of time, so 'for' should be used. The correct phrase is 'for four years'.",
+    "step_by_step": [
+      "Analyze the underlined segment: 'since four years'.",
+      "The sentence uses the present perfect continuous tense ('has been working'), which indicates an action that started in the past and is still ongoing.",
+      "This tense often uses 'for' (to denote a period of time) or 'since' (to denote a point in time).",
+      "'Four years' represents a duration or period of time.",
+      "Therefore, the correct preposition to use with a period of time is 'for'.",
+      "The improved segment is 'for four years'."
+    ],
+    "tips_and_tricks": [
+      "Use 'for' when referring to a duration of time (e.g., for three days, for a month, for several years).",
+      "Use 'since' when referring to a specific point in time in the past from which an action began (e.g., since last Monday, since 1990, since I met you)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Sentence Improvement",
+      "sub_subtopic": "Use of Prepositions (For/Since)",
+      "concept": "Correct usage of 'for' and 'since' with time expressions."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 95,
+    "Question": "Select the most appropriate option to improve the underlined segment in the given sentence. If there is no need to improve it, select 'No improvement'. \nIf I **was you**, I would not accept this offer.",
+    "options": {
+      "a": "am you",
+      "b": "were you",
+      "c": "had been you",
+      "d": "No improvement"
+    },
+    "correct_answer": "b",
+    "Solution": "This sentence expresses a hypothetical or subjunctive mood (imaginary situation). In such cases, 'were' is used with 'I' instead of 'was'. The correct phrase is 'If I were you'.",
+    "step_by_step": [
+      "Analyze the underlined segment: 'was you' in the conditional clause 'If I was you'.",
+      "The sentence describes a hypothetical or unreal situation (the speaker is not actually 'you').",
+      "In such subjunctive mood sentences, 'were' is used for all subjects (I, he, she, it, they) when expressing a hypothetical condition, especially with 'if'.",
+      "So, 'If I was you' is grammatically incorrect in this context.",
+      "The correct form is 'If I were you'."
+    ],
+    "tips_and_tricks": [
+      "In conditional sentences expressing unreal or hypothetical situations (subjunctive mood), use 'were' instead of 'was' with singular subjects like I, he, she, it (e.g., If I were a bird...; If he were here...).",
+      "This is a common structure for giving advice: 'If I were you, I would...'"
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Sentence Improvement",
+      "sub_subtopic": "Subjunctive Mood (If I were...)",
+      "concept": "Correct usage of verb forms in hypothetical conditional sentences."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 96,
+    "Question": "Select the most appropriate option to fill in the blank. \nThe committee decided to ______ the meeting until next week due to the chairman's illness.",
+    "options": {
+      "a": "put on",
+      "b": "put off",
+      "c": "put up",
+      "d": "put out"
+    },
+    "correct_answer": "b",
+    "Solution": "'Put off' means to postpone. The context suggests the meeting was postponed. 'Put on' means to wear. 'Put up' means to erect or tolerate. 'Put out' means to extinguish.",
+    "step_by_step": [
+      "Read the sentence and understand the context: The meeting needs to be moved to next week because the chairman is ill.",
+      "This implies postponement.",
+      "Consider the meanings of the phrasal verbs given in the options:",
+      "a) put on: to dress oneself in something; to organize or present (a play, show, etc.).",
+      "b) put off: to postpone; to make someone dislike something or someone.",
+      "c) put up: to build or erect something; to provide accommodation; to tolerate.",
+      "d) put out: to extinguish (a fire, light); to cause inconvenience.",
+      "The meaning that fits the context of postponing the meeting is 'put off'."
+    ],
+    "tips_and_tricks": [
+      "Learn common phrasal verbs and their meanings, as they are frequently tested.",
+      "Pay attention to the context of the sentence to choose the most appropriate phrasal verb."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Fill in the Blanks (Phrasal Verbs)",
+      "concept": "Choosing the correct phrasal verb based on context."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Understanding"
+  },
+  {
+    "question_id": 97,
+    "Question": "Select the most appropriate option to fill in the blank. \nShe is very good ______ painting.",
+    "options": {
+      "a": "in",
+      "b": "at",
+      "c": "on",
+      "d": "with"
+    },
+    "correct_answer": "b",
+    "Solution": "The expression 'good at something' means skilled or proficient in a particular activity. So, 'at' is the correct preposition here.",
+    "step_by_step": [
+      "Read the sentence: \"She is very good ______ painting.\"",
+      "The sentence describes her skill level in painting.",
+      "Consider the prepositions that are commonly used with 'good' to indicate skill or proficiency.",
+      "The correct idiomatic expression is 'good at' something (e.g., good at mathematics, good at singing).",
+      "Therefore, the preposition 'at' is the most appropriate choice."
+    ],
+    "tips_and_tricks": [
+      "Learn common prepositional phrases and collocations (words that frequently go together).",
+      "'Good at' is used for skills/activities, 'good in' can sometimes be used for subjects (though 'at' is also common), 'good for' means beneficial for, 'good with' means skilled in handling (e.g., good with children)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Fill in the Blanks (Prepositions)",
+      "concept": "Choosing the correct preposition based on idiomatic usage."
+    },
+    "difficulty_level": "Moderate",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 98,
+    "Question": "Select the option that expresses the given sentence in Passive Voice. \nSomeone has stolen my pen.",
+    "options": {
+      "a": "My pen was stolen by someone.",
+      "b": "My pen has been stolen by someone.",
+      "c": "My pen had been stolen by someone.",
+      "d": "My pen is stolen by someone."
+    },
+    "correct_answer": "b",
+    "Solution": "The given sentence is in Present Perfect Tense (Active Voice): Subject (Someone) + has/have + V3 (stolen) + Object (my pen). \nTo convert to Passive Voice, the structure is: Object + has/have + been + V3 + by + Subject. \nSo, 'My pen' (Object) + 'has' + 'been' + 'stolen' (V3) + 'by someone' (Subject). \n\"My pen has been stolen by someone.\"",
+    "step_by_step": [
+      "Identify the tense of the active voice sentence: 'Someone has stolen my pen.' This is Present Perfect Tense (has + V3).",
+      "Identify the subject (Someone), verb (has stolen), and object (my pen) of the active sentence.",
+      "To change to passive voice for Present Perfect Tense, the structure is: Object + has/have + been + V3 (past participle) + by + Subject.",
+      "The object 'my pen' becomes the subject of the passive sentence.",
+      "The auxiliary verb 'has' (agrees with singular 'my pen') is followed by 'been'.",
+      "The main verb 'stolen' (V3) remains the same.",
+      "The original subject 'someone' becomes the agent in the passive voice, preceded by 'by'.",
+      "So, the passive voice sentence is: \"My pen has been stolen by someone.\""
+    ],
+    "tips_and_tricks": [
+      "Active to Passive Voice conversion rules for Present Perfect Tense: Object + has/have + been + V3 + by Subject.",
+      "The object of the active sentence becomes the subject of the passive sentence.",
+      "The subject of the active sentence becomes the object (agent) of the passive sentence (often optional if it's vague like 'someone')."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Active/Passive Voice",
+      "concept": "Converting a Present Perfect Tense sentence from active to passive voice."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 99,
+    "Question": "Select the option that expresses the given sentence in Indirect Speech. \nHe said to me, \"I am ready.\"",
+    "options": {
+      "a": "He told me that he was ready.",
+      "b": "He told me that I am ready.",
+      "c": "He said to me that he is ready.",
+      "d": "He asked me if he was ready."
+    },
+    "correct_answer": "a",
+    "Solution": "The reporting verb 'said to' changes to 'told'. \nThe conjunction 'that' is used. \nThe pronoun 'I' (first person) changes to 'he' (third person, according to the subject of the reporting verb). \nThe verb 'am' (present tense) changes to 'was' (past tense) because the reporting verb 'said' is in the past tense. \nSo, \"He told me that he was ready.\"",
+    "step_by_step": [
+      "Identify the reporting verb ('said to') and the reported speech (\"I am ready.\").",
+      "Change the reporting verb: 'said to' usually changes to 'told' when it's followed by an object ('me').",
+      "Introduce the conjunction 'that' to connect the reporting clause and the reported clause.",
+      "Change the pronoun: The first-person pronoun 'I' in the reported speech changes according to the subject of the reporting verb ('He'). So, 'I' becomes 'he'.",
+      "Change the tense of the verb in the reported speech: Since the reporting verb ('said') is in the past tense, the present tense verb 'am' in the reported speech changes to its corresponding past tense 'was'.",
+      "Combine these changes: \"He told me that he was ready.\""
+    ],
+    "tips_and_tricks": [
+      "Rules for changing Direct to Indirect Speech:",
+      "Change reporting verb (said to -> told, say -> say, says -> says).",
+      "Use conjunction 'that' for assertive sentences.",
+      "Change pronouns according to S-O-N rule (1st person by Subject, 2nd by Object, 3rd No change).",
+      "Change tense of reported speech if reporting verb is in past tense (Present -> Past, Past -> Past Perfect, Present Perfect -> Past Perfect).",
+      "Change time/place adverbs if necessary (e.g., now -> then, today -> that day)."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Grammar",
+      "subtopic": "Direct/Indirect Speech",
+      "concept": "Converting an assertive sentence from direct to indirect speech."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Applying"
+  },
+  {
+    "question_id": 100,
+    "Question": "Rearrange the parts of the sentence in correct order. \nP: for its rich biodiversity \nQ: is a popular tourist destination \nR: The national park, \nS: and stunning landscapes",
+    "options": {
+      "a": "RQPS",
+      "b": "RPSQ",
+      "c": "QPSR",
+      "d": "PRSQ"
+    },
+    "correct_answer": "b",
+    "Solution": "The sentence should start with the subject. 'R' (The national park,) introduces the subject. 'P' (for its rich biodiversity) and 'S' (and stunning landscapes) provide reasons or characteristics related to the national park. 'Q' (is a popular tourist destination) acts as the predicate, completing the sentence. So, R is followed by P and S (which can be in PS or SP order, but PS sounds more natural as a combined reason). Then Q concludes. RPSQ: \"The national park, for its rich biodiversity and stunning landscapes, is a popular tourist destination.\"",
+    "step_by_step": [
+      "Identify the part that introduces the main subject of the sentence. 'R' (The national park,) seems like a good starting point as it introduces a noun phrase that can act as a subject.",
+      "Look for parts that describe or add information to the subject. 'P' (for its rich biodiversity) and 'S' (and stunning landscapes) explain why the national park might be notable. 'P' and 'S' are connected by 'and', so they should likely be together, with 'S' following 'P' or vice-versa if it makes sense.",
+      "Look for the main verb or predicate that completes the sentence. 'Q' (is a popular tourist destination) provides the predicate for 'The national park'.",
+      "Try to form a coherent sentence by arranging these parts.",
+      "R: The national park,",
+      "P: for its rich biodiversity",
+      "S: and stunning landscapes",
+      "Q: is a popular tourist destination.",
+      "Combining them: \"The national park, for its rich biodiversity and stunning landscapes, is a popular tourist destination.\" This order is RPSQ.",
+      "Consider alternative logical flows. RQPS: \"The national park is a popular tourist destination for its rich biodiversity and stunning landscapes.\" This is also grammatically correct. However, the structure 'Subject, [descriptive phrase/clause], Predicate' is common for emphasis or providing context before the main action/statement. RPSQ fits this structure well, where 'for its rich biodiversity and stunning landscapes' acts as a descriptive phrase modifying 'The national park' before the main verb 'is'. The comma after 'The national park,' in R also suggests that a modifying phrase might follow before the main verb.",
+      "The combination 'for its rich biodiversity and stunning landscapes' (PS) forms a cohesive descriptive unit. Placing this unit after the subject (R) and before the predicate (Q) results in the sequence RPSQ."
+    ],
+    "tips_and_tricks": [
+      "Look for an introductory phrase or the subject of the sentence to start.",
+      "Identify connecting words (conjunctions like 'and', 'but', 'so'; relative pronouns like 'who', 'which', 'that').",
+      "Try to find logical links between the parts, such as cause-effect, description-subject, or chronological order.",
+      "Ensure the final sentence is grammatically correct and makes logical sense."
+    ],
+    "classification": {
+      "paper": "SSC CGL Tier-1 Model Paper",
+      "subject": "English Language & Comprehension",
+      "topic": "Sentence Structure",
+      "subtopic": "Para Jumbles/Sentence Rearrangement",
+      "concept": "Arranging jumbled parts of a sentence to form a coherent and grammatically correct sentence."
+    },
+    "difficulty_level": "Difficult",
+    "blooms_taxonomy": "Analyzing"
+  }
+]
