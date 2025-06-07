@@ -1,16 +1,28 @@
-// UKPSC Demo: app.js
-// ==================== CONFIGURATION ====================
-const CONFIG = {
-    TIMER_INTERVAL: 1000,
-    SCORE_THRESHOLDS: { EXCELLENT: 80, GOOD: 60, AVERAGE: 40 },
-    MARKING_SCHEME: { CORRECT: 1, INCORRECT: -0.25, UNATTEMPTED: 0 },
-    PERFORMANCE_LEVELS: {
-        EXCELLENT: 'Excellent',
-        GOOD: 'Good', 
-        AVERAGE: 'Average',
-        NEEDS_IMPROVEMENT: 'Needs Improvement'
-    }
+// Centralized Exam System: app.js
+// ==================== DYNAMIC CONFIGURATION ====================
+// Configuration will be set from HTML file via window.EXAM_CONFIG
+const getConfig = () => {
+    return window.EXAM_CONFIG || {
+        TIMER_INTERVAL: 1000,
+        SCORE_THRESHOLDS: { EXCELLENT: 80, GOOD: 60, AVERAGE: 40 },
+        MARKING_SCHEME: { CORRECT: 2, INCORRECT: -0.50, UNATTEMPTED: 0 },
+        PERFORMANCE_LEVELS: {
+            EXCELLENT: 'Excellent',
+            GOOD: 'Good', 
+            AVERAGE: 'Average',
+            NEEDS_IMPROVEMENT: 'Needs Improvement'
+        },
+        DATA_FILE: 'exam-data.json',
+        EXAM_CONTEXT: {
+            NAME: 'Practice Exam',
+            DESCRIPTION: 'This is a practice test.',
+            MARKING_INFO: '+2 for correct, -0.50 for wrong answers',
+            TARGET_SCORE: '120+ marks out of 200'
+        }
+    };
 };
+
+const CONFIG = getConfig();
 
 const EMAIL_CONFIG = {
     SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyqQ0QocnrUgrIC3h3Tv6tXZHBlgVTnhiwmdXZiJBPO1-lbB8HgMsNcMEzx32gvjWeZhA/exec'
@@ -99,11 +111,11 @@ const sampleExamData = [
         ],
         "classification": {
             "paper": "Paper 1: General Studies",
-            "subject": "Uttarakhand GK",
-            "topic": "History of Uttarakhand",
-            "subtopic": "Ancient Dynasties of Uttarakhand",
-            "sub_subtopic": "Kuninda Dynasty",
-            "concept": "Identifying the capital city of the Kuninda Dynasty based on historical and archaeological evidence."
+            "subject": "Sample Subject",
+            "topic": "Sample Topic",
+            "subtopic": "Sample Subtopic",
+            "sub_subtopic": "Sample Sub-subtopic",
+            "concept": "Sample Concept"
         },
         "difficulty_level": "Moderate",
         "blooms_taxonomy": "Remembering"
@@ -130,11 +142,11 @@ const sampleExamData = [
         ],
         "classification": {
             "paper": "Paper 1: General Studies",
-            "subject": "Uttarakhand GK", 
-            "topic": "People's Movements in Uttarakhand",
-            "subtopic": "Environmental Movements",
-            "sub_subtopic": "Chipko Movement",
-            "concept": "Identifying the geographical origin (district) of the Chipko Movement."
+            "subject": "Sample Subject", 
+            "topic": "Sample Topic",
+            "subtopic": "Sample Subtopic",
+            "sub_subtopic": "Sample Sub-subtopic",
+            "concept": "Sample Concept"
         },
         "difficulty_level": "Easy",
         "blooms_taxonomy": "Remembering"
@@ -195,17 +207,12 @@ class Utils {
 // ==================== DATA MANAGER ====================
 class DataManager {
     static async loadExamData() {
-        try {
-            const response = await fetch('exam-data.json');
-            if (response.ok) {
-                examState.examData = await response.json();
-            } else {
-                throw new Error('File not found');
-            }
-        } catch (error) {
-            console.log('Using sample data');
-            examState.examData = sampleExamData;
+        const response = await fetch(CONFIG.DATA_FILE);
+        if (!response.ok) {
+            throw new Error('Failed to load exam data file');
         }
+        
+        examState.examData = await response.json();
         
         if (!examState.examData || examState.examData.length === 0) {
             throw new Error('No exam data available');
@@ -232,7 +239,7 @@ class DataManager {
 class TimerManager {
     static initialize() {
         examState.startTime = new Date();
-        this.showTimer(); // Show timer when exam starts
+        this.showTimer();
         this.start();
     }
 
@@ -278,7 +285,6 @@ class TimerManager {
             homeButton.classList.remove('hidden');
         }
     }
-
 }
 
 // ==================== QUESTION MANAGER ====================
@@ -312,25 +318,57 @@ class QuestionManager {
         });
     }
 
-    static load(index) {
+    static async load(index) {
         examState.currentQuestion = index;
         const question = examState.examData[index];
         
-        // Update question display
-        this.updateQuestionDisplay(question, index);
+        await this.updateQuestionDisplay(question, index);
         this.updateOptions(question, index);
         this.updateNavigationButtons(index);
         this.updateNavigation();
+        this.updateClearButton();
     }
 
-    static updateQuestionDisplay(question, index) {
+    static async updateQuestionDisplay(question, index) {
         const questionNumber = document.getElementById('questionNumber');
         const questionMeta = document.getElementById('questionMeta');
         const questionText = document.getElementById('questionText');
         
         if (questionNumber) questionNumber.textContent = `Question ${index + 1} of ${examState.examData.length}`;
         if (questionMeta) questionMeta.textContent = `${question.classification.subject} | ${question.difficulty_level}`;
-        if (questionText) questionText.textContent = question.Question;
+        
+        if (questionText) {
+            questionText.innerHTML = '';
+            
+            const textDiv = document.createElement('div');
+            textDiv.textContent = question.Question;
+            textDiv.className = 'question-text-content';
+            questionText.appendChild(textDiv);
+        
+            // Try to load image if available
+            const availableImages = await this.getAvailableImages();
+            if (availableImages.includes(question.question_id)) {
+                const img = document.createElement('img');
+                img.src = `./images/Q${question.question_id}.png`;
+                img.className = 'question-image';
+                img.alt = `Question ${question.question_id} diagram`;
+                questionText.appendChild(img);
+            }
+        }
+    }
+
+    static async getAvailableImages() {
+        if (!this.availableImagesList) {
+            try {
+                const response = await fetch('./images/index.json');
+                const data = await response.json();
+                this.availableImagesList = data.available_images;
+            } catch (error) {
+                console.log('No images index found');
+                this.availableImagesList = [];
+            }
+        }
+        return this.availableImagesList;
     }
 
     static updateOptions(question, index) {
@@ -363,16 +401,31 @@ class QuestionManager {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
+        const clearBtn = document.getElementById('clearBtn');
         
         if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'block';
         if (nextBtn) nextBtn.style.display = index === examState.examData.length - 1 ? 'none' : 'block';
-        if (submitBtn) submitBtn.style.display = index === examState.examData.length - 1 ? 'block' : 'none';
+        if (submitBtn) {
+            if (index === examState.examData.length - 1) {
+                submitBtn.classList.remove('hidden');
+                submitBtn.style.display = 'block';
+            } else {
+                submitBtn.classList.add('hidden');
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        if (clearBtn) {
+            clearBtn.style.display = 'block';
+            clearBtn.style.visibility = 'visible';
+            clearBtn.classList.remove('hidden');
+        }
+        this.updateClearButton();
     }
 
     static selectOption(option) {
         examState.answers[examState.currentQuestion] = option;
         
-        // Update UI
         const options = document.querySelectorAll('.option');
         options.forEach(opt => opt.classList.remove('selected'));
         
@@ -387,6 +440,32 @@ class QuestionManager {
         }
         
         this.updateNavigation();
+        this.updateClearButton();
+    }
+
+    static clearCurrentAnswer() {
+        delete examState.answers[examState.currentQuestion];
+        
+        const options = document.querySelectorAll('.option');
+        options.forEach(opt => opt.classList.remove('selected'));
+        
+        const radioButtons = document.querySelectorAll('.option input[type="radio"]');
+        radioButtons.forEach(radio => radio.checked = false);
+        
+        this.updateNavigation();
+        this.updateClearButton();
+    }
+
+    static updateClearButton() {
+        const clearBtn = document.getElementById('clearBtn');
+        if (clearBtn) {
+            const hasAnswer = examState.answers[examState.currentQuestion] !== undefined;
+            clearBtn.style.display = 'block';
+            clearBtn.style.visibility = 'visible';
+            clearBtn.classList.remove('hidden');
+            clearBtn.style.opacity = hasAnswer ? '1' : '0.5';
+            clearBtn.disabled = !hasAnswer;
+        }
     }
 
     static next() {
@@ -468,10 +547,15 @@ class ResultsCalculator {
     }
 
     static buildResultsObject(basicStats, analytics) {
+        const maxPossibleMarks = examState.examData.length * CONFIG.MARKING_SCHEME.CORRECT;
+        const scorePercentage = basicStats.totalMarks >= 0 ? 
+            Math.round((basicStats.totalMarks / maxPossibleMarks) * 100) :
+            Math.max(0, Math.round((basicStats.totalMarks / maxPossibleMarks) * 100));
+            
         return {
-            score: Math.round((basicStats.correct / examState.examData.length) * 100),
+            score: Math.max(0, scorePercentage),
             totalMarks: basicStats.totalMarks,
-            maxMarks: examState.examData.length,
+            maxMarks: maxPossibleMarks,
             correct: basicStats.correct,
             incorrect: basicStats.incorrect,
             unattempted: basicStats.unattempted,
@@ -495,7 +579,6 @@ class ResultsDisplay {
         this.displayPerformanceMatrix(results);
         AIInsights.generate(results);
 
-        // Ensure scroll after content is rendered
         setTimeout(() => {
             window.scrollTo({
                 top: 0,
@@ -505,14 +588,16 @@ class ResultsDisplay {
     }
 
     static displayHeroSection(results) {
-        // Set default values while AI generates personalized content
         const greetingElement = document.getElementById('personalizedGreeting');
         const subtextElement = document.getElementById('heroSubtext');
         
         if (greetingElement) greetingElement.textContent = "We are analyzing your performance...";
         if (subtextElement) {
             const attemptedQuestions = results.correct + results.incorrect;
-            subtextElement.textContent = `Attempted ${attemptedQuestions} questions • ${results.correct} correct answers`;
+            const marksText = results.totalMarks >= 0 ? 
+                `${results.totalMarks} marks earned` : 
+                `${results.totalMarks} marks (negative marking)`;
+            subtextElement.textContent = `Attempted ${attemptedQuestions} questions • ${results.correct} correct answers • ${results.incorrect} wrong answers • ${marksText}`;
         }
         this.animateScoreCircle(results.score);
     }
@@ -661,14 +746,17 @@ class ResultsDisplay {
         const container = document.getElementById('difficultyMatrix');
         if (!container) return;
         
-        const difficulties = ['Easy', 'Moderate', 'Hard'];
+        const difficulties = Object.keys(difficultyStats);
         let html = '';
         
         difficulties.forEach(difficulty => {
             const stats = difficultyStats[difficulty];
             if (stats) {
                 const percentage = Math.round((stats.correct / stats.total) * 100);
-                const color = difficulty === 'Easy' ? '#10B981' : difficulty === 'Moderate' ? '#F7A621' : '#EF4444';
+                const color = difficulty === 'Easy' ? '#10B981' : 
+                             difficulty === 'Moderate' ? '#F7A621' : 
+                             difficulty === 'Hard' ? '#EF4444' :
+                             difficulty === 'Difficult' ? '#EF4444' : '#6B7280';
                 
                 html += `
                     <div style="display: flex; justify-content: space-between; margin: 12px 0;">
@@ -785,13 +873,16 @@ class AIInsights {
         const timePerQuestion = Math.round(results.duration / attemptedQuestions.length);
         const efficiencyScore = timePerQuestion < 60 ? "highly efficient" : timePerQuestion < 120 ? "balanced" : "thoughtful and deliberate";
 
+        // Enhanced data science analysis for personalized scheduling
+        const enhancedAnalysis = this.generateEnhancedAnalysis(results, questionAnalysis);
+
         return `You are an expert educational psychologist and learning analytics specialist. Analyze this student's comprehensive exam performance to create their unique "Performance DNA" - a personalized cognitive and learning profile.
 
-    **UKPSC EXAM CONTEXT:**
-    This is a practice test for UKPSC Prelims Paper-I (General Studies), which is the gateway exam for Uttarakhand Civil Services. The actual UKPSC exam features 150 questions in 2 hours with negative marking (-0.25 for wrong answers). Success requires mastering Uttarakhand GK, Indian Polity, History, Geography, Economics, and Current Affairs. UKPSC aspirants typically need 60-70% to qualify for mains.
+    **${CONFIG.EXAM_CONTEXT.NAME} EXAM CONTEXT:**
+    ${CONFIG.EXAM_CONTEXT.DESCRIPTION} The actual exam features ${CONFIG.EXAM_CONTEXT.MARKING_INFO}. ${CONFIG.EXAM_CONTEXT.TARGET_SCORE} to qualify for next stages.
 
     **STUDENT PERFORMANCE DATA:**
-    Overall Achievement: ${results.score}% (${results.correct}/${results.total} correct)
+    Overall Achievement: ${results.score}% (${results.correct}/${results.total} correct, ${results.totalMarks} marks)
     Learning Pace: ${Math.floor(results.duration / 60)}m ${results.duration % 60}s total (${timePerQuestion}s per question - ${efficiencyScore})
     Engagement Level: ${attemptedQuestions.length}/${examState.examData.length} questions attempted (${Math.round((attemptedQuestions.length/examState.examData.length)*100)}%)
 
@@ -801,6 +892,12 @@ class AIInsights {
     Subject Performance: ${JSON.stringify(results.subjectStats)}
     Difficulty Response: ${JSON.stringify(results.difficultyStats)}
     Cognitive Levels: ${JSON.stringify(results.bloomsStats)}
+
+    **ENHANCED LEARNING ANALYTICS:**
+    Subject Learning Velocity: ${JSON.stringify(enhancedAnalysis.subjectVelocity)}
+    Cognitive Load Distribution: ${JSON.stringify(enhancedAnalysis.cognitiveLoad)}
+    Difficulty Progression Mapping: ${JSON.stringify(enhancedAnalysis.difficultyProgression)}
+    Weekly Distribution Strategy: ${JSON.stringify(enhancedAnalysis.weeklyStrategy)}
 
     **TONE EXAMPLES:**
     CORRECT: "Your cognitive processing style shows you excel at..."
@@ -815,13 +912,13 @@ class AIInsights {
     {
       "personalizedGreeting": "Generate a personalized, encouraging greeting based on the student's performance. Consider their score, engagement level, and time spent. Be specific and motivational. Examples: 'Outstanding work on this challenging exam!' or 'Great start - you're building solid foundations!' or 'Every learning journey begins with brave first steps!' Make it 1 sentence, use exclamation mark, and be genuinely encouraging based on their actual performance.",
       
-      "heroSubtext": "Generate a dynamic, celebratory message that shows key metrics in an engaging way. MUST include: performance percentage, correct answers, attempted questions, and total marks earned. Use motivational language that matches their performance level. Format examples: 
+      "heroSubtext": "Generate a dynamic, celebratory message that shows key metrics in an engaging way. MUST include: performance percentage, correct answers, attempted questions, and total marks (can be negative due to negative marking).
         - High performers (70%+): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> nailed it • <x marks earned>'
         - Good performers (50-69%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> on target • <x marks earned>' 
         - Building performers (30-49%): '<appropriate emoji> <a short message>! <x% score> • <correct answers/attempted questions> victories • <x marks earned>'
         - Early learners (<30%): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>'
         - Shy learners (no attempts): '<appropriate emoji> <a short message>! <x correct answers or y attempts> • <Motivational small message>
-        Use appropriate emojis and make it feel like a personal achievement celebration. Always include the actual numbers: score%, correct/attempted, and total marks. Use exmaples for inspiration and format, but generate your own text",
+        Use appropriate emojis and make it feel like a personal achievement celebration. Always include the actual numbers: score%, correct/attempted, and total marks. Use examples for inspiration and format, but generate your own text",
 
       "performanceDNA": "MANDATORY: Provide realistic feedback based on actual performance data. Use only second-person pronouns (you, your, you're). Follow these guidelines:
         IF STUDENT ATTEMPTED 0 QUESTIONS: Start with 'Your learning journey is just beginning...' or 'You're at the starting point...' Acknowledge they haven't attempted questions yet, encourage them to engage with the material, mention that taking the first step is often the hardest, and provide motivation to start attempting questions.
@@ -831,29 +928,45 @@ class AIInsights {
         Always be honest about performance while remaining encouraging. Focus on: (1) Their actual engagement level and what it reveals, (2) Genuine patterns from attempted questions, (3) Realistic next steps for improvement, (4) Encouraging but truthful assessment of their approach. Write 4-5 sentences maximum.",
       
       "studyPlan": {
-          "dailySchedule": [
-            {"day": "Monday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject1", "hours": 1.5}, {"name": "Subject2", "hours": 1.0}]},
-            {"day": "Tuesday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Practice Tests", "hours": 2.0}]},
-            {"day": "Wednesday", "study": 1.5, "rest": 2.0, "subjects": [{"name": "Revision", "hours": 1.5}]},
-            {"day": "Thursday", "study": 2.5, "rest": 1.5, "subjects": [{"name": "Subject3", "hours": 1.5}, {"name": "Subject4", "hours": 1.0}]},
-            {"day": "Friday", "study": 2.0, "rest": 1.0, "subjects": [{"name": "Mock Tests", "hours": 2.0}]},
-            {"day": "Saturday", "study": 3.0, "rest": 2.0, "subjects": [{"name": "Comprehensive Study", "hours": 3.0}]},
-            {"day": "Sunday", "study": 1.0, "rest": 3.0, "subjects": [{"name": "Light Review", "hours": 1.0}]}
-          ],
-          "weeklyFocus": [
-            {"subject": "Subject1", "hours": 6, "priority": "high", "color": "#F7A621"},
-            {"subject": "Subject2", "hours": 4, "priority": "medium", "color": "#10B981"},
-            {"subject": "Practice Tests", "hours": 4, "priority": "high", "color": "#6366f1"}
-          ],
-          "monthlyTargets": [
-            {"week": 1, "target": "Foundation Building", "hours": 15},
-            {"week": 2, "target": "Skill Development", "hours": 16},
-            {"week": 3, "target": "Practice & Review", "hours": 14},
-            {"week": 4, "target": "Final Preparation", "hours": 12}
-          ]
-        },
+        "dailySchedule": "Create 7 personalized daily schedules based on the performance analytics. Use this JSON structure but customize content based on student's actual performance patterns:
+        [
+            {'day': 'Monday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
+            {'day': 'Tuesday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}]},
+            {'day': 'Wednesday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]},
+            {'day': 'Thursday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
+            {'day': 'Friday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]},
+            {'day': 'Saturday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
+            {'day': 'Sunday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]}
+        ]
+        Analyze the cognitive load distribution and subject performance to decide: which subjects need more focus days, optimal daily study hours based on learning velocity, appropriate rest periods, and effective weekly learning rhythm.",
+        
+        "weeklyFocus": "Design weekly priorities using this structure but base content on performance analytics:
+        [
+            {'subject': '<actual_subject_name>', 'hours': <number>, 'priority': '<level>', 'color': '<hex_color>'},
+            {'subject': '<actual_subject_name>', 'hours': <number>, 'priority': '<level>', 'color': '<hex_color>'},
+            {'subject': '<activity_type>', 'hours': <number>, 'priority': '<level>', 'color': '<hex_color>'}
+        ]
+        Use subject velocity analysis and cognitive load to determine optimal weekly time distribution and priority levels.",
+        
+        "monthlyTargets": "Create progressive monthly goals using this format but customize based on difficulty progression mapping:
+        [
+            {'week': 1, 'target': '<specific_target_based_on_weakest_areas>', 'hours': <number>},
+            {'week': 2, 'target': '<specific_target_based_on_analysis>', 'hours': <number>},
+            {'week': 3, 'target': '<specific_target_based_on_progression>', 'hours': <number>},
+            {'week': 4, 'target': '<specific_target_based_on_goals>', 'hours': <number>}
+        ]
+        Base targets on the student's performance gaps and learning trajectory needs."
+    },
       "growthAreas": "Provide 4-5 specific, actionable growth opportunities as HTML with bullet points. Base these directly on performance patterns from the data. Include cognitive strategies, study techniques, and skill-building recommendations."
     }
+
+    **CRITICAL STUDY PLAN REQUIREMENTS:**
+    - Use ONLY the actual subject names from the performance data provided above
+    - Base daily/weekly schedules entirely on performance gaps (prioritize subjects with <60% accuracy)
+    - Generate realistic time allocations (total daily study should be 2-4 hours maximum)
+    - Create specific, actionable targets based on actual weak areas identified
+    - Never use generic terms like "Subject1", "General Study", "Comprehensive Study"
+    - All study plans must be derived from the actual Subject Performance data provided
 
     **CRITICAL REQUIREMENTS:**
     - Address the student directly using "you" and "your"
@@ -861,7 +974,73 @@ class AIInsights {
     - Focus on cognitive patterns and learning characteristics
     - Make insights specific to their actual performance
     - Use accessible language, avoid jargon
-    - Ensure JSON is perfectly formatted and parseable`
+    - Ensure JSON is perfectly formatted and parseable`;
+    }
+
+    static generateEnhancedAnalysis(results, questionAnalysis) {
+        // 1. Subject-wise learning velocity analysis
+        const subjectVelocity = {};
+        Object.entries(results.subjectStats).forEach(([subject, stats]) => {
+            const subjectQuestions = questionAnalysis.filter(q => q.subject === subject && q.attempted);
+            const avgTimePerSubject = subjectQuestions.length > 0 ? results.duration / subjectQuestions.length : 120;
+            subjectVelocity[subject] = {
+                timeNeeded: Math.round(avgTimePerSubject),
+                complexity: avgTimePerSubject > 90 ? 'high' : avgTimePerSubject > 60 ? 'medium' : 'low'
+            };
+        });
+
+        // 2. Cognitive load distribution analysis
+        const cognitiveLoad = {};
+        Object.entries(results.subjectStats).forEach(([subject, stats]) => {
+            const accuracy = (stats.correct / stats.total) * 100;
+            const load = accuracy < 40 ? 'heavy' : accuracy < 70 ? 'moderate' : 'light';
+            cognitiveLoad[subject] = { load, accuracy };
+        });
+
+        // 3. Difficulty progression mapping
+        const difficultyProgression = {};
+        Object.entries(results.subjectStats).forEach(([subject, stats]) => {
+            const subjectQuestions = questionAnalysis.filter(q => q.subject === subject);
+            const easyCount = subjectQuestions.filter(q => q.difficulty === 'Easy').length;
+            const moderateCount = subjectQuestions.filter(q => q.difficulty === 'Moderate').length;
+            const hardCount = subjectQuestions.filter(q => q.difficulty === 'Hard').length;
+            
+            difficultyProgression[subject] = {
+                hasEasy: easyCount > 0,
+                hasModerate: moderateCount > 0,
+                hasHard: hardCount > 0,
+                recommendedStart: stats.correct / stats.total < 0.5 ? 'easy' : 'moderate'
+            };
+        });
+
+        // 4. Weekly distribution strategy
+        const weeklyStrategy = this.generateWeeklyDistributionStrategy(results.subjectStats);
+
+        return {
+            subjectVelocity,
+            cognitiveLoad,
+            difficultyProgression,
+            weeklyStrategy
+        };
+    }
+
+    static generateWeeklyDistributionStrategy(subjectStats) {
+        const subjects = Object.entries(subjectStats).map(([subject, stats]) => ({
+            subject,
+            accuracy: (stats.correct / stats.total) * 100,
+            priority: stats.correct / stats.total < 0.4 ? 'urgent' : 
+                     stats.correct / stats.total < 0.7 ? 'important' : 'maintenance'
+        })).sort((a, b) => a.accuracy - b.accuracy);
+
+        return {
+            mondayFocus: subjects.slice(0, 2).map(s => s.subject), // Worst 2 subjects
+            tuesdayFocus: subjects.length > 2 ? [subjects[2].subject] : [subjects[0].subject],
+            wednesdayFocus: ['Practice', 'Review'], // Mixed practice day
+            thursdayFocus: subjects.slice(0, 2).map(s => s.subject), // Repeat worst subjects
+            fridayFocus: ['Mock Tests', 'Assessment'],
+            saturdayFocus: subjects.slice(-2).map(s => s.subject), // Best subjects for confidence
+            sundayFocus: ['Revision', 'Light Review']
+        };
     }
 
     static parseResponse(aiResponse) {
@@ -881,16 +1060,11 @@ class AIInsights {
     static display(insights) {
         this.removeLoadingAnimations();
 
-        // Update hero section with AI-generated content
         const greetingElement = document.getElementById('personalizedGreeting');
         const subtextElement = document.getElementById('heroSubtext');
         
         if (greetingElement && insights.personalizedGreeting) {
             greetingElement.textContent = insights.personalizedGreeting;
-        }
-        
-        if (subtextElement && insights.heroSubtext) {
-            subtextElement.textContent = insights.heroSubtext;
         }
         
         const performanceInsight = document.getElementById('aiPerformanceInsight');
@@ -907,39 +1081,10 @@ class AIInsights {
     static displayError() {
         this.removeLoadingAnimations();
         
-        // Fallback hero content when AI fails
-        const results = DataManager.getResults();
-        const greetingElement = document.getElementById('personalizedGreeting');
-        const subtextElement = document.getElementById('heroSubtext');
-        
-        if (greetingElement) {
-            const fallbackGreetings = {
-                excellent: "Outstanding performance! 🌟",
-                good: "Great job, Champion! 🏆", 
-                average: "Good effort! Keep going! 🚀",
-                poor: "Every expert was once a beginner! 🌱"
-            };
-            
-            const performance = Utils.getPerformanceLevel(results.score);
-            const category = performance === CONFIG.PERFORMANCE_LEVELS.EXCELLENT ? 'excellent' :
-                            performance === CONFIG.PERFORMANCE_LEVELS.GOOD ? 'good' :
-                            performance === CONFIG.PERFORMANCE_LEVELS.AVERAGE ? 'average' : 'poor';
-            
-            greetingElement.textContent = fallbackGreetings[category];
-        }
-        
-        if (subtextElement) {
-            subtextElement.textContent = `${results.correct}/${results.total} questions mastered • ${Utils.formatTime(results.duration)} spent learning`;
-        }
-                
         const performanceInsight = document.getElementById('aiPerformanceInsight');
         if (performanceInsight) {
-            performanceInsight.innerHTML = '<div style="color: #F7A621; font-style: italic; text-align: center; padding: 20px;">⚠️ AI insights require API configuration.<br><small>Showing sample analysis below.</small></div>';
+            performanceInsight.innerHTML = '<div style="color: #EF4444; font-style: italic; text-align: center; padding: 20px;">⚠️ AI insights unavailable. Please check API configuration.</div>';
         }
-        
-        this.displayFallbackStudyPlan();
-        
-        GrowthDisplay.show(results);
     }
 
     static removeLoadingAnimations() {
@@ -949,9 +1094,20 @@ class AIInsights {
         });
     }
 
-    static displayFallbackStudyPlan() {
-        // Implementation for fallback study plan
-        // This would show default study plan when AI is unavailable
+    static getPrioritySubjectsForDay(results) {
+        if (!results || !results.subjectStats) {
+            return ['Mathematics', 'Science', 'General Knowledge'];
+        }
+        
+        // Get subjects sorted by performance (worst first for priority focus)
+        const subjectPerformance = Object.entries(results.subjectStats)
+            .map(([subject, stats]) => ({
+                subject,
+                accuracy: stats.total > 0 ? (stats.correct / stats.total) * 100 : 0
+            }))
+            .sort((a, b) => a.accuracy - b.accuracy);
+        
+        return subjectPerformance.slice(0, 3).map(item => item.subject);
     }
 }
 
@@ -966,7 +1122,7 @@ class StudyPlanDisplay {
         }, 600);
         
         setTimeout(() => {
-            this.displayWeeklyFocus(studyPlan.weeklyFocus);
+            this.displayWeeklyFocus(studyPlan);
             this.hideChartLoader('weeklyLoader');
         }, 1000);
         
@@ -1004,13 +1160,18 @@ class StudyPlanDisplay {
     }
 
     static generateTimeSlots(daySchedule) {
+        // Use AI-generated subjects instead of overriding them
+        const subject1 = daySchedule.subjects[0]?.name || 'Study Session 1';
+        const subject2 = daySchedule.subjects[1]?.name || 'Study Session 2';
+        const subject3 = daySchedule.subjects[2]?.name || subject1;
+        
         const timeSlots = [
-            { time: '9:00-10:00', subject: daySchedule.subjects[0]?.name || 'Study', type: 'study' },
-            { time: '10:00-11:00', subject: daySchedule.subjects[1]?.name || 'Practice', type: 'practice' },
+            { time: '9:00-10:00', subject: subject1, type: 'study' },
+            { time: '10:00-11:00', subject: subject2, type: 'study' },
             { time: '11:00-11:15', subject: 'Break', type: 'rest' },
-            { time: '11:15-12:15', subject: daySchedule.subjects[0]?.name || 'Study', type: 'study' },
+            { time: '11:15-12:15', subject: subject3, type: 'study' },
             { time: '12:15-1:00', subject: 'Lunch Break', type: 'rest' },
-            { time: '5:00-6:00', subject: 'Review & Practice', type: 'review' },
+            { time: '5:00-6:00', subject: `${subject1} - Concept Review`, type: 'review' },
             { time: '6:00-7:00', subject: 'Evening Break', type: 'rest' }
         ];
         
@@ -1022,9 +1183,12 @@ class StudyPlanDisplay {
         `).join('');
     }
 
-    static displayWeeklyFocus(weeklyFocus) {
+    static displayWeeklyFocus(studyPlan) {
         const container = document.getElementById('weeklyFocus');
         if (!container) return;
+        
+        const results = DataManager.getResults();
+        const weeklyFocus = this.generateDynamicWeeklyFocus(results, studyPlan);
         
         const totalHours = weeklyFocus.reduce((sum, item) => sum + item.hours, 0);
         
@@ -1049,6 +1213,157 @@ class StudyPlanDisplay {
                 </div>
             `).join('')}
         `;
+    }
+
+    static generateDynamicWeeklyFocus(results, studyPlan) {
+        // Only use AI-generated study plan - no fallbacks
+        if (studyPlan && studyPlan.weeklyFocus && Array.isArray(studyPlan.weeklyFocus) && studyPlan.weeklyFocus.length > 0) {
+            return studyPlan.weeklyFocus.map(item => ({
+                subject: item.subject,
+                hours: item.hours,
+                priority: item.priority,
+                color: item.color
+            }));
+        }
+        
+        // If AI failed, show error message instead of fallback
+        return [{
+            subject: "AI Study Plan Unavailable",
+            hours: 0,
+            priority: "high", 
+            color: "#EF4444"
+        }];
+    }
+
+    static generateFromResults(results) {
+        const weeklyFocus = [];
+        let totalHours = 0;
+        
+        const subjectColors = this.generateSubjectColorPalette(Object.keys(results.subjectStats));
+        
+        Object.entries(results.subjectStats).forEach(([subject, stats]) => {
+            const accuracy = stats.total > 0 ? (stats.correct / stats.total) * 100 : 0;
+            let hours, priority, priorityLevel;
+            
+            if (accuracy < 40) {
+                hours = 8;
+                priority = 'urgent';
+                priorityLevel = 'high';
+            } else if (accuracy < 60) {
+                hours = 6;
+                priority = 'important';
+                priorityLevel = 'high';
+            } else if (accuracy < 75) {
+                hours = 4;
+                priority = 'moderate';
+                priorityLevel = 'medium';
+            } else {
+                hours = 3;
+                priority = 'maintenance';
+                priorityLevel = 'low';
+            }
+            
+            weeklyFocus.push({
+                subject: subject,
+                hours: hours,
+                priority: priorityLevel,
+                color: subjectColors[subject],
+                accuracy: Math.round(accuracy)
+            });
+            
+            totalHours += hours;
+        });
+        
+        weeklyFocus.sort((a, b) => a.accuracy - b.accuracy);
+        
+        if (totalHours > 25) {
+            const scaleFactor = 25 / totalHours;
+            weeklyFocus.forEach(item => {
+                item.hours = Math.max(2, Math.round(item.hours * scaleFactor));
+            });
+        }
+        
+        weeklyFocus.push({
+            subject: 'Mock Tests & Practice',
+            hours: 4,
+            priority: 'high',
+            color: '#8B5CF6'
+        });
+        
+        return weeklyFocus;
+    }
+
+    static getPrioritySubjectsForDay(results) {
+        if (!results || !results.subjectStats) {
+            // Fallback to exam data subjects if no results
+            if (examState.examData && examState.examData.length > 0) {
+                const subjectCounts = {};
+                examState.examData.forEach(question => {
+                    const subject = question.classification?.subject;
+                    if (subject) {
+                        subjectCounts[subject] = (subjectCounts[subject] || 0) + 1;
+                    }
+                });
+                return Object.keys(subjectCounts).slice(0, 3);
+            }
+            return ['Mathematics', 'Science', 'General Knowledge'];
+        }
+        
+        // Get subjects sorted by performance (worst first for priority focus)
+        const subjectPerformance = Object.entries(results.subjectStats)
+            .map(([subject, stats]) => ({
+                subject,
+                accuracy: stats.total > 0 ? (stats.correct / stats.total) * 100 : 0
+            }))
+            .sort((a, b) => a.accuracy - b.accuracy);
+        
+        return subjectPerformance.slice(0, 3).map(item => item.subject);
+    }
+
+    static generateSubjectColorPalette(subjects) {
+        const colors = [
+            '#6366f1', '#10B981', '#F7A621', '#EF4444', '#8B5CF6', 
+            '#14B8A6', '#F59E0B', '#EC4899', '#6B7280', '#3B82F6',
+            '#84CC16', '#F97316', '#06B6D4', '#8B5A2B', '#DC2626',
+            '#7C3AED', '#059669', '#CA8A04', '#BE185D', '#4B5563'
+        ];
+        
+        const subjectColorMap = {};
+        
+        subjects.forEach((subject, index) => {
+            subjectColorMap[subject] = colors[index % colors.length];
+        });
+        
+        return subjectColorMap;
+    }
+
+    static generateSubjectColor(subject) {
+        const allSubjects = this.extractSubjectsFromExamData();
+        const subjectIndex = allSubjects.indexOf(subject);
+        
+        const colors = [
+            '#6366f1', '#10B981', '#F7A621', '#EF4444', '#8B5CF6', 
+            '#14B8A6', '#F59E0B', '#EC4899', '#6B7280', '#3B82F6',
+            '#84CC16', '#F97316', '#06B6D4', '#8B5A2B', '#DC2626',
+            '#7C3AED', '#059669', '#CA8A04', '#BE185D', '#4B5563'
+        ];
+        
+        return subjectIndex >= 0 ? colors[subjectIndex % colors.length] : '#8B5CF6';
+    }
+
+    static extractSubjectsFromExamData() {
+        if (!examState.examData || examState.examData.length === 0) {
+            return [];
+        }
+        
+        const subjects = new Set();
+        examState.examData.forEach(question => {
+            if (question.classification && question.classification.subject) {
+                subjects.add(question.classification.subject);
+            }
+        });
+        
+        return Array.from(subjects).sort();
     }
 
     static displayMonthlyGoals(monthlyTargets) {
@@ -1291,7 +1606,6 @@ class ReviewManager {
     static show() {
         Utils.switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.REVIEW_INTERFACE);
         this.generate();
-        // Ensure scroll after review content is generated
         setTimeout(() => {
             window.scrollTo({
                 top: 0,
@@ -1389,7 +1703,6 @@ class ReviewManager {
 
     static backToResults() {
         Utils.switchInterface(SELECTORS.REVIEW_INTERFACE, SELECTORS.RESULTS_INTERFACE);
-        // Ensure scroll when returning to results
         setTimeout(() => {
             window.scrollTo({
                 top: 0,
@@ -1439,7 +1752,6 @@ class EmailVerification {
         
         this.hideVerificationError();
         
-        // Scroll to top when closing modal
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -1615,7 +1927,6 @@ class EmailVerification {
     static proceedToExam() {
         this.hideRegistrationModal();
         
-        // Small delay to ensure modal is fully closed
         setTimeout(() => {
             ExamInterface.show();
         }, 100);
@@ -1625,7 +1936,8 @@ class EmailVerification {
 // ==================== EXAM INTERFACE ====================
 class ExamInterface {
     static async show() {
-        const testSection = document.querySelector('.container.mx-auto.p-8');
+        const heroSection = document.querySelector('.text-center.mb-12 h1, .text-center h1[class*="text-"]');
+        const testSection = heroSection ? heroSection.closest('.container.mx-auto') : null;
         const isEmailVerificationFlow = testSection && testSection.style.display !== 'none';
         
         if (isEmailVerificationFlow) {
@@ -1634,8 +1946,10 @@ class ExamInterface {
             const examContainer = document.getElementById('examContainer');
             if (examContainer) {
                 examContainer.className = 'container';
-                examContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important;';
+                examContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; max-width: 100% !important;';
             }
+            
+            Utils.hideElement('loading');
             
             const examInterface = document.getElementById('examInterface');
             if (examInterface) {
@@ -1644,7 +1958,6 @@ class ExamInterface {
             
             await AppController.initialize();
             
-            // Scroll to top after exam is fully initialized
             setTimeout(() => {
                 window.scrollTo({
                     top: 0,
@@ -1654,7 +1967,6 @@ class ExamInterface {
         } else {
             Utils.switchInterface(SELECTORS.LOADING, SELECTORS.EXAM_INTERFACE);
             
-            // Additional scroll for non-email flow
             setTimeout(() => {
                 window.scrollTo({
                     top: 0,
@@ -1684,7 +1996,6 @@ class AppController {
     }
 
     static setupEventListeners() {
-        // Scroll to top functionality
         const scrollToTopButton = document.getElementById('scrollToTop');
         if (scrollToTopButton) {
             window.onscroll = function() {
@@ -1703,7 +2014,6 @@ class AppController {
             });
         }
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1737,7 +2047,6 @@ class AppController {
         
         Utils.switchInterface(SELECTORS.RESULTS_INTERFACE, SELECTORS.LOADING);
         
-        // Immediate scroll for loading screen
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -1745,7 +2054,6 @@ class AppController {
         
         setTimeout(() => {
             this.initialize();
-            // Additional scroll after initialization
             setTimeout(() => {
                 window.scrollTo({
                     top: 0,
@@ -1795,24 +2103,19 @@ class AppController {
 
 // ==================== START TEST FUNCTION ====================
 function startExamTest() {
-    // Hide the start test button and instructions area
     const startButton = document.getElementById('startTestButton');
     if (startButton && startButton.parentElement) {
         startButton.parentElement.style.display = 'none';
     }
     
-    // Show the exam content
     Utils.showElement('questionList');
     Utils.showElement('questionCard');
     Utils.showElement('examNavigation');
     
-    // Start the timer
     TimerManager.initialize();
     
-    // Ensure current question is loaded
     QuestionManager.load(0);
     
-    // Scroll to the first question smoothly
     setTimeout(() => {
         const questionCard = document.getElementById('questionCard');
         if (questionCard) {
@@ -2102,8 +2405,16 @@ window.showRegistrationModal = () => EmailVerification.showRegistrationModal();
 window.hideRegistrationModal = () => EmailVerification.hideRegistrationModal();
 window.submitRegistrationForm = (event) => EmailVerification.submitRegistration(event);
 window.proceedToExamAfterRegistration = () => EmailVerification.proceedToExam();
+window.clearCurrentAnswer = () => QuestionManager.clearCurrentAnswer();
 window.startExamTest = startExamTest;
+
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', function() {
     EmailVerification.initialize();
 });
+
+// ==================== CONFIGURATION UPDATER ====================
+// Function to update configuration after HTML loads
+window.updateExamConfig = function(newConfig) {
+    Object.assign(CONFIG, newConfig);
+};

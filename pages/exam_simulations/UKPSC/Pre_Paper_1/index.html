@@ -352,6 +352,7 @@
 
             <div class="navigation hidden" id="examNavigation">
                 <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+                <button class="btn btn-secondary" id="clearBtn" onclick="clearCurrentAnswer()" style="opacity: 0.5;">Clear</button>
                 <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
                 <button class="btn btn-primary hidden" id="submitBtn" onclick="submitExam()">Submit Exam</button>
             </div>
@@ -565,6 +566,27 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
         </svg>
     </button>
-    <script src="./app.js"></script>
+    <script>
+        // UKPSC Exam Configuration
+        window.EXAM_CONFIG = {
+            TIMER_INTERVAL: 1000,
+            SCORE_THRESHOLDS: { EXCELLENT: 80, GOOD: 60, AVERAGE: 40 },
+            MARKING_SCHEME: { CORRECT: 1, INCORRECT: -0.25, UNATTEMPTED: 0 },
+            PERFORMANCE_LEVELS: {
+                EXCELLENT: 'Excellent',
+                GOOD: 'Good', 
+                AVERAGE: 'Average',
+                NEEDS_IMPROVEMENT: 'Needs Improvement'
+            },
+            DATA_FILE: 'exam-data.json',
+            EXAM_CONTEXT: {
+                NAME: 'UKPSC Prelims Paper-I',
+                DESCRIPTION: 'This is a practice test for UKPSC Prelims Paper-I (General Studies), which is the gateway exam for Uttarakhand Civil Services. The actual UKPSC exam features 150 questions in 2 hours with negative marking (-0.25 for wrong answers). Success requires mastering Uttarakhand GK, Indian Polity, History, Geography, Economics, and Current Affairs.',
+                MARKING_INFO: '+1 for correct, -0.25 for wrong answers',
+                TARGET_SCORE: '60-70% to qualify for mains'
+            }
+        };
+    </script>
+    <script src="../../js/app.js"></script>
 </body>
 </html>

@@ -102,7 +102,7 @@
       "subtopic": "Letter Analogy",
       "concept": "Identifying patterns in letter positions and applying them."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -286,7 +286,7 @@
       "subtopic": "Mixed Series (Multiplication and Addition)",
       "concept": "Identifying series patterns involving multiplication and sequential addition."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -326,7 +326,7 @@
       "subtopic": "Difference based series",
       "concept": "Identifying patterns in alphabet sequences based on positional differences."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -391,7 +391,7 @@
       "subtopic": "Two Statements Syllogism",
       "concept": "Logical deduction from given statements using Venn diagrams."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -529,7 +529,7 @@
       "subtopic": "Pointing/Describing Relations",
       "concept": "Deducing relationships from descriptive statements."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -599,7 +599,7 @@
       "subtopic": "Evaluating Strength of Arguments",
       "concept": "Assessing the strength and relevance of arguments related to a given statement."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Evaluating"
   },
   {
@@ -704,7 +704,7 @@
       "subtopic": "Paper Folding and Cutting",
       "concept": "Visualizing the appearance of paper after folding, punching, and unfolding."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -738,7 +738,7 @@
       "subtopic": "Paper Folding (Transparent Sheet)",
       "concept": "Visualizing the appearance of a transparent sheet after folding."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -839,20 +839,11 @@
       "subtopic": "Figure Series",
       "concept": "Identifying and continuing a visual pattern in a sequence of figures."
     },
-    "difficulty_level": "Difficult",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Analyzing"
   },
   {
     "question_id": 25,
-    "Question": "If '+' means '÷', '−' means '+', '×' means '−', and '÷' means '×', then what will be the value of the following expression? \n 48 + 16 × 4 − 2 ÷ 8",
-    "options": {
-      "a": "6",
-      "b": "12",
-      "c": "0",
-      "d": "3"
-    },
-    "correct_answer": "c",
-    "Solution": "Given expression: 48 + 16 × 4 − 2 ÷ 8 \nSubstitute the operators: \n'+' becomes '÷' \n'×' becomes '−' \n'−' becomes '+' \n'÷' becomes '×' \nThe expression becomes: 48 ÷ 16 − 4 + 2 × 8 \nNow, apply BODMAS rule: \n1. Division: 48 ÷ 16 = 3 \n2. Multiplication: 2 × 8 = 16 \nThe expression is now: 3 − 4 + 16 \n3. Addition/Subtraction from left to right: \n3 − 4 = −1 \n−1 + 16 = 15. \nWait, let me recheck the calculation. \n48 ÷ 16 - 4 + 2 × 8 \n= 3 - 4 + 16 \n= -1 + 16 \n= 15. \nThere seems to be a mismatch with the provided 'correct_answer' if it was 'c' (0). Let's assume the intended answer was 15. If the answer is indeed 0, there might be a different interpretation or a typo in the question/options or my assumed correct answer. Let's re-evaluate for a possible 0. \nIf the expression was intended to result in 0, let's check if any common error leads to it. \nLet's assume the correct answer is 15 based on standard BODMAS. If the question expects 0, the options or question might be framed differently. For the purpose of this model paper, I will proceed with 15. If the user intended 'c' (0) to be correct, the question would need adjustment. Let's assume there was a typo in my thought process for the correct answer and re-solve to see if 0 is possible with a slight change. \nLet's assume the question was: 48 + 16 × 2 - 4 ÷ 2 \n48 ÷ 16 - 2 + 4 × 2 \n3 - 2 + 8 \n1 + 8 = 9. Still not 0. \nLet's stick to the original question and solution. The solution leads to 15. If 'c' (0) is the target, the question needs to be different. I will provide the solution for the given question. \nRecalculating: \n48 ÷ 16 − 4 + 2 × 8 \n= 3 − 4 + 16 \n= −1 + 16 \n= 15. \nSince the prompt requires a correct answer, and 'c' is 0, let me try to make the question such that 0 is the answer. \nLet's try: 16 + 4 x 2 - 10 ÷ 1 \n16 ÷ 4 - 2 + 10 x 1 \n4 - 2 + 10 \n2 + 10 = 12. \nThis is tricky. I will provide a question that results in one of the options. Let's aim for 0. \nConsider: 20 + 5 × 4 - 4 ÷ 1 \nExpression: 20 ÷ 5 - 4 + 4 × 1 \n= 4 - 4 + 4 \n= 0 + 4 = 4. \nLet's use the original question and assume the answer is 15, and if 'c' was 0, I'll mark it as such and note the discrepancy. For now, I will make the answer 15 and choose an option accordingly, or adjust the question to fit 'c' as 0. \nLet's adjust the question to make 'c' (0) the answer. \nOriginal: 48 + 16 × 4 − 2 ÷ 8 \nNew question: 32 + 8 × 4 - 2 ÷ 1 \nSubstitute: 32 ÷ 8 - 4 + 2 × 1 \n= 4 - 4 + 2 \n= 0 + 2 = 2. Not 0. \nLet's try: 16 + 4 x 4 - 0 ÷ 5 \n16 ÷ 4 - 4 + 0 x 5 \n4 - 4 + 0 = 0. This works. \nSo, the question will be: 16 + 4 × 4 − 0 ÷ 5",
     "Question": "If '+' means '÷', '−' means '+', '×' means '−', and '÷' means '×', then what will be the value of the following expression? \n 16 + 4 × 4 − 0 ÷ 5",
     "options": {
       "a": "6",
@@ -896,20 +887,20 @@
   },
   {
     "question_id": 26,
-    "Question": "Who was appointed as the new Chief of the Indian Army in December 2024?",
+    "Question": "Who was appointed as the new Chief of the Indian Army in 2024?",
     "options": {
-      "a": "General Manoj Pande (Hypothetical Successor A)",
+      "a": "General Manoj Pande",
       "b": "General Upendra Dwivedi",
-      "c": "General Anil Chauhan (Hypothetical Successor C)",
-      "d": "General Bipin Rawat (Hypothetical Successor D)"
+      "c": "General Anil Chauhan",
+      "d": "General Bipin Rawat"
     },
     "correct_answer": "b",
-    "Solution": "General Upendra Dwivedi was designated to be the next Chief of the Army Staff, succeeding General Manoj Pande. He was scheduled to take over around June 30, 2024. Assuming this process continued as planned, he would be the Chief in December 2024. (Note: This is based on information available up to early June 2025; actual appointments should always be verified with current news sources at the time of the exam). For the purpose of this model paper, we assume this appointment occurred as anticipated.",
+    "Solution": "General Upendra Dwivedi was appointed as the Chief of Army Staff (COAS) of the Indian Army on June 30, 2024, succeeding General Manoj Pande.",
     "step_by_step": [
       "Recall recent appointments in key government and military positions.",
-      "Identify the Chief of the Indian Army around the specified period (December 2024).",
-      "General Manoj Pande's tenure was set to end, and General Upendra Dwivedi was announced as his successor.",
-      "Verify if this change took place as scheduled before December 2024."
+      "Identify the Chief of the Indian Army appointed in 2024.",
+      "General Manoj Pande's tenure ended in June 2024.",
+      "General Upendra Dwivedi took over as the new Chief of Army Staff on June 30, 2024."
     ],
     "tips_and_tricks": [
       "Stay updated with current affairs, especially appointments to important national posts.",
@@ -927,7 +918,7 @@
   },
   {
     "question_id": 27,
-    "Question": "Which country hosted the G20 Summit in late 2024?",
+    "Question": "Which country hosted the G20 Summit in 2024?",
     "options": {
       "a": "India",
       "b": "Brazil",
@@ -939,7 +930,7 @@
     "step_by_step": [
       "Recall the sequence of G20 presidencies.",
       "India held the G20 presidency in 2023.",
-      "Brazil took over the G20 presidency from India for the term starting December 1, 2023, and was scheduled to host the summit in 2024.",
+      "Brazil took over the G20 presidency from India for the term starting December 1, 2023, and hosted the summit in 2024.",
       "The summit typically takes place towards the end of the presidency term."
     ],
     "tips_and_tricks": [
@@ -953,25 +944,25 @@
       "subtopic": "International News - Summits",
       "concept": "Awareness of major international forums and their host nations."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Easy",
     "blooms_taxonomy": "Remembering"
   },
   {
     "question_id": 28,
-    "Question": "Which film won the Best Picture award at the Academy Awards (Oscars) in early 2025?",
+    "Question": "Which film won the Best Picture award at the Academy Awards (Oscars) in 2024?",
     "options": {
-      "a": "Dune: Part Two (Hypothetical Winner)",
-      "b": "Oppenheimer (Previous Year Winner)",
-      "c": "A new critically acclaimed film released in 2024 (Hypothetical)",
-      "d": "Barbie (Nominee from previous year)"
+      "a": "Dune: Part Two",
+      "b": "Oppenheimer",
+      "c": "Barbie",
+      "d": "Poor Things"
     },
-    "correct_answer": "c",
-    "Solution": "The Academy Awards for films released in 2024 would be held in early 2025. As of June 2025, the actual winner would be known. For this model question, we assume 'A new critically acclaimed film released in 2024' won. (In a real exam, the actual winner would be an option). 'Oppenheimer' won in 2024 for films of 2023.",
+    "correct_answer": "b",
+    "Solution": "Oppenheimer won the Academy Award for Best Picture at the 96th Academy Awards ceremony held in March 2024. The film was directed by Christopher Nolan.",
     "step_by_step": [
-      "Identify the relevant Academy Awards ceremony (for films of 2024, held in early 2025).",
-      "Recall major film awards and their winners.",
-      "Distinguish from winners of previous years (e.g., 'Oppenheimer' won for 2023 films at the 2024 ceremony).",
-      "Select the film that won Best Picture for the specified year. (This question uses a hypothetical placeholder as the actual event is in the recent past/near future relative to the question's context)."
+      "Identify the relevant Academy Awards ceremony (96th Academy Awards in March 2024).",
+      "Recall major film awards and their winners for 2024.",
+      "Oppenheimer, directed by Christopher Nolan, won the Best Picture award.",
+      "The film was based on the life of J. Robert Oppenheimer, the physicist who led the Manhattan Project."
     ],
     "tips_and_tricks": [
       "Follow major film awards like the Oscars, Golden Globes, BAFTAs.",
@@ -997,11 +988,11 @@
       "d": "Subsidies for electricity consumption"
     },
     "correct_answer": "b",
-    "Solution": "The 'PM Surya Ghar: Muft Bijli Yojana' was launched by the Indian government to promote rooftop solar power generation. The scheme aims to provide free electricity up to 300 units per month to one crore households by encouraging the installation of rooftop solar systems. [11]",
+    "Solution": "The 'PM Surya Ghar: Muft Bijli Yojana' was launched by the Indian government to promote rooftop solar power generation. The scheme aims to provide free electricity up to 300 units per month to one crore households by encouraging the installation of rooftop solar systems.",
     "step_by_step": [
       "Recall major government schemes launched recently.",
       "Identify the objective of the 'PM Surya Ghar Muft Bijli Yojana'.",
-      "The scheme focuses on enabling households to install rooftop solar panels to generate their own electricity. [11]",
+      "The scheme focuses on enabling households to install rooftop solar panels to generate their own electricity.",
       "This initiative aims to reduce electricity bills for consumers and promote clean energy."
     ],
     "tips_and_tricks": [
@@ -1020,7 +1011,7 @@
   },
   {
     "question_id": 30,
-    "Question": "Which Indian cricketer was awarded the Polly Umrigar Award for Best International Cricketer (Men) for the period 2022-23 at the BCCI Awards in January 2024?",
+    "Question": "Which Indian cricketer was awarded the Polly Umrigar Award for Best International Cricketer (Men) for the period 2022-23 at the BCCI Awards?",
     "options": {
       "a": "Virat Kohli",
       "b": "Rohit Sharma",
@@ -1028,11 +1019,11 @@
       "d": "Shubman Gill"
     },
     "correct_answer": "d",
-    "Solution": "Shubman Gill was awarded the Polly Umrigar Award for the best men's international cricketer of the year for 2022-23 at the BCCI Awards ceremony held in January 2024.",
+    "Solution": "Shubman Gill was awarded the Polly Umrigar Award for the best men's international cricketer of the year for 2022-23 at the BCCI Awards ceremony.",
     "step_by_step": [
       "Recall major sports awards in India, particularly cricket awards by BCCI.",
       "Identify the winner of the Polly Umrigar Award for the specified period (2022-23).",
-      "The BCCI Awards were held in January 2024 after a gap, and Shubman Gill received this prestigious award for his performances in the 2022-23 season."
+      "Shubman Gill received this prestigious award for his performances in the 2022-23 season."
     ],
     "tips_and_tricks": [
       "Follow major sports events and awards ceremonies.",
@@ -1045,12 +1036,12 @@
       "subtopic": "Sports - Awards",
       "concept": "Knowledge of recent sports awards and recipients."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Remembering"
   },
   {
     "question_id": 31,
-    "Question": "A significant advancement in gene-editing technology, 'Casgevy', approved in late 2023 / early 2024 by several countries, is a therapy primarily for which genetic disorders?",
+    "Question": "A significant advancement in gene-editing technology, 'Casgevy', approved in late 2023/early 2024 by several countries, is a therapy primarily for which genetic disorders?",
     "options": {
       "a": "Cystic Fibrosis and Muscular Dystrophy",
       "b": "Sickle Cell Disease and Beta-Thalassemia",
@@ -1058,12 +1049,12 @@
       "d": "Huntington's Disease and Alzheimer's Disease"
     },
     "correct_answer": "b",
-    "Solution": "Casgevy is a CRISPR-based gene therapy that was approved for the treatment of Sickle Cell Disease and transfusion-dependent Beta-Thalassemia. This marked a significant milestone as the first CRISPR-based therapy to receive regulatory approval in countries like the UK and USA. [6]",
+    "Solution": "Casgevy is a CRISPR-based gene therapy that was approved for the treatment of Sickle Cell Disease and transfusion-dependent Beta-Thalassemia. This marked a significant milestone as the first CRISPR-based therapy to receive regulatory approval in countries like the UK and USA.",
     "step_by_step": [
       "Recall recent breakthroughs in science and technology, particularly in medicine.",
       "Identify the purpose of the gene therapy 'Casgevy'.",
-      "Casgevy uses CRISPR-Cas9 gene-editing technology. [6]",
-      "It is indicated for the treatment of specific inherited blood disorders: sickle cell disease and beta-thalassemia. [6]"
+      "Casgevy uses CRISPR-Cas9 gene-editing technology.",
+      "It is indicated for the treatment of specific inherited blood disorders: sickle cell disease and beta-thalassemia."
     ],
     "tips_and_tricks": [
       "Keep an eye on major scientific and technological developments reported in the news.",
@@ -1106,12 +1097,12 @@
       "subtopic": "Books and Authors - Recent Releases",
       "concept": "Knowledge of recently published important books and their authors."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Remembering"
   },
   {
     "question_id": 33,
-    "Question": "The Harappan site of Lothal is situated near which present-day Indian state?",
+    "Question": "The Harappan site of Lothal is situated in which present-day Indian state?",
     "options": {
       "a": "Rajasthan",
       "b": "Gujarat",
@@ -1256,7 +1247,7 @@
       "subtopic": "Physical Geography - Climatology (Winds)",
       "concept": "Global wind patterns and specific wind systems."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -1266,15 +1257,15 @@
       "a": "Rajasthan",
       "b": "West Bengal",
       "c": "Arunachal Pradesh",
-      "d": "Jammu and Kashmir (considering pre-2019 status for historical context of such questions)"
+      "d": "Uttar Pradesh"
     },
     "correct_answer": "b",
-    "Solution": "West Bengal shares the longest international border among Indian states, primarily with Bangladesh. While Rajasthan has a long border with Pakistan, West Bengal's border length is greater. (Note: Specific lengths can vary slightly based on sources, but West Bengal is generally recognized for this). If considering UTs, Ladakh would have a very long border.",
+    "Solution": "West Bengal shares the longest international border among Indian states, primarily with Bangladesh. The state has an international border of approximately 2,217 km with Bangladesh.",
     "step_by_step": [
       "Recall Indian states that share international borders.",
       "Consider the length of these borders with neighboring countries.",
       "West Bengal shares a significant border with Bangladesh, and also smaller borders with Nepal and Bhutan.",
-      "Comparing the total international border length, West Bengal's is the longest among the options and generally among all states."
+      "Comparing the total international border length, West Bengal's is the longest among all states."
     ],
     "tips_and_tricks": [
       "Study the political map of India, focusing on states sharing international boundaries and the countries they border.",
@@ -1618,7 +1609,7 @@
       "subtopic": "Art & Culture - Classical Dances",
       "concept": "Origin states of Indian classical dances."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -1648,7 +1639,7 @@
       "subtopic": "Important Days - International",
       "concept": "Dates of significant international observances."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -1684,7 +1675,7 @@
       "subtopic": "Successive Percentage Change",
       "concept": "Calculating net percentage change after multiple successive changes."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -1756,7 +1747,7 @@
       "subtopic": "Calculating Selling Price after Discount",
       "concept": "Applying discount percentage to marked price to find selling price."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -1791,7 +1782,7 @@
       "subtopic": "Problems on Numbers",
       "concept": "Finding numbers when their ratio and sum are given."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -1912,7 +1903,7 @@
       "subtopic": "Basic Time and Work Problem",
       "concept": "Calculating time taken by two individuals working together."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -1947,7 +1938,7 @@
       "subtopic": "Filling a tank with two pipes",
       "concept": "Calculating combined time taken by two pipes to fill a tank."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -1980,7 +1971,7 @@
       "subtopic": "Problems on Trains - Passing a Pole",
       "concept": "Calculating time taken by a train to pass a stationary point object."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2015,7 +2006,7 @@
       "subtopic": "Constant Distance, Variable Speed and Time",
       "concept": "Calculating speed required to cover a fixed distance in a different time."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2046,7 +2037,7 @@
       "subtopic": "Simple Interest Calculation",
       "concept": "Calculating simple interest given principal, rate, and time."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2122,7 +2113,7 @@
       "subtopic": "Algebraic Identities",
       "concept": "Using algebraic identities to find values of expressions."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2162,7 +2153,7 @@
       "subtopic": "Algebraic Identities",
       "concept": "Applying algebraic identities to evaluate expressions."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2199,7 +2190,7 @@
       "subtopic": "Quadratic Equations",
       "concept": "Finding roots of a quadratic equation by factorization."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2236,7 +2227,7 @@
       "subtopic": "Triangles - Pythagoras Theorem",
       "concept": "Applying Pythagoras theorem to find the hypotenuse of a right-angled triangle."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2274,7 +2265,7 @@
       "subtopic": "Circles - Chords and Radius",
       "concept": "Relationship between radius, chord length, and distance of chord from center."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2312,7 +2303,7 @@
       "subtopic": "Quadrilaterals - Angle Sum Property",
       "concept": "Calculating angles of a quadrilateral given their ratio."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2345,7 +2336,7 @@
       "sub_subtopic": "Perimeter of a rectangle",
       "concept": "Calculating the perimeter of a rectangle."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2377,7 +2368,7 @@
       "sub_subtopic": "Volume of a cube",
       "concept": "Calculating the volume of a cube."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2418,7 +2409,7 @@
       "subtopic": "Trigonometric Identities and Ratios",
       "concept": "Finding one trigonometric ratio given another using identities or right triangle properties."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2450,7 +2441,7 @@
       "subtopic": "Standard Angle Values",
       "concept": "Evaluating trigonometric expressions using standard angle values."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -2486,7 +2477,7 @@
       "subtopic": "Table Chart",
       "concept": "Reading and summing data from a table."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Understanding"
   },
   {
@@ -2555,7 +2546,7 @@
       "sub_subtopic": "Percentage Increase/Decrease",
       "concept": "Calculating percentage change from table data."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2591,7 +2582,7 @@
       "sub_subtopic": "Ratio Calculation",
       "concept": "Calculating ratios from table data."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -2659,7 +2650,7 @@
       "subtopic": "Identifying Main Idea/Focus",
       "concept": "Understanding the central theme of a passage."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Understanding"
   },
   {
@@ -2754,7 +2745,7 @@
       "subtopic": "Inferential Questions (Author's Implication)",
       "concept": "Inferring the author's perspective on the characteristics of successful cities."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   },
   {
@@ -2823,7 +2814,7 @@
       "subtopic": "Synonyms",
       "concept": "Identifying the word with the closest meaning."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -2858,7 +2849,7 @@
       "subtopic": "Synonyms",
       "concept": "Identifying the word with the closest meaning."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Remembering"
   },
   {
@@ -3136,7 +3127,7 @@
       "sub_subtopic": "Noun Plurality after 'one of the'",
       "concept": "Identifying errors related to noun number after specific determiners."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3171,7 +3162,7 @@
       "sub_subtopic": "Subject-Verb Agreement (Neither...nor)",
       "concept": "Applying subject-verb agreement rules with correlative conjunctions."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3205,7 +3196,7 @@
       "sub_subtopic": "Use of Prepositions (For/Since)",
       "concept": "Correct usage of 'for' and 'since' with time expressions."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3238,7 +3229,7 @@
       "sub_subtopic": "Subjunctive Mood (If I were...)",
       "concept": "Correct usage of verb forms in hypothetical conditional sentences."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3305,7 +3296,7 @@
       "subtopic": "Fill in the Blanks (Prepositions)",
       "concept": "Choosing the correct preposition based on idiomatic usage."
     },
-    "difficulty_level": "Easy",
+    "difficulty_level": "Moderate",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3341,7 +3332,7 @@
       "subtopic": "Active/Passive Voice",
       "concept": "Converting a Present Perfect Tense sentence from active to passive voice."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3378,7 +3369,7 @@
       "subtopic": "Direct/Indirect Speech",
       "concept": "Converting an assertive sentence from direct to indirect speech."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Applying"
   },
   {
@@ -3418,7 +3409,7 @@
       "subtopic": "Para Jumbles/Sentence Rearrangement",
       "concept": "Arranging jumbled parts of a sentence to form a coherent and grammatically correct sentence."
     },
-    "difficulty_level": "Moderate",
+    "difficulty_level": "Difficult",
     "blooms_taxonomy": "Analyzing"
   }
 ]
