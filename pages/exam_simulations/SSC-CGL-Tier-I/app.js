@@ -1927,7 +1927,7 @@ class ExamInterface {
             const examContainer = document.getElementById('examContainer');
             if (examContainer) {
                 examContainer.className = 'container';
-                examContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important;';
+                examContainer.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important; width: 100% !important; max-width: 100% !important;';
             }
             
             // Hide the loading screen that's visible by default
