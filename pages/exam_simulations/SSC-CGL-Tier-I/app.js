@@ -1,4 +1,4 @@
-// Static Examination Demo: app.js
+// SSC-CGL Demo: app.js
 // ==================== CONFIGURATION ====================
 const CONFIG = {
     TIMER_INTERVAL: 1000,
