@@ -50,6 +50,7 @@ main.container {
     padding: 20px;
     padding-top: 120px;
     position: relative;
+    width: 100%;
 }
 
 .container::before {
@@ -65,20 +66,6 @@ main.container {
     background-position: 0 0,10px 10px;
     opacity: 0.05;
     z-index: -1;
-}
-
-/* ===========================================
-    Start Test Button Styles 
-=========================================== */
-#startTestButton:hover {
-    background: linear-gradient(135deg, #E69A0C, #D4940A) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(247, 166, 33, 0.4) !important;
-}
-
-#startTestButton:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(247, 166, 33, 0.3) !important;
 }
 
 /* ===========================================
@@ -188,7 +175,7 @@ main.container {
     cursor: pointer;
     border: 1px solid rgba(16, 30, 61, 0.1);
     transition: all 0.3s ease;
-    min-height: 44px; /* Touch-friendly size */
+    min-height: 44px;
     min-width: 44px;
 }
 
@@ -206,30 +193,6 @@ main.container {
 
 .home-button svg {
     flex-shrink: 0;
-}
-
-/* Mobile optimization for home button */
-@media (max-width: 768px) {
-    .home-button {
-        font-size: 0.9em;
-        padding: 10px 12px;
-        min-height: 44px;
-        min-width: 44px;
-    }
-    
-    .home-button svg {
-        width: 18px;
-        height: 18px;
-        margin-right: 6px;
-    }
-    #startTestButton {
-        padding: 12px 25px !important;
-        font-size: 1em !important;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        display: block;
-    }
 }
 
 /* ===========================================
@@ -266,6 +229,20 @@ main.container {
     background: #1a2951;
     transform: scale(1.02);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ===========================================
+   START TEST BUTTON
+   =========================================== */
+#startTestButton:hover {
+    background: linear-gradient(135deg, #E69A0C, #D4940A) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(247, 166, 33, 0.4) !important;
+}
+
+#startTestButton:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(247, 166, 33, 0.3) !important;
 }
 
 /* ===========================================
@@ -349,15 +326,6 @@ main.container {
     display: block;
     border: 1px solid #e9ecef;
     object-fit: contain;
-}
-
-/* Mobile optimization for images */
-@media (max-width: 768px) {
-    .question-image {
-        max-height: 200px;
-        margin: 10px auto;
-        border-radius: 6px;
-    }
 }
 
 .options {
@@ -1443,6 +1411,15 @@ main.container {
 }
 
 /* ===========================================
+   VIDEO CONTAINER
+   =========================================== */
+.video-container-wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ===========================================
    RESPONSIVE DESIGN - DESKTOP FIRST
    =========================================== */
 @media (min-width: 1024px) {
@@ -1464,18 +1441,128 @@ main.container {
 }
 
 /* ===========================================
-   MOBILE STYLES (CONSOLIDATED)
+   MOBILE STYLES (768px AND BELOW)
    =========================================== */
 @media (max-width: 768px) {
-    /* Base Layout */
+    /* Base Layout - Full Width */
     .container {
-        max-width: 100%;
-        padding: 10px;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 5px !important;
         padding-top: 100px;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    .main-content-wrapper {
+        width: 100%;
+        padding: 0;
         margin: 0;
     }
 
-    /* Hero Section - FIXED */
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    #examContainer {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Home Button */
+    .home-button {
+        font-size: 0.9em;
+        padding: 10px 12px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .home-button svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+
+    #startTestButton {
+        padding: 12px 25px !important;
+        font-size: 1em !important;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Exam Interface */
+    .exam-header,
+    .question-card,
+    .question-list {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .exam-header {
+        margin-top: 80px;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .question-card {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .question-list {
+        padding: 15px;
+        margin: 15px 0;
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+        gap: 8px;
+    }
+    
+    .question-nav-btn {
+        padding: 8px 4px;
+        font-size: 0.9em;
+    }
+    
+    .navigation {
+        padding: 0 10px;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .question-text {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    
+    .option {
+        padding: 12px 10px;
+        margin: 8px 0;
+    }
+    
+    .option input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    .question-image {
+        max-height: 200px;
+        margin: 10px auto;
+        border-radius: 6px;
+    }
+
+    /* Hero Section */
     .hero-section {
         padding: 20px;
         margin-top: 80px;
@@ -1676,13 +1763,7 @@ main.container {
         transition: width 0.5s ease;
     }
 
-    /* Navigation */
-    .navigation {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
+    /* Buttons */
     .btn {
         padding: 12px 20px;
         font-size: 0.9em;
@@ -1829,16 +1910,52 @@ main.container {
         padding: 20px;
     }
 
-    /* Video */
+    /* Video Container */
+    .video-container-wrapper {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
     .aspect-video {
-        height: 200px;
+        height: auto;
     }
 }
 
 /* ===========================================
-   EXTRA SMALL SCREENS
+   EXTRA SMALL SCREENS (480px AND BELOW)
    =========================================== */
 @media (max-width: 480px) {
+    .container {
+        max-width: 100% !important;
+        padding: 8px !important;
+        margin: 0 !important;
+    }
+    
+    .exam-header {
+        padding: 15px 10px;
+        margin-top: 80px;
+    }
+    
+    .question-card {
+        padding: 15px 10px;
+    }
+    
+    .question-list {
+        padding: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+        gap: 6px;
+    }
+    
+    .question-nav-btn {
+        padding: 6px 2px;
+        font-size: 0.8em;
+    }
+    
+    .demo-info {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
     .insight-card {
         padding: 15px;
         max-height: 320px;
@@ -1943,104 +2060,6 @@ main.container {
     .study-card h3 {
         font-size: 0.95em;
         margin-bottom: 15px;
-    }
-    .container {
-        max-width: 100%;
-        padding: 8px;
-        margin: 0;
-    }
-    
-    .exam-header {
-        padding: 15px 10px;
-        margin-top: 80px;
-    }
-    
-    .question-card {
-        padding: 15px 10px;
-    }
-    
-    .question-list {
-        padding: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-        gap: 6px;
-    }
-    
-    .question-nav-btn {
-        padding: 6px 2px;
-        font-size: 0.8em;
-    }
-    
-    .demo-info {
-        padding: 15px;
-        margin: 10px 0;
-    }
-}
-
-/* ===========================================
-   VIDEO CONTAINER WRAPPER
-   =========================================== */
-.video-container-wrapper {
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Update the mobile styles */
-@media (max-width: 768px) {
-    .video-container-wrapper {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-    
-    /* Remove this existing rule to prevent aspect ratio breaking */
-    .aspect-video {
-        height: auto; /* Change from 200px to auto */
-    }
-    .exam-header {
-        margin-top: 80px;
-        padding: 20px 15px;
-        margin-bottom: 15px;
-    }
-    
-    .question-card {
-        padding: 20px 15px;
-        margin-bottom: 15px;
-    }
-    
-    .question-list {
-        padding: 15px;
-        margin: 15px 0;
-        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
-        gap: 8px;
-    }
-    
-    .question-nav-btn {
-        padding: 8px 4px;
-        font-size: 0.9em;
-    }
-    
-    .navigation {
-        padding: 0 10px;
-    }
-    
-    .question-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .question-text {
-        font-size: 1em;
-        line-height: 1.6;
-    }
-    
-    .option {
-        padding: 12px 10px;
-        margin: 8px 0;
-    }
-    
-    .option input[type="radio"] {
-        margin-right: 10px;
     }
 }
 
