@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPSC Subjective Exam Demo - AI-Powered Analysis</title>
+    <link rel="icon" href="../../../../../images/favicon.ico" type="image/x-icon">
+    <!-- <script src="https://unpkg.com/@google/genai@latest/dist/index.js"></script> -->
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0 nav-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="../../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold brand-primary-text">a<span class="brand-accent-text">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <!-- Home Button - Initially Visible -->
+                    <a href="../../../../../../index.html" id="homeButton" class="home-button bg-white px-4 py-2 rounded-lg shadow-md timer-border text-brand-primary hover:bg-gray-50 transition-colors duration-300">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-7a1 1 0 011-1h2a1 1 0 011 1v7a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        Home
+                    </a>
+                    
+                    <!-- Timer - Initially Hidden -->
+                    <div class="timer bg-white px-4 py-2 rounded-lg shadow-md timer-border hidden" id="timer">00:00:00</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto p-8">
+        <!-- Hero Section -->
+        <div class="container mx-auto px-4 py-12" style="padding-top: 120px;">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                    Master <span class="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">UPSC Mains</span> with AI
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Get instant, detailed feedback on your subjective answers with advanced AI analysis that understands context, structure, and UPSC marking patterns
+                </p>
+
+                <!-- Main CTA Section with Pricing Card -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <!-- Clean Pricing Card -->
+                    <div style="background: white; padding: 1px; border-radius: 15px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 2.5px solid #F7A621; min-width: 200px; max-height:110px;">
+                        <div style="font-size: 1.1em; margin-bottom: 0px; font-weight: bold; color: #101E3D;">⚡Limited Preview</div>
+                        <div style="font-size: 2em; font-weight: bold; color: #F7A621; margin-bottom: 1px;">₹ 0</div>
+                        <div style="font-size: 0.9em; color: #6c757d;">Free Access</div>
+                    </div>
+                </div>
+
+                <!-- Main CTA Button -->
+                <button onclick="initiateExamAccess()" 
+                        class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-8">
+                     Start Smart Subjective Practice
+                </button>
+
+                <p class="text-sm text-gray-500" style="margin-bottom:15px">
+                    Experience AI-powered answer analysis • Real UPSC-style questions • Instant personalized feedback
+                </p>
+                
+                <!-- <div style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 15px 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #F7A621; text-align: center;">
+                    <p style="margin: 0; color: #101E3D; font-size: 1em; font-style: italic; font-weight: 500;">
+                        💬 <strong>"The AI feedback helped me structure my answers better and improved my Mains score by 40 marks!"</strong> - Priya S., Delhi
+                    </p>
+                </div> -->
+
+                <h2 class="text-2xl font-bold text-center mb-6" style="color: #101E3D;">
+                    See How Our AI Transforms Your UPSC Preparation
+                </h2>
+
+                <!-- Interactive Success Showcase -->
+                <div class="success-showcase-wrapper mb-8">
+                    <!-- Feature Highlights -->
+                    <div class="feature-highlights" style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 25px; border-radius: 20px; margin-bottom: 25px; border: 2px solid rgba(247, 166, 33, 0.2);">
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #101E3D; font-size: 1.4em; font-weight: bold;">🎯 Smart Subjective Analysis Features</h3>
+                        <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div class="feature-item" style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.7); border-radius: 15px; border: 1px solid rgba(247, 166, 33, 0.2);">
+                                <div style="font-size: 2.5em; margin-bottom: 10px;">✍️</div>
+                                <h4 style="font-weight: bold; color: #101E3D; margin-bottom: 8px;">Text + Image Support</h4>
+                                <p style="font-size: 0.85em; color: #6c757d; line-height: 1.4;">Write your answers or upload handwritten responses with diagrams and flowcharts</p>
+                            </div>
+                            <div class="feature-item" style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.7); border-radius: 15px; border: 1px solid rgba(247, 166, 33, 0.2);">
+                                <div style="font-size: 2.5em; margin-bottom: 10px;">🧠</div>
+                                <h4 style="font-weight: bold; color: #101E3D; margin-bottom: 8px;">AI Content Analysis</h4>
+                                <p style="font-size: 0.85em; color: #6c757d; line-height: 1.4;">Deep analysis of structure, content accuracy, and UPSC-specific requirements</p>
+                            </div>
+                            <div class="feature-item" style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.7); border-radius: 15px; border: 1px solid rgba(247, 166, 33, 0.2);">
+                                <div style="font-size: 2.5em; margin-bottom: 10px;">📊</div>
+                                <h4 style="font-weight: bold; color: #101E3D; margin-bottom: 8px;">Detailed Feedback</h4>
+                                <p style="font-size: 0.85em; color: #6c757d; line-height: 1.4;">Question-wise analysis with improvement suggestions and model answer comparisons</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sample Analysis Preview -->
+                    <div class="analysis-preview" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); padding: 25px; border-radius: 20px; margin-bottom: 25px; border: 2px solid rgba(16, 30, 61, 0.1); box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                        <h3 style="text-align: center; margin-bottom: 20px; color: #101E3D; font-size: 1.4em; font-weight: bold;">🔍 Sample AI Feedback Preview</h3>
+                        <div style="background: white; padding: 20px; border-radius: 15px; border-left: 4px solid #10B981; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h4 style="color: #101E3D; margin: 0; font-size: 1em;">Question 1 Analysis</h4>
+                                <span style="background: #10B981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: bold;">8/10 marks</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <div style="font-size: 0.9em; color: #2d3748; line-height: 1.5; margin-bottom: 10px;">
+                                    <strong style="color: #10B981;">✅ Strengths:</strong> Excellent introduction and conclusion. Good use of historical examples. Clear structure with proper paragraph transitions.
+                                </div>
+                                <div style="font-size: 0.9em; color: #2d3748; line-height: 1.5; margin-bottom: 10px;">
+                                    <strong style="color: #F7A621;">⚡ Areas for Improvement:</strong> Include more contemporary examples. Elaborate on the socio-economic impact. Consider adding a flowchart for better presentation.
+                                </div>
+                                <div style="font-size: 0.9em; color: #2d3748; line-height: 1.5;">
+                                    <strong style="color: #6366f1;">💡 Next Steps:</strong> Practice integrating current affairs with historical context. Work on diagram-based answers for better visual impact.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">📝</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Smart Answer Analysis</h3>
+                    <p class="text-gray-600">AI evaluates content, structure, language, and UPSC-specific requirements</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">🖼️</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Image Recognition</h3>
+                    <p class="text-gray-600">Upload handwritten answers, diagrams, and flowcharts for comprehensive analysis</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Personalized Feedback</h3>
+                    <p class="text-gray-600">Get detailed, actionable suggestions to improve your answer quality and scores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Verification Modal -->
+    <div id="emailVerificationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Access Smart Subjective Practice</h3>
+                <p class="text-gray-600 mt-2">Enter the email you used to join our waitlist — or register now to get instant access to the exclusive demo!</p>
+            </div>
+            
+            <!-- Verification Form -->
+            <form id="verificationForm" onsubmit="return false;">
+                <div class="mb-5">
+                    <label for="verifyEmail" class="block text-sm font-medium text-gray-700 mb-2">Waitlist Email</label>
+                    <input type="email" id="verifyEmail" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                           placeholder="Enter your email">
+                </div>
+                
+                <button type="button" id="verifyButton"
+                        class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                    🚀 Verify & Start Practice Session
+                </button>
+            </form>
+            
+            <!-- Error Message -->
+            <div id="verificationError" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p id="errorMessage" class="text-red-700 text-sm"></p>
+                <button onclick="showRegistrationFromError()" 
+                        class="mt-3 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                    Limited Early Access – Claim Your Spot Now (Free)!
+                </button>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="verificationLoading" class="hidden mt-4 text-center">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto"></div>
+                <p class="text-gray-600 mt-2">Verifying your access...</p>
+            </div>
+
+            <!-- Close Button -->
+            <button onclick="hideEmailVerificationModal()" 
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+        <div class="absolute inset-0 bg-black opacity-50" id="modalOverlay"></div>
+        <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeModal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Quick Registration</h3>
+                <p class="text-gray-600 mt-2">Join our exclusive early access program</p>
+            </div>
+            
+            <!-- Registration Success Message -->
+            <div id="registrationSuccess" class="hidden text-center py-6">
+                <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h4 class="text-2xl font-semibold mb-3 text-gray-800">🎉 Registration Successful!</h4>
+                <p class="text-gray-600 mb-4">Welcome! You can now start practicing.</p>
+                <button onclick="proceedToExamAfterRegistration()" 
+                        class="px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 bg-orange-500 hover:bg-orange-600">
+                    🚀 Start Practice Session
+                </button>
+            </div>
+            
+            <!-- Registration Form -->
+            <form id="registrationForm" onsubmit="submitRegistrationForm(event)">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone (Optional)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                    <select id="userType" name="user_type" required 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                        <option value="">Please select</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="parent">Parent</option>
+                        <option value="organization">Educational Organization</option>
+                    </select>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
+                        <span class="text-sm text-gray-600">I agree to receive updates about products and services</span>
+                    </label>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                    Register & Start Practice
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <main class="container hidden" id="examContainer">
+        <!-- Loading Screen -->
+        <div id="loading" class="loading">
+            <div class="loading-content">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <h2 id="loadingTitle">Loading Practice Session...</h2>
+                <p id="loadingSubtitle">Please wait while we prepare your subjective questions.</p>
+                <div class="loading-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Initializing...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Interface -->
+        <div id="reviewInterface" class="hidden">
+            <div class="header">
+                <div>
+                    <h1>Answer Review & <span class="gradient-text">Analysis</span></h1>
+                    <p>Detailed AI feedback for each response</p>
+                </div>
+                <button class="btn btn-secondary" onclick="backToResults()">Back to Dashboard</button>
+            </div>
+
+            <div id="reviewContainer"></div>
+        </div>
+
+        <!-- Exam Interface -->
+        <div id="examInterface" class="hidden">
+            <!-- Exam Header -->
+            <div class="exam-header">
+                <h1>UPSC <span class="gradient-text">Subjective Practice</span></h1>
+                <p class="hero-subtitle">🎯 Experience AI-powered answer analysis and feedback!</p>
+                
+                <div class="demo-info" style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 4px solid #F7A621;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.5em;">📚</span>
+                        <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">UPSC Mains Practice Session</h3>
+                    </div>
+                    <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                        <strong>About This Session:</strong> These are authentic UPSC General Studies questions designed to match the exact pattern and standards of the actual exam. Each question includes word limits, marking schemes, and detailed model answers.
+                    </p>
+                    <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                        <strong>Answer Modes:</strong> You can type your answers directly or upload images of handwritten responses with diagrams, flowcharts, and maps. Our AI can analyze both text and visual content.
+                    </p>
+                    <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; font-size: 0.85em;">
+                        <span style="color: #10B981;">✨ Content Analysis</span>
+                        <span style="color: #6366f1;">📊 Structure Evaluation</span>
+                        <span style="color: #F7A621;">🎯 UPSC-Specific Feedback</span>
+                        <span style="color: #8B5CF6;">📝 Model Answer Comparison</span>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #E6F3FF, #F0F8FF); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #6366f1;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                            <span style="font-size: 1.5em;">📋</span>
+                            <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">Practice Session Guidelines</h3>
+                        </div>
+                        <ul style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.6; padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><strong>Word Limits:</strong> Respect the word limits as specified for each question (150/250 words)</li>
+                            <li style="margin-bottom: 8px;"><strong>Time Management:</strong> No time limit for this practice session - focus on quality</li>
+                            <li style="margin-bottom: 8px;"><strong>Answer Format:</strong> Structure your answers with clear introduction, body, and conclusion</li>
+                            <li style="margin-bottom: 8px;"><strong>Visual Content:</strong> Use diagrams, flowcharts, and maps where relevant - upload as images</li>
+                            <li style="margin-bottom: 8px;"><strong>AI Analysis:</strong> Get detailed feedback on content, structure, language, and UPSC requirements</li>
+                            <li style="margin-bottom: 8px;"><strong>Navigation:</strong> Use question numbers to jump between questions - no need to answer sequentially</li>
+                            <li style="margin-bottom: 8px;"><strong>Submission:</strong> Submit individual answers or complete the full session</li>
+                        </ul>
+                        <div style="background: #E3F2FD; padding: 12px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #2196F3;">
+                            <p style="margin: 0; color: #1565C0; font-size: 0.9em; font-weight: 500;">
+                                💡 <strong>Pro Tip:</strong> Write as you would in the actual exam. Our AI analyzes answer quality, not just content correctness.
+                            </p>
+                        </div>
+                        <div style="background: #FFF3CD; padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #F7A621;">
+                            <p style="margin: 0; color: #856404; font-size: 0.9em; font-weight: 500;">
+                                📸 <strong>Image Upload:</strong> Ensure clear, well-lit photos of handwritten answers for best AI analysis results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #E8F5E8, #F0FDF4); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #10B981; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 1.2em;">💡</span>
+                        <strong style="color: #047857; font-size: 1em;">Practice Tip</strong>
+                    </div>
+                    <p style="margin: 0; color: #065f46; font-size: 0.9em; line-height: 1.4;">
+                        Answer questions in any order you prefer. Each answer gets individual AI analysis, so you can submit and review answers one by one or all together.
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; border: 2px solid #F7A621;">
+                    <p style="color: #101E3D; font-size: 1em; margin-bottom: 15px; font-weight: 500;">
+                        ⏱️ Ready to begin? Start practicing with AI-powered feedback!
+                    </p>
+                    <button onclick="startExamTest()" id="startTestButton"
+                            class="btn btn-primary" 
+                            style="background: linear-gradient(135deg, #F7A621, #E69A0C); color: white; font-weight: bold; padding: 15px 30px; border-radius: 10px; font-size: 1.1em; border: none; cursor: pointer; box-shadow: 0 6px 15px rgba(247, 166, 33, 0.3); transition: all 0.3s ease;">
+                        🚀 Start Practice Session
+                    </button>
+                </div>
+
+                <p style="color: #6c757d; font-size: 0.9em; text-align: center; margin-top: 10px;">
+                    Ready to experience the future of UPSC preparation? ⚡
+                </p>
+            </div>
+
+            <nav class="question-list hidden" id="questionList" aria-label="Question navigation"></nav>
+            
+            <!-- Question Card for Subjective Questions -->
+            <div class="question-card hidden" id="questionCard">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Question 1 of 10</span>
+                    <span id="questionMeta"></span>
+                </div>
+                
+                <div class="question-content">
+                    <div class="question-text" id="questionText"></div>
+                    
+                    <!-- Answer Input Section -->
+                    <div class="answer-section">
+                        <div class="answer-mode-selector">
+                            <label class="answer-mode-option">
+                                <input type="radio" name="answerMode" value="text" checked>
+                                <span class="mode-label">
+                                    <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14,2 14,8 20,8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <line x1="10" y1="9" x2="8" y2="9"></line>
+                                    </svg>
+                                    Type Answer
+                                </span>
+                            </label>
+                            <label class="answer-mode-option">
+                                <input type="radio" name="answerMode" value="image">
+                                <span class="mode-label">
+                                    <svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <polyline points="21,15 16,10 5,21"></polyline>
+                                    </svg>
+                                    Upload Image
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <!-- Text Answer Input -->
+                        <div class="text-answer-section" id="textAnswerSection">
+                            <div class="answer-input-header">
+                                <label for="answerText" class="answer-label">Your Answer:</label>
+                                <span class="word-count" id="wordCount">0 words</span>
+                            </div>
+                            <textarea 
+                                id="answerText" 
+                                class="answer-textarea" 
+                                placeholder="Write your answer here... Structure your response with clear introduction, body, and conclusion. Use examples and case studies where relevant."
+                                rows="12"
+                            ></textarea>
+                            <div class="answer-input-footer">
+                                <span class="word-limit" id="wordLimit">Word limit: 150 words</span>
+                                <button type="button" class="clear-answer-btn" onclick="clearTextAnswer()">Clear</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Answer Input -->
+                        <div class="image-answer-section hidden" id="imageAnswerSection">
+                            <div class="image-upload-area" id="imageUploadArea">
+                                <div class="upload-instructions">
+                                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7,10 12,15 17,10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    <h3>Upload Your Answer</h3>
+                                    <p>Drag and drop an image file here, or click to browse</p>
+                                    <p class="upload-note">Supports: JPG, PNG, GIF (Max 5MB)</p>
+                                </div>
+                                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                            </div>
+                            
+                            <!-- Image Preview -->
+                            <div class="image-preview hidden" id="imagePreview">
+                                <div class="preview-header">
+                                    <h4>Answer Preview:</h4>
+                                    <button type="button" class="remove-image-btn" onclick="removeImage()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <img id="previewImage" alt="Answer preview">
+                                <div class="image-info">
+                                    <span id="imageFileName"></span>
+                                    <span id="imageFileSize"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Answer Status -->
+                        <div class="answer-status" id="answerStatus">
+                            <span class="status-indicator" id="statusIndicator">Not answered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation hidden" id="examNavigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+                <button class="btn btn-secondary" id="saveBtn" onclick="saveCurrentAnswer()" disabled>Save Answer</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                <button class="btn btn-primary hidden" id="submitBtn" onclick="submitExam()">Submit Session</button>
+            </div>
+        </div>
+
+        <!-- Results Interface -->
+        <div id="resultsInterface" class="hidden">
+            <div class="results-dashboard">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-hero">
+                        <h1 id="resultsTitle">Your AI Analysis Report</h1>
+                        <p id="resultsSubtitle">Comprehensive feedback on your subjective answers</p>
+                    </div>
+                    <div class="overall-score-display">
+                        <div class="score-circle-large">
+                            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="60" cy="60" r="50" stroke="#e9ecef" stroke-width="8" fill="none"/>
+                                <circle cx="60" cy="60" r="50" stroke="#F7A621" stroke-width="8" fill="none" 
+                                        stroke-dasharray="314" stroke-dashoffset="314" id="overallScoreProgress"/>
+                            </svg>
+                            <div class="score-content">
+                                <span id="overallScore">0%</span>
+                                <small>Overall Score</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="answeredCount">0</div>
+                            <div class="stat-label">Questions Answered</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="averageScore">0</div>
+                            <div class="stat-label">Average Score</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="strongAreas">0</div>
+                            <div class="stat-label">Strong Areas</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="improvementAreas">0</div>
+                            <div class="stat-label">Growth Opportunities</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Question Analysis -->
+                <div class="question-analysis-section">
+                    <h2 class="section-title">📊 Question-wise Analysis</h2>
+                    <div id="questionAnalysisContainer" class="question-analysis-grid">
+                        <!-- Individual question cards will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Overall Insights -->
+                <div class="overall-insights-section">
+                    <h2 class="section-title">🧠 AI-Generated Insights</h2>
+                    <div class="insights-container">
+                        <div class="insight-card primary-insight">
+                            <h3>📈 Performance Overview</h3>
+                            <div id="performanceOverview" class="insight-content">
+                                <div class="loading-placeholder">Analyzing your performance patterns...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <h3>🎯 Key Strengths</h3>
+                            <div id="keyStrengths" class="insight-content">
+                                <div class="loading-placeholder">Identifying your strong areas...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="insight-card">
+                            <h3>🚀 Growth Recommendations</h3>
+                            <div id="growthRecommendations" class="insight-content">
+                                <div class="loading-placeholder">Generating improvement suggestions...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Charts -->
+                <div class="charts-section">
+                    <h2 class="section-title">📈 Performance Visualization</h2>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Subject Performance</h3>
+                            <canvas id="subjectChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Skill Assessment</h3>
+                            <canvas id="skillChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="results-actions">
+                    <button class="action-btn secondary" onclick="restartExam()">
+                        <span class="btn-icon">🔄</span>
+                        <div>
+                            <strong>Practice Again</strong>
+                            <small>New session with different questions</small>
+                        </div>
+                    </button>
+                    <button class="action-btn accent" onclick="window.location.reload()">
+                        <span class="btn-icon">🏠</span>
+                        <div>
+                            <strong>Back to Home</strong>
+                            <small>Return to main page</small>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    with 
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    in Bangalore by
+                    <img src="../../../../../images/TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Revolutionizing UPSC preparation with AI. Reach out at contact@aiqversity.com
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hidden hover:bg-blue-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script>
+        // UPSC Subjective Exam Configuration
+        window.EXAM_CONFIG = {
+            TIMER_INTERVAL: 1000,
+            SCORE_THRESHOLDS: { EXCELLENT: 85, GOOD: 70, AVERAGE: 50 },
+            MARKING_SCHEME: { MAX_MARKS: 10 }, // Subjective questions have individual marks
+            EXAM_CONTEXT: {
+                NAME: 'UPSC General Studies',
+                DESCRIPTION: 'This is a practice session for UPSC General Studies Mains examination. Questions are designed according to the latest UPSC pattern with appropriate word limits and marking schemes. Answers are evaluated based on content accuracy, structure, language quality, and UPSC-specific requirements.',
+                MARKING_INFO: 'Comprehensive evaluation based on content, structure, and presentation',
+                TARGET_SCORE: '70% and above for competitive scores'
+            }
+        };
+    </script>
+    <script src="./subjective-app.js"></script>
+</body>
+</html>
