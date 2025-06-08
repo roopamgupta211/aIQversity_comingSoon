@@ -43,7 +43,7 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
+        "@type": "EducationalPlatform",
         "name": "aIQversity",
         "url": "https://aiqversity.com",
         "logo": "https://aiqversity.com/images/logo.jpg",
@@ -951,6 +951,62 @@
         // Live Features Data - Add new features here
         const liveFeatures = [
             {
+                title: "UPSC-GS 1 Mains Simulator",
+                description: "AI-powered UPSC GS-1 Mains preparation with personalized and comprehensive answer evaluation.",
+                icon: "M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z",
+                linkText: "Start UPSC Mains Demo",
+                url: "./pages/exam_simulations/UPSC/Mains/GS1/",
+                borderColor: "#101E3D",
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D", 
+                linkColor: "#F7A621",
+                status: "Demo Available",
+                statusBg: "#F7A621",
+                statusColor: "white"
+            },
+            {
+                title: "SSC CGL Exam Simulator",
+                description: "AI-driven SSC CGL Tier I preparation with smart study plans covering all four key subjects.",
+                icon: "M3 21h18M5 21V7l8-4v18M9 9h1v1H9V9zm3 0h1v1h-1V9zm3 0h1v1h-1V9zm-6 3h1v1H9v-1zm3 0h1v1h-1v-1zm3 0h1v1h-1v-1zm-6 3h1v1H9v-1zm3 0h1v1h-1v-1zm3 0h1v1h-1v-1z",
+                linkText: "Start SSC CGL Demo",
+                url: "./pages/exam_simulations/SSC-CGL-Tier-I/",
+                borderColor: "#101E3D",
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D", 
+                linkColor: "#F7A621",
+                status: "Demo Available",
+                statusBg: "#F7A621",
+                statusColor: "white"
+            },
+            {
+                title: "NEET Exam Simulator",
+                description: "AI-powered NEET preparation with personalized study plans and authentic NCERT-based questions.",
+                icon: "M6 8a2 2 0 1 1 4 0c0 1.11-.89 2-2 2s-2-.89-2-2zm8 0a2 2 0 1 1 4 0c0 1.11-.89 2-2 2s-2-.89-2-2zM8 10v4a6 6 0 0 0 12 0v-4M8 10a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2zm12 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2z",
+                linkText: "Start NEET Demo",
+                url: "./pages/exam_simulations/NEET/",
+                borderColor: "#101E3D",        
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D", 
+                linkColor: "#F7A621",          
+                status: "Demo Available",
+                statusBg: "#F7A621",           
+                statusColor: "white"
+            },
+            {
+                title: "UKPSC Exam Simulator",
+                description: "Practice with realistic UKPSC exam simulation featuring timed tests, real exam interface, and instant feedback.",
+                icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8s0 0 0 0l-6-6zM14 8h4l-4-4v4z",
+                linkText: "Start Simulation",
+                url: "./pages/exam_simulations/UKPSC/Pre_Paper_1/",
+                borderColor: "#101E3D",        
+                iconBgColor: "rgba(16, 30, 61, 0.1)",
+                iconColor: "#101E3D",
+                linkColor: "#F7A621",          
+                status: "Demo Available",
+                statusBg: "#F7A621",           
+                statusColor: "white"
+            },
+            {
                 title: "UPSC Prelims Analysis",
                 description: "Comprehensive analysis of UPSC Prelims with AI-powered insights, question patterns, and performance analytics.",
                 icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
@@ -965,60 +1021,18 @@
                 statusColor: "#101E3D"
             },
             {
-                title: "UKPSC Exam Simulator",
-                description: "Practice with realistic UKPSC exam simulation featuring timed tests, real exam interface, and instant feedback.",
-                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-                linkText: "Start Simulation",
-                url: "./pages/exam_simulations/UKPSC/Pre_Paper_1/",
-                borderColor: "#101E3D",        // Same primary
-                iconBgColor: "rgba(16, 30, 61, 0.1)",
-                iconColor: "#101E3D",
-                linkColor: "#F7A621",          // Same CTA color
-                status: "Demo Available",
-                statusBg: "#F7A621",           // Orange for demo status
-                statusColor: "white"
-            },
-            {
-                title: "NEET Exam Simulator",
-                description: "AI-powered NEET preparation with personalized study plans and authentic NCERT-based questions.",
-                icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
-                linkText: "Start NEET Demo",
-                url: "./pages/exam_simulations/NEET/",
-                borderColor: "#101E3D",        // Same primary
-                iconBgColor: "rgba(16, 30, 61, 0.1)",
-                iconColor: "#101E3D", 
-                linkColor: "#F7A621",          // Same CTA color
-                status: "Demo Available",
-                statusBg: "#F7A621",           // Same demo status color
-                statusColor: "white"
-            },
-            {
-                title: "SSC CGL Exam Simulator",
-                description: "AI-driven SSC CGL Tier I preparation with smart study plans covering all four key subjects.",
-                icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
-                linkText: "Start SSC CGL Demo",
-                url: "./pages/exam_simulations/SSC-CGL-Tier-I/",
-                borderColor: "#101E3D",        // Same primary
-                iconBgColor: "rgba(16, 30, 61, 0.1)",
-                iconColor: "#101E3D", 
-                linkColor: "#F7A621",          // Same CTA color
-                status: "Demo Available",
-                statusBg: "#F7A621",           // Same demo status color
-                statusColor: "white"
-            },
-            {
                 title: "Expanding Our Demos",
                 description: "School exams, civil services, JEE, SSC, and more - with objective and subjective formats. Coming very soon!",
-                icon: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
                 linkText: "Stay Updated",
                 url: "javascript:void(0)",
                 onclick: "openRegistrationModal()",
-                borderColor: "#45E6C0",        // Use teal for "coming soon"
+                borderColor: "#45E6C0",
                 iconBgColor: "rgba(69, 230, 192, 0.1)",
                 iconColor: "#45E6C0",
-                linkColor: "#F7A621",          // Consistent CTA color
+                linkColor: "#F7A621",
                 status: "Coming Soon", 
-                statusBg: "#45E6C0",           // Teal for future status
+                statusBg: "#45E6C0",
                 statusColor: "#101E3D"
             }
         ];
