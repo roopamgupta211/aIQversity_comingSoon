@@ -1488,8 +1488,10 @@ main.container {
    =========================================== */
 @media (max-width: 768px) {
     .container {
+        max-width: 100%;
         padding: 15px;
         padding-top: 100px;
+        width: 100%;
     }
 
     /* Home Button Mobile */
@@ -1521,25 +1523,44 @@ main.container {
         flex-direction: column;
         text-align: center;
         padding: 25px 20px;
+        align-items: center;
+    }
+    
+    .results-hero {
+        order: 1;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .overall-score-display {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 0 !important;
     }
 
     .results-hero h1 {
         font-size: 1.8em;
         margin-bottom: 8px;
+        line-height: 1.2;
     }
 
     .results-hero p {
         font-size: 0.95em;
-        margin-bottom: 20px;
+        margin: 0;
     }
 
     .score-circle-large {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
     }
 
     .score-content span {
         font-size: 1.4em;
+    }
+    .score-content small {
+        font-size: 0.8em;
     }
 
     /* Quick Stats Mobile */
@@ -1673,6 +1694,11 @@ main.container {
     .sub-scores {
         grid-template-columns: 1fr;
         gap: 6px;
+    }
+    /* Results Dashboard Mobile */
+    .results-dashboard {
+        max-width: 100%;
+        padding: 15px;
     }
 }
 
