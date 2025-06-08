@@ -932,11 +932,11 @@ class AIInsights {
         [
             {'day': 'Monday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
             {'day': 'Tuesday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}]},
-            {'day': 'Wednesday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]},
+            {'day': 'Wednesday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type with actual_subject_name>', 'hours': <hours>}]},
             {'day': 'Thursday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
-            {'day': 'Friday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]},
+            {'day': 'Friday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type with actual_subject_name>', 'hours': <hours>}]},
             {'day': 'Saturday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<actual_subject_name>', 'hours': <hours>}, {'name': '<actual_subject_name>', 'hours': <hours>}]},
-            {'day': 'Sunday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type>', 'hours': <hours>}]}
+            {'day': 'Sunday', 'study': <hours>, 'rest': <hours>, 'subjects': [{'name': '<activity_type with actual_subject_name>', 'hours': <hours>}]}
         ]
         Analyze the cognitive load distribution and subject performance to decide: which subjects need more focus days, optimal daily study hours based on learning velocity, appropriate rest periods, and effective weekly learning rhythm.",
         
