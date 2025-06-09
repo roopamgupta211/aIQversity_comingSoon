@@ -354,6 +354,7 @@ class QuestionManager {
                 <span class="marks-badge">${question.marks} marks</span>
                 <span class="difficulty-badge ${question.difficulty_level}">${question.difficulty_level}</span>
                 <span class="subject-badge">${question.classification.subject}</span>
+                <span class="aiqversity-badge" title="Analyzed using aIQversity's multi-level classification system">🧠 aIQ Deep Analysis</span>
             `;
         }
         
@@ -362,9 +363,40 @@ class QuestionManager {
                 <div class="question-content">
                     <div class="question-main">${question.Question}</div>
                     ${question.classification ? `
-                        <div class="question-context">
-                            <strong>Subject:</strong> ${question.classification.subject}<br>
-                            <strong>Topic:</strong> ${question.classification.topic}
+                        <div class="question-classification-flow">
+                            <div class="classification-header">
+                                <strong>aIQversity Classification Framework</strong>
+                            </div>
+                            <div class="classification-breadcrumb">
+                                <span class="breadcrumb-item subject-item">
+                                    <span class="item-value">${question.classification.subject}</span>
+                                </span>
+                                <span class="breadcrumb-arrow">→</span>
+                                <span class="breadcrumb-item topic-item">
+                                    <span class="item-value">${question.classification.topic}</span>
+                                </span>
+                                ${question.classification.subtopic ? `
+                                    <span class="breadcrumb-arrow">→</span>
+                                    <span class="breadcrumb-item subtopic-item">
+                                        <span class="item-value">${question.classification.subtopic}</span>
+                                    </span>
+                                ` : ''}
+                                ${question.classification.sub_subtopic ? `
+                                    <span class="breadcrumb-arrow">→</span>
+                                    <span class="breadcrumb-item sub-subtopic-item">
+                                        <span class="item-value">${question.classification.sub_subtopic}</span>
+                                    </span>
+                                ` : ''}
+                                ${question.classification.concept ? `
+                                    <span class="breadcrumb-arrow">→</span>
+                                    <span class="breadcrumb-item concept-item">
+                                        <span class="item-value">${question.classification.concept}</span>
+                                    </span>
+                                ` : ''}
+                            </div>
+                            <div class="classification-footer">
+                                <small>📈 Your answer will be analyzed at each classification level for comprehensive feedback</small>
+                            </div>
                         </div>
                     ` : ''}
                 </div>
@@ -711,86 +743,113 @@ class AIAnalysisEngine {
     static createAnalysisPrompt(question, answer) {
         const isImageAnswer = answer.type === 'image';
         
-        return `You are an expert UPSC examiner and educational analyst who is very strict in marking and seldom gives zero marks when the provided answer is irrelevant to the question. Analyze this answer comprehensively with a holistic point of view (but relevancy is **paramount**) and provide detailed feedback.
+        return `You are an expert UPSC examiner and educational analyst, using aIQversity's comprehensive multi-level analysis framework, who is very strict in marking and seldom gives zero marks when the provided answer is irrelevant to the question. Analyze this answer comprehensively with a holistic point of view (but relevancy is **paramount**) and provide detailed feedback. Analyze this answer using our 5-tier classification system. Deduct marks if the answer's word limit is crossed by 10 words in the answer.
 
-**QUESTION DETAILS:**
-Subject: ${question.classification.subject}
-Topic: ${question.classification.topic}
-Marks: ${question.marks} marks
-Word Limit: ${question.word_limit} words
-Difficulty: ${question.difficulty_level}
+        CRITICAL INSTRUCTIONS:
+        - NO generic responses like "Great effort! Let's refine..."
+        - Reference SPECIFIC content from the student's answer
+        - Be strict in marking
+        - If answer is irrelevant, give low scores or even zero and explain why
+        - Analyze at each classification level for comprehensive feedback
 
-**QUESTION:**
-${question.Question}
+        **aIQversity's MULTI-LEVEL CLASSIFICATION ANALYSIS**
+        **Subject Level**: ${question.classification.subject}
+        **Topic Level**: ${question.classification.topic}
+        **SubTopic Level**: ${question.classification.subtopic  || 'General'}
+        **Sub-SubTopic Level**: ${question.classification.sub_subtopic || 'General'}
+        **Concept Level**: ${question.classification.concept || 'General'}
 
-**MODEL ANSWER (for reference):**
-${question.Solution}
+        **QUESTION METADATA:**
+        Marks: ${question.marks} marks
+        Word Limit: ${question.word_limit} words
+        Difficulty: ${question.difficulty_level}
 
-**ANSWER TO ANALYZE:**
-${isImageAnswer ? 
-    'The student has provided a handwritten/visual answer. Please analyze the content, structure, presentation, and any diagrams/charts included in the image.' : 
-    `Student's Answer: ${answer.content}\nWord Count: ${answer.wordCount} words.`
-}
+        **QUESTION:**
+        ${question.Question}
 
-**ANALYSIS REQUIREMENTS:**
-Please provide a comprehensive analysis in the following JSON format:
+        **MODEL ANSWER (for reference):**
+        ${question.Solution}
 
-{
-  "overall_score": <score out of ${question.marks} which should reflect the analysis scores you provide for the content;>,
-  "percentage": <percentage score>,
-  "content_analysis": {
-    "accuracy": <score out of 10>,
-    "depth": <score out of 10>,
-    "relevance": <score out of 10>,
-    "examples_usage": <score out of 10>,
-    "comments": "Detailed feedback on content quality, factual accuracy, and depth of understanding"
-  },
-  "structure_analysis": {
-    "introduction": <score out of 10>,
-    "body_organization": <score out of 10>,
-    "conclusion": <score out of 10>,
-    "flow": <score out of 10>,
-    "comments": "Feedback on answer structure, logical flow, and organization"
-  },
-  "presentation_analysis": {
-    "language_quality": <score out of 10>,
-    "clarity": <score out of 10>,
-    "grammar": <score out of 10>,
-    "visual_elements": <score out of 10>,
-    "comments": "Assessment of language usage, clarity, and presentation quality"
-  },
-  "upsc_specific": {
-    "word_limit_adherence": <score out of 10>,
-    "question_interpretation": <score out of 10>,
-    "upsc_style": <score out of 10>,
-    "practical_application": <score out of 10>,
-    "comments": "Evaluation based on UPSC marking standards and requirements"
-  },
-  "strengths": [
-    "List 3-5 specific strengths observed in the answer with "
-  ],
-  "improvement_areas": [
-    "List 3-5 specific areas needing improvement"
-  ],
-  "specific_suggestions": [
-    "Provide 3-5 actionable suggestions for improvement"
-  ],
-  "model_answer_comparison": "Compare with model answer and highlight key differences",
-  "grade_explanation": "Detailed explanation of why this specific score was awarded (out of ${question.marks} marks)",
-  "next_steps": "Specific recommendations for the student's continued improvement in this topic"
-}
+        **ANSWER TO ANALYZE:**
+        ${isImageAnswer ? 'The student has provided a handwritten/visual answer. Please analyze the content, structure, presentation, and any diagrams/charts included in the image.' : `Student's Answer: ${answer.content}\nWord Count: ${answer.wordCount} words.`}
 
-**IMPORTANT GUIDELINES:**
-- Be constructive and encouraging while honest about weaknesses
-- Focus on UPSC-specific evaluation criteria which is very strict - only toppers achieve 60% marks which is very rare; do not hesitate to award zero marks
-- Consider visual elements like diagrams, flowcharts, maps if present in image
-- Evaluate handwriting legibility and presentation if it's an image answer
-- Provide specific, actionable feedback
-- Compare with the provided model answer - however the model answer might also not be good enough
-- Consider the difficulty level and marking scheme
-- Be thorough but concise in your analysis
+        ** aIQversity COMPREHENSIVE ANALYSIS TASK **
+        Evaluate the student's answer across all classification levels:
+        1. Subject-level understanding of ${question.classification.subject}
+        2. Topic-level grasp of ${question.classification.topic}
+        3. SubTopic-level knowledge of ${question.classification.subtopic || 'the subtopic'}
+        4. Sub-SubTopic-level details about ${question.classification.sub_subtopic || 'specific aspects'}
+        5. Concept-level comprehension of ${question.classification.concept || 'the underlying concept'}
 
-Provide **ONLY** the JSON response, no additional text.`;
+
+        **ANALYSIS REQUIREMENTS:**
+        Please provide a comprehensive analysis in the following JSON format:
+
+        {
+          "overall_score": <score out of ${question.marks} which should reflect the analysis scores you provide for the content;>,
+          "percentage": <percentage score>,
+          "content_analysis": {
+            "accuracy": <score out of 10>,
+            "depth": <score out of 10>,
+            "relevance": <score out of 10>,
+            "examples_usage": <score out of 10>,
+            "comments": "SPECIFIC feedback about what the student wrote about ${question.classification.topic}"
+          },
+          "structure_analysis": {
+            "introduction": <score out of 10>,
+            "body_organization": <score out of 10>,
+            "conclusion": <score out of 10>,
+            "flow": <score out of 10>,
+            "comments": "Feedback on answer structure, logical flow, and organization"
+          },
+          "presentation_analysis": {
+            "language_quality": <score out of 10>,
+            "clarity": <score out of 10>,
+            "grammar": <score out of 10>,
+            "visual_elements": <score out of 10>,
+            "comments": "Assessment of language usage, clarity, and presentation quality"
+          },
+          "upsc_specific": {
+            "word_limit_adherence": <score out of 10>,
+            "question_interpretation": <score out of 10>,
+            "upsc_style": <score out of 10>,
+            "practical_application": <score out of 10>,
+            "comments": "Evaluation based on UPSC marking standards and requirements"
+          },
+          "strengths": [
+            "List 3-5 specific strengths observed in the answer with "
+          ],
+          "improvement_areas": [
+            "List 3-5 specific areas needing improvement"
+          ],
+          "specific_suggestions": [
+            "Provide 3-5 actionable suggestions for improvement"
+          ],
+          "model_answer_comparison": "Compare with model answer and highlight key differences",
+          "grade_explanation": "Detailed explanation of why this specific score was awarded (out of ${question.marks} marks)",
+          "next_steps": "Specific recommendations for the student's continued improvement in this topic"
+        }
+
+        **IMPORTANT GUIDELINES:**
+        - Be constructive and encouraging while honest about weaknesses
+        - Focus on UPSC-specific evaluation criteria which is very strict - only toppers achieve 60% marks which is very rare; do not hesitate to award zero marks
+        - Consider visual elements like diagrams, flowcharts, maps if present in image
+        - Evaluate handwriting legibility and presentation if it's an image answer
+        - Provide specific, actionable feedback
+        - Compare with the provided model answer - however the model answer might also not be good enough
+        - Consider the difficulty level and marking scheme
+        - Be thorough but concise in your analysis
+        - Evaluate the answer for non-repetitiveness and deduct marks if the same information is provided in different ways in different parts of the answer
+        - See that the question is not re-written in the answer in different words
+
+        aIQversity VALIDATION CHECKLIST:
+        ✓ Did I analyze understanding at each classification level?
+        ✓ Did I reference specific content from the student's answer?
+        ✓ Did I avoid generic phrases and provide targeted feedback?
+        ✓ Are my suggestions specific to their demonstrated knowledge gaps?
+        ✓ Did I explain scores based on actual answer content across all levels?
+
+        Provide **ONLY** the JSON response, no additional text.`;
     }
 
     static parseAnalysisResponse(aiResponse) {
@@ -997,22 +1056,18 @@ Make it encouraging and specific to their performance level.`;
 
     static async generateFeedbackHeader(question, analysis) {
         try {
-            const prompt = `You are a supportive UPSC mentor. Generate an encouraging header message for a student who attempted this question:
-
-Question: ${question.Question}
-Subject: ${question.classification.subject}
-Score: ${analysis.overall_score}/${question.marks} (${analysis.percentage}%)
-
-Generate encouraging content in JSON format:
-{
-  "message": "A motivational message (under 80 characters) acknowledging their effort and encouraging improvement"
-}
-
-Be positive, specific, and focused on growth mindset.`;
-
+            const prompt = `You are a strict UPSC examiner. Generate a specific feedback header based on the student's actual performance:
+            Question: ${question.Question}
+            Subject: ${question.classification.subject}
+            Score: ${analysis.overall_score}/${question.marks} (${analysis.percentage}%)
+            Content Comments: ${analysis.content_analysis.comments}
+            Generate feedback in JSON format:
+            {
+              "message": "A specific feedback message (under 80 characters) based on their actual answer performance"
+            }
+            CRITICAL: Reference their specific answer content, NOT generic encouragement. Be specific about what they did right/wrong.`;
             const response = await this.makeAPICall(prompt);
             return this.parseJSONResponse(response)?.message || this.getDefaultFeedbackHeader(analysis);
-            
         } catch (error) {
             console.error('Feedback header generation error:', error);
             return this.getDefaultFeedbackHeader(analysis);
@@ -1130,7 +1185,7 @@ class ResultsCalculator {
 
             if (progressCallback) {
                 const currentTask = answer ? 
-                    `Analyzing Question ${index + 1}: ${question.classification.subject}` :
+                    `Analyzing Question ${index + 1}: ${question.classification.subject}, ${question.classification.concept}` :
                     `Processing Question ${index + 1}: No answer provided`;
                 progressCallback(index, totalQuestions, currentTask);
             }
@@ -1409,22 +1464,22 @@ class ResultsDisplay {
             
             <div class="key-feedback">
                 <div class="strengths">
-                    <h4>✨ Key Strengths</h4>
+                    <h4>Key Strengths</h4>
                     <div class="feedback-points">
                         ${analysis.strengths.slice(0, 2).map(strength => `
                             <div class="feedback-point">
-                                <span class="point-bullet">🌟</span>
+                                <span class="point-bullet">-</span>
                                 <span>${strength}</span>
                             </div>
                         `).join('')}
                     </div>
                 </div>
                 <div class="improvements">
-                    <h4>🚀 Quick Wins</h4>
+                    <h4>Quick Wins</h4>
                     <div class="feedback-points">
                         ${analysis.improvement_areas.slice(0, 2).map(area => `
                             <div class="feedback-point">
-                                <span class="point-bullet">📈</span>
+                                <span class="point-bullet">-</span>
                                 <span>${area}</span>
                             </div>
                         `).join('')}
@@ -1792,7 +1847,7 @@ class ReviewManager {
     static createScoresTabHTML(analysis) {
         const scoreCards = [
             { 
-                name: 'Content Quality', icon: '📚', 
+                name: 'Content Quality', icon: '', 
                 score: analysis.content_analysis.accuracy,
                 details: [
                     { name: 'Accuracy', score: analysis.content_analysis.accuracy },
@@ -1800,7 +1855,7 @@ class ReviewManager {
                 ]
             },
             { 
-                name: 'Structure', icon: '🏗️', 
+                name: 'Structure', icon: '', 
                 score: analysis.structure_analysis.body_organization,
                 details: [
                     { name: 'Organization', score: analysis.structure_analysis.body_organization },
@@ -1808,7 +1863,7 @@ class ReviewManager {
                 ]
             },
             { 
-                name: 'Presentation', icon: '🎨', 
+                name: 'Presentation', icon: '', 
                 score: analysis.presentation_analysis.clarity,
                 details: [
                     { name: 'Clarity', score: analysis.presentation_analysis.clarity },
@@ -1816,7 +1871,7 @@ class ReviewManager {
                 ]
             },
             { 
-                name: 'UPSC Style', icon: '🎯', 
+                name: 'UPSC Style', icon: '', 
                 score: analysis.upsc_specific.upsc_style,
                 details: [
                     { name: 'Word Limit', score: analysis.upsc_specific.word_limit_adherence },
@@ -1858,7 +1913,7 @@ class ReviewManager {
             <div class="tab-content" id="feedback">
                 <div class="feedback-grid">
                     <div class="feedback-card suggestions full-width">
-                        <h5>💡 Detailed Insights & Recommendations</h5>
+                        <h5>Detailed Insights & Recommendations</h5>
                         <div class="suggestions-list">
                             ${analysis.specific_suggestions.slice(0, 6).map(suggestion => `
                                 <div class="suggestion-item">
@@ -1869,22 +1924,22 @@ class ReviewManager {
                         </div>
                     </div>
                     <div class="feedback-card strengths">
-                        <h5>🎯 What Worked Well</h5>
+                        <h5>What Worked Well</h5>
                         <div class="suggestions-list">
                             ${analysis.strengths.slice(2, 5).map(strength => `
                                 <div class="suggestion-item">
-                                    <span class="suggestion-bullet">✨</span>
+                                    <span class="suggestion-bullet">▶</span>
                                     <span>${strength}</span>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
                     <div class="feedback-card improvements">
-                        <h5>🔧 Advanced Improvements</h5>
+                        <h5>Advanced Improvements</h5>
                         <div class="suggestions-list">
                             ${analysis.improvement_areas.slice(2, 5).map(area => `
                                 <div class="suggestion-item">
-                                    <span class="suggestion-bullet">⚡</span>
+                                    <span class="suggestion-bullet">▶</span>
                                     <span>${area}</span>
                                 </div>
                             `).join('')}
@@ -1901,16 +1956,16 @@ class ReviewManager {
         return `
             <div class="tab-content" id="comparison">
                 <div class="comparison-section">
-                    <h5>📖 Model Answer Reference</h5>
+                    <h5>Reference Model Answer</h5>
                     <div class="model-answer-preview">
                         ${modelAnswer}
                     </div>
                     <div class="comparison-insight">
-                        <h6>🔄 Key Differences</h6>
+                        <h6>Key Differences</h6>
                         <p>${analysis.model_answer_comparison}</p>
                     </div>
                     <div class="next-steps">
-                        <h6>🚀 Next Steps</h6>
+                        <h6>Next Steps</h6>
                         <p>${analysis.next_steps}</p>
                     </div>
                 </div>
@@ -2281,7 +2336,7 @@ class AppController {
         };
         
         if (elements.loadingTitle) elements.loadingTitle.textContent = 'Analyzing Your Answers';
-        if (elements.loadingSubtitle) elements.loadingSubtitle.textContent = 'Our AI is providing detailed feedback on your responses...';
+        if (elements.loadingSubtitle) elements.loadingSubtitle.textContent = 'You’re getting tailored feedback from aIQversity to support your learning journey!';
         if (elements.progressText) elements.progressText.textContent = 'Starting analysis...';
         if (elements.progressFill) elements.progressFill.style.width = '0%';
     }
