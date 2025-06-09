@@ -1552,8 +1552,8 @@ main.container {
     }
 
     .score-circle-large {
-        width: 130px;
-        height: 130px;
+        width: 150px;
+        height: 150px;
     }
 
     .score-content span {
@@ -1711,8 +1711,8 @@ main.container {
     }
 
     .score-circle-large {
-        width: 80px;
-        height: 80px;
+        width: 150px;
+        height: 150px;
     }
 
     .score-content span {

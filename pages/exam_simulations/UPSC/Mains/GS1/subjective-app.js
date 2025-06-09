@@ -711,7 +711,7 @@ class AIAnalysisEngine {
     static createAnalysisPrompt(question, answer) {
         const isImageAnswer = answer.type === 'image';
         
-        return `You are an expert UPSC examiner and educational analyst who is very strict in marking. Analyze this answer comprehensively with a holistic point of view and provide detailed feedback.
+        return `You are an expert UPSC examiner and educational analyst who is very strict in marking and seldom gives zero marks when the provided answer is irrelevant to the question. Analyze this answer comprehensively with a holistic point of view (but relevancy is **paramount**) and provide detailed feedback.
 
 **QUESTION DETAILS:**
 Subject: ${question.classification.subject}
@@ -729,14 +729,14 @@ ${question.Solution}
 **ANSWER TO ANALYZE:**
 ${isImageAnswer ? 
     'The student has provided a handwritten/visual answer. Please analyze the content, structure, presentation, and any diagrams/charts included in the image.' : 
-    `Student's Answer: ${answer.content}\nWord Count: ${answer.wordCount} words`
+    `Student's Answer: ${answer.content}\nWord Count: ${answer.wordCount} words.`
 }
 
 **ANALYSIS REQUIREMENTS:**
 Please provide a comprehensive analysis in the following JSON format:
 
 {
-  "overall_score": <score out of ${question.marks} which should reflect the analysis scores you provide for the content>,
+  "overall_score": <score out of ${question.marks} which should reflect the analysis scores you provide for the content;>,
   "percentage": <percentage score>,
   "content_analysis": {
     "accuracy": <score out of 10>,
