@@ -18,7 +18,7 @@ const API_CONFIG = {
     },
     GEMINI: {
         API_KEY: 'AIzaSyBr38XKvBXOz4eN8r9lkEuj2izj4Ag_zsg',
-        MODEL: 'gemini-2.0-flash-001',
+        MODEL: 'gemini-2.0-flash',
         BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/models/'
     }
 };
@@ -782,7 +782,7 @@ Please provide a comprehensive analysis in the following JSON format:
 
 **IMPORTANT GUIDELINES:**
 - Be constructive and encouraging while honest about weaknesses
-- Focus on UPSC-specific evaluation criteria which is very strict - only toppers achieve 60% marks which is very rare
+- Focus on UPSC-specific evaluation criteria which is very strict - only toppers achieve 60% marks which is very rare; do not hesitate to award zero marks
 - Consider visual elements like diagrams, flowcharts, maps if present in image
 - Evaluate handwriting legibility and presentation if it's an image answer
 - Provide specific, actionable feedback
@@ -790,7 +790,7 @@ Please provide a comprehensive analysis in the following JSON format:
 - Consider the difficulty level and marking scheme
 - Be thorough but concise in your analysis
 
-Provide ONLY the JSON response, no additional text.`;
+Provide **ONLY** the JSON response, no additional text.`;
     }
 
     static parseAnalysisResponse(aiResponse) {
@@ -981,6 +981,8 @@ Examples of good titles:
 - "Excellent Progress in Your UPSC Journey!" (for high scores)
 - "Strong Foundation Built - Room to Excel!" (for average scores)
 - "Learning Opportunity - Every Step Counts!" (for lower scores)
+- "Every journey has a start" (for zero score) - never use "Great effort! Let's refine your answer and boost your score next time." if the answer was completely irrelevant
+
 
 Make it encouraging and specific to their performance level.`;
 
@@ -1035,17 +1037,34 @@ Be positive, specific, and focused on growth mindset.`;
     }
 
     static parseJSONResponse(response) {
-        try {
+        try {            
             const jsonMatch = response.match(/\{[\s\S]*\}/);
             if (jsonMatch) {
                 let jsonStr = jsonMatch[0].trim();
+                
+                // Remove code block markers if present
                 jsonStr = jsonStr.replace(/```json\s*/, '').replace(/```\s*$/, '');
+                
+                // PROPER newline handling - replace with spaces or remove entirely
+                // This preserves the JSON structure while removing formatting newlines
+                jsonStr = jsonStr.replace(/\r\n/g, ' ').replace(/\n/g, ' ').replace(/\r/g, ' ');
+                
+                // Clean up multiple spaces
+                jsonStr = jsonStr.replace(/\s+/g, ' ');
+                
+                // Handle other control characters (but NOT newlines since we already handled them)
+                jsonStr = jsonStr.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '');
+                
                 return JSON.parse(jsonStr);
+            } else {
+                console.warn('No JSON found in response');
+                throw new Error('No valid JSON found in response');
             }
         } catch (error) {
-            console.warn('Failed to parse JSON response:', error);
+            console.error('Error parsing AI analysis:', error);
+            console.error('Failed on string:', response.substring(0, 1000) + '...');
+            return this.getDefaultAnalysis();
         }
-        return null;
     }
 
     static updateEncouragementElements(response, questionIndex) {
@@ -1085,15 +1104,15 @@ Be positive, specific, and focused on growth mindset.`;
 
 // ==================== RESULTS CALCULATOR ====================
 class ResultsCalculator {
-    static async calculate() {
+    static async calculate(progressCallback = null) {
         const basicStats = this.calculateBasicStats();
-        const analytics = await this.calculateAnalytics();
+        const analytics = await this.calculateAnalytics(progressCallback);
         const results = this.buildResultsObject(basicStats, analytics);
         DataManager.storeResults(results);
         return results;
     }
 
-    static async calculateAnalytics() {
+    static async calculateAnalytics(progressCallback = null) {
         const analytics = {
             subjectStats: {},
             topicStats: {},
@@ -1102,10 +1121,19 @@ class ResultsCalculator {
             conceptStats: {},
             skillAverages: { content: [], structure: [], presentation: [], upsc_specific: [] }
         };
+
+        const totalQuestions = examState.examData.length;
         
         for (let index = 0; index < examState.examData.length; index++) {
             const question = examState.examData[index];
             const answer = examState.answers[index];
+
+            if (progressCallback) {
+                const currentTask = answer ? 
+                    `Analyzing Question ${index + 1}: ${question.classification.subject}` :
+                    `Processing Question ${index + 1}: No answer provided`;
+                progressCallback(index, totalQuestions, currentTask);
+            }
             
             const analysis = answer ? 
                 await AIAnalysisEngine.analyzeAnswer(question, answer) : 
@@ -1114,6 +1142,13 @@ class ResultsCalculator {
             examState.analysisResults[index] = analysis;
             
             this.updateStatistics(analytics, question, analysis);
+            if (progressCallback) {
+                progressCallback(index + 1, totalQuestions, `Completed Question ${index + 1}`);
+            }
+        }
+
+        if (progressCallback) {
+            progressCallback(totalQuestions, totalQuestions, 'Calculating overall insights...');
         }
         
         this.calculateSkillAverages(analytics);
@@ -2210,7 +2245,7 @@ class AppController {
         this.showAnalysisLoading();
         
         try {
-            const results = await ResultsCalculator.calculate();
+            const results = await ResultsCalculator.calculate(this.updateAnalysisProgress.bind(this));
             ResultsDisplay.show();
         } catch (error) {
             console.error('Error calculating results:', error);
@@ -2220,10 +2255,20 @@ class AppController {
         }
     }
 
+    static updateAnalysisProgress(current, total, currentTask) {
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        
+        if (progressFill && progressText) {
+            const percentage = Math.round((current / total) * 100);
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = currentTask || `Analyzing question ${current} of ${total}...`;
+        }
+    }   
+
     static showAnalysisLoading() {
         Utils.switchInterface(SELECTORS.EXAM_INTERFACE, SELECTORS.LOADING);
         this.updateLoadingContent();
-        this.simulateAnalysisProgress();
         setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
     }
 
@@ -2239,44 +2284,6 @@ class AppController {
         if (elements.loadingSubtitle) elements.loadingSubtitle.textContent = 'Our AI is providing detailed feedback on your responses...';
         if (elements.progressText) elements.progressText.textContent = 'Starting analysis...';
         if (elements.progressFill) elements.progressFill.style.width = '0%';
-    }
-
-    static simulateAnalysisProgress() {
-        const progressSteps = [
-            { progress: 10, text: 'Reading your answers...' },
-            { progress: 25, text: 'Analyzing content quality...' },
-            { progress: 45, text: 'Evaluating structure and flow...' },
-            { progress: 65, text: 'Checking UPSC requirements...' },
-            { progress: 80, text: 'Comparing with model answers...' },
-            { progress: 95, text: 'Generating personalized feedback...' }
-        ];
-        
-        let currentStep = 0;
-        
-        const updateProgress = () => {
-            const loadingElement = document.getElementById('loading');
-            if (!loadingElement || loadingElement.classList.contains('hidden')) {
-                return;
-            }
-            
-            if (currentStep < progressSteps.length) {
-                const step = progressSteps[currentStep];
-                const progressFill = document.getElementById('progressFill');
-                const progressText = document.getElementById('progressText');
-                
-                if (progressFill) progressFill.style.width = step.progress + '%';
-                if (progressText) progressText.textContent = step.text;
-                currentStep++;
-                
-                examState.progressTimeout = setTimeout(updateProgress, 800 + Math.random() * 400);
-            }
-        };
-        
-        if (examState.progressTimeout) {
-            clearTimeout(examState.progressTimeout);
-        }
-        
-        examState.progressTimeout = setTimeout(updateProgress, 500);
     }
 
     static hideAnalysisLoading() {
