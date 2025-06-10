@@ -1,0 +1,640 @@
+<!-- CV Analysis & Career Guidance Demo HTML file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="aIQversity - AI-powered CV analysis and career guidance platform providing personalized feedback on your resume and tailored career advice to help you land your dream job.">
+    <meta name="keywords" content="AI CV analysis, resume feedback, career guidance, job preparation, AI career coach, resume optimization, career development">
+    <meta name="author" content="Sakshi Varshney">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aiqversity.com/cv-analysis.html">
+
+    <meta property="og:title" content="aIQversity - AI-Powered CV Analysis & Career Guidance">
+    <meta property="og:description" content="Get personalized AI feedback on your CV and receive tailored career guidance to accelerate your professional journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aiqversity.com/cv-analysis">
+    <meta property="og:image" content="https://aiqversity.com/images/logo.jpg">
+
+    <title>AI CV Analysis & Career Guidance Demo</title>
+    <link rel="icon" href="../../../../images/favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/@google/genai@latest/dist/index.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0 nav-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="../../../../images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold brand-primary-text">a<span class="brand-accent-text">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <!-- Home Button - Initially Visible -->
+                    <a href="../../../../index.html" id="homeButton" class="home-button bg-white px-4 py-2 rounded-lg shadow-md timer-border text-brand-primary hover:bg-gray-50 transition-colors duration-300">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-7a1 1 0 011-1h2a1 1 0 011 1v7a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        Home
+                    </a>
+                    
+                    <!-- Status Indicator - Initially Hidden -->
+                    <div class="status-indicator bg-white px-4 py-2 rounded-lg shadow-md timer-border hidden" id="statusIndicator">
+                        <span class="text-brand-primary font-medium">Analyzing...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="main-content-wrapper">
+        <div class="container mx-auto p-8">
+            <!-- Hero Section -->
+            <!-- Professional Hero Section -->
+            <div class="hero-professional-container">
+                <div class="hero-content-wrapper">
+                    <div class="hero-main-content">
+                        <!-- <div class="hero-badge">
+                            <span class="badge-icon">⚡</span>
+                            <span>Trusted by 50,000+ professionals</span>
+                        </div> -->
+                        
+                        <h1 class="hero-title">
+                            Unlock Your Career Potential with 
+                            <span class="hero-gradient-text">AI-Powered Insights</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle">
+                            Get personalized career analysis, market positioning insights, and actionable growth strategies in minutes
+                        </p>
+                        
+                        <div class="hero-value-props">
+                            <div class="value-prop">
+                                <span class="prop-icon">📊</span>
+                                <span>Market Analysis</span>
+                            </div>
+                            <div class="value-prop">
+                                <span class="prop-icon">🎯</span>
+                                <span>Career Roadmap</span>
+                            </div>
+                            <div class="value-prop">
+                                <span class="prop-icon">💰</span>
+                                <span>Salary Insights</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="career-progression-container">
+                            <div class="hero-cta-section">
+                                <button onclick="initiateAnalysisAccess()" class="hero-primary-btn">
+                                    <span>Start Your Analysis</span>
+                                    <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <p class="hero-cta-note">Free analysis • 2 minutes • Instant results</p>
+                            </div>
+                            <div class="career-progression-visual">
+                                <div class="progression-step current">
+                                    <div class="step-number">1</div>
+                                    <div class="step-label">Current</div>
+                                </div>
+                                <div class="progression-arrow"></div>
+                                <div class="progression-step next">
+                                    <div class="step-number">2</div>
+                                    <div class="step-label">Enhanced</div>
+                                </div>
+                                <div class="progression-arrow"></div>
+                                <div class="progression-step future">
+                                    <div class="step-number">3</div>
+                                    <div class="step-label">Success</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">2.5x</div>
+                        <div class="stat-label">Salary Increase</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">15 Days</div>
+                        <div class="stat-label">Avg. Job Landing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Verification Modal -->
+        <div id="emailVerificationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Access CV Analysis</h3>
+                    <p class="text-gray-600 mt-2">Enter the email you used to join our waitlist — or register now to get instant access to the exclusive demo!</p>
+                </div>
+                
+                <!-- Verification Form -->
+                <form id="verificationForm" onsubmit="return false;">
+                    <div class="mb-5">
+                        <label for="verifyEmail" class="block text-sm font-medium text-gray-700 mb-2">Waitlist Email</label>
+                        <input type="email" id="verifyEmail" name="email" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                               placeholder="Enter your waitlist email">
+                    </div>
+                    
+                    <!-- CRITICAL: Button with proper event handling -->
+                    <button type="button" id="verifyButton"
+                            class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                        🔍 Verify & Start Analysis
+                    </button>
+                </form>
+                
+                <!-- Error Message -->
+                <div id="verificationError" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p id="errorMessage" class="text-red-700 text-sm"></p>
+                    <button onclick="showRegistrationFromError()" 
+                            class="mt-3 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                        Limited Early Access – Claim Your Spot Now (Free)!
+                    </button>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="verificationLoading" class="hidden mt-4 text-center">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto"></div>
+                    <p class="text-gray-600 mt-2">Verifying your access...</p>
+                </div>
+
+                <!-- Close Button -->
+                <button onclick="hideEmailVerificationModal()" 
+                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Registration Modal -->
+        <div id="registrationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden px-4 py-6">
+            <div class="absolute inset-0 bg-black opacity-50" id="modalOverlay"></div>
+            <div class="bg-white rounded-xl p-8 max-w-md w-full z-10 relative mx-auto shadow-2xl">
+                <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="closeModal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Quick Registration</h3>
+                    <p class="text-gray-600 mt-2">Join our exclusive early access program</p>
+                </div>
+                
+                <!-- Registration Success Message -->
+                <div id="registrationSuccess" class="hidden text-center py-6">
+                    <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-semibold mb-3 text-gray-800">Registration Successful!</h4>
+                    <p class="text-gray-600 mb-4">Welcome! You can now access the CV analysis.</p>
+                    <button onclick="proceedToAnalysisAfterRegistration()" 
+                            class="px-8 py-3 rounded-lg text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 bg-orange-500 hover:bg-orange-600">
+                        🚀 Start Your Analysis
+                    </button>
+                </div>
+                
+                <!-- Registration Form -->
+                <form id="registrationForm" onsubmit="submitRegistrationForm(event)">
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone (Optional)</label>
+                        <input type="tel" id="phone" name="phone" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="userType" class="block text-sm font-medium text-gray-700 mb-2">I am a</label>
+                        <select id="userType" name="user_type" required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            <option value="">Please select</option>
+                            <option value="student">Student</option>
+                            <option value="professional">Working Professional</option>
+                            <option value="job_seeker">Job Seeker</option>
+                            <option value="career_changer">Career Changer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-start">
+                            <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-3 h-4 w-4">
+                            <span class="text-sm text-gray-600">I agree to receive updates about products and services</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full px-6 py-3 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-orange-500 hover:bg-orange-600">
+                        Register & Access Analysis
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <main class="container hidden" id="analysisContainer">
+            <!-- Loading Screen -->
+            <div id="loading" class="loading">
+                <h2></h2>
+                <p></p>
+            </div>
+
+            <!-- CV Upload Interface -->
+            <div id="uploadInterface" class="hidden">
+                <!-- Upload Header -->
+                <div class="upload-header">
+                    <h1>AI-Powered CV <span class="gradient-text">Analysis</span></h1>
+                    <p class="hero-subtitle">🚀 Welcome to the future of career development!</p>
+                    
+                    <div class="demo-info" style="background: linear-gradient(135deg, #FEF3E2, #FFF7ED); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 4px solid #F7A621;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                            <span style="font-size: 1.5em;">🎯</span>
+                            <h3 style="margin: 0; color: #101E3D; font-size: 1.1em;">Experience AI-Powered Career Development</h3>
+                        </div>
+                        <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                            <strong>About This Analysis:</strong> Our advanced AI will analyze every section of your CV, provide detailed feedback, and create a personalized career roadmap. Upload your resume in PDF, DOCX, or image format along with your career aspirations.
+                        </p>
+                        <p style="margin: 8px 0; color: #2d3748; font-size: 0.95em; line-height: 1.5;">
+                            <strong>What You'll Get:</strong> Comprehensive CV scoring, section-wise feedback, skill gap analysis, personalized learning recommendations, and a clear action plan to achieve your career goals.
+                        </p>
+                        <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; font-size: 0.85em;">
+                            <span style="color: #10B981;">✨ Professional CV Scoring</span>
+                            <span style="color: #6366f1;">📊 Detailed Section Analysis</span>
+                            <span style="color: #F7A621;">🎯 Career Roadmap</span>
+                            <span style="color: #8B5CF6;">🚀 Learning Recommendations</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Upload Form -->
+                    <div class="upload-form-container" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 25px rgba(16, 30, 61, 0.08); margin: 20px 0;">
+                        <form id="cvUploadForm" enctype="multipart/form-data">
+                            <div style="margin-bottom: 25px;">
+                                <label for="cvFile" class="block text-sm font-medium text-gray-700 mb-2">
+                                    📄 Upload Your CV/Resume
+                                </label>
+                                <div class="cv-upload-area" id="cvUploadArea" style="border: 2px dashed #F7A621; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.3s ease;">
+                                    <div class="upload-icon" style="font-size: 3em; margin-bottom: 10px; color: #F7A621;">📁</div>
+                                    <p style="margin: 0; color: #101E3D; font-weight: 500;">Click to upload or drag and drop</p>
+                                    <p style="margin: 5px 0 0 0; color: #6c757d; font-size: 0.9em;">PDF, DOCX, or Image files (Max 10MB)</p>
+                                    <input type="file" id="cvFile" name="cvFile" accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" style="display: none;" required>
+                                </div>
+                                <div id="fileInfo" class="hidden" style="margin-top: 10px; padding: 10px; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #10B981;">
+                                    <p style="margin: 0; color: #10B981; font-weight: 500;">✓ File selected: <span id="fileName"></span></p>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 25px;">
+                                <label for="aspiringCareer" class="block text-sm font-medium text-gray-700 mb-2">
+                                    🎯 What's your dream career/role?
+                                </label>
+                                <input type="text" id="aspiringCareer" name="aspiringCareer" required 
+                                       placeholder="e.g., Data Scientist, Software Engineer, Product Manager..."
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                            </div>
+                            
+                            <div style="margin-bottom: 25px;">
+                                <label for="careerDetails" class="block text-sm font-medium text-gray-700 mb-2">
+                                    💭 Tell us more about your career aspirations (Optional)
+                                </label>
+                                <textarea id="careerDetails" name="careerDetails" rows="3" 
+                                          placeholder="e.g., I want to work in AI/ML, transition from marketing to tech, become a team lead..."
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"></textarea>
+                            </div>
+                            
+                            <div style="margin-bottom: 25px;">
+                                <label for="experienceLevel" class="block text-sm font-medium text-gray-700 mb-2">
+                                    📈 Experience Level
+                                </label>
+                                <select id="experienceLevel" name="experienceLevel" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                                    <option value="">Select your level</option>
+                                    <option value="student">Student/Fresh Graduate</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (3-5 years)</option>
+                                    <option value="senior">Senior Level (6-10 years)</option>
+                                    <option value="lead">Lead/Manager (10+ years)</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" id="startAnalysisButton"
+                                    class="w-full px-6 py-4 text-white rounded-lg shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg bg-gradient-to-r from-orange-500 to-yellow-500 font-bold text-lg" 
+                                    style="background: linear-gradient(135deg, #F7A621, #E69A0C);">
+                                🚀 Start AI Analysis
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Phase Animations -->
+            <div id="analysisAnimations" class="analysis-animations hidden">
+                <div class="analysis-stage" id="stage1">
+                    <div class="stage-visual">
+                        <div class="scanning-animation">
+                            <div class="scan-line"></div>
+                            <div class="document-outline">
+                                <div class="doc-section"></div>
+                                <div class="doc-section"></div>
+                                <div class="doc-section"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Scanning Your Document</h3>
+                        <p>a<span class="brand-accent-text">IQ</span>versity is reading every section of your CV with precision</p>
+                    </div>
+                </div>
+                
+                <div class="analysis-stage" id="stage2">
+                    <div class="stage-visual">
+                        <div class="processing-animation">
+                            <div class="brain-icon">🧠</div>
+                            <div class="thought-bubbles">
+                                <div class="bubble">Skills</div>
+                                <div class="bubble">Experience</div>
+                                <div class="bubble">Achievements</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Analyzing Market Position</h3>
+                        <p>Comparing your profile against industry standards and opportunities</p>
+                    </div>
+                </div>
+                
+                <div class="analysis-stage" id="stage3">
+                    <div class="stage-visual">
+                        <div class="insights-animation">
+                            <div class="lightbulb-icon">💡</div>
+                            <div class="insight-particles"></div>
+                        </div>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Generating Insights</h3>
+                        <p>Creating your personalized career roadmap and recommendations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results Interface -->
+            <!-- Analysis Results Interface -->
+            <div id="resultsInterface" class="hidden">
+                <div class="results-container">
+                    <!-- Results Header -->
+                    <div class="results-header">
+                        <div class="header-content">
+                            <div class="completion-badge">
+                                <span class="badge-checkmark">✓</span>
+                                <span>Analysis Complete</span>
+                            </div>
+                            <h1 class="results-title" id="personalizedGreeting">Your Career Analysis is Ready</h1>
+                            <p class="results-subtitle" id="heroSubtext">Discover insights that could transform your professional journey</p>
+                        </div>
+                        <div class="overall-score-display">
+                            <div class="score-ring">
+                                <svg viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="50" stroke="#f1f5f9" stroke-width="8" fill="none"/>
+                                    <circle cx="60" cy="60" r="50" stroke="#F7A621" stroke-width="8" fill="none" 
+                                            stroke-dasharray="314" stroke-dashoffset="314" id="scoreProgress" stroke-linecap="round"/>
+                                </svg>
+                                <div class="score-content">
+                                    <span class="score-number" id="scoreValue">0</span>
+                                    <span class="score-label">Overall Score</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Insights Summary -->
+                    <div class="insights-summary">
+                        <div class="insight-card primary">
+                            <div class="insight-icon">🎯</div>
+                            <div class="insight-content">
+                                <h3>Career Alignment</h3>
+                                <p class="insight-value" id="alignmentScore">0%</p>
+                                <p class="insight-desc">Match with target role</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">📈</div>
+                            <div class="insight-content">
+                                <h3>Growth Potential</h3>
+                                <p class="insight-value" id="growthScore">High</p>
+                                <p class="insight-desc">Based on market trends</p>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">💰</div>
+                            <div class="insight-content">
+                                <h3>Salary Range</h3>
+                                <p class="insight-value" id="salaryRange">₹15-25L</p>
+                                <p class="insight-desc">Current market rate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Analysis Sections -->
+                    <div class="analysis-sections">
+                        <!-- Professional Summary -->
+                        <section class="analysis-section">
+                            <h2 class="section-title">
+                                <span class="title-icon">📋</span>
+                                Your Professional Profile
+                            </h2>
+                            <div class="section-content" id="aiCvInsight">
+                                <div class="profile-analysis">
+                                    <div class="analysis-text">
+                                        <p>Analyzing your professional background...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- CV Sections Analysis -->
+                        <section class="analysis-section">
+                            <h2 class="section-title">
+                                <span class="title-icon">🔍</span>
+                                Section-wise Analysis
+                            </h2>
+                            <div class="sections-grid" id="sectionsGrid">
+                                <!-- Dynamic content will be populated here -->
+                            </div>
+                        </section>
+
+                        <!-- Skills & Market Position -->
+                        <section class="analysis-section">
+                            <h2 class="section-title">
+                                <span class="title-icon">⚡</span>
+                                Skills & Market Position
+                            </h2>
+                            <div class="skills-analysis">
+                                <div class="skills-chart">
+                                    <!-- Content will be populated by JavaScript -->
+                                </div>
+                                <div class="market-position" id="marketPosition">
+                                    <div class="position-indicator">
+                                        <div class="position-scale">
+                                            <div class="scale-marker" data-level="entry">Entry</div>
+                                            <div class="scale-marker" data-level="mid">Mid</div>
+                                            <div class="scale-marker" data-level="senior">Senior</div>
+                                            <div class="scale-marker" data-level="lead">Lead</div>
+                                        </div>
+                                        <div class="current-position" id="currentMarketPosition"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Growth Roadmap -->
+                        <section class="analysis-section">
+                            <h2 class="section-title">
+                                <span class="title-icon">🗺️</span>
+                                Your Growth Roadmap
+                            </h2>
+                            <div class="roadmap-timeline">
+                                <div class="timeline-track">
+                                    <div class="timeline-item" data-timeline="immediate">
+                                        <div class="timeline-marker current"></div>
+                                        <div class="timeline-content">
+                                            <h4>Next 30 Days</h4>
+                                            <div id="immediateActions"></div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" data-timeline="short">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h4>3-6 Months</h4>
+                                            <div id="shortTermGoals"></div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item" data-timeline="long">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h4>6+ Months</h4>
+                                            <div id="longTermGoals"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>                        
+                    </div>
+
+                    <!-- Action Center -->
+                    <div class="action-center">
+                        <div class="action-header">
+                            <h2>Ready to Transform Your Career?</h2>
+                            <p>Take action on these insights and accelerate your professional growth</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn secondary" onclick="restartAnalysis()">
+                                <span class="btn-icon">🔄</span>
+                                <span>Analyze Another CV</span>
+                            </button>
+                            <button class="action-btn tertiary" onclick="window.location.reload()">
+                                <span class="btn-icon">🏠</span>
+                                <span>Back to Home</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-start">
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <!-- 3D Cube/Box Being Assembled icon -->
+                    <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                        <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </svg>                      
+                    with 
+                    <!-- Shield with Heart icon -->
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                    </svg>                      
+                    in Bangalore by
+                    <img src="../../../../images/TTD_logo_footer.png" alt="Tetratech Dynamics" class="h-5 ml-1 inline" style="max-height: 20px; object-fit: contain;"/>
+                </p>
+                <p class="text-gray-400 text-sm mb-2 flex items-center">
+                    <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Curious about what we're building? Reach out at contact@aiqversity.com
+                </p>
+                <p class="text-base text-gray-400">
+                    © 2025 aIQversity. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hidden hover:bg-blue-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script>
+        // CV Analysis Configuration
+        window.ANALYSIS_CONFIG = {
+            MAX_FILE_SIZE: 10 * 1024 * 1024, // 10MB
+            SUPPORTED_FORMATS: ['.pdf', '.docx', '.doc', '.jpg', '.jpeg', '.png'],
+            ANALYSIS_CONTEXT: {
+                NAME: 'AI CV Analysis',
+                DESCRIPTION: 'Comprehensive AI-powered analysis of your CV/Resume with personalized career guidance and actionable recommendations.',
+                SECTIONS: ['Contact Info', 'Summary/Objective', 'Experience', 'Education', 'Skills', 'Projects', 'Certifications']
+            }
+        };
+    </script>
+    <script src="./app.js"></script>
+</body>
+</html
