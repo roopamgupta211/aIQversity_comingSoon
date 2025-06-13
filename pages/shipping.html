@@ -205,7 +205,7 @@
                             <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
-                            <span data-translate="true">Instant Access (within 5 minutes of payment confirmation)</span>
+                            <span data-translate="true">Instant Access (within 2-5 minutes of payment confirmation)</span>
                         </li>
                         <li class="flex items-start">
                             <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,6 +226,90 @@
                             <span data-translate="true">Maximum delay: 2 hours (technical issues only)</span>
                         </li>
                     </ul>
+                </div>
+
+                <!-- Future Services Section -->
+                <div class="mt-16">
+                    <div class="text-center mb-8 fade-in-up">
+                        <h3 class="text-2xl font-bold mb-4" style="color: #101E3D" data-translate="true">
+                            Service Delivery Options
+                        </h3>
+                        <p class="text-lg text-gray-600" data-translate="true">
+                            Current digital services + upcoming merchandise delivery options
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Current Digital Services -->
+                        <div class="delivery-card bg-white rounded-xl p-6 shadow-lg border-2 border-green-200 fade-in-up">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mr-3" style="background: rgba(34, 197, 94, 0.1)">
+                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg" style="color: #101E3D" data-translate="true">Digital Services</h4>
+                                    <span class="text-sm text-green-600 font-semibold" data-translate="true">Currently Available</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                    <span data-translate="true">Platform access: Instant (2-5 minutes)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                    <span data-translate="true">Login credentials: Email delivery</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                    <span data-translate="true">No shipping required</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Future Merchandise -->
+                        <div class="delivery-card bg-white rounded-xl p-6 shadow-lg border-2 border-blue-200 fade-in-up stagger-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mr-3" style="background: rgba(59, 130, 246, 0.1)">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg" style="color: #101E3D" data-translate="true">Physical Merchandise</h4>
+                                    <span class="text-sm text-blue-600 font-semibold" data-translate="true">Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <p class="text-gray-600 text-sm" data-translate="true">
+                                    Future delivery options for physical products:
+                                </p>
+                                <div class="grid grid-cols-1 gap-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span data-translate="true">Express Delivery:</span>
+                                        <span class="font-medium" data-translate="true">0-7 days</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span data-translate="true">Standard Delivery:</span>
+                                        <span class="font-medium" data-translate="true">8-14 days</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span data-translate="true">Economy Delivery:</span>
+                                        <span class="font-medium" data-translate="true">15-21 days</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span data-translate="true">Extended Delivery:</span>
+                                        <span class="font-medium" data-translate="true">22-35 days</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2" data-translate="true">
+                                    *Delivery times may vary based on location and product availability
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -467,7 +551,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3" style="color: #101E3D" data-translate="true">Contact Details</h3>
                     <div class="space-y-2 text-gray-600 text-sm">
-                        <p data-translate="true"><strong>Email:</strong> contact@aiqversity.com</p>
+                        <p data-translate="true"><strong>Email:</strong> support@aiqversity.com</p>
+                        <p data-translate="true"><strong>Phone:</strong> +91-9865582008</p>
                         <p data-translate="true"><strong>Business Hours:</strong> 9 AM - 6 PM IST</p>
                         <p data-translate="true"><strong>Emergency Support:</strong> Available 24/7</p>
                     </div>
@@ -504,7 +589,7 @@
                 </div>
                 <div class="mt-6 pt-4 border-t border-blue-200">
                     <p class="text-sm text-gray-500" data-translate="true">
-                        <strong>Questions about service delivery?</strong> Contact our support team at <a href="mailto:contact@aiqversity.com" class="text-blue-600 hover:underline">contact@aiqversity.com</a> or visit our <a href="./faqs.html" class="text-blue-600 hover:underline">FAQ section</a>
+                        <strong>Questions about service delivery?</strong> Contact our support team at <a href="mailto:support@aiqversity.com" class="text-blue-600 hover:underline">support@aiqversity.com</a> or call +91-9865582008 or visit our <a href="./faqs.html" class="text-blue-600 hover:underline">FAQ section</a>
                     </p>
                 </div>
             </div>
