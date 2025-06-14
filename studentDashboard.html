@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WCW8M9JPEZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WCW8M9JPEZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="aIQversity Student Dashboard - Track your academic progress with AI-powered learning tools, mock exams, and personalized study recommendations.">
+    <meta name="keywords" content="student dashboard, AI learning, mock exams, study tracker, educational progress, personalized learning">
+    <meta name="author" content="Sakshi Varshney">
+    <meta name="robots" content="index, follow">
+    
+    <title>Mock Student Dashboard - aIQversity | AI-Powered Learning Portal</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Resources -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center logo-shine w-1/4">
+                    <img src="./images/TTD_Logo.png" alt="TetraTech Logo" class="h-20 w-auto transform hover:scale-105 transition-transform duration-300" style="max-width: 60px; object-fit: contain;"/>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <span class="text-2xl font-bold" style="color: #101E3D">a<span style="color: #F7A621">IQ</span>versity</span>
+                </div>
+                <div class="flex items-center space-x-4 w-1/4 justify-end">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: #F7A621">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium" style="color: #101E3D">Aarav Sharma</span>
+                    </div>
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Dashboard Header -->
+            <div class="mb-8">
+                <div class="bg-white rounded-xl shadow-lg p-6" style="background: linear-gradient(135deg, #101E3D 0%, #2a3f5f 100%);">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                        <div class="text-white">
+                            <h1 class="text-3xl font-bold mb-2">Keep going, Aarav! 🚀</h1>
+                            <p class="text-blue-200 text-lg">You've completed 4 tests this week and improved by 8.5%</p>
+                        </div>
+                        <div class="mt-4 lg:mt-0 flex items-center space-x-4">
+                            <div class="bg-white/10 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-white">12</div>
+                                <div class="text-sm text-blue-200">Day Streak</div>
+                            </div>
+                            <div class="bg-white/10 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold" style="color: #F7A621">89.2%</div>
+                                <div class="text-sm text-blue-200">Avg Score</div>
+                            </div>
+                            <div class="bg-white/10 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold" style="color: #45E6C0">87th</div>
+                                <div class="text-sm text-blue-200">Percentile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Tests Completed -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Tests This Week</p>
+                            <p class="text-2xl font-bold" style="color: #101E3D">4/6</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(69, 230, 192, 0.1)">
+                            <svg class="w-6 h-6" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="h-2 rounded-full" style="background: #45E6C0; width: 67%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">2 pending for this week</p>
+                    </div>
+                </div>
+
+                <!-- Study Hours -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Study Hours Today</p>
+                            <p class="text-2xl font-bold" style="color: #101E3D">5.2h</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(247, 166, 33, 0.1)">
+                            <svg class="w-6 h-6" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-green-600 font-medium">Target achieved! 🎯</p>
+                    </div>
+                </div>
+
+                <!-- Weak Areas -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Areas to Improve</p>
+                            <p class="text-2xl font-bold" style="color: #101E3D">3</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(239, 68, 68, 0.1)">
+                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-orange-600 font-medium">Focus on Chemistry</p>
+                    </div>
+                </div>
+
+                <!-- Next Exam -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Next Exam In</p>
+                            <p class="text-2xl font-bold" style="color: #101E3D">3 Days</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(16, 30, 61, 0.1)">
+                            <svg class="w-6 h-6" style="color: #101E3D" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-blue-600 font-medium">NEET Mock Test #5</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column - Main Features -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Quick Learning Actions -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-6" style="color: #101E3D">Quick Actions</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Mock Exam -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(247, 166, 33, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">Take Mock Exam</div>
+                                <div class="text-sm text-gray-600 mt-1">Full-length practice</div>
+                            </button>
+
+                            <!-- AI Quiz -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(69, 230, 192, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">AI Quiz</div>
+                                <div class="text-sm text-gray-600 mt-1">Adaptive practice</div>
+                            </button>
+
+                            <!-- Voice Learning -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(16, 30, 61, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #101E3D" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">Voice Learning</div>
+                                <div class="text-sm text-gray-600 mt-1">Ask by speaking</div>
+                            </button>
+
+                            <!-- Study Material -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(247, 166, 33, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">Study Notes</div>
+                                <div class="text-sm text-gray-600 mt-1">AI-generated content</div>
+                            </button>
+
+                            <!-- Answer Assistant -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(69, 230, 192, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">Answer Assistant</div>
+                                <div class="text-sm text-gray-600 mt-1">Step-by-step help</div>
+                            </button>
+
+                            <!-- IQ Test -->
+                            <button class="p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-blue-500 transition-colors text-center group">
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform" style="background: rgba(16, 30, 61, 0.1)">
+                                    <svg class="w-6 h-6" style="color: #101E3D" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </div>
+                                <div class="font-semibold text-gray-800">IQ Test</div>
+                                <div class="text-sm text-gray-600 mt-1">Cognitive analysis</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Progress Chart -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold" style="color: #101E3D">Your Progress Journey</h3>
+                            <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                <option>Last 30 Days</option>
+                                <option>Last 60 Days</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div style="height: 300px;">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Subject Performance -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold mb-6" style="color: #101E3D">Subject-wise Performance</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Physics -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: #F7A621">
+                                            <span class="text-white font-bold">P</span>
+                                        </div>
+                                        <span class="font-semibold" style="color: #101E3D">Physics</span>
+                                    </div>
+                                    <span class="text-lg font-bold" style="color: #F7A621">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
+                                    <div class="h-3 rounded-full" style="background: #F7A621; width: 92%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Strong: Mechanics</span>
+                                    <span>Weak: Optics</span>
+                                </div>
+                            </div>
+
+                            <!-- Chemistry -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: #45E6C0">
+                                            <span class="text-white font-bold">C</span>
+                                        </div>
+                                        <span class="font-semibold" style="color: #101E3D">Chemistry</span>
+                                    </div>
+                                    <span class="text-lg font-bold" style="color: #45E6C0">78%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
+                                    <div class="h-3 rounded-full" style="background: #45E6C0; width: 78%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Strong: Inorganic</span>
+                                    <span>Weak: Organic</span>
+                                </div>
+                            </div>
+
+                            <!-- Biology -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: #22c55e">
+                                            <span class="text-white font-bold">B</span>
+                                        </div>
+                                        <span class="font-semibold" style="color: #101E3D">Biology</span>
+                                    </div>
+                                    <span class="text-lg font-bold" style="color: #22c55e">89%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
+                                    <div class="h-3 rounded-full" style="background: #22c55e; width: 89%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Strong: Botany</span>
+                                    <span>Weak: Genetics</span>
+                                </div>
+                            </div>
+
+                            <!-- Mathematics -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: #101E3D">
+                                            <span class="text-white font-bold">M</span>
+                                        </div>
+                                        <span class="font-semibold" style="color: #101E3D">Mathematics</span>
+                                    </div>
+                                    <span class="text-lg font-bold" style="color: #101E3D">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3 mb-3">
+                                    <div class="h-3 rounded-full" style="background: #101E3D; width: 95%"></div>
+                                </div>
+                                <div class="flex justify-between text-sm text-gray-600">
+                                    <span>Strong: Calculus</span>
+                                    <span>Weak: Statistics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Recommendations -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center mb-6">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3" style="background: rgba(247, 166, 33, 0.1)">
+                                <svg class="w-5 h-5" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold" style="color: #101E3D">AI Study Recommendations</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-l-4 pl-4 py-3" style="border-color: #F7A621; background: rgba(247, 166, 33, 0.05)">
+                                <h4 class="font-semibold text-gray-800">📚 Focus on Chemistry - Organic Reactions</h4>
+                                <p class="text-gray-600 text-sm mt-1">You've scored below 80% in organic chemistry. Spend 45 minutes daily on reaction mechanisms.</p>
+                                <button class="mt-2 px-3 py-1 text-xs rounded-full text-white" style="background: #F7A621">Start Practice</button>
+                            </div>
+                            <div class="border-l-4 pl-4 py-3" style="border-color: #45E6C0; background: rgba(69, 230, 192, 0.05)">
+                                <h4 class="font-semibold text-gray-800">🔬 Review Physics - Wave Optics</h4>
+                                <p class="text-gray-600 text-sm mt-1">Your interference and diffraction concepts need strengthening. Try visual simulations.</p>
+                                <button class="mt-2 px-3 py-1 text-xs rounded-full text-white" style="background: #45E6C0">View Content</button>
+                            </div>
+                            <div class="border-l-4 pl-4 py-3" style="border-color: #22c55e; background: rgba(34, 197, 94, 0.05)">
+                                <h4 class="font-semibold text-gray-800">⭐ Maintain Mathematics Excellence</h4>
+                                <p class="text-gray-600 text-sm mt-1">Great work! Try advanced integration problems to stay ahead.</p>
+                                <button class="mt-2 px-3 py-1 text-xs rounded-full text-white" style="background: #22c55e">Advanced Problems</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Tests -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold" style="color: #101E3D">Recent Test Results</h3>
+                            <button class="text-sm text-blue-600 hover:underline">View All</button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(69, 230, 192, 0.1)">
+                                        <svg class="w-6 h-6" style="color: #45E6C0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold">NEET Mock Test #4</div>
+                                        <div class="text-sm text-gray-600">Physics, Chemistry, Biology</div>
+                                        <div class="text-xs text-gray-500">Taken 2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold" style="color: #45E6C0">567/720</div>
+                                    <div class="text-sm text-gray-600">78.7%</div>
+                                    <div class="text-xs text-green-600">+12 from last test</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(247, 166, 33, 0.1)">
+                                        <svg class="w-6 h-6" style="color: #F7A621" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold">Chemistry Unit Test</div>
+                                        <div class="text-sm text-gray-600">Organic Chemistry</div>
+                                        <div class="text-xs text-gray-500">Taken yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold" style="color: #F7A621">23/30</div>
+                                    <div class="text-sm text-gray-600">76.7%</div>
+                                    <div class="text-xs text-orange-600">-5 from target</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Sidebar -->
+                <div class="space-y-6">
+                    <!-- Upcoming Tests -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold mb-4" style="color: #101E3D">Upcoming Tests</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(239, 68, 68, 0.1)">
+                                    <span class="text-sm font-bold text-red-500">3D</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold">NEET Mock Test #5</div>
+                                    <div class="text-sm text-gray-600">Full Syllabus</div>
+                                    <div class="text-xs text-gray-500">June 17, 2:00 PM</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(247, 166, 33, 0.1)">
+                                    <span class="text-sm font-bold" style="color: #F7A621">5D</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold">Physics Chapter Test</div>
+                                    <div class="text-sm text-gray-600">Thermodynamics</div>
+                                    <div class="text-xs text-gray-500">June 19, 10:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(69, 230, 192, 0.1)">
+                                    <span class="text-sm font-bold" style="color: #45E6C0">7D</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold">Biology Quiz</div>
+                                    <div class="text-sm text-gray-600">Human Physiology</div>
+                                    <div class="text-xs text-gray-500">June 21, 4:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Study Streak & Goals -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold mb-4" style="color: #101E3D">Study Goals</h3>
+                        <div class="space-y-4">
+                            <div class="text-center p-4 rounded-lg" style="background: rgba(69, 230, 192, 0.1)">
+                                <div class="text-3xl font-bold" style="color: #45E6C0">12🔥</div>
+                                <div class="text-sm text-gray-600">Day Study Streak</div>
+                                <div class="text-xs text-gray-500">Personal best!</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Daily Target</span>
+                                    <span class="text-sm font-bold" style="color: #F7A621">5h / 5h</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="h-2 rounded-full" style="background: #F7A621; width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Weekly Tests</span>
+                                    <span class="text-sm font-bold" style="color: #45E6C0">4 / 6</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="h-2 rounded-full" style="background: #45E6C0; width: 67%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Doubt Corner -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-bold" style="color: #101E3D">Doubt Corner</h3>
+                            <button class="px-3 py-1 text-xs rounded-full text-white" style="background: #F7A621">Ask Doubt</button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-green-50 border-l-4 border-green-500 rounded">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-semibold text-sm">Chemistry Doubt</span>
+                                    <span class="text-xs text-green-600">Resolved</span>
+                                </div>
+                                <p class="text-sm text-gray-700">"Why does SN1 reaction show racemization?"</p>
+                                <div class="text-xs text-gray-500 mt-1">Answered by AI Tutor</div>
+                            </div>
+                            <div class="p-3 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-semibold text-sm">Physics Doubt</span>
+                                    <span class="text-xs text-yellow-600">Pending</span>
+                                </div>
+                                <p class="text-sm text-gray-700">"How to solve interference problems quickly?"</p>
+                                <div class="text-xs text-gray-500 mt-1">Asked 2 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shortcut Tricks -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold mb-4" style="color: #101E3D">Today's Shortcut Tricks</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 rounded-lg" style="background: rgba(247, 166, 33, 0.05); border-left: 4px solid #F7A621">
+                                <div class="font-semibold text-sm">⚡ Math Trick</div>
+                                <p class="text-xs text-gray-700 mt-1">Quick multiplication for numbers ending in 5: 25×35 = 875 (2×3=6, then 6×(6+1)=42, add 25)</p>
+                            </div>
+                            <div class="p-3 rounded-lg" style="background: rgba(69, 230, 192, 0.05); border-left: 4px solid #45E6C0">
+                                <div class="font-semibold text-sm">🧪 Chemistry Trick</div>
+                                <p class="text-xs text-gray-700 mt-1">Remember IUPAC priority: COOH > CHO > C=O > OH > NH2 using "Cool Car Came Over Nice House"</p>
+                            </div>
+                            <div class="p-3 rounded-lg" style="background: rgba(16, 30, 61, 0.05); border-left: 4px solid #101E3D">
+                                <div class="font-semibold text-sm">⚗️ Physics Trick</div>
+                                <p class="text-xs text-gray-700 mt-1">For lens formula: 1/f = 1/v - 1/u. Remember "Friendship is Victory minus Unity"</p>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 py-2 text-center text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                            View All Tricks
+                        </button>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold mb-4" style="color: #101E3D">Recent Achievements</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgba(255, 215, 0, 0.2)">
+                                    <span class="text-lg">🏆</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-sm">Study Streak Master</div>
+                                    <div class="text-xs text-gray-500">12 days continuous study</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgba(247, 166, 33, 0.1)">
+                                    <span class="text-lg">⭐</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-sm">Math Wizard</div>
+                                    <div class="text-xs text-gray-500">95% average in mathematics</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: rgba(69, 230, 192, 0.1)">
+                                    <span class="text-lg">🎯</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-sm">Test Warrior</div>
+                                    <div class="text-xs text-gray-500">Completed 50 mock tests</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IQ Score -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold mb-4" style="color: #101E3D">Cognitive Profile</h3>
+                        <div class="text-center mb-4">
+                            <div class="text-3xl font-bold" style="color: #F7A621">128</div>
+                            <div class="text-sm text-gray-600">IQ Score</div>
+                            <div class="text-xs text-gray-500">Above Average</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Logical Reasoning</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="h-2 rounded-full" style="background: #45E6C0; width: 90%"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">90%</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Pattern Recognition</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="h-2 rounded-full" style="background: #F7A621; width: 85%"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">85%</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Spatial Intelligence</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="h-2 rounded-full" style="background: #101E3D; width: 78%"></div>
+                                    </div>
+                                    <span class="text-xs font-bold">78%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 py-2 text-center text-sm font-medium rounded-lg transition-colors text-white" style="background: #F7A621">
+                            Retake IQ Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img src="./images/logo.jpg" alt="TetraTech Logo" class="h-12 w-auto mr-3"/>
+                        <span class="text-xl font-bold" style="color: white">a<span style="color: #F7A621">IQ</span>versity</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        AI-powered education platform providing personalized learning pathways for students, adaptive tools for teachers, insights for parents, and analytics for institutions.
+                    </p>
+                    <div class="flex flex-col space-y-2">
+                        <p class="text-gray-400 text-sm flex items-center">
+                            <svg class="w-5 h-5 mr-1 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                                <path d="M32 2a6 6 0 0 1 6 6v2.1a14.9 14.9 0 0 1 4.3 1.8l1.5-1.5a6 6 0 0 1 8.5 8.5l-1.5 1.5a14.9 14.9 0 0 1 1.8 4.3H56a6 6 0 0 1 0 12h-2.1a14.9 14.9 0 0 1-1.8 4.3l1.5 1.5a6 6 0 0 1-8.5 8.5l-1.5-1.5a14.9 14.9 0 0 1-4.3 1.8V56a6 6 0 0 1-12 0v-2.1a14.9 14.9 0 0 1-4.3-1.8l-1.5 1.5a6 6 0 0 1-8.5-8.5l1.5-1.5a14.9 14.9 0 0 1-1.8-4.3H8a6 6 0 0 1 0-12h2.1a14.9 14.9 0 0 1 1.8-4.3l-1.5-1.5a6 6 0 0 1 8.5-8.5l1.5 1.5a14.9 14.9 0 0 1 4.3-1.8V8a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                <path d="M32 20a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            </svg>                      
+                            with 
+                            <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12.01 12.01 0 0 1 .378 5" />
+                                <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+                            </svg>                      
+                            in Bangalore by Tetratech Dynamics
+                        </p>
+                        <p class="text-gray-400 text-sm flex items-center">
+                            <svg class="w-5 h-5 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            contact@aiqversity.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./pages/about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="./pages/whyus.html" class="text-gray-400 hover:text-white transition-colors">Why Choose Us</a></li>
+                        <li><a href="./pages/pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="./pages/faqs.html" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & Support -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Legal & Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./pages/privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="./pages/terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="./pages/refund.html" class="text-gray-400 hover:text-white transition-colors">Refund Policy</a></li>
+                        <li><a href="mailto:contact@aiqversity.com" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 aIQversity. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Progress Chart
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'Physics',
+                    data: [82, 85, 88, 90, 91, 92],
+                    borderColor: '#F7A621',
+                    backgroundColor: 'rgba(247, 166, 33, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Chemistry',
+                    data: [70, 72, 74, 76, 77, 78],
+                    borderColor: '#45E6C0',
+                    backgroundColor: 'rgba(69, 230, 192, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Biology',
+                    data: [85, 86, 87, 88, 88, 89],
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Mathematics',
+                    data: [92, 93, 94, 94, 95, 95],
+                    borderColor: '#101E3D',
+                    backgroundColor: 'rgba(16, 30, 61, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 60,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+
+        // Add interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to quick action buttons
+            const actionButtons = document.querySelectorAll('button');
+            actionButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click handlers for cards
+            const cards = document.querySelectorAll('.transform.transition-all.duration-300.hover\\:scale-105');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Add a subtle pulse effect when clicked
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Simulate study streak animation
+            const streakElement = document.querySelector('.text-3xl.font-bold');
+            if (streakElement && streakElement.textContent.includes('🔥')) {
+                setInterval(() => {
+                    streakElement.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        streakElement.style.transform = 'scale(1)';
+                    }, 200);
+                }, 5000);
+            }
+
+            // Add motivational notifications
+            const motivationalMessages = [
+                "You're doing great! Keep it up! 🌟",
+                "Your hard work is paying off! 💪",
+                "One step closer to your goals! 🎯",
+                "Excellence is a habit, and you're building it! ⭐"
+            ];
+
+            // Show motivational message occasionally
+            setTimeout(() => {
+                const randomMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full';
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="mr-2">🎉</span>
+                        <span class="text-sm font-medium">${randomMessage}</span>
+                        <button class="ml-2 text-green-700 hover:text-green-900" onclick="this.parentElement.parentElement.remove()">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Slide in
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(full)';
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }, 5000);
+            }, 10000); // Show after 10 seconds
+        });
+    </script>
+</body>
+</html>
